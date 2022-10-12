@@ -18,7 +18,10 @@ class Variable:
     def update_dtg(self, dtg: Tuple[int, int]):
         pass
 
-    def update_state_variable(self, preconditions, postconditions):
+    def update_state_variable(self, preconditions: List[int, int], postconditions):
+        """
+        predconditions: list of tuples (variable_index, value)
+        """
         pass
 
     def __str__(self):
