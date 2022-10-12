@@ -7,6 +7,8 @@ export DOMAIN="downward-main/useful-actions-dataset-main/satellite/runs/optimal/
 
 export PROBLEM="downward-main/useful-actions-dataset-main/satellite/runs/optimal/p01-2-2-2-5-1/problem.pddl"
 
+export SAVE_PATH="sas_files/sas_file.sas"
 
 
-./downward-main/src/translate/translate.py  $DOMAIN $PROBLEM
+
+./downward-main/src/translate/translate.py  $DOMAIN $PROBLEM --sas-file $SAVE_PATH
