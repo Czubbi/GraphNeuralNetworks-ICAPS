@@ -1,0 +1,16 @@
+creds id_bgrat id_zhost id_adomain
+get_admin id_bgrat id_shost id_adomain
+get_computers id_bgrat id_adomain
+get_domain id_bgrat id_zhost str__be
+net_use id_bgrat id_zhost id_shost str__x id_ldomaincredential str__m id_kdomainuser str__john id_adomain str__alpha id_bmshare
+net_use id_bgrat id_zhost id_shost str__x id_ldomaincredential str__m id_kdomainuser str__john id_adomain str__alpha id_bnshare
+net_use id_bgrat id_zhost id_shost str__x id_pdomaincredential str__q id_odomainuser str__patricia id_adomain str__alpha id_bmshare
+net_use id_bgrat id_zhost id_shost str__x id_pdomaincredential str__q id_odomainuser str__patricia id_adomain str__alpha id_bnshare
+smb_copy id_bgrat id_zhost str__bh id_bmshare id_zhost id_shost whatever id_bofile
+smb_copy id_bgrat id_zhost str__bh id_bmshare id_zhost id_shost whatever id_bpfile
+smb_copy id_bgrat id_zhost str__bh id_bnshare id_zhost id_shost whatever id_bofile
+smb_copy id_bgrat id_zhost str__bh id_bnshare id_zhost id_shost whatever id_bpfile
+wmic id_bgrat id_zhost id_shost id_bofile somepath id_ldomaincredential id_kdomainuser id_adomain str__alpha str__m id_birat
+wmic id_bgrat id_zhost id_shost id_bofile somepath id_pdomaincredential id_odomainuser id_adomain str__alpha str__q id_birat
+wmic id_bgrat id_zhost id_shost id_bpfile somepath id_ldomaincredential id_kdomainuser id_adomain str__alpha str__m id_birat
+wmic id_bgrat id_zhost id_shost id_bpfile somepath id_pdomaincredential id_odomainuser id_adomain str__alpha str__q id_birat

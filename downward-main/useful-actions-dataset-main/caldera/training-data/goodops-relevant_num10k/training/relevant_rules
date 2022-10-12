@@ -1,0 +1,419 @@
+creds (?v00, ?v01, ?v08) :- goal:prop_host(?v00, ?v01).
+creds (?v00, ?v01, ?v08) :- goal:prop_host(?v00, _).
+creds (?v00, ?v01, ?v08) :- goal:prop_host(_, ?v01).
+creds (?v00, ?v01, ?v08) :- ini:knows(?fv0);ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1).
+creds (?v00, ?v01, ?v08) :- ini:knows(?fv0);ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1).
+creds (?v00, ?v01, ?v08) :- ini:knows(?fv0);ini:mem_hosts(?v08, ?fv0);ini:prop_dc(?fv0, no).
+creds (?v00, ?v01, ?v08) :- ini:knows(?v01).
+creds (?v00, ?v01, ?v08) :- ini:knows_property(?fv0, ?fv1);ini:knows_property(?v01, ?fv1);ini:prop_dc(?fv0, no).
+creds (?v00, ?v01, ?v08) :- ini:knows_property(?fv0, ?fv1);ini:knows_property(?v01, ?fv1);ini:prop_dc(?fv0, yes).
+creds (?v00, ?v01, ?v08) :- ini:knows_property(?fv0, _);ini:prop_dc(?fv0, yes);ini:prop_domain(?fv0, ?v08).
+creds (?v00, ?v01, ?v08) :- ini:knows_property(?fv0, pfqdn);ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v01, ?fv1).
+creds (?v00, ?v01, ?v08) :- ini:knows_property(?v00, _).
+creds (?v00, ?v01, ?v08) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1);goal:prop_host(?v00, ?fv0).
+creds (?v00, ?v01, ?v08) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1);goal:prop_host(_, ?fv0).
+creds (?v00, ?v01, ?v08) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1);ini:prop_dc(?fv0, no).
+creds (?v00, ?v01, ?v08) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1);ini:prop_dc(?fv0, yes).
+creds (?v00, ?v01, ?v08) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1);ini:prop_host(?v00, ?fv0).
+creds (?v00, ?v01, ?v08) :- ini:mem_cached_domain_creds(?v01, ?fv0);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_user(?fv0, ?fv1).
+creds (?v00, ?v01, ?v08) :- ini:mem_cached_domain_creds(?v01, ?fv0);ini:mem_domain_user_admins(_, ?fv1);ini:prop_user(?fv0, ?fv1).
+creds (?v00, ?v01, ?v08) :- ini:mem_cached_domain_creds(_, ?fv0);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_cred(?fv1, ?fv0).
+creds (?v00, ?v01, ?v08) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);goal:prop_host(?v00, ?fv0).
+creds (?v00, ?v01, ?v08) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);goal:prop_host(_, ?fv0).
+creds (?v00, ?v01, ?v08) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_dc(?fv0, no).
+creds (?v00, ?v01, ?v08) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_dc(?fv0, yes).
+creds (?v00, ?v01, ?v08) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_host(?v00, ?fv0).
+creds (?v00, ?v01, ?v08) :- ini:mem_hosts(?v08, ?fv0);ini:prop_dc(?fv0, no);goal:prop_host(_, ?fv0).
+creds (?v00, ?v01, ?v08) :- ini:mem_hosts(?v08, ?fv0);ini:prop_dc(?fv0, yes);goal:prop_host(_, ?fv0).
+creds (?v00, ?v01, ?v08) :- ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v01, ?fv1);goal:prop_host(?v00, ?fv0).
+creds (?v00, ?v01, ?v08) :- ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v01, ?fv1);goal:prop_host(_, ?fv0).
+creds (?v00, ?v01, ?v08) :- ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v01, ?fv1);ini:prop_host(?v00, ?fv0).
+creds (?v00, ?v01, ?v08) :- ini:prop_dc(?fv0, ?fv1);ini:prop_elevated(?v00, ?fv1);goal:prop_host(_, ?fv0).
+creds (?v00, ?v01, ?v08) :- ini:prop_dc(?fv0, no);goal:prop_host(?fv1, ?fv0);goal:prop_host(?fv1, ?v01).
+creds (?v00, ?v01, ?v08) :- ini:prop_dc(?fv0, no);goal:prop_host(?v00, ?fv0).
+creds (?v00, ?v01, ?v08) :- ini:prop_dc(?fv0, no);ini:prop_domain(?fv0, ?v08).
+creds (?v00, ?v01, ?v08) :- ini:prop_dc(?fv0, no);ini:prop_host(?v00, ?fv0).
+creds (?v00, ?v01, ?v08) :- ini:prop_dc(?fv0, yes);goal:prop_host(?fv1, ?fv0);goal:prop_host(?fv1, ?v01).
+creds (?v00, ?v01, ?v08) :- ini:prop_dc(?fv0, yes);goal:prop_host(?v00, ?fv0).
+creds (?v00, ?v01, ?v08) :- ini:prop_dc(?fv0, yes);ini:prop_domain(?fv0, ?v08).
+creds (?v00, ?v01, ?v08) :- ini:prop_dc(?fv0, yes);ini:prop_host(?v00, ?fv0).
+creds (?v00, ?v01, ?v08) :- ini:prop_dc(?v01, ?fv0);ini:prop_elevated(?v00, ?fv0).
+creds (?v00, ?v01, ?v08) :- ini:prop_dc(?v01, no).
+creds (?v00, ?v01, ?v08) :- ini:prop_dc(?v01, yes).
+creds (?v00, ?v01, ?v08) :- ini:prop_dc(_, ?fv0);ini:prop_elevated(?fv1, ?fv0);ini:prop_host(?fv1, ?v01).
+creds (?v00, ?v01, ?v08) :- ini:prop_dc(_, ?fv0);ini:prop_elevated(?v00, ?fv0).
+creds (?v00, ?v01, ?v08) :- ini:prop_host(?v00, ?v01).
+get_admin (?v00, ?v01, ?v02) :- goal:prop_host(?v00, ?v01).
+get_admin (?v00, ?v01, ?v02) :- goal:prop_host(?v00, _).
+get_admin (?v00, ?v01, ?v02) :- goal:prop_host(_, ?v01).
+get_admin (?v00, ?v01, ?v02) :- ini:knows(?fv0);ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1).
+get_admin (?v00, ?v01, ?v02) :- ini:knows(?fv0);ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1).
+get_admin (?v00, ?v01, ?v02) :- ini:knows(?fv0);ini:prop_dc(?fv0, no);ini:prop_domain(?fv0, ?v02).
+get_admin (?v00, ?v01, ?v02) :- ini:knows(?v01).
+get_admin (?v00, ?v01, ?v02) :- ini:knows_property(?fv0, ?fv1);ini:knows_property(?v01, ?fv1);ini:prop_dc(?fv0, no).
+get_admin (?v00, ?v01, ?v02) :- ini:knows_property(?fv0, pfqdn);ini:mem_hosts(?v02, ?fv0);ini:prop_dc(?fv0, yes).
+get_admin (?v00, ?v01, ?v02) :- ini:knows_property(?fv0, pfqdn);ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v01, ?fv1).
+get_admin (?v00, ?v01, ?v02) :- ini:knows_property(?v00, _).
+get_admin (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1);goal:prop_host(?v00, ?fv0).
+get_admin (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1);goal:prop_host(_, ?fv0).
+get_admin (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1);ini:prop_dc(?fv0, no).
+get_admin (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1);ini:prop_dc(?fv0, yes).
+get_admin (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1);ini:prop_host(?v00, ?fv0).
+get_admin (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?v01, ?fv0);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_cred(?fv1, ?fv0).
+get_admin (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?v01, ?fv0);ini:mem_domain_user_admins(_, ?fv1);ini:prop_user(?fv0, ?fv1).
+get_admin (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(_, ?fv0);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_cred(?fv1, ?fv0).
+get_admin (?v00, ?v01, ?v02) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);goal:prop_host(?v00, ?fv0).
+get_admin (?v00, ?v01, ?v02) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);goal:prop_host(_, ?fv0).
+get_admin (?v00, ?v01, ?v02) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_dc(?fv0, no).
+get_admin (?v00, ?v01, ?v02) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_dc(?fv0, yes).
+get_admin (?v00, ?v01, ?v02) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_host(?v00, ?fv0).
+get_admin (?v00, ?v01, ?v02) :- ini:mem_hosts(?v02, ?fv0);ini:prop_dc(?fv0, no).
+get_admin (?v00, ?v01, ?v02) :- ini:mem_hosts(?v02, ?fv0);ini:prop_dc(?fv0, no);goal:prop_host(_, ?fv0).
+get_admin (?v00, ?v01, ?v02) :- ini:mem_hosts(?v02, ?fv0);ini:prop_dc(?fv0, yes);goal:prop_host(_, ?fv0).
+get_admin (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v01, ?fv1);goal:prop_host(?v00, ?fv0).
+get_admin (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v01, ?fv1);goal:prop_host(_, ?fv0).
+get_admin (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v01, ?fv1);ini:prop_host(?v00, ?fv0).
+get_admin (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, ?fv1);ini:prop_elevated(?v00, ?fv1);goal:prop_host(_, ?fv0).
+get_admin (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, no);goal:prop_host(?fv1, ?fv0);goal:prop_host(?fv1, ?v01).
+get_admin (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, no);goal:prop_host(?v00, ?fv0).
+get_admin (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, no);ini:prop_host(?v00, ?fv0).
+get_admin (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, yes);goal:prop_host(?fv1, ?fv0);goal:prop_host(?fv1, ?v01).
+get_admin (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, yes);goal:prop_host(?v00, ?fv0).
+get_admin (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, yes);ini:prop_domain(?fv0, ?v02).
+get_admin (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, yes);ini:prop_host(?v00, ?fv0).
+get_admin (?v00, ?v01, ?v02) :- ini:prop_dc(?v01, ?fv0);ini:prop_elevated(?fv1, ?fv0);ini:prop_host(?fv1, ?v01).
+get_admin (?v00, ?v01, ?v02) :- ini:prop_dc(?v01, ?fv0);ini:prop_elevated(?v00, ?fv0).
+get_admin (?v00, ?v01, ?v02) :- ini:prop_dc(?v01, no).
+get_admin (?v00, ?v01, ?v02) :- ini:prop_dc(?v01, yes).
+get_admin (?v00, ?v01, ?v02) :- ini:prop_dc(_, ?fv0);ini:prop_elevated(?fv1, ?fv0);ini:prop_host(?fv1, ?v01).
+get_admin (?v00, ?v01, ?v02) :- ini:prop_dc(_, ?fv0);ini:prop_elevated(?v00, ?fv0).
+get_admin (?v00, ?v01, ?v02) :- ini:prop_host(?v00, ?v01).
+get_computers (?v00, ?v02) :- goal:prop_host(?v00, _).
+get_computers (?v00, ?v02) :- ini:knows_property(?fv0, _);ini:mem_hosts(?v02, ?fv0);ini:prop_dc(?fv0, no).
+get_computers (?v00, ?v02) :- ini:knows_property(?fv0, _);ini:mem_hosts(?v02, ?fv0);ini:prop_dc(?fv0, yes).
+get_computers (?v00, ?v02) :- ini:knows_property(?v00, _).
+get_computers (?v00, ?v02) :- ini:mem_hosts(?v02, ?fv0);ini:prop_dc(?fv0, no).
+get_computers (?v00, ?v02) :- ini:mem_hosts(?v02, ?fv0);ini:prop_dc(?fv0, no);goal:prop_host(_, ?fv0).
+get_computers (?v00, ?v02) :- ini:prop_dc(?fv0, ?fv1);ini:prop_elevated(?v00, ?fv1);goal:prop_host(_, ?fv0).
+get_computers (?v00, ?v02) :- ini:prop_dc(?fv0, no);goal:prop_host(?v00, ?fv0).
+get_computers (?v00, ?v02) :- ini:prop_dc(?fv0, no);ini:prop_host(?v00, ?fv0).
+get_computers (?v00, ?v02) :- ini:prop_dc(?fv0, yes);goal:prop_host(?v00, ?fv0).
+get_computers (?v00, ?v02) :- ini:prop_dc(?fv0, yes);ini:prop_domain(?fv0, ?v02).
+get_computers (?v00, ?v02) :- ini:prop_dc(?fv0, yes);ini:prop_domain(?fv0, ?v02);goal:prop_host(_, ?fv0).
+get_computers (?v00, ?v02) :- ini:prop_dc(?fv0, yes);ini:prop_host(?v00, ?fv0).
+get_computers (?v00, ?v02) :- ini:prop_dc(_, ?fv0);ini:prop_elevated(?v00, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- goal:prop_host(?v00, ?v01).
+get_domain (?v00, ?v01, ?v02) :- goal:prop_host(?v00, _).
+get_domain (?v00, ?v01, ?v02) :- goal:prop_host(_, ?v01).
+get_domain (?v00, ?v01, ?v02) :- ini:knows(?fv0);ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1).
+get_domain (?v00, ?v01, ?v02) :- ini:knows(?fv0);ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1).
+get_domain (?v00, ?v01, ?v02) :- ini:knows(?v01).
+get_domain (?v00, ?v01, ?v02) :- ini:knows_property(?fv0, ?fv1);ini:knows_property(?v01, ?fv1);ini:prop_dc(?fv0, no).
+get_domain (?v00, ?v01, ?v02) :- ini:knows_property(?fv0, _);ini:prop_dc(?fv0, yes);ini:prop_fqdn(?fv0, ?v02).
+get_domain (?v00, ?v01, ?v02) :- ini:knows_property(?fv0, pfqdn);ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v01, ?fv1).
+get_domain (?v00, ?v01, ?v02) :- ini:knows_property(?v00, _).
+get_domain (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1);goal:prop_host(?v00, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1);goal:prop_host(_, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1);ini:prop_dc(?fv0, no).
+get_domain (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1);ini:prop_dc(?fv0, yes).
+get_domain (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1);ini:prop_host(?v00, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?v01, ?fv0);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_cred(?fv1, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?v01, ?fv0);ini:mem_domain_user_admins(_, ?fv1);ini:prop_user(?fv0, ?fv1).
+get_domain (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(_, ?fv0);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_cred(?fv1, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);goal:prop_host(?v00, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);goal:prop_host(_, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_dc(?fv0, no).
+get_domain (?v00, ?v01, ?v02) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_dc(?fv0, yes).
+get_domain (?v00, ?v01, ?v02) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_host(?v00, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:mem_domain_user_admins(?v01, ?fv0);ini:prop_dc(_, ?fv1);ini:prop_is_group(?fv0, ?fv1).
+get_domain (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v01, ?fv1);goal:prop_host(?v00, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v01, ?fv1);goal:prop_host(_, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v01, ?fv1);ini:prop_host(?v00, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, ?fv1);ini:prop_elevated(?v00, ?fv1);goal:prop_host(_, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, no);goal:prop_host(?fv1, ?fv0);goal:prop_host(?fv1, ?v01).
+get_domain (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, no);goal:prop_host(?v00, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, no);ini:prop_fqdn(?fv0, ?v02);goal:prop_host(?v00, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, no);ini:prop_fqdn(?fv0, ?v02);ini:prop_host(?v00, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, no);ini:prop_host(?v00, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, yes);goal:prop_host(?v00, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, yes);ini:prop_domain(?fv0, ?fv1);ini:prop_domain(?v01, ?fv1).
+get_domain (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, yes);ini:prop_fqdn(?fv0, ?v02);goal:prop_host(?v00, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, yes);ini:prop_fqdn(?fv0, ?v02);goal:prop_host(_, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, yes);ini:prop_fqdn(?fv0, ?v02);ini:prop_host(?v00, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, yes);ini:prop_host(?v00, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:prop_dc(?v01, ?fv0);ini:prop_elevated(?v00, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:prop_dc(?v01, no).
+get_domain (?v00, ?v01, ?v02) :- ini:prop_dc(?v01, yes).
+get_domain (?v00, ?v01, ?v02) :- ini:prop_dc(_, ?fv0);ini:prop_elevated(?fv1, ?fv0);ini:prop_host(?fv1, ?v01).
+get_domain (?v00, ?v01, ?v02) :- ini:prop_dc(_, ?fv0);ini:prop_elevated(?v00, ?fv0).
+get_domain (?v00, ?v01, ?v02) :- ini:prop_host(?v00, ?v01).
+net_time (?v00, ?v01, ?v02) :- goal:prop_host(?fv0, ?fv1);goal:prop_host(?fv0, ?v01);ini:prop_host(?v02, ?fv1).
+net_time (?v00, ?v01, ?v02) :- goal:prop_host(?v00, ?fv0);ini:prop_host(?v02, ?fv0).
+net_time (?v00, ?v01, ?v02) :- goal:prop_host(?v00, ?v01).
+net_time (?v00, ?v01, ?v02) :- goal:prop_host(?v00, _).
+net_time (?v00, ?v01, ?v02) :- goal:prop_host(_, ?fv0);ini:prop_timedelta(?fv0, ?v02).
+net_time (?v00, ?v01, ?v02) :- goal:prop_host(_, ?v01).
+net_time (?v00, ?v01, ?v02) :- ini:knows(?fv0);ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1).
+net_time (?v00, ?v01, ?v02) :- ini:knows(?fv0);ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1).
+net_time (?v00, ?v01, ?v02) :- ini:knows(?fv0);ini:prop_dc(?fv0, no);ini:prop_host(?v02, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:knows(?fv0);ini:prop_dc(?fv0, yes);ini:prop_host(?v02, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:knows(?v01).
+net_time (?v00, ?v01, ?v02) :- ini:knows_property(?fv0, ?fv1);ini:knows_property(?v01, ?fv1);ini:prop_dc(?fv0, no).
+net_time (?v00, ?v01, ?v02) :- ini:knows_property(?fv0, ?fv1);ini:knows_property(?v01, ?fv1);ini:prop_timedelta(?fv0, ?v02).
+net_time (?v00, ?v01, ?v02) :- ini:knows_property(?fv0, _);ini:prop_timedelta(?fv0, ?v02).
+net_time (?v00, ?v01, ?v02) :- ini:knows_property(?fv0, pfqdn);ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v01, ?fv1).
+net_time (?v00, ?v01, ?v02) :- ini:knows_property(?v00, _).
+net_time (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1);goal:prop_host(?v00, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1);goal:prop_host(_, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1);ini:prop_dc(?fv0, no).
+net_time (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1);ini:prop_dc(?fv0, yes).
+net_time (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1);ini:prop_host(?v00, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1);ini:prop_host(?v02, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?v01, ?fv0);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_cred(?fv1, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(?v01, ?fv0);ini:mem_domain_user_admins(_, ?fv1);ini:prop_user(?fv0, ?fv1).
+net_time (?v00, ?v01, ?v02) :- ini:mem_cached_domain_creds(_, ?fv0);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_cred(?fv1, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);goal:prop_host(?v00, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);goal:prop_host(_, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_dc(?fv0, no).
+net_time (?v00, ?v01, ?v02) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_dc(?fv0, yes).
+net_time (?v00, ?v01, ?v02) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_host(?v00, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_timedelta(?fv0, ?v02).
+net_time (?v00, ?v01, ?v02) :- ini:mem_domain_user_admins(?v01, ?fv0);ini:prop_dc(_, ?fv1);ini:prop_is_group(?fv0, ?fv1).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v01, ?fv1);goal:prop_host(?v00, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v01, ?fv1);goal:prop_host(_, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v01, ?fv1);ini:prop_host(?v00, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v01, ?fv1);ini:prop_timedelta(?fv0, ?v02).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, ?fv1);ini:prop_elevated(?v00, ?fv1);goal:prop_host(_, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, ?fv1);ini:prop_elevated(?v00, ?fv1);ini:prop_timedelta(?fv0, ?v02).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, no);goal:prop_host(?fv1, ?fv0);goal:prop_host(?fv1, ?v01).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, no);goal:prop_host(?v00, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, no);goal:prop_host(?v00, ?fv0);ini:prop_timedelta(?fv0, ?v02).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, no);goal:prop_host(_, ?fv0);ini:prop_timedelta(?fv0, ?v02).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, no);ini:prop_host(?v00, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, no);ini:prop_host(?v00, ?fv0);ini:prop_timedelta(?fv0, ?v02).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, no);ini:prop_timedelta(?fv0, ?v02).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, yes);goal:prop_host(?fv1, ?fv0);goal:prop_host(?fv1, ?v01).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, yes);goal:prop_host(?v00, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, yes);goal:prop_host(?v00, ?fv0);ini:prop_host(?v02, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, yes);ini:prop_domain(?fv0, ?fv1);ini:prop_domain(?v01, ?fv1).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, yes);ini:prop_host(?v00, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, yes);ini:prop_host(?v00, ?fv0);ini:prop_host(?v02, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, yes);ini:prop_host(?v02, ?fv0);goal:prop_host(_, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?fv0, yes);ini:prop_timedelta(?fv0, ?v02).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?v01, ?fv0);ini:prop_elevated(?fv1, ?fv0);ini:prop_host(?fv1, ?v01).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?v01, ?fv0);ini:prop_elevated(?v00, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?v01, no).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(?v01, yes).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(_, ?fv0);ini:prop_elevated(?fv1, ?fv0);ini:prop_host(?fv1, ?v01).
+net_time (?v00, ?v01, ?v02) :- ini:prop_dc(_, ?fv0);ini:prop_elevated(?v00, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:prop_host(?v00, ?fv0);ini:prop_host(?v02, ?fv0).
+net_time (?v00, ?v01, ?v02) :- ini:prop_host(?v00, ?v01).
+net_time (?v00, ?v01, ?v02) :- ini:prop_timedelta(?v01, ?v02).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- equal:(?v01, ?v02).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- goal:prop_host(?fv0, ?v01);goal:prop_host(?fv0, ?v02).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- goal:prop_host(?v00, ?v01).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- goal:prop_host(?v00, ?v02).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- goal:prop_host(?v00, _).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- goal:prop_host(_, ?v01).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- goal:prop_host(_, ?v02).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:knows(?v01).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:knows_property(?fv0, pfqdn);ini:mem_cached_domain_creds(?fv0, ?v04).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:knows_property(?fv0, pfqdn);ini:mem_domain_user_admins(?fv0, ?v06).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:knows_property(?v00, _).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:knows_property(?v01, ?fv0);ini:knows_property(?v02, ?fv0).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:knows_property(?v02, _).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:mem_cached_domain_creds(?fv0, ?v04);goal:prop_host(?v00, ?fv0).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:mem_cached_domain_creds(?fv0, ?v04);goal:prop_host(_, ?fv0).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:mem_cached_domain_creds(?fv0, ?v04);ini:mem_domain_user_admins(?fv0, ?v06).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:mem_cached_domain_creds(?fv0, ?v04);ini:prop_dc(?fv0, no).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:mem_cached_domain_creds(?fv0, ?v04);ini:prop_dc(?fv0, yes).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:mem_cached_domain_creds(?fv0, ?v04);ini:prop_host(?v00, ?fv0).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:mem_cached_domain_creds(?v01, ?fv0);ini:mem_cached_domain_creds(?v02, ?fv0).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:mem_cached_domain_creds(?v01, ?v04).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:mem_cached_domain_creds(?v02, ?v04).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:mem_domain_user_admins(?fv0, ?v06);goal:prop_host(?v00, ?fv0).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:mem_domain_user_admins(?fv0, ?v06);goal:prop_host(_, ?fv0).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:mem_domain_user_admins(?fv0, ?v06);ini:prop_dc(?fv0, no).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:mem_domain_user_admins(?fv0, ?v06);ini:prop_dc(?fv0, yes).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:mem_domain_user_admins(?fv0, ?v06);ini:prop_host(?v00, ?fv0).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:mem_domain_user_admins(?v01, ?fv0);ini:mem_domain_user_admins(?v02, ?fv0).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:mem_domain_user_admins(?v01, ?v06).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:mem_domain_user_admins(?v02, ?v06).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:mem_domain_user_admins(_, ?v06).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:mem_hosts(?v08, ?fv0);ini:prop_dc(?fv0, yes).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:prop_dc(?fv0, no);goal:prop_host(?v00, ?fv0).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:prop_dc(?fv0, no);ini:prop_host(?v00, ?fv0).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:prop_dc(?fv0, yes);goal:prop_host(?v00, ?fv0).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:prop_dc(?fv0, yes);ini:prop_host(?v00, ?fv0).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:prop_dc(?v01, ?fv0);ini:prop_dc(?v02, ?fv0).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:prop_dc(?v01, ?fv0);ini:prop_elevated(?v00, ?fv0).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:prop_dc(?v01, no).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:prop_dc(?v01, yes).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:prop_dc(?v02, ?fv0);ini:prop_elevated(?v00, ?fv0).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:prop_dc(?v02, no).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:prop_dc(?v02, yes).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:prop_dc(_, ?fv0);ini:prop_elevated(?v00, ?fv0).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:prop_dc(_, ?fv0);ini:prop_is_group(?v06, ?fv0).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:prop_host(?v00, ?v01).
+net_use (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07, ?v08, ?v09, ?v10) :- ini:prop_host(?v00, ?v02).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- equal:(?v01, ?v05).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- goal:prop_host(?fv0, ?v04);goal:prop_host(?fv0, ?v05).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- goal:prop_host(?v00, ?v01).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- goal:prop_host(?v00, ?v05).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- goal:prop_host(?v00, _).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- goal:prop_host(_, ?v04).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- goal:prop_host(_, ?v05).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:knows(?v04).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:knows_property(?fv0, ?fv1);ini:knows_property(?v04, ?fv1);ini:prop_dc(?fv0, no).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:knows_property(?fv0, ?fv1);ini:knows_property(?v05, ?fv1);ini:prop_dc(?fv0, no).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:knows_property(?fv0, ?fv1);ini:knows_property(?v05, ?fv1);ini:prop_dc(?fv0, yes).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:knows_property(?fv0, _);ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v01, ?fv1).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:knows_property(?fv0, _);ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v05, ?fv1).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:knows_property(?fv0, _);ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:knows_property(?fv0, _);ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v05, ?fv1).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:knows_property(?fv0, _);ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v04, ?fv1).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:knows_property(?fv0, pfqdn);ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v05, ?fv1).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:knows_property(?v00, _).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:knows_property(?v04, ?fv0);ini:knows_property(?v05, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:knows_property(?v05, pfqdn).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v04, ?fv1);goal:prop_host(?v00, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v04, ?fv1);goal:prop_host(_, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v04, ?fv1);ini:prop_dc(?fv0, no).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v04, ?fv1);ini:prop_dc(?fv0, yes).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v04, ?fv1);ini:prop_host(?v00, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v05, ?fv1);goal:prop_host(?v00, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v05, ?fv1);goal:prop_host(_, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v05, ?fv1);ini:prop_dc(?fv0, no).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v05, ?fv1);ini:prop_dc(?fv0, yes).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_cached_domain_creds(?fv0, ?fv1);ini:mem_cached_domain_creds(?v05, ?fv1);ini:prop_host(?v00, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_cached_domain_creds(?v01, ?fv0);ini:mem_cached_domain_creds(?v05, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_cached_domain_creds(?v01, ?fv0);ini:mem_domain_user_admins(?v05, ?fv1);ini:prop_cred(?fv1, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_cached_domain_creds(?v01, ?fv0);ini:mem_domain_user_admins(_, ?fv1);ini:prop_user(?fv0, ?fv1).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_cached_domain_creds(?v04, ?fv0);ini:mem_domain_user_admins(?v04, ?fv1);ini:prop_cred(?fv1, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_cached_domain_creds(?v05, ?fv0);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_user(?fv0, ?fv1).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_cached_domain_creds(?v05, ?fv0);ini:mem_domain_user_admins(?v05, ?fv1);ini:prop_cred(?fv1, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_cached_domain_creds(?v05, ?fv0);ini:mem_domain_user_admins(_, ?fv1);ini:prop_user(?fv0, ?fv1).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_cached_domain_creds(_, ?fv0);ini:mem_domain_user_admins(?v04, ?fv1);ini:prop_user(?fv0, ?fv1).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_cached_domain_creds(_, ?fv0);ini:mem_domain_user_admins(?v05, ?fv1);ini:prop_cred(?fv1, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);goal:prop_host(_, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v01, ?fv1);ini:prop_dc(?fv0, no).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v04, ?fv1);goal:prop_host(?v00, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v04, ?fv1);ini:prop_dc(?fv0, yes).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v04, ?fv1);ini:prop_host(?v00, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v05, ?fv1);goal:prop_host(?v00, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v05, ?fv1);goal:prop_host(_, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v05, ?fv1);ini:prop_dc(?fv0, no).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v05, ?fv1);ini:prop_dc(?fv0, yes).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_domain_user_admins(?fv0, ?fv1);ini:mem_domain_user_admins(?v05, ?fv1);ini:prop_host(?v00, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:mem_domain_user_admins(?v01, ?fv0);ini:mem_domain_user_admins(?v05, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v01, ?fv1);goal:prop_host(?v00, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v01, ?fv1);goal:prop_host(_, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v01, ?fv1);ini:prop_host(?v00, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v05, ?fv1);goal:prop_host(?v00, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v05, ?fv1);goal:prop_host(_, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?fv0, ?fv1);ini:prop_dc(?v05, ?fv1);ini:prop_host(?v00, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?fv0, ?fv1);ini:prop_elevated(?v00, ?fv1);goal:prop_host(_, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?fv0, no);goal:prop_host(?fv1, ?fv0);goal:prop_host(?fv1, ?v04).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?fv0, no);goal:prop_host(?fv1, ?fv0);goal:prop_host(?fv1, ?v05).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?fv0, no);goal:prop_host(?v00, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?fv0, no);ini:prop_domain(?fv0, ?fv1);ini:prop_domain(?v04, ?fv1).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?fv0, no);ini:prop_executable(?fv1, ?v02);ini:prop_host(?fv1, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?fv0, no);ini:prop_host(?v00, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?fv0, yes);goal:prop_host(?fv1, ?fv0);goal:prop_host(?fv1, ?v04).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?fv0, yes);goal:prop_host(?fv1, ?fv0);goal:prop_host(?fv1, ?v05).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?fv0, yes);goal:prop_host(?v00, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?fv0, yes);ini:prop_domain(?fv0, ?fv1);ini:prop_domain(?v04, ?fv1).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?fv0, yes);ini:prop_executable(?fv1, ?v02);ini:prop_host(?fv1, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?fv0, yes);ini:prop_host(?v00, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?v01, ?fv0);ini:prop_dc(?v05, ?fv0);ini:prop_elevated(?v00, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?v01, ?fv0);ini:prop_elevated(?fv1, ?fv0);ini:prop_host(?fv1, ?v05).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?v01, no).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?v04, ?fv0);ini:prop_dc(?v05, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?v04, ?fv0);ini:prop_dc(?v05, ?fv0);ini:prop_elevated(_, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?v04, ?fv0);ini:prop_dc(?v05, ?fv0);ini:prop_is_group(_, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?v04, ?fv0);ini:prop_elevated(?fv1, ?fv0);ini:prop_executable(?fv1, ?v02).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?v04, ?fv0);ini:prop_elevated(?fv1, ?fv0);ini:prop_host(?fv1, ?v04).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?v04, ?fv0);ini:prop_elevated(?v00, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?v04, yes).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?v05, ?fv0);ini:prop_elevated(?fv1, ?fv0);ini:prop_executable(?fv1, ?v02).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?v05, ?fv0);ini:prop_elevated(?fv1, ?fv0);ini:prop_host(?fv1, ?v04).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?v05, ?fv0);ini:prop_elevated(?v00, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?v05, no).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(?v05, yes).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(_, ?fv0);ini:prop_elevated(?fv1, ?fv0);ini:prop_executable(?fv1, ?v02).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(_, ?fv0);ini:prop_elevated(?fv1, ?fv0);ini:prop_host(?fv1, ?v01).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(_, ?fv0);ini:prop_elevated(?fv1, ?fv0);ini:prop_host(?fv1, ?v05).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_dc(_, ?fv0);ini:prop_elevated(?v00, ?fv0).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_executable(?fv0, ?v02);ini:prop_host(?fv0, ?v01).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_executable(?fv0, ?v02);ini:prop_host(?fv0, ?v01);ini:prop_host(?fv0, ?v05).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_executable(?fv0, ?v02);ini:prop_host(?fv0, ?v05).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_executable(?v00, ?v02).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_host(?v00, ?v01).
+smb_copy (?v00, ?v01, ?v02, ?v03, ?v04, ?v05, ?v06, ?v07) :- ini:prop_host(?v00, ?v05).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- equal:(?v00, ?v11).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- equal:(?v01, ?v02).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- goal:prop_host(?fv0, ?v01);goal:prop_host(?fv0, ?v02).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- goal:prop_host(?v00, ?fv0);goal:prop_host(?v11, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- goal:prop_host(?v00, ?v01).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- goal:prop_host(?v00, ?v02).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- goal:prop_host(?v00, _).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- goal:prop_host(?v11, ?v01).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- goal:prop_host(?v11, ?v02).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- goal:prop_host(?v11, _).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- goal:prop_host(_, ?v01).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- goal:prop_host(_, ?v02).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:knows(?fv0);ini:mem_cached_domain_creds(?fv0, ?v06).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:knows(?fv0);ini:mem_domain_user_admins(?fv0, ?v07).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:knows(?v01).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:knows_property(?v00, _).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:knows_property(?v01, ?fv0);ini:knows_property(?v02, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:knows_property(?v02, _).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_cached_domain_creds(?fv0, ?v06);goal:prop_host(?v00, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_cached_domain_creds(?fv0, ?v06);goal:prop_host(?v11, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_cached_domain_creds(?fv0, ?v06);goal:prop_host(_, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_cached_domain_creds(?fv0, ?v06);ini:mem_domain_user_admins(?fv0, ?v07).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_cached_domain_creds(?fv0, ?v06);ini:prop_dc(?fv0, no).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_cached_domain_creds(?fv0, ?v06);ini:prop_dc(?fv0, yes).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_cached_domain_creds(?fv0, ?v06);ini:prop_host(?v00, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_cached_domain_creds(?fv0, ?v06);ini:prop_host(?v11, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_cached_domain_creds(?v01, ?fv0);ini:mem_cached_domain_creds(?v02, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_cached_domain_creds(?v01, ?v06).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_cached_domain_creds(?v02, ?v06).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_domain_user_admins(?fv0, ?v07);goal:prop_host(?v00, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_domain_user_admins(?fv0, ?v07);goal:prop_host(?v11, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_domain_user_admins(?fv0, ?v07);goal:prop_host(_, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_domain_user_admins(?fv0, ?v07);ini:prop_dc(?fv0, no).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_domain_user_admins(?fv0, ?v07);ini:prop_dc(?fv0, yes).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_domain_user_admins(?fv0, ?v07);ini:prop_host(?v00, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_domain_user_admins(?fv0, ?v07);ini:prop_host(?v11, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_domain_user_admins(?v01, ?fv0);ini:mem_domain_user_admins(?v02, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_domain_user_admins(?v01, ?v07).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_domain_user_admins(?v02, ?v07).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_domain_user_admins(_, ?v07).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:mem_hosts(?v08, ?fv0);ini:prop_dc(?fv0, yes).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_dc(?fv0, no);goal:prop_host(?v00, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_dc(?fv0, no);goal:prop_host(?v11, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_dc(?fv0, no);ini:prop_host(?v00, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_dc(?fv0, no);ini:prop_host(?v11, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_dc(?fv0, yes);goal:prop_host(?v00, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_dc(?fv0, yes);goal:prop_host(?v11, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_dc(?fv0, yes);ini:prop_host(?v00, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_dc(?fv0, yes);ini:prop_host(?v11, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_dc(?v01, ?fv0);ini:prop_dc(?v02, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_dc(?v01, ?fv0);ini:prop_elevated(?v00, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_dc(?v01, ?fv0);ini:prop_elevated(?v11, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_dc(?v01, no).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_dc(?v01, yes).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_dc(?v02, ?fv0);ini:prop_elevated(?v00, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_dc(?v02, ?fv0);ini:prop_elevated(?v11, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_dc(?v02, no).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_dc(?v02, yes).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_dc(_, ?fv0);ini:prop_elevated(?v00, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_dc(_, ?fv0);ini:prop_elevated(?v11, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_dc(_, ?fv0);ini:prop_is_group(?v07, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_executable(?v00, ?fv0);ini:prop_executable(?v11, ?fv0).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_host(?v00, ?v01).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_host(?v00, ?v02).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_host(?v11, ?v01).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_host(?v11, ?v02).
+wmic (?v00, ?v01, ?v02, ?v03, ?v04, ?v06, ?v07, ?v08, ?v09, ?v10, ?v11) :- ini:prop_host(?v11, _).

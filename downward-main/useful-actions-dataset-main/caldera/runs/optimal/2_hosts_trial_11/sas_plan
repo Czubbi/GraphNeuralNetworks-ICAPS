@@ -1,0 +1,8 @@
+(get_domain id_bgrat id_shost str__x)
+(get_computers id_bgrat id_adomain)
+(creds id_bgrat id_shost id_adomain)
+(net_use id_bgrat id_shost id_zhost str__be id_pdomaincredential str__q id_odomainuser str__patricia id_adomain str__alpha id_bmshare)
+(smb_copy id_bgrat id_shost str__bh id_bmshare id_shost id_zhost whatever id_bofile)
+(get_admin id_bgrat id_zhost id_adomain)
+(wmic id_bgrat id_shost id_zhost id_bofile somepath id_pdomaincredential id_odomainuser id_adomain str__alpha str__q id_bkrat)
+; cost = 7 (unit cost)

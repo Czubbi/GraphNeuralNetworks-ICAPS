@@ -1,0 +1,5 @@
+turn_to :- goal:have_image(?arg1,_) 0.009339; goal:have_image(?arg2,_) 0.098336; goal:pointing(_,?arg2) 0.378499; goal:pointing(?arg0,?arg2) 0.185075;  0.003356
+switch_off :-  0.002051
+take_image :- goal:have_image(?arg1,?arg3) 0.000028;  0.482710
+switch_on :-  0.360219
+calibrate :- ini:pointing(?arg0,?arg2) 0.268345; goal:pointing(?arg0,?arg2) 0.586538;  0.250000

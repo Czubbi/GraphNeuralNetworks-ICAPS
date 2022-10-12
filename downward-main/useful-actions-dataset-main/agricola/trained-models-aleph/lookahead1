@@ -1,0 +1,22 @@
+collect_resource :- ini:current_worker(?arg2) 0.000014; ini:food_required(?arg1,_) 0.911040;  0.000069
+ag__harvest_collecting_veg :-  0.000801
+family_growth :- ini:current_worker(?arg2) 0.000006; ini:food_required(?arg1,_) 0.076974;  0.000023
+build_fences :- ini:current_worker(?arg3) 0.000019; ini:food_required(?arg2,_) 0.781879;  0.000093
+take_grain :- ini:current_worker(?arg2) 0.000028; ini:food_required(?arg1,_) 0.910968;  0.000139
+ag__finish_round_backhome_withchild :- ini:current_worker(?arg1) 0.000463;  0.076976
+ag__finish_round_renew :- ini:next_round(?arg0,_) 0.001511;  0.999862
+ag__finish_stage :- ini:next_stage(?arg1,_) 0.002075; ini:next_round(?arg3,_) 0.002762;  0.310671
+take_food :- ini:current_worker(?arg2) 0.000003; ini:food_required(?arg1,_) 0.245606;  0.000017
+ag__harvest_collect_end :- ini:next_stage(?arg1,_) 0.001916; ini:next_round(?arg0,_) 0.004950;  0.240260
+improve_home :- ini:current_worker(?arg2) 0.000028; ini:food_required(?arg1,_) 0.382506;  0.000139
+ag__harvest_collecting_fromoven :-  0.000014
+collect_animal :- ini:current_worker(?arg4) 0.000006; ini:food_required(?arg3,_) 0.532868;  0.000031
+plow_field :- ini:current_worker(?arg2) 0.000056; ini:food_required(?arg1,_) 0.910826;  0.000278
+collect_cook_animal :- ini:current_worker(?arg4) 0.000007; ini:food_required(?arg3,_) 0.094636;  0.000026
+ag__advance_round_normal :-  0.998812
+ag__harvest_breeding_animal :-  0.000131
+ag__finish_round_backhome :- ini:current_worker(?arg1) 0.000278; ini:next_round(?arg0,_) 0.008197;  0.999244
+ag__harvest_feed :- ini:num_substract(_,?arg3,?arg4) 0.009021;  0.081103
+build_room :- ini:current_worker(?arg2) 0.000025; ini:food_required(?arg1,_) 0.804360;  0.000093
+sow :- ini:current_worker(?arg2) 0.000028; ini:food_required(?arg1,_) 0.759632;  0.000139
+ag__harvest_breed_end :- ini:next_stage(?arg1,_) 0.001916; ini:next_round(?arg0,_) 0.004950;  0.240260

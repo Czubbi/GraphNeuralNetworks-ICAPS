@@ -1,0 +1,8 @@
+(get_domain id_fcrat id_eohost str__et)
+(get_computers id_fcrat id_adomain)
+(creds id_fcrat id_eohost id_adomain)
+(net_use id_fcrat id_eohost id_evhost str__fa id_dndomaincredential str__do id_dmdomainuser str__daniel id_adomain str__alpha id_fishare)
+(smb_copy id_fcrat id_eohost str__fd id_fishare id_eohost id_evhost whatever id_fgfile)
+(get_admin id_fcrat id_evhost id_adomain)
+(wmic id_fcrat id_eohost id_evhost id_fgfile somepath id_dndomaincredential id_dmdomainuser id_adomain str__alpha str__do id_ferat)
+; cost = 7 (unit cost)

@@ -1,0 +1,204 @@
+creds id_ewrat id_duhost id_adomain
+creds id_fhrat id_ebhost id_adomain
+get_admin id_ewrat id_ebhost id_adomain
+get_admin id_ewrat id_eihost id_adomain
+get_admin id_ewrat id_ephost id_adomain
+get_admin id_fgrat id_ebhost id_adomain
+get_admin id_fgrat id_ephost id_adomain
+get_admin id_fhrat id_eihost id_adomain
+get_admin id_fhrat id_ephost id_adomain
+get_admin id_firat id_eihost id_adomain
+get_computers id_ewrat id_adomain
+get_domain id_ewrat id_duhost str__dz
+net_use id_ewrat id_duhost id_ebhost str__eg id_brdomaincredential str__bs id_bqdomainuser str__david id_adomain str__alpha id_eyshare
+net_use id_ewrat id_duhost id_ebhost str__eg id_brdomaincredential str__bs id_bqdomainuser str__david id_adomain str__alpha id_ezshare
+net_use id_ewrat id_duhost id_ebhost str__eg id_brdomaincredential str__bs id_bqdomainuser str__david id_adomain str__alpha id_fashare
+net_use id_ewrat id_duhost id_ebhost str__eg id_brdomaincredential str__bs id_bqdomainuser str__david id_adomain str__alpha id_fbshare
+net_use id_ewrat id_duhost id_eihost str__en id_cxdomaincredential str__cy id_cwdomainuser str__thomas id_adomain str__alpha id_eyshare
+net_use id_ewrat id_duhost id_eihost str__en id_cxdomaincredential str__cy id_cwdomainuser str__thomas id_adomain str__alpha id_ezshare
+net_use id_ewrat id_duhost id_eihost str__en id_cxdomaincredential str__cy id_cwdomainuser str__thomas id_adomain str__alpha id_fashare
+net_use id_ewrat id_duhost id_eihost str__en id_cxdomaincredential str__cy id_cwdomainuser str__thomas id_adomain str__alpha id_fbshare
+net_use id_ewrat id_duhost id_ephost str__eu id_tdomaincredential str__u id_sdomainuser str__robert id_adomain str__alpha id_eyshare
+net_use id_ewrat id_duhost id_ephost str__eu id_tdomaincredential str__u id_sdomainuser str__robert id_adomain str__alpha id_ezshare
+net_use id_ewrat id_duhost id_ephost str__eu id_tdomaincredential str__u id_sdomainuser str__robert id_adomain str__alpha id_fashare
+net_use id_ewrat id_duhost id_ephost str__eu id_tdomaincredential str__u id_sdomainuser str__robert id_adomain str__alpha id_fbshare
+net_use id_fgrat id_eihost id_ebhost str__eg id_brdomaincredential str__bs id_bqdomainuser str__david id_adomain str__alpha id_eyshare
+net_use id_fgrat id_eihost id_ebhost str__eg id_brdomaincredential str__bs id_bqdomainuser str__david id_adomain str__alpha id_ezshare
+net_use id_fgrat id_eihost id_ebhost str__eg id_brdomaincredential str__bs id_bqdomainuser str__david id_adomain str__alpha id_fashare
+net_use id_fgrat id_eihost id_ebhost str__eg id_brdomaincredential str__bs id_bqdomainuser str__david id_adomain str__alpha id_fbshare
+net_use id_fgrat id_eihost id_ephost str__eu id_tdomaincredential str__u id_sdomainuser str__robert id_adomain str__alpha id_eyshare
+net_use id_fgrat id_eihost id_ephost str__eu id_tdomaincredential str__u id_sdomainuser str__robert id_adomain str__alpha id_ezshare
+net_use id_fgrat id_eihost id_ephost str__eu id_tdomaincredential str__u id_sdomainuser str__robert id_adomain str__alpha id_fashare
+net_use id_fgrat id_eihost id_ephost str__eu id_tdomaincredential str__u id_sdomainuser str__robert id_adomain str__alpha id_fbshare
+net_use id_fhrat id_ebhost id_eihost str__en id_cxdomaincredential str__cy id_cwdomainuser str__thomas id_adomain str__alpha id_eyshare
+net_use id_fhrat id_ebhost id_eihost str__en id_cxdomaincredential str__cy id_cwdomainuser str__thomas id_adomain str__alpha id_ezshare
+net_use id_fhrat id_ebhost id_eihost str__en id_cxdomaincredential str__cy id_cwdomainuser str__thomas id_adomain str__alpha id_fashare
+net_use id_fhrat id_ebhost id_eihost str__en id_cxdomaincredential str__cy id_cwdomainuser str__thomas id_adomain str__alpha id_fbshare
+net_use id_fhrat id_ebhost id_ephost str__eu id_tdomaincredential str__u id_sdomainuser str__robert id_adomain str__alpha id_eyshare
+net_use id_fhrat id_ebhost id_ephost str__eu id_tdomaincredential str__u id_sdomainuser str__robert id_adomain str__alpha id_ezshare
+net_use id_fhrat id_ebhost id_ephost str__eu id_tdomaincredential str__u id_sdomainuser str__robert id_adomain str__alpha id_fashare
+net_use id_fhrat id_ebhost id_ephost str__eu id_tdomaincredential str__u id_sdomainuser str__robert id_adomain str__alpha id_fbshare
+net_use id_firat id_ephost id_eihost str__en id_cxdomaincredential str__cy id_cwdomainuser str__thomas id_adomain str__alpha id_eyshare
+net_use id_firat id_ephost id_eihost str__en id_cxdomaincredential str__cy id_cwdomainuser str__thomas id_adomain str__alpha id_ezshare
+net_use id_firat id_ephost id_eihost str__en id_cxdomaincredential str__cy id_cwdomainuser str__thomas id_adomain str__alpha id_fashare
+net_use id_firat id_ephost id_eihost str__en id_cxdomaincredential str__cy id_cwdomainuser str__thomas id_adomain str__alpha id_fbshare
+smb_copy id_ewrat id_duhost str__ex id_eyshare id_duhost id_ebhost whatever id_fkfile
+smb_copy id_ewrat id_duhost str__ex id_eyshare id_duhost id_ebhost whatever id_flfile
+smb_copy id_ewrat id_duhost str__ex id_eyshare id_duhost id_ebhost whatever id_fmfile
+smb_copy id_ewrat id_duhost str__ex id_eyshare id_duhost id_ebhost whatever id_fnfile
+smb_copy id_ewrat id_duhost str__ex id_eyshare id_duhost id_eihost whatever id_fkfile
+smb_copy id_ewrat id_duhost str__ex id_eyshare id_duhost id_eihost whatever id_flfile
+smb_copy id_ewrat id_duhost str__ex id_eyshare id_duhost id_eihost whatever id_fmfile
+smb_copy id_ewrat id_duhost str__ex id_eyshare id_duhost id_eihost whatever id_fnfile
+smb_copy id_ewrat id_duhost str__ex id_eyshare id_duhost id_ephost whatever id_fkfile
+smb_copy id_ewrat id_duhost str__ex id_eyshare id_duhost id_ephost whatever id_flfile
+smb_copy id_ewrat id_duhost str__ex id_eyshare id_duhost id_ephost whatever id_fmfile
+smb_copy id_ewrat id_duhost str__ex id_eyshare id_duhost id_ephost whatever id_fnfile
+smb_copy id_ewrat id_duhost str__ex id_ezshare id_duhost id_ebhost whatever id_fkfile
+smb_copy id_ewrat id_duhost str__ex id_ezshare id_duhost id_ebhost whatever id_flfile
+smb_copy id_ewrat id_duhost str__ex id_ezshare id_duhost id_ebhost whatever id_fmfile
+smb_copy id_ewrat id_duhost str__ex id_ezshare id_duhost id_ebhost whatever id_fnfile
+smb_copy id_ewrat id_duhost str__ex id_ezshare id_duhost id_eihost whatever id_fkfile
+smb_copy id_ewrat id_duhost str__ex id_ezshare id_duhost id_eihost whatever id_flfile
+smb_copy id_ewrat id_duhost str__ex id_ezshare id_duhost id_eihost whatever id_fmfile
+smb_copy id_ewrat id_duhost str__ex id_ezshare id_duhost id_eihost whatever id_fnfile
+smb_copy id_ewrat id_duhost str__ex id_ezshare id_duhost id_ephost whatever id_fkfile
+smb_copy id_ewrat id_duhost str__ex id_ezshare id_duhost id_ephost whatever id_flfile
+smb_copy id_ewrat id_duhost str__ex id_ezshare id_duhost id_ephost whatever id_fmfile
+smb_copy id_ewrat id_duhost str__ex id_ezshare id_duhost id_ephost whatever id_fnfile
+smb_copy id_ewrat id_duhost str__ex id_fashare id_duhost id_ebhost whatever id_fkfile
+smb_copy id_ewrat id_duhost str__ex id_fashare id_duhost id_ebhost whatever id_flfile
+smb_copy id_ewrat id_duhost str__ex id_fashare id_duhost id_ebhost whatever id_fmfile
+smb_copy id_ewrat id_duhost str__ex id_fashare id_duhost id_ebhost whatever id_fnfile
+smb_copy id_ewrat id_duhost str__ex id_fashare id_duhost id_eihost whatever id_fkfile
+smb_copy id_ewrat id_duhost str__ex id_fashare id_duhost id_eihost whatever id_flfile
+smb_copy id_ewrat id_duhost str__ex id_fashare id_duhost id_eihost whatever id_fmfile
+smb_copy id_ewrat id_duhost str__ex id_fashare id_duhost id_eihost whatever id_fnfile
+smb_copy id_ewrat id_duhost str__ex id_fashare id_duhost id_ephost whatever id_fkfile
+smb_copy id_ewrat id_duhost str__ex id_fashare id_duhost id_ephost whatever id_flfile
+smb_copy id_ewrat id_duhost str__ex id_fashare id_duhost id_ephost whatever id_fmfile
+smb_copy id_ewrat id_duhost str__ex id_fashare id_duhost id_ephost whatever id_fnfile
+smb_copy id_ewrat id_duhost str__ex id_fbshare id_duhost id_ebhost whatever id_fkfile
+smb_copy id_ewrat id_duhost str__ex id_fbshare id_duhost id_ebhost whatever id_flfile
+smb_copy id_ewrat id_duhost str__ex id_fbshare id_duhost id_ebhost whatever id_fmfile
+smb_copy id_ewrat id_duhost str__ex id_fbshare id_duhost id_ebhost whatever id_fnfile
+smb_copy id_ewrat id_duhost str__ex id_fbshare id_duhost id_eihost whatever id_fkfile
+smb_copy id_ewrat id_duhost str__ex id_fbshare id_duhost id_eihost whatever id_flfile
+smb_copy id_ewrat id_duhost str__ex id_fbshare id_duhost id_eihost whatever id_fmfile
+smb_copy id_ewrat id_duhost str__ex id_fbshare id_duhost id_eihost whatever id_fnfile
+smb_copy id_ewrat id_duhost str__ex id_fbshare id_duhost id_ephost whatever id_fkfile
+smb_copy id_ewrat id_duhost str__ex id_fbshare id_duhost id_ephost whatever id_flfile
+smb_copy id_ewrat id_duhost str__ex id_fbshare id_duhost id_ephost whatever id_fmfile
+smb_copy id_ewrat id_duhost str__ex id_fbshare id_duhost id_ephost whatever id_fnfile
+smb_copy id_fgrat id_eihost somepath id_eyshare id_eihost id_ebhost whatever id_fkfile
+smb_copy id_fgrat id_eihost somepath id_eyshare id_eihost id_ebhost whatever id_flfile
+smb_copy id_fgrat id_eihost somepath id_eyshare id_eihost id_ebhost whatever id_fmfile
+smb_copy id_fgrat id_eihost somepath id_eyshare id_eihost id_ebhost whatever id_fnfile
+smb_copy id_fgrat id_eihost somepath id_eyshare id_eihost id_ephost whatever id_fkfile
+smb_copy id_fgrat id_eihost somepath id_eyshare id_eihost id_ephost whatever id_flfile
+smb_copy id_fgrat id_eihost somepath id_eyshare id_eihost id_ephost whatever id_fmfile
+smb_copy id_fgrat id_eihost somepath id_eyshare id_eihost id_ephost whatever id_fnfile
+smb_copy id_fgrat id_eihost somepath id_ezshare id_eihost id_ebhost whatever id_fkfile
+smb_copy id_fgrat id_eihost somepath id_ezshare id_eihost id_ebhost whatever id_flfile
+smb_copy id_fgrat id_eihost somepath id_ezshare id_eihost id_ebhost whatever id_fmfile
+smb_copy id_fgrat id_eihost somepath id_ezshare id_eihost id_ebhost whatever id_fnfile
+smb_copy id_fgrat id_eihost somepath id_ezshare id_eihost id_ephost whatever id_fkfile
+smb_copy id_fgrat id_eihost somepath id_ezshare id_eihost id_ephost whatever id_flfile
+smb_copy id_fgrat id_eihost somepath id_ezshare id_eihost id_ephost whatever id_fmfile
+smb_copy id_fgrat id_eihost somepath id_ezshare id_eihost id_ephost whatever id_fnfile
+smb_copy id_fgrat id_eihost somepath id_fashare id_eihost id_ebhost whatever id_fkfile
+smb_copy id_fgrat id_eihost somepath id_fashare id_eihost id_ebhost whatever id_flfile
+smb_copy id_fgrat id_eihost somepath id_fashare id_eihost id_ebhost whatever id_fmfile
+smb_copy id_fgrat id_eihost somepath id_fashare id_eihost id_ebhost whatever id_fnfile
+smb_copy id_fgrat id_eihost somepath id_fashare id_eihost id_ephost whatever id_fkfile
+smb_copy id_fgrat id_eihost somepath id_fashare id_eihost id_ephost whatever id_flfile
+smb_copy id_fgrat id_eihost somepath id_fashare id_eihost id_ephost whatever id_fmfile
+smb_copy id_fgrat id_eihost somepath id_fashare id_eihost id_ephost whatever id_fnfile
+smb_copy id_fgrat id_eihost somepath id_fbshare id_eihost id_ebhost whatever id_fkfile
+smb_copy id_fgrat id_eihost somepath id_fbshare id_eihost id_ebhost whatever id_flfile
+smb_copy id_fgrat id_eihost somepath id_fbshare id_eihost id_ebhost whatever id_fmfile
+smb_copy id_fgrat id_eihost somepath id_fbshare id_eihost id_ebhost whatever id_fnfile
+smb_copy id_fgrat id_eihost somepath id_fbshare id_eihost id_ephost whatever id_fkfile
+smb_copy id_fgrat id_eihost somepath id_fbshare id_eihost id_ephost whatever id_flfile
+smb_copy id_fgrat id_eihost somepath id_fbshare id_eihost id_ephost whatever id_fmfile
+smb_copy id_fgrat id_eihost somepath id_fbshare id_eihost id_ephost whatever id_fnfile
+smb_copy id_fhrat id_ebhost somepath id_eyshare id_ebhost id_eihost whatever id_fkfile
+smb_copy id_fhrat id_ebhost somepath id_eyshare id_ebhost id_eihost whatever id_flfile
+smb_copy id_fhrat id_ebhost somepath id_eyshare id_ebhost id_eihost whatever id_fmfile
+smb_copy id_fhrat id_ebhost somepath id_eyshare id_ebhost id_eihost whatever id_fnfile
+smb_copy id_fhrat id_ebhost somepath id_eyshare id_ebhost id_ephost whatever id_fkfile
+smb_copy id_fhrat id_ebhost somepath id_eyshare id_ebhost id_ephost whatever id_flfile
+smb_copy id_fhrat id_ebhost somepath id_eyshare id_ebhost id_ephost whatever id_fmfile
+smb_copy id_fhrat id_ebhost somepath id_eyshare id_ebhost id_ephost whatever id_fnfile
+smb_copy id_fhrat id_ebhost somepath id_ezshare id_ebhost id_eihost whatever id_fkfile
+smb_copy id_fhrat id_ebhost somepath id_ezshare id_ebhost id_eihost whatever id_flfile
+smb_copy id_fhrat id_ebhost somepath id_ezshare id_ebhost id_eihost whatever id_fmfile
+smb_copy id_fhrat id_ebhost somepath id_ezshare id_ebhost id_eihost whatever id_fnfile
+smb_copy id_fhrat id_ebhost somepath id_ezshare id_ebhost id_ephost whatever id_fkfile
+smb_copy id_fhrat id_ebhost somepath id_ezshare id_ebhost id_ephost whatever id_flfile
+smb_copy id_fhrat id_ebhost somepath id_ezshare id_ebhost id_ephost whatever id_fmfile
+smb_copy id_fhrat id_ebhost somepath id_ezshare id_ebhost id_ephost whatever id_fnfile
+smb_copy id_fhrat id_ebhost somepath id_fashare id_ebhost id_eihost whatever id_fkfile
+smb_copy id_fhrat id_ebhost somepath id_fashare id_ebhost id_eihost whatever id_flfile
+smb_copy id_fhrat id_ebhost somepath id_fashare id_ebhost id_eihost whatever id_fmfile
+smb_copy id_fhrat id_ebhost somepath id_fashare id_ebhost id_eihost whatever id_fnfile
+smb_copy id_fhrat id_ebhost somepath id_fashare id_ebhost id_ephost whatever id_fkfile
+smb_copy id_fhrat id_ebhost somepath id_fashare id_ebhost id_ephost whatever id_flfile
+smb_copy id_fhrat id_ebhost somepath id_fashare id_ebhost id_ephost whatever id_fmfile
+smb_copy id_fhrat id_ebhost somepath id_fashare id_ebhost id_ephost whatever id_fnfile
+smb_copy id_fhrat id_ebhost somepath id_fbshare id_ebhost id_eihost whatever id_fkfile
+smb_copy id_fhrat id_ebhost somepath id_fbshare id_ebhost id_eihost whatever id_flfile
+smb_copy id_fhrat id_ebhost somepath id_fbshare id_ebhost id_eihost whatever id_fmfile
+smb_copy id_fhrat id_ebhost somepath id_fbshare id_ebhost id_eihost whatever id_fnfile
+smb_copy id_fhrat id_ebhost somepath id_fbshare id_ebhost id_ephost whatever id_fkfile
+smb_copy id_fhrat id_ebhost somepath id_fbshare id_ebhost id_ephost whatever id_flfile
+smb_copy id_fhrat id_ebhost somepath id_fbshare id_ebhost id_ephost whatever id_fmfile
+smb_copy id_fhrat id_ebhost somepath id_fbshare id_ebhost id_ephost whatever id_fnfile
+smb_copy id_firat id_ephost somepath id_eyshare id_ephost id_eihost whatever id_fkfile
+smb_copy id_firat id_ephost somepath id_eyshare id_ephost id_eihost whatever id_flfile
+smb_copy id_firat id_ephost somepath id_eyshare id_ephost id_eihost whatever id_fmfile
+smb_copy id_firat id_ephost somepath id_eyshare id_ephost id_eihost whatever id_fnfile
+smb_copy id_firat id_ephost somepath id_ezshare id_ephost id_eihost whatever id_fkfile
+smb_copy id_firat id_ephost somepath id_ezshare id_ephost id_eihost whatever id_flfile
+smb_copy id_firat id_ephost somepath id_ezshare id_ephost id_eihost whatever id_fmfile
+smb_copy id_firat id_ephost somepath id_ezshare id_ephost id_eihost whatever id_fnfile
+smb_copy id_firat id_ephost somepath id_fashare id_ephost id_eihost whatever id_fkfile
+smb_copy id_firat id_ephost somepath id_fashare id_ephost id_eihost whatever id_flfile
+smb_copy id_firat id_ephost somepath id_fashare id_ephost id_eihost whatever id_fmfile
+smb_copy id_firat id_ephost somepath id_fashare id_ephost id_eihost whatever id_fnfile
+smb_copy id_firat id_ephost somepath id_fbshare id_ephost id_eihost whatever id_fkfile
+smb_copy id_firat id_ephost somepath id_fbshare id_ephost id_eihost whatever id_flfile
+smb_copy id_firat id_ephost somepath id_fbshare id_ephost id_eihost whatever id_fmfile
+smb_copy id_firat id_ephost somepath id_fbshare id_ephost id_eihost whatever id_fnfile
+wmic id_ewrat id_duhost id_ebhost id_fkfile somepath id_brdomaincredential id_bqdomainuser id_adomain str__alpha str__bs id_fhrat
+wmic id_ewrat id_duhost id_ebhost id_flfile somepath id_brdomaincredential id_bqdomainuser id_adomain str__alpha str__bs id_fhrat
+wmic id_ewrat id_duhost id_ebhost id_fmfile somepath id_brdomaincredential id_bqdomainuser id_adomain str__alpha str__bs id_fhrat
+wmic id_ewrat id_duhost id_ebhost id_fnfile somepath id_brdomaincredential id_bqdomainuser id_adomain str__alpha str__bs id_fhrat
+wmic id_ewrat id_duhost id_eihost id_fkfile somepath id_cxdomaincredential id_cwdomainuser id_adomain str__alpha str__cy id_fgrat
+wmic id_ewrat id_duhost id_eihost id_flfile somepath id_cxdomaincredential id_cwdomainuser id_adomain str__alpha str__cy id_fgrat
+wmic id_ewrat id_duhost id_eihost id_fmfile somepath id_cxdomaincredential id_cwdomainuser id_adomain str__alpha str__cy id_fgrat
+wmic id_ewrat id_duhost id_eihost id_fnfile somepath id_cxdomaincredential id_cwdomainuser id_adomain str__alpha str__cy id_fgrat
+wmic id_ewrat id_duhost id_ephost id_fkfile somepath id_tdomaincredential id_sdomainuser id_adomain str__alpha str__u id_firat
+wmic id_ewrat id_duhost id_ephost id_flfile somepath id_tdomaincredential id_sdomainuser id_adomain str__alpha str__u id_firat
+wmic id_ewrat id_duhost id_ephost id_fmfile somepath id_tdomaincredential id_sdomainuser id_adomain str__alpha str__u id_firat
+wmic id_ewrat id_duhost id_ephost id_fnfile somepath id_tdomaincredential id_sdomainuser id_adomain str__alpha str__u id_firat
+wmic id_fgrat id_eihost id_ebhost id_fkfile somepath id_brdomaincredential id_bqdomainuser id_adomain str__alpha str__bs id_fhrat
+wmic id_fgrat id_eihost id_ebhost id_flfile somepath id_brdomaincredential id_bqdomainuser id_adomain str__alpha str__bs id_fhrat
+wmic id_fgrat id_eihost id_ebhost id_fmfile somepath id_brdomaincredential id_bqdomainuser id_adomain str__alpha str__bs id_fhrat
+wmic id_fgrat id_eihost id_ebhost id_fnfile somepath id_brdomaincredential id_bqdomainuser id_adomain str__alpha str__bs id_fhrat
+wmic id_fgrat id_eihost id_ephost id_fkfile somepath id_tdomaincredential id_sdomainuser id_adomain str__alpha str__u id_firat
+wmic id_fgrat id_eihost id_ephost id_flfile somepath id_tdomaincredential id_sdomainuser id_adomain str__alpha str__u id_firat
+wmic id_fgrat id_eihost id_ephost id_fmfile somepath id_tdomaincredential id_sdomainuser id_adomain str__alpha str__u id_firat
+wmic id_fgrat id_eihost id_ephost id_fnfile somepath id_tdomaincredential id_sdomainuser id_adomain str__alpha str__u id_firat
+wmic id_fhrat id_ebhost id_eihost id_fkfile somepath id_cxdomaincredential id_cwdomainuser id_adomain str__alpha str__cy id_fgrat
+wmic id_fhrat id_ebhost id_eihost id_flfile somepath id_cxdomaincredential id_cwdomainuser id_adomain str__alpha str__cy id_fgrat
+wmic id_fhrat id_ebhost id_eihost id_fmfile somepath id_cxdomaincredential id_cwdomainuser id_adomain str__alpha str__cy id_fgrat
+wmic id_fhrat id_ebhost id_eihost id_fnfile somepath id_cxdomaincredential id_cwdomainuser id_adomain str__alpha str__cy id_fgrat
+wmic id_fhrat id_ebhost id_ephost id_fkfile somepath id_tdomaincredential id_sdomainuser id_adomain str__alpha str__u id_firat
+wmic id_fhrat id_ebhost id_ephost id_flfile somepath id_tdomaincredential id_sdomainuser id_adomain str__alpha str__u id_firat
+wmic id_fhrat id_ebhost id_ephost id_fmfile somepath id_tdomaincredential id_sdomainuser id_adomain str__alpha str__u id_firat
+wmic id_fhrat id_ebhost id_ephost id_fnfile somepath id_tdomaincredential id_sdomainuser id_adomain str__alpha str__u id_firat
+wmic id_firat id_ephost id_eihost id_fkfile somepath id_cxdomaincredential id_cwdomainuser id_adomain str__alpha str__cy id_fgrat
+wmic id_firat id_ephost id_eihost id_flfile somepath id_cxdomaincredential id_cwdomainuser id_adomain str__alpha str__cy id_fgrat
+wmic id_firat id_ephost id_eihost id_fmfile somepath id_cxdomaincredential id_cwdomainuser id_adomain str__alpha str__cy id_fgrat
+wmic id_firat id_ephost id_eihost id_fnfile somepath id_cxdomaincredential id_cwdomainuser id_adomain str__alpha str__cy id_fgrat

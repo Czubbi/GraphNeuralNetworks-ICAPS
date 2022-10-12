@@ -1,0 +1,14 @@
+# !bin/zsh
+# This will generate sas file for a dmoain and problem 
+# It uses the runs folder and domain file
+source .venv/bin/activate
+
+# export DOMAIN_FILE_DEPOTS="useful-actions-dataset/depots/runs/optimal/p01-1-1-2-2-2-4/domain.pddl"
+
+# export RUNS_DIR_DEPOTS="useful-actions-dataset/depots/runs/optimal"
+export RUNS_DIR_SATELITE="useful-actions-dataset-main/satellite/runs/optimal"
+
+export RESULTS_FILE="results/sat_with_runs.csv"
+
+python ./src/subdominization-training/gen-subdom-rules.py --store_rules $RESULTS_FILE --rule_size 2 --runs $RUNS_DIR_SATELITE $DOMAIN_FILE_SATELITES
+# python ./src/subdominization-training/gen-subdom-rules.py --rule_size 2 --store_rules $RESULTS_FILE $DOMAIN_FILE_DEPOTS

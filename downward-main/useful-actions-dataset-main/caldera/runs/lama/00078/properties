@@ -1,0 +1,162 @@
+{
+  "abstained": 0,
+  "algorithm_nick": "fifo",
+  "build_options": [
+    "-j12"
+  ],
+  "component_options": [
+    "--translate-options",
+    "--grounding-action-queue-ordering",
+    "fifo"
+  ],
+  "compress-legacy-output-file_returncode": 0,
+  "compress-legacy-output-file_wall_clock_time": 0.002323150634765625,
+  "compress-output-sas_returncode": 0,
+  "compress-output-sas_wall_clock_time": 2.9635000228881836,
+  "config": "fifo",
+  "cost": 26.0,
+  "cost_all": [
+    26.0
+  ],
+  "coverage": 1,
+  "dead_ends": 9,
+  "dead_ends_all": [
+    9
+  ],
+  "domain": "caldera-sat18-adl",
+  "driver_options": [
+    "--search-time-limit",
+    "30m",
+    "--search-memory-limit",
+    "2G",
+    "--search-time-limit",
+    "30m",
+    "--search-memory-limit",
+    "4G",
+    "--overall-time-limit",
+    "30m",
+    "--overall-memory-limit",
+    "4G",
+    "--alias",
+    "lama-first"
+  ],
+  "error": "none",
+  "evaluated": 144,
+  "evaluated_all": [
+    144
+  ],
+  "evaluations": 288,
+  "evaluations_all": [
+    288
+  ],
+  "expansions": 134,
+  "expansions_all": [
+    134
+  ],
+  "experiment_name": "fifo-relaxed-solvable-plus-x",
+  "generated": 8915,
+  "generated_all": [
+    8915
+  ],
+  "global_revision": "f24b670501a4",
+  "id": [
+    "fifo",
+    "caldera-sat18-adl",
+    "p08.pddl"
+  ],
+  "id_string": "fifo:caldera-sat18-adl:p08.pddl",
+  "initial_h_values": {
+    "<missing>": [
+      17,
+      29
+    ]
+  },
+  "landmarks": 39,
+  "landmarks_generation_time": 1.98448,
+  "limit_search_memory": 4096,
+  "local_revision": "f24b670",
+  "log_size_in_kb": 10,
+  "memory": 92712,
+  "memory_capped": 92712,
+  "parse-preprocess_returncode": 0,
+  "parse-preprocess_wall_clock_time": 0.14211297035217285,
+  "parse-search_returncode": 0,
+  "parse-search_wall_clock_time": 0.1450200080871582,
+  "plan_length": 26,
+  "plan_length_all": [
+    26
+  ],
+  "planner_type": "single",
+  "preprocessor_axioms": 0,
+  "preprocessor_operators": 33973,
+  "problem": "p08.pddl",
+  "queue": "all.q",
+  "raw_memory": 92712,
+  "reopened": 0,
+  "reopened_all": [
+    0
+  ],
+  "repo": "/mnt/data_server/gnad/FD-Subdominization/",
+  "revision_summary": "f24b670501a4 (subdominization) tip",
+  "run-lab-default-parser_returncode": 0,
+  "run-lab-default-parser_wall_clock_time": 0.10963892936706543,
+  "run_dir": "runs-00001-00100/00078",
+  "score_evaluations": 88.52,
+  "score_expansions": 96.82,
+  "score_generated": 51.25,
+  "score_memory": 49.84,
+  "score_search_time": 81.53,
+  "score_total_time": 73.38,
+  "search_returncode": 0,
+  "search_time": 3.99299,
+  "search_time_all": [
+    3.99295
+  ],
+  "search_wall_clock_time": 75.95374417304993,
+  "total_time": 7.35411,
+  "translator_auxiliary_atoms": 14036,
+  "translator_axioms": 0,
+  "translator_derived_variables": 0,
+  "translator_effect_conditions_simplified": 0,
+  "translator_facts": 650,
+  "translator_final_queue_length": 147193,
+  "translator_goal_facts": 5,
+  "translator_implied_preconditions_added": 0,
+  "translator_mutex_groups": 0,
+  "translator_operators": 33973,
+  "translator_operators_removed": 0,
+  "translator_peak_memory": 1583644,
+  "translator_propositions_removed": 192,
+  "translator_relevant_atoms": 133157,
+  "translator_task_size": 858167,
+  "translator_time_building_dictionary_for_full_mutex_groups": 0.0,
+  "translator_time_building_mutex_information": 0.0,
+  "translator_time_building_strips_to_sas_dictionary": 0.0,
+  "translator_time_building_translation_key": 0.01,
+  "translator_time_checking_invariant_weight": 0.0,
+  "translator_time_choosing_groups": 0.0,
+  "translator_time_collecting_mutex_groups": 0.0,
+  "translator_time_completing_instantiation": 29.66,
+  "translator_time_computing_fact_groups": 0.88,
+  "translator_time_computing_model": 10.76,
+  "translator_time_detecting_unreachable_propositions": 5.32,
+  "translator_time_done": 66.16,
+  "translator_time_finding_invariants": 0.86,
+  "translator_time_generating_datalog_program": 0.01,
+  "translator_time_instantiating": 40.53,
+  "translator_time_instantiating_groups": 0.0,
+  "translator_time_normalizing_datalog_program": 0.03,
+  "translator_time_normalizing_task": 0.0,
+  "translator_time_parsing": 0.01,
+  "translator_time_preparing_model": 0.02,
+  "translator_time_processing_axioms": 0.51,
+  "translator_time_reordering_and_filtering_variables": 3.65,
+  "translator_time_simplifying_axioms": 0.0,
+  "translator_time_translating_task": 12.55,
+  "translator_time_writing_output": 2.96,
+  "translator_total_mutex_groups_size": 0,
+  "translator_total_queue_pushes": 1355347,
+  "translator_uncovered_facts": 553,
+  "translator_variables": 325,
+  "unsolvable": 0
+}

@@ -1,0 +1,10 @@
+calibrate satellite2 instrument2 star0
+calibrate satellite3 instrument7 groundstation2
+switch_on instrument2 satellite2
+switch_on instrument7 satellite3
+take_image satellite2 phenomenon5 instrument2 infrared0
+take_image satellite3 phenomenon5 instrument7 infrared0
+turn_to satellite2 phenomenon5 star0
+turn_to satellite3 phenomenon5 groundstation2
+turn_to satellite3 star1 groundstation2
+turn_to satellite3 star1 phenomenon5

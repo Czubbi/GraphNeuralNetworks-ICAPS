@@ -1,0 +1,12 @@
+creds id_bgrat id_zhost id_adomain
+get_admin id_bgrat id_shost id_adomain
+get_computers id_bgrat id_adomain
+get_domain id_bgrat id_zhost str__be
+net_use id_bgrat id_zhost id_shost str__x id_ddomaincredential str__e id_cdomainuser str__james id_adomain str__alpha id_bishare
+net_use id_bgrat id_zhost id_shost str__x id_ddomaincredential str__e id_cdomainuser str__james id_adomain str__alpha id_bjshare
+smb_copy id_bgrat id_zhost str__bh id_bishare id_zhost id_shost whatever id_bmfile
+smb_copy id_bgrat id_zhost str__bh id_bishare id_zhost id_shost whatever id_bnfile
+smb_copy id_bgrat id_zhost str__bh id_bjshare id_zhost id_shost whatever id_bmfile
+smb_copy id_bgrat id_zhost str__bh id_bjshare id_zhost id_shost whatever id_bnfile
+wmic id_bgrat id_zhost id_shost id_bmfile somepath id_ddomaincredential id_cdomainuser id_adomain str__alpha str__e id_bprat
+wmic id_bgrat id_zhost id_shost id_bnfile somepath id_ddomaincredential id_cdomainuser id_adomain str__alpha str__e id_bprat
