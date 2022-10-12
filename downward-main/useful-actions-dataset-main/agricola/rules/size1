@@ -1,0 +1,2116 @@
+ag__harvest_collect_end (?r, ?s) :- ini:drawcard_round(act_carrot, ?r).
+ag__harvest_collect_end (?r, ?s) :- ini:drawcard_round(act_grain, ?r).
+ag__harvest_collect_end (?r, ?s) :- ini:next_stage(_, ?s).
+ag__harvest_collect_end (?r, ?s) :- ini:drawcard_round(act_fences, ?r).
+ag__harvest_collect_end (?r, ?s) :- ini:category_round(?r, tnormal).
+ag__harvest_collect_end (?r, ?s) :- ini:current_stage(?s).
+ag__harvest_collect_end (?r, ?s) :- ini:harvest_phase(?s, harvest_end).
+ag__harvest_collect_end (?r, ?s) :- goal:harvest_phase(?s, harvest_end).
+ag__harvest_collect_end (?r, ?s) :- ini:next_round(?r, _).
+ag__harvest_collect_end (?r, ?s) :- ini:next_round(?r, ?r).
+ag__harvest_collect_end (?r, ?s) :- ini:next_stage(?s, _).
+ag__harvest_collect_end (?r, ?s) :- ini:drawcard_round(act_build, ?r).
+ag__harvest_collect_end (?r, ?s) :- ini:drawcard_round(act_plow, ?r).
+ag__harvest_collect_end (?r, ?s) :- ini:drawcard_round(act_boar, ?r).
+ag__harvest_collect_end (?r, ?s) :- ini:next_stage(?s, ?s).
+ag__harvest_collect_end (?r, ?s) :- ini:current_round(?r).
+ag__harvest_collect_end (?r, ?s) :- ini:harvest_phase(?s, harvest_breeding).
+ag__harvest_collect_end (?r, ?s) :- goal:harvest_phase(?s, harvest_breeding).
+ag__harvest_collect_end (?r, ?s) :- ini:drawcard_round(act_rest, ?r).
+ag__harvest_collect_end (?r, ?s) :- ini:drawcard_round(act_stone, ?r).
+ag__harvest_collect_end (?r, ?s) :- ini:drawcard_round(act_cattle, ?r).
+ag__harvest_collect_end (?r, ?s) :- ini:drawcard_round(act_sheep, ?r).
+ag__harvest_collect_end (?r, ?s) :- ini:next_round(_, ?r).
+ag__harvest_collect_end (?r, ?s) :- ini:harvest_phase(?s, _).
+ag__harvest_collect_end (?r, ?s) :- goal:harvest_phase(?s, _).
+ag__harvest_collect_end (?r, ?s) :- ini:drawcard_round(act_reed, ?r).
+ag__harvest_collect_end (?r, ?s) :- ini:drawcard_round(void, ?r).
+ag__harvest_collect_end (?r, ?s) :- ini:harvest_phase(?s, harvest_init).
+ag__harvest_collect_end (?r, ?s) :- goal:harvest_phase(?s, harvest_init).
+ag__harvest_collect_end (?r, ?s) :- ini:drawcard_round(act_family, ?r).
+ag__harvest_collect_end (?r, ?s) :- ini:harvest_phase(?s, harvest_feeding).
+ag__harvest_collect_end (?r, ?s) :- goal:harvest_phase(?s, harvest_feeding).
+ag__harvest_collect_end (?r, ?s) :- ini:drawcard_round(act_clay, ?r).
+ag__harvest_collect_end (?r, ?s) :- ini:drawcard_round(act_improve, ?r).
+ag__harvest_collect_end (?r, ?s) :- ini:category_round(?r, _).
+ag__harvest_collect_end (?r, ?s) :- ini:drawcard_round(_, ?r).
+ag__harvest_collect_end (?r, ?s) :- ini:drawcard_round(act_wood, ?r).
+ag__harvest_collect_end (?r, ?s) :- ini:category_round(?r, tharvest).
+ag__harvest_collect_end (?r, ?s) :- ini:drawcard_round(act_labor, ?r).
+ag__harvest_collect_end (?r, ?s) :- ini:drawcard_round(act_sow, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- equal:(?i1, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- equal:(?i1, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- equal:(?i2, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i3, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i2, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, num0, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i1, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i1, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i1, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_fences, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:category_round(?r, tnormal).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:current_stage(?s).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:harvest_phase(?s, harvest_end).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- goal:harvest_phase(?s, harvest_end).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(_, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i1, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_rest, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_boar, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i1, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i1, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(_, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i2, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:food_required(noworker, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i3, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_plow, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i3, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, num0, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i1, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i1, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_cattle, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, num0, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i1, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i2, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(num0, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, num0, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, num0, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i3, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i2, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i2, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_reed, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i2, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:food_required(_, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i2, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i3, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, num0, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:harvest_phase(?s, harvest_feeding).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- goal:harvest_phase(?s, harvest_feeding).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, num0, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i3, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, num0, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i1, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, _, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:category_round(?r, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(_, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_wood, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i1, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, _, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, num0, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i1, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, _, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:food_required(noworker, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i2, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_sow, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, num0, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i3, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_carrot, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, _, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i3, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i1, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_build, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, num0, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i3, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i1, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, num0, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i1, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i2, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i2, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, _, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i3, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i3, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i3, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_sheep, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, num0, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(num0, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i1, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, _, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i1, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:food_required(_, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, _, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, num0, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i3, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i2, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i3, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i3, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i3, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i2, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i3, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i2, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, _, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_food(?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, _, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, _, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i2, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i3, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i1, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i3, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:category_round(?r, tharvest).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i2, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(_, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i2, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_grain, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(_, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i1, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i3, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_stage(_, ?s).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i3, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(num0, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i2, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i2, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_round(?r, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_round(?r, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i2, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i2, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_stage(?s, ?s).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i3, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_stone, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i3, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, _, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(_, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_round(_, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_clay, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, num0, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, _, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i3, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i2, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i2, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i2, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, _, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i2, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i2, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, _, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, num0, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:harvest_phase(?s, harvest_init).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- goal:harvest_phase(?s, harvest_init).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i2, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, _, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i1, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i1, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(num0, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:food_required(_, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i2, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i3, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i2, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i2, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i1, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i3, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i1, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_food(?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i1, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, num0, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i3, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i3, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i3, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_stage(?s, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, _, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(num0, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i2, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, _, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i3, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, _, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i2, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, num0, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, _, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:current_round(?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:harvest_phase(?s, harvest_breeding).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- goal:harvest_phase(?s, harvest_breeding).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i1, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i1, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i2, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i3, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, _, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(num0, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i1, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, num0, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, num0, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:harvest_phase(?s, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- goal:harvest_phase(?s, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_food(?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i2, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i1, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(void, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i3, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i3, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i2, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_family, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i3, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_improve, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i1, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i2, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(_, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i1, _).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i1, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i1, num0).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_labor, ?r).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, num0, ?i3).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i1, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i1, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, _, ?i1).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i3, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:food_required(noworker, ?i2).
+ag__harvest_collecting_veg (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i1, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- equal:(?i1, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- equal:(?i1, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- equal:(?i2, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i3, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i2, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, num0, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i1, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i1, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i1, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_fences, ?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:category_round(?r, tnormal).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:current_stage(?s).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:harvest_phase(?s, harvest_end).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- goal:harvest_phase(?s, harvest_end).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(_, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i1, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_rest, ?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_boar, ?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i1, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i1, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(_, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i2, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:food_required(noworker, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i3, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_plow, ?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i3, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, num0, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i1, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i1, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_cattle, ?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, num0, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i1, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i2, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(num0, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, num0, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, num0, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i3, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i2, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i2, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_reed, ?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i2, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:food_required(_, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i2, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i3, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, num0, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:harvest_phase(?s, harvest_feeding).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- goal:harvest_phase(?s, harvest_feeding).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, num0, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i3, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, num0, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i1, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, _, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:category_round(?r, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(_, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_wood, ?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i1, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, _, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, num0, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i1, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, _, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:food_required(noworker, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i2, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_sow, ?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, num0, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i3, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_carrot, ?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, _, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i3, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i1, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_build, ?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, num0, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i3, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i1, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, num0, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i1, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i2, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i2, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, _, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i3, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i3, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i3, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_sheep, ?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, num0, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(num0, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i1, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, _, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i1, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:food_required(_, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, _, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, num0, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i3, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i2, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i3, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i3, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i3, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i2, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i3, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i2, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, _, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_food(?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, _, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, _, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i2, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i3, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i1, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i3, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:category_round(?r, tharvest).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i2, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(_, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i2, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_grain, ?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(_, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i1, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i3, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_stage(_, ?s).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i3, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(num0, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i2, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i2, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_round(?r, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_round(?r, ?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i2, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i2, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_stage(?s, ?s).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i3, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_stone, ?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i3, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, _, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(_, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_round(_, ?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_clay, ?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, num0, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, _, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i3, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i2, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i2, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i2, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, _, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i2, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i2, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, _, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, num0, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:harvest_phase(?s, harvest_init).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- goal:harvest_phase(?s, harvest_init).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i2, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, _, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i1, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i1, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(num0, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:food_required(_, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i2, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i3, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i2, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i2, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i1, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i3, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i1, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_food(?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i1, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, num0, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i3, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i3, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i3, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_stage(?s, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, _, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(num0, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i2, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, _, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i3, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, _, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i2, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, num0, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, _, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:current_round(?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:harvest_phase(?s, harvest_breeding).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- goal:harvest_phase(?s, harvest_breeding).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i1, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i1, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i2, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(?i3, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, _, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next2_num(num0, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i1, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, num0, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, num0, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:harvest_phase(?s, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- goal:harvest_phase(?s, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_food(?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i2, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, ?i1, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(void, ?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i3, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i3, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i2, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_family, ?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(num0, ?i3, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_improve, ?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i1, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i1, ?i2, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(_, ?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i1, _).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i1, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i1, num0).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:drawcard_round(act_labor, ?r).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, num0, ?i3).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(_, ?i1, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i1, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i3, _, ?i1).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:next_num(?i3, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:food_required(noworker, ?i2).
+ag__harvest_collecting_fromoven (?r, ?s, ?v, ?i1, ?i2, ?i3) :- ini:num_substract(?i2, ?i1, ?i2).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- equal:(?inow, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- equal:(?inow, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- equal:(?ifeed, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next2_num(?ifeed, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(num0, ?inow, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, _, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, num0, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:current_round(?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:drawcard_round(act_grain, ?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, ?ifeed, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:drawcard_round(act_fences, ?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:category_round(?r, tnormal).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:current_stage(?s).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:harvest_phase(?s, harvest_end).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- goal:harvest_phase(?s, harvest_end).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(num0, ?inow, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:food_required(?wmax, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:harvest_phase(?s, harvest_breeding).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- goal:harvest_phase(?s, harvest_breeding).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(_, num0, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, num0, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next2_num(?irest, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, _, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_food(?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_num(?inow, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_worker(?wmax, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_num(?inow, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(_, _, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, ?irest, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next2_num(?inow, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:drawcard_round(act_cattle, ?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, _, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, _, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:food_required(?wmax, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_food(?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_worker(?wmax, noworker).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(_, num0, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, ?irest, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next2_num(?ifeed, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, _, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, ?irest, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(num0, num0, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:drawcard_round(act_reed, ?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, ?irest, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, ?inow, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next2_num(num0, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(num0, num0, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, ?ifeed, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(_, ?inow, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next2_num(?irest, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(num0, ?irest, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_num(?irest, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(_, ?irest, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, ?inow, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_worker(_, ?wmax).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, ?inow, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:category_round(?r, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:drawcard_round(act_wood, ?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(_, ?inow, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_num(num0, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next2_num(?irest, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(num0, ?ifeed, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, ?ifeed, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, ?inow, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:drawcard_round(act_sow, ?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(num0, ?inow, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_num(?ifeed, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(num0, ?ifeed, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, ?ifeed, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:drawcard_round(act_carrot, ?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, _, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_num(_, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, ?irest, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, num0, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(num0, ?inow, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, ?inow, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_worker(noworker, ?wmax).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, _, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:drawcard_round(act_build, ?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(_, ?ifeed, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, ?inow, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, num0, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, ?ifeed, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, ?inow, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, ?ifeed, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(num0, ?ifeed, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, ?ifeed, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:drawcard_round(act_rest, ?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, ?inow, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, num0, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, num0, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, ?ifeed, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, ?ifeed, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:drawcard_round(act_sheep, ?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, ?inow, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_num(?irest, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, num0, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, _, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(_, ?irest, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:drawcard_round(act_boar, ?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, ?irest, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(num0, _, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, ?ifeed, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_num(?ifeed, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, ?irest, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:drawcard_round(act_clay, ?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(_, ?inow, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(_, _, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, ?inow, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, num0, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(_, ?irest, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next2_num(_, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:category_round(?r, tharvest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, _, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next2_num(?ifeed, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(_, ?irest, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, ?irest, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(num0, ?irest, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_num(?ifeed, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, ?inow, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next2_num(?ifeed, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, _, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_num(_, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, num0, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_stage(_, ?s).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(num0, _, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, ?inow, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_round(?r, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_round(?r, ?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_num(?inow, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:drawcard_round(act_plow, ?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(num0, ?ifeed, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:food_required(?wmax, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_stage(?s, ?s).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_num(?inow, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next2_num(?irest, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:food_required(_, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:drawcard_round(act_stone, ?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(num0, ?inow, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_round(_, ?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, num0, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(num0, ?ifeed, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, num0, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next2_num(?inow, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(_, ?ifeed, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:food_required(_, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_num(_, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, ?irest, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, ?irest, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, num0, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:food_required(noworker, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:food_required(?wmax, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next2_num(_, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(num0, ?irest, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:harvest_phase(?s, harvest_init).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- goal:harvest_phase(?s, harvest_init).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next2_num(_, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(_, _, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, num0, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:drawcard_round(act_labor, ?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_num(?irest, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_food(?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, num0, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(num0, ?irest, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, _, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, ?ifeed, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, _, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_worker(?wmax, ?wmax).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, _, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, ?ifeed, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(num0, ?irest, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, ?irest, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_stage(?s, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(_, ?irest, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:food_required(_, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:built_rooms(_, ?wmax).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, _, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_num(num0, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_num(?irest, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, ?irest, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(num0, _, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_num(num0, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, num0, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_num(?ifeed, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_num(?ifeed, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:current_worker(?wmax).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next2_num(?inow, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, _, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, ?irest, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(_, ?inow, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:harvest_phase(?s, harvest_feeding).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- goal:harvest_phase(?s, harvest_feeding).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, ?inow, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:food_required(noworker, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next2_num(num0, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(_, ?ifeed, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, ?ifeed, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:max_worker(?wmax).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:harvest_phase(?s, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- goal:harvest_phase(?s, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:food_required(?wmax, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next2_num(?ifeed, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next2_num(?inow, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_num(?irest, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next2_num(?inow, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:drawcard_round(void, ?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next2_num(?irest, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next2_num(num0, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:drawcard_round(act_family, ?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(_, num0, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:drawcard_round(act_improve, ?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, ?inow, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(_, ?ifeed, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(_, ?inow, _).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:drawcard_round(_, ?r).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?irest, ?irest, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:food_required(noworker, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:next_num(?inow, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, ?irest, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?ifeed, ?ifeed, ?inow).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(num0, num0, ?ifeed).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(_, ?ifeed, ?irest).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, ?ifeed, num0).
+ag__harvest_feed (?r, ?s, ?wmax, ?inow, ?ifeed, ?irest) :- ini:num_substract(?inow, ?inow, num0).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- equal:(?i, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(num0, _, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next2_num(num0, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:drawcard_round(act_grain, ?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:drawcard_round(act_fences, ?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:category_round(?r, tnormal).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:current_stage(?s).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:harvest_phase(?s, harvest_end).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- goal:harvest_phase(?s, harvest_end).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(_, ?i2, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i, num0, num0).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i2, num0, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:drawcard_round(act_boar, ?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next_num(?i, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next_num(_, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next_num(?i, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(_, num0, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:drawcard_round(act_cattle, ?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next2_num(num0, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(num0, num0, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next2_num(?i2, num0).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:drawcard_round(act_reed, ?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(num0, ?i2, num0).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i, ?i2, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i2, num0, _).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next_num(?i, num0).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next2_num(?i, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i, _, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:category_round(?r, _).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(num0, ?i, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:drawcard_round(act_wood, ?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:food_required(_, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i2, ?i2, _).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:drawcard_round(act_sow, ?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i2, num0, num0).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:drawcard_round(act_carrot, ?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i, _, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i2, _, num0).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(num0, ?i2, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next_num(_, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i, ?i, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next_num(?i, _).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_food(?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i2, _, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next2_num(?i2, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:drawcard_round(act_rest, ?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:drawcard_round(act_sheep, ?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i2, _, _).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(_, ?i, _).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:food_required(_, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(_, num0, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i, _, _).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(_, ?i2, _).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next_num(num0, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:drawcard_round(act_clay, ?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:food_required(noworker, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i, ?i, num0).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(_, ?i, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(_, ?i2, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i, ?i2, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next2_num(?i, num0).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next_stage(_, ?s).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next2_num(?i2, _).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next_round(?r, _).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next_round(?r, ?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next2_num(?i2, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:drawcard_round(act_build, ?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:drawcard_round(act_plow, ?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next_stage(?s, ?s).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(_, ?i, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_food(?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:drawcard_round(act_stone, ?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i, num0, _).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next2_num(_, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next_round(_, ?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i2, num0, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i2, ?i, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i, ?i2, num0).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next2_num(?i, _).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(num0, ?i2, _).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next_num(?i2, _).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i2, ?i2, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next_num(?i2, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i2, ?i2, num0).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(num0, _, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:harvest_phase(?s, harvest_init).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- goal:harvest_phase(?s, harvest_init).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next_num(?i2, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(_, ?i, num0).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i2, _, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:drawcard_round(act_labor, ?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(_, ?i2, num0).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i, num0, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(num0, ?i, _).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i, ?i, _).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i, num0, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i, _, num0).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next_stage(?s, _).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next_num(num0, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(num0, ?i, num0).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:current_round(?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:harvest_phase(?s, harvest_breeding).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- goal:harvest_phase(?s, harvest_breeding).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:harvest_phase(?s, harvest_feeding).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- goal:harvest_phase(?s, harvest_feeding).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(num0, ?i, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next_num(?i2, num0).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(_, _, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:category_round(?r, tharvest).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(num0, num0, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i, ?i2, _).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:harvest_phase(?s, _).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- goal:harvest_phase(?s, _).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i, ?i, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i2, ?i2, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next2_num(?i, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:drawcard_round(void, ?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(num0, ?i2, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:drawcard_round(act_family, ?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i2, ?i, num0).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:drawcard_round(act_improve, ?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(_, _, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i2, ?i, ?i2).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:drawcard_round(_, ?r).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:next2_num(_, ?i).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:num_substract(?i2, ?i, _).
+ag__harvest_breeding_animal (?r, ?s, ?a, ?i, ?i2) :- ini:food_required(noworker, ?i2).
+ag__harvest_breed_end (?r, ?s) :- ini:drawcard_round(act_carrot, ?r).
+ag__harvest_breed_end (?r, ?s) :- ini:drawcard_round(act_grain, ?r).
+ag__harvest_breed_end (?r, ?s) :- ini:next_stage(_, ?s).
+ag__harvest_breed_end (?r, ?s) :- ini:drawcard_round(act_fences, ?r).
+ag__harvest_breed_end (?r, ?s) :- ini:category_round(?r, tnormal).
+ag__harvest_breed_end (?r, ?s) :- ini:current_stage(?s).
+ag__harvest_breed_end (?r, ?s) :- ini:harvest_phase(?s, harvest_end).
+ag__harvest_breed_end (?r, ?s) :- goal:harvest_phase(?s, harvest_end).
+ag__harvest_breed_end (?r, ?s) :- ini:next_round(?r, _).
+ag__harvest_breed_end (?r, ?s) :- ini:next_round(?r, ?r).
+ag__harvest_breed_end (?r, ?s) :- ini:next_stage(?s, _).
+ag__harvest_breed_end (?r, ?s) :- ini:drawcard_round(act_build, ?r).
+ag__harvest_breed_end (?r, ?s) :- ini:drawcard_round(act_plow, ?r).
+ag__harvest_breed_end (?r, ?s) :- ini:drawcard_round(act_boar, ?r).
+ag__harvest_breed_end (?r, ?s) :- ini:next_stage(?s, ?s).
+ag__harvest_breed_end (?r, ?s) :- ini:current_round(?r).
+ag__harvest_breed_end (?r, ?s) :- ini:harvest_phase(?s, harvest_breeding).
+ag__harvest_breed_end (?r, ?s) :- goal:harvest_phase(?s, harvest_breeding).
+ag__harvest_breed_end (?r, ?s) :- ini:drawcard_round(act_rest, ?r).
+ag__harvest_breed_end (?r, ?s) :- ini:drawcard_round(act_stone, ?r).
+ag__harvest_breed_end (?r, ?s) :- ini:drawcard_round(act_cattle, ?r).
+ag__harvest_breed_end (?r, ?s) :- ini:drawcard_round(act_sheep, ?r).
+ag__harvest_breed_end (?r, ?s) :- ini:next_round(_, ?r).
+ag__harvest_breed_end (?r, ?s) :- ini:harvest_phase(?s, _).
+ag__harvest_breed_end (?r, ?s) :- goal:harvest_phase(?s, _).
+ag__harvest_breed_end (?r, ?s) :- ini:drawcard_round(act_reed, ?r).
+ag__harvest_breed_end (?r, ?s) :- ini:drawcard_round(void, ?r).
+ag__harvest_breed_end (?r, ?s) :- ini:harvest_phase(?s, harvest_init).
+ag__harvest_breed_end (?r, ?s) :- goal:harvest_phase(?s, harvest_init).
+ag__harvest_breed_end (?r, ?s) :- ini:drawcard_round(act_family, ?r).
+ag__harvest_breed_end (?r, ?s) :- ini:harvest_phase(?s, harvest_feeding).
+ag__harvest_breed_end (?r, ?s) :- goal:harvest_phase(?s, harvest_feeding).
+ag__harvest_breed_end (?r, ?s) :- ini:drawcard_round(act_clay, ?r).
+ag__harvest_breed_end (?r, ?s) :- ini:drawcard_round(act_improve, ?r).
+ag__harvest_breed_end (?r, ?s) :- ini:category_round(?r, _).
+ag__harvest_breed_end (?r, ?s) :- ini:drawcard_round(_, ?r).
+ag__harvest_breed_end (?r, ?s) :- ini:drawcard_round(act_wood, ?r).
+ag__harvest_breed_end (?r, ?s) :- ini:category_round(?r, tharvest).
+ag__harvest_breed_end (?r, ?s) :- ini:drawcard_round(act_labor, ?r).
+ag__harvest_breed_end (?r, ?s) :- ini:drawcard_round(act_sow, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:next_worker(?maxw, noworker).
+ag__finish_round_backhome (?r, ?maxw) :- ini:drawcard_round(act_carrot, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:next_worker(_, ?maxw).
+ag__finish_round_backhome (?r, ?maxw) :- ini:next_worker(?maxw, ?maxw).
+ag__finish_round_backhome (?r, ?maxw) :- ini:food_required(?maxw, num0).
+ag__finish_round_backhome (?r, ?maxw) :- ini:drawcard_round(act_grain, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:drawcard_round(act_fences, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:category_round(?r, tnormal).
+ag__finish_round_backhome (?r, ?maxw) :- ini:next_round(?r, _).
+ag__finish_round_backhome (?r, ?maxw) :- ini:next_round(?r, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:food_required(?maxw, _).
+ag__finish_round_backhome (?r, ?maxw) :- ini:drawcard_round(act_plow, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:drawcard_round(act_boar, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:current_round(?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:drawcard_round(act_rest, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:drawcard_round(act_stone, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:current_worker(?maxw).
+ag__finish_round_backhome (?r, ?maxw) :- ini:drawcard_round(act_cattle, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:drawcard_round(act_sheep, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:next_round(_, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:drawcard_round(act_build, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:drawcard_round(act_reed, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:drawcard_round(void, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:next_worker(noworker, ?maxw).
+ag__finish_round_backhome (?r, ?maxw) :- ini:drawcard_round(act_family, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:drawcard_round(act_clay, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:drawcard_round(act_improve, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:built_rooms(_, ?maxw).
+ag__finish_round_backhome (?r, ?maxw) :- ini:category_round(?r, _).
+ag__finish_round_backhome (?r, ?maxw) :- ini:next_worker(?maxw, _).
+ag__finish_round_backhome (?r, ?maxw) :- ini:drawcard_round(act_wood, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:drawcard_round(act_labor, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:category_round(?r, tharvest).
+ag__finish_round_backhome (?r, ?maxw) :- ini:drawcard_round(_, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:drawcard_round(act_sow, ?r).
+ag__finish_round_backhome (?r, ?maxw) :- ini:max_worker(?maxw).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- equal:(?maxw, ?newmax).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:next_worker(?maxw, noworker).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:drawcard_round(act_carrot, ?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:next_worker(?newmax, ?newmax).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:next_worker(_, ?maxw).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:next_worker(?maxw, ?maxw).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:food_required(?maxw, num0).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:drawcard_round(act_grain, ?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:food_required(?newmax, num0).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:drawcard_round(act_fences, ?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:category_round(?r, tnormal).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:next_worker(_, ?newmax).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:next_round(?r, _).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:next_round(?r, ?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:next_worker(?newmax, ?maxw).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:food_required(?maxw, _).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:drawcard_round(act_plow, ?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:drawcard_round(act_boar, ?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:current_worker(?newmax).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:next_worker(?newmax, _).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:current_round(?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:drawcard_round(act_rest, ?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:food_required(?newmax, _).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:current_worker(?maxw).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:drawcard_round(act_cattle, ?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:drawcard_round(act_sheep, ?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:next_round(_, ?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:drawcard_round(act_build, ?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:drawcard_round(act_improve, ?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:max_worker(?newmax).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:drawcard_round(act_stone, ?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:drawcard_round(act_reed, ?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:next_worker(?maxw, ?newmax).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:built_rooms(_, ?newmax).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:drawcard_round(void, ?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:next_worker(noworker, ?maxw).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:drawcard_round(act_family, ?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:drawcard_round(act_clay, ?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:next_worker(?newmax, noworker).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:built_rooms(_, ?maxw).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:category_round(?r, _).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:next_worker(?maxw, _).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:drawcard_round(act_wood, ?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:drawcard_round(act_labor, ?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:category_round(?r, tharvest).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:drawcard_round(_, ?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:drawcard_round(act_sow, ?r).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:next_worker(noworker, ?newmax).
+ag__finish_round_backhome_withchild (?r, ?maxw, ?newmax) :- ini:max_worker(?maxw).
+ag__finish_round_renew (?r, ?maxw) :- ini:next_worker(?maxw, noworker).
+ag__finish_round_renew (?r, ?maxw) :- ini:drawcard_round(act_carrot, ?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:next_worker(_, ?maxw).
+ag__finish_round_renew (?r, ?maxw) :- ini:next_worker(?maxw, ?maxw).
+ag__finish_round_renew (?r, ?maxw) :- ini:food_required(?maxw, num0).
+ag__finish_round_renew (?r, ?maxw) :- ini:drawcard_round(act_grain, ?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:drawcard_round(act_fences, ?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:category_round(?r, tnormal).
+ag__finish_round_renew (?r, ?maxw) :- ini:next_round(?r, _).
+ag__finish_round_renew (?r, ?maxw) :- ini:next_round(?r, ?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:food_required(?maxw, _).
+ag__finish_round_renew (?r, ?maxw) :- ini:drawcard_round(act_plow, ?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:drawcard_round(act_boar, ?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:current_round(?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:drawcard_round(act_rest, ?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:drawcard_round(act_stone, ?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:current_worker(?maxw).
+ag__finish_round_renew (?r, ?maxw) :- ini:drawcard_round(act_cattle, ?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:drawcard_round(act_sheep, ?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:next_round(_, ?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:drawcard_round(act_build, ?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:drawcard_round(act_reed, ?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:drawcard_round(void, ?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:next_worker(noworker, ?maxw).
+ag__finish_round_renew (?r, ?maxw) :- ini:drawcard_round(act_family, ?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:drawcard_round(act_clay, ?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:drawcard_round(act_improve, ?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:built_rooms(_, ?maxw).
+ag__finish_round_renew (?r, ?maxw) :- ini:category_round(?r, _).
+ag__finish_round_renew (?r, ?maxw) :- ini:next_worker(?maxw, _).
+ag__finish_round_renew (?r, ?maxw) :- ini:drawcard_round(act_wood, ?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:drawcard_round(act_labor, ?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:category_round(?r, tharvest).
+ag__finish_round_renew (?r, ?maxw) :- ini:drawcard_round(_, ?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:drawcard_round(act_sow, ?r).
+ag__finish_round_renew (?r, ?maxw) :- ini:max_worker(?maxw).
+ag__advance_round_normal (?r1, ?r2, ?act) :- equal:(?r1, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_family, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_labor, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:category_round(?r1, _).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:next_round(?r1, _).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:next_round(_, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_improve, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_rest, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_family, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_labor, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(_, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:open_action(?act).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(?act, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:supply_resource(?act, _).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_reed, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_wood, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_plow, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:available_action(?act).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_grain, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:supply_resource(?act, wood).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_build, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_sow, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_reed, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:supply_resource(?act, reed).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_wood, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_plow, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(void, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_clay, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(?act, _).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:next_round(?r2, _).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:category_round(?r1, tharvest).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_build, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_fences, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_boar, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(?act, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:category_round(?r2, tnormal).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_sheep, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_cattle, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_stone, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_grain, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_cattle, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_boar, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:next_round(?r1, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:next_round(_, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:supply_resource(?act, clay).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(_, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_carrot, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_fences, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_improve, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:next_round(?r2, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_rest, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:next_round(?r1, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:category_round(?r1, tnormal).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:current_round(?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_clay, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:current_round(?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_sow, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_sheep, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:category_round(?r2, _).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:supply_resource(?act, stone).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:next_round(?r2, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:category_round(?r2, tharvest).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_carrot, ?r1).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(act_stone, ?r2).
+ag__advance_round_normal (?r1, ?r2, ?act) :- ini:drawcard_round(void, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- equal:(?s1, ?s2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- equal:(?r1, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:next_round(_, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:harvest_phase(?s1, harvest_feeding).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- goal:harvest_phase(?s1, harvest_feeding).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:next_stage(?s1, _).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:harvest_phase(?s2, harvest_breeding).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- goal:harvest_phase(?s2, harvest_breeding).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:next_stage(_, ?s2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:next_stage(?s1, ?s1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:supply_resource(?act, reed).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:harvest_phase(?s2, harvest_end).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- goal:harvest_phase(?s2, harvest_end).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_boar, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_cattle, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_labor, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:next_round(?r1, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_fences, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:supply_resource(?act, _).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:category_round(?r1, tnormal).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_clay, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:category_round(?r2, _).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:next_stage(?s2, ?s2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:next_stage(?s2, ?s1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:category_round(?r2, tharvest).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_stone, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:next_round(?r1, _).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_reed, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_family, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_labor, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_clay, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:next_round(?r2, _).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:category_round(?r1, tharvest).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:harvest_phase(?s2, harvest_init).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- goal:harvest_phase(?s2, harvest_init).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_boar, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:harvest_phase(?s1, harvest_end).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- goal:harvest_phase(?s1, harvest_end).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:current_stage(?s2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(?act, _).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:next_round(?r2, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_cattle, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_improve, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_grain, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_build, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_family, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(void, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_rest, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_improve, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_plow, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:open_action(?act).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:next_stage(_, ?s1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:harvest_phase(?s2, _).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- goal:harvest_phase(?s2, _).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_reed, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_wood, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:available_action(?act).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:supply_resource(?act, wood).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_sow, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_wood, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_rest, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:category_round(?r2, tnormal).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_sheep, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:current_round(?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:next_round(_, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(_, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_carrot, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:next_round(?r1, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:current_round(?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_sow, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(_, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_carrot, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:harvest_phase(?s1, harvest_breeding).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- goal:harvest_phase(?s1, harvest_breeding).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:category_round(?r1, _).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:harvest_phase(?s2, harvest_feeding).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- goal:harvest_phase(?s2, harvest_feeding).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(?act, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:supply_resource(?act, clay).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_fences, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_grain, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_build, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(void, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:current_stage(?s1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_plow, ?r2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(?act, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:supply_resource(?act, stone).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:harvest_phase(?s1, harvest_init).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- goal:harvest_phase(?s1, harvest_init).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:harvest_phase(?s1, _).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- goal:harvest_phase(?s1, _).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:next_stage(?s2, _).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_sheep, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:next_round(?r2, ?r1).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:next_stage(?s1, ?s2).
+ag__finish_stage (?s1, ?s2, ?r1, ?r2, ?act) :- ini:drawcard_round(act_stone, ?r2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- equal:(?w1, ?w2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- equal:(?w1, ?wmax).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- equal:(?w2, ?wmax).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- equal:(?i1, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?wmax, ?w1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, _, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(?i1, num0).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_fences, ?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:category_round(?r, tnormal).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, ?i2, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?w1, ?w1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?w1, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_boar, ?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?w1, num0).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, ?i1, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(_, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(noworker, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?w2, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?wmax, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_plow, ?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, num0, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, ?i1, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_cattle, ?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:current_worker(?wmax).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?wmax, num0).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, ?i1, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?wmax, noworker).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(num0, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, num0, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(?i2, num0).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_reed, ?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, ?i2, num0).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, ?i2, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?wmax, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, num0, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?wmax, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?w1, ?w2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(_, ?wmax).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(_, ?w2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, ?i1, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, _, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:category_round(?r, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_wood, ?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, _, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(_, ?w1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, num0, num0).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, ?i1, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?w1, noworker).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?wmax, ?w2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?w2, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_sow, ?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(_, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, num0, num0).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:built_rooms(_, ?w1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_carrot, ?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(?i2, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(noworker, ?wmax).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_build, ?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, num0, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_food(?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, ?i1, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, num0, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, _, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_rest, ?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_sheep, ?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, num0, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, ?i1, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, _, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, ?i1, num0).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, _, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:max_worker(?wmax).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, _, num0).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, ?i2, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_clay, ?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, ?i2, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:max_worker(?w2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, _, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, ?i1, num0).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:category_round(?r, tharvest).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, ?i2, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(_, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?w2, ?w1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_grain, ?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(_, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(?i1, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?wmax, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, ?i2, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(num0, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, ?i2, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(noworker, ?w1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_round(?r, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_round(?r, ?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(?i2, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_stone, ?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?w2, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, _, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(_, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(?i2, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, num0, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, ?i2, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(?i2, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(?i2, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?w1, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:current_worker(?w2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?w2, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, ?i2, num0).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(?i1, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?w1, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_round(_, ?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, _, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, num0, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?w2, num0).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:built_rooms(_, ?w2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, ?i1, num0).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, ?i1, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(num0, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(_, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?w1, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, ?i2, num0).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, ?i2, num0).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, ?i1, num0).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_food(?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(?i1, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?wmax, ?wmax).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, num0, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?w2, noworker).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(num0, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, ?i2, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:built_rooms(_, ?wmax).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, _, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:current_round(?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?w2, ?wmax).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?w2, ?w2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(?i1, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(?i2, num0).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:max_worker(?w1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, _, num0).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(?i1, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, num0, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, ?i2, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(void, ?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, ?i2, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:current_worker(?w1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(?i2, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_family, ?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_improve, ?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, ?i1, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, ?i2, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(_, ?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(noworker, ?w2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, ?i1, _).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(?i1, num0).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_labor, ?r).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, ?i1, ?i1).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(?i1, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?w1, ?wmax).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(noworker, ?i2).
+take_food (?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, ?i1, ?i2).
+plow_field (?w1, ?w2, ?wmax, ?r) :- equal:(?w1, ?w2).
+plow_field (?w1, ?w2, ?wmax, ?r) :- equal:(?w1, ?wmax).
+plow_field (?w1, ?w2, ?wmax, ?r) :- equal:(?w2, ?wmax).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_carrot, ?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?wmax, ?w1).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?wmax, ?wmax).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_grain, ?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_fences, ?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:category_round(?r, tnormal).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w2, ?wmax).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_worker(noworker, ?wmax).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_worker(noworker, ?w1).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_round(?r, _).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_round(?r, ?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w2, noworker).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_build, ?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_plow, ?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_boar, ?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:food_required(?w1, num0).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_family, ?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:current_round(?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w1, ?w1).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?wmax, _).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_rest, ?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_stone, ?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_improve, ?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w2, ?w2).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w2, _).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_cattle, ?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_sheep, ?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:current_worker(?wmax).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_round(_, ?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:food_required(?wmax, num0).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:built_rooms(_, ?wmax).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?wmax, noworker).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:max_worker(?w1).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?wmax, ?w2).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:food_required(?w2, num0).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:max_worker(?wmax).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:food_required(?w1, _).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:current_worker(?w2).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:food_required(?w2, _).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(void, ?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:built_rooms(_, ?w1).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:current_worker(?w1).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:food_required(?wmax, _).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w1, _).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w1, ?w2).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_clay, ?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_reed, ?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_worker(_, ?wmax).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:built_rooms(_, ?w2).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_worker(_, ?w2).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:category_round(?r, _).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:max_worker(?w2).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_wood, ?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_worker(noworker, ?w2).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_worker(_, ?w1).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_labor, ?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w1, noworker).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:category_round(?r, tharvest).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(_, ?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_sow, ?r).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w2, ?w1).
+plow_field (?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w1, ?wmax).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- equal:(?w1, ?w2).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- equal:(?w1, ?wmax).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- equal:(?w2, ?wmax).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(_, ?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?wmax, ?w1).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_reed, ?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_carrot, ?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?wmax, ?wmax).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_grain, ?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_fences, ?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:category_round(?r, tnormal).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?w2, ?wmax).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(noworker, ?wmax).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(noworker, ?w1).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_round(?r, _).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_round(?r, ?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?w2, noworker).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_build, ?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_plow, ?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_boar, ?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:food_required(?w1, num0).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_family, ?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:current_round(?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?w1, ?w1).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?wmax, _).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_rest, ?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_stone, ?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_improve, ?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?w2, ?w2).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?w2, _).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_cattle, ?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_sheep, ?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:current_worker(?wmax).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_round(_, ?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:food_required(?wmax, num0).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:built_rooms(_, ?wmax).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?wmax, noworker).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:max_worker(?w1).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?wmax, ?w2).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:food_required(?w2, num0).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:max_worker(?wmax).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:built_rooms(_, ?w1).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:food_required(?w1, _).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:current_worker(?w2).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:food_required(?w2, _).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(void, ?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:current_worker(?w1).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:food_required(?wmax, _).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?w1, _).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?w1, ?w2).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_clay, ?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(_, ?wmax).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:built_rooms(_, ?w2).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(_, ?w2).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:category_round(?r, _).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:max_worker(?w2).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_wood, ?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(noworker, ?w2).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(_, ?w1).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_labor, ?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?w1, noworker).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:category_round(?r, tharvest).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_sow, ?r).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?w2, ?w1).
+take_grain (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?w1, ?wmax).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- equal:(?w1, ?w2).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- equal:(?w1, ?wmax).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- equal:(?w2, ?wmax).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_carrot, ?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?wmax, ?w1).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?wmax, ?wmax).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_grain, ?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_fences, ?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:category_round(?r, tnormal).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w2, ?wmax).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(noworker, ?wmax).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(noworker, ?w1).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_round(?r, _).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_round(?r, ?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w2, noworker).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:food_required(?w2, num0).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_build, ?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_plow, ?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_boar, ?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:food_required(?w1, num0).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_family, ?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:current_round(?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w1, ?w1).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?wmax, _).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_rest, ?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_stone, ?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w2, ?w2).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w2, _).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_cattle, ?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_sheep, ?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:current_worker(?wmax).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_round(_, ?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:food_required(?wmax, num0).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:built_rooms(_, ?wmax).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?wmax, noworker).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_improve, ?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:max_worker(?w1).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?wmax, ?w2).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:max_worker(?wmax).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:food_required(?w1, _).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:current_worker(?w2).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:food_required(?w2, _).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(void, ?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:built_rooms(_, ?w1).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:current_worker(?w1).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:food_required(?wmax, _).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w1, _).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w1, ?w2).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_clay, ?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_reed, ?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(_, ?wmax).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:built_rooms(_, ?w2).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(_, ?w2).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:category_round(?r, _).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:max_worker(?w2).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_wood, ?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(noworker, ?w2).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(_, ?w1).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_labor, ?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w1, noworker).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:category_round(?r, tharvest).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(_, ?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_sow, ?r).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w2, ?w1).
+build_fences (?a, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w1, ?wmax).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- equal:(?w1, ?w2).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- equal:(?w1, ?wmax).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- equal:(?w2, ?wmax).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_carrot, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?wmax, ?w1).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?wmax, ?wmax).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_grain, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_fences, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:category_round(?r, tnormal).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:open_action(?act).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w2, ?wmax).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(noworker, ?wmax).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(noworker, ?w1).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_round(?r, _).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_round(?r, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w2, noworker).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:food_required(?w2, num0).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:available_action(?act).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_plow, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_boar, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:food_required(?w1, num0).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_family, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:current_round(?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w1, ?w1).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?wmax, _).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_rest, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_stone, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w2, ?w2).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w2, _).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_cattle, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_sheep, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:current_worker(?wmax).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_round(_, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:food_required(?wmax, num0).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_build, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?wmax, noworker).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_improve, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:max_worker(?w1).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?wmax, ?w2).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:max_worker(?wmax).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:food_required(?w1, _).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(?act, _).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:current_worker(?w2).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:food_required(?w2, _).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(void, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:built_rooms(_, ?w1).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:current_worker(?w1).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:food_required(?wmax, _).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:built_rooms(_, ?wmax).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w1, _).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w1, ?w2).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_clay, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_reed, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(_, ?wmax).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:built_rooms(_, ?w2).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(_, ?w2).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:category_round(?r, _).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:max_worker(?w2).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_wood, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(noworker, ?w2).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(_, ?w1).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_labor, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(?act, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w1, noworker).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:category_round(?r, tharvest).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(_, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:drawcard_round(act_sow, ?r).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w2, ?w1).
+collect_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r) :- ini:next_worker(?w1, ?wmax).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- equal:(?w1, ?w2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- equal:(?w1, ?wmax).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- equal:(?w2, ?wmax).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- equal:(?i1, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?wmax, ?w1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, _, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(?i1, num0).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_fences, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:category_round(?r, tnormal).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, ?i2, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?w1, ?w1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?w1, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_boar, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?w1, num0).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, ?i1, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(_, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(noworker, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?w2, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?wmax, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_plow, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, num0, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, ?i1, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_cattle, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:current_worker(?wmax).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?wmax, num0).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, ?i1, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?wmax, noworker).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(num0, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, num0, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(?i2, num0).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_reed, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, ?i2, num0).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, ?i2, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?wmax, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, num0, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?wmax, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?w1, ?w2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(_, ?wmax).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(_, ?w2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, ?i1, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, _, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:category_round(?r, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_wood, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, _, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(_, ?w1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, num0, num0).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, ?i1, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?w1, noworker).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?wmax, ?w2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?w2, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_sow, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(_, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, num0, num0).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:built_rooms(_, ?w1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_carrot, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(?i2, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(noworker, ?wmax).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_build, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, num0, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_food(?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, ?i1, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, num0, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, _, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_rest, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_sheep, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, num0, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, ?i1, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, _, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, ?i1, num0).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, _, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:max_worker(?wmax).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, _, num0).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, ?i2, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(?act, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_clay, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, ?i2, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:open_action(?act).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:max_worker(?w2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, _, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, ?i1, num0).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:category_round(?r, tharvest).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, ?i2, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(_, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?w2, ?w1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_grain, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(_, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(?i1, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?wmax, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, ?i2, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(num0, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, ?i2, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(noworker, ?w1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_round(?r, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_round(?r, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(?i2, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:available_action(?act).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_stone, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?w2, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, _, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(_, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(?i2, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, num0, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, ?i2, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(?i2, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(?i2, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?w1, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:current_worker(?w2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?w2, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, ?i2, num0).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(?i1, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?w1, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_round(_, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, _, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, num0, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?w2, num0).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:built_rooms(_, ?w2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, ?i1, num0).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, ?i1, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(num0, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(_, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(?w1, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, ?i2, num0).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, ?i2, num0).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, ?i1, num0).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_food(?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(?i1, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?wmax, ?wmax).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, num0, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?w2, noworker).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(num0, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, ?i2, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:built_rooms(_, ?wmax).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, _, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:current_round(?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?w2, ?wmax).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?w2, ?w2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next2_num(?i1, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(?i2, num0).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:max_worker(?w1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, _, num0).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(?i1, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, num0, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, ?i2, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(void, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(num0, ?i2, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:current_worker(?w1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(?i2, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_family, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_improve, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, ?i1, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i1, ?i2, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(_, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(noworker, ?w2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, ?i1, _).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(?i1, num0).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(act_labor, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:drawcard_round(?act, ?r).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(_, ?i1, ?i1).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_num(?i1, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:next_worker(?w1, ?wmax).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:food_required(noworker, ?i2).
+collect_cook_animal (?a, ?act, ?w1, ?w2, ?wmax, ?r, ?i1, ?i2) :- ini:num_substract(?i2, ?i1, ?i2).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- equal:(?w1, ?w2).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- equal:(?w1, ?wmax).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- equal:(?w2, ?wmax).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:supply_resource(act_stone, ?res).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:drawcard_round(act_carrot, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_worker(?wmax, ?w1).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:supply_resource(?act, ?res).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_worker(?wmax, ?wmax).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:supply_resource(?act, reed).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:drawcard_round(act_grain, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:built_rooms(_, ?wmax).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:drawcard_round(act_fences, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:category_round(?r, tnormal).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:open_action(?act).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_worker(?w2, ?wmax).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_worker(noworker, ?wmax).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_worker(noworker, ?w1).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_round(?r, _).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_round(?r, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_worker(?w2, noworker).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:supply_resource(?act, clay).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:drawcard_round(act_build, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:available_action(?act).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:drawcard_round(act_plow, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:drawcard_round(act_boar, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:food_required(?w1, num0).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:drawcard_round(act_family, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:current_round(?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_worker(?w1, ?w1).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_worker(?wmax, _).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:drawcard_round(act_rest, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:drawcard_round(act_stone, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:drawcard_round(act_improve, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_worker(?w2, ?w2).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_worker(?w2, _).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:drawcard_round(act_cattle, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:drawcard_round(act_sheep, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:current_worker(?wmax).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_round(_, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:food_required(?wmax, num0).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:supply_resource(act_wood, ?res).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_worker(?wmax, noworker).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:max_worker(?w1).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_worker(?wmax, ?w2).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:food_required(?w2, num0).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:max_worker(?wmax).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:supply_resource(?act, wood).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:food_required(?w1, _).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:drawcard_round(?act, _).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:current_worker(?w2).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:food_required(?w2, _).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:drawcard_round(void, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:built_rooms(_, ?w1).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:current_worker(?w1).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:food_required(?wmax, _).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:supply_resource(?act, _).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_worker(?w1, _).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_worker(?w1, ?w2).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:drawcard_round(act_clay, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:drawcard_round(act_reed, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_worker(_, ?wmax).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:built_rooms(_, ?w2).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_worker(_, ?w2).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:category_round(?r, _).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:max_worker(?w2).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:supply_resource(_, ?res).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:drawcard_round(act_wood, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_worker(noworker, ?w2).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:supply_resource(?act, stone).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:supply_resource(act_clay, ?res).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_worker(_, ?w1).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:drawcard_round(act_labor, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:drawcard_round(?act, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_worker(?w1, noworker).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:category_round(?r, tharvest).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:drawcard_round(_, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:drawcard_round(act_sow, ?r).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_worker(?w2, ?w1).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:supply_resource(act_reed, ?res).
+collect_resource (?w1, ?w2, ?wmax, ?r, ?act, ?res) :- ini:next_worker(?w1, ?wmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- equal:(?w1, ?w2).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- equal:(?w1, ?wmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- equal:(?w1, ?wnewmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- equal:(?w2, ?wmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- equal:(?w2, ?wnewmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- equal:(?wmax, ?wnewmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?wmax, ?w1).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:drawcard_round(act_grain, ?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:drawcard_round(act_fences, ?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:category_round(?r, tnormal).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?w1, ?w1).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:drawcard_round(act_boar, ?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:food_required(?w1, num0).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?wnewmax, ?wmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?wmax, _).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:drawcard_round(act_plow, ?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:food_required(?wnewmax, _).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:drawcard_round(act_cattle, ?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:current_worker(?wmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:food_required(?wmax, num0).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?wmax, noworker).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:drawcard_round(act_reed, ?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:built_rooms(?room, ?wmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:built_rooms(?room, ?wnewmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:food_required(?wmax, _).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?w1, ?w2).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(_, ?wmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:max_worker(?wnewmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(_, ?w2).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:category_round(?r, _).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:drawcard_round(act_wood, ?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(_, ?w1).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?w1, noworker).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?wmax, ?w2).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:current_worker(?wnewmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:drawcard_round(act_sow, ?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:built_rooms(?room, _).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:built_rooms(?room, noworker).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:drawcard_round(act_carrot, ?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:built_rooms(_, ?wnewmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(noworker, ?wmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:drawcard_round(act_build, ?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:drawcard_round(act_rest, ?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(noworker, ?wnewmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:drawcard_round(act_sheep, ?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:drawcard_round(act_clay, ?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(_, ?wnewmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:max_worker(?w2).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:built_rooms(?room, ?w1).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:category_round(?r, tharvest).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?wnewmax, noworker).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?w2, ?w1).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:built_rooms(_, ?w1).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(noworker, ?w1).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_round(?r, _).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_round(?r, ?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?w1, ?wnewmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?wnewmax, ?w2).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:drawcard_round(act_stone, ?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?w2, _).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_round(_, ?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?wnewmax, ?wnewmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:food_required(?w1, _).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:current_worker(?w2).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:food_required(?w2, _).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?w1, _).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:food_required(?w2, num0).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:built_rooms(_, ?w2).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:food_required(?wnewmax, num0).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?wnewmax, _).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:drawcard_round(act_labor, ?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?w2, ?wnewmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:space_rooms(?room).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?wmax, ?wmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?w2, noworker).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:built_rooms(_, ?wmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:built_rooms(?room, ?w2).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:current_round(?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?w2, ?wmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?w2, ?w2).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:max_worker(?w1).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:max_worker(?wmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:drawcard_round(void, ?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:current_worker(?w1).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:drawcard_round(act_family, ?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:drawcard_round(act_improve, ?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?wnewmax, ?w1).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:drawcard_round(_, ?r).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(noworker, ?w2).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?wmax, ?wnewmax).
+build_room (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?room) :- ini:next_worker(?w1, ?wmax).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- equal:(?w1, ?w2).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- equal:(?w1, ?wmax).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- equal:(?w2, ?wmax).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:drawcard_round(act_carrot, ?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_worker(?wmax, ?w1).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_worker(?wmax, ?wmax).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:drawcard_round(act_grain, ?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:drawcard_round(act_fences, ?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:category_round(?r, tnormal).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_worker(?w2, ?wmax).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_worker(noworker, ?wmax).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_worker(noworker, ?w1).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_round(?r, _).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_round(?r, ?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_worker(?w2, noworker).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:drawcard_round(act_build, ?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:drawcard_round(act_plow, ?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:drawcard_round(act_boar, ?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:food_required(?w1, num0).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:drawcard_round(act_family, ?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:current_round(?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_worker(?w1, ?w1).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_worker(?wmax, _).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:drawcard_round(act_rest, ?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:drawcard_round(act_stone, ?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:drawcard_round(act_improve, ?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_worker(?w2, ?w2).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_worker(?w2, _).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:drawcard_round(act_cattle, ?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:drawcard_round(act_sheep, ?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:current_worker(?wmax).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_round(_, ?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:food_required(?wmax, num0).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:built_rooms(_, ?wmax).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_worker(?wmax, noworker).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:max_worker(?w1).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_worker(?wmax, ?w2).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:food_required(?w2, num0).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:max_worker(?wmax).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:food_required(?w1, _).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:current_worker(?w2).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:food_required(?w2, _).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:drawcard_round(void, ?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:built_rooms(_, ?w1).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:current_worker(?w1).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:food_required(?wmax, _).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_worker(?w1, _).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_worker(?w1, ?w2).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:drawcard_round(act_clay, ?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:drawcard_round(act_reed, ?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_worker(_, ?wmax).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:built_rooms(_, ?w2).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_worker(_, ?w2).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:category_round(?r, _).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:max_worker(?w2).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:drawcard_round(act_wood, ?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_worker(noworker, ?w2).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_worker(_, ?w1).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:drawcard_round(act_labor, ?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_worker(?w1, noworker).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:category_round(?r, tharvest).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:drawcard_round(_, ?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:drawcard_round(act_sow, ?r).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_worker(?w2, ?w1).
+improve_home (?w1, ?w2, ?wmax, ?r, ?imp) :- ini:next_worker(?w1, ?wmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- equal:(?w1, ?w2).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- equal:(?w1, ?wmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- equal:(?w1, ?wnewmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- equal:(?w2, ?wmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- equal:(?w2, ?wnewmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- equal:(?wmax, ?wnewmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?wmax, ?w1).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:drawcard_round(act_grain, ?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:drawcard_round(act_fences, ?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:category_round(?r, tnormal).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?w1, ?w1).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:drawcard_round(act_boar, ?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:food_required(?w1, num0).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?wnewmax, ?wmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?wmax, _).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:drawcard_round(act_plow, ?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:food_required(?wnewmax, _).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:drawcard_round(act_cattle, ?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:current_worker(?wmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:food_required(?wmax, num0).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?wmax, noworker).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:drawcard_round(act_reed, ?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:built_rooms(?room, ?wmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:built_rooms(?room, ?wnewmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:food_required(?wmax, _).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?w1, ?w2).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(_, ?wmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:max_worker(?wnewmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(_, ?w2).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:category_round(?r, _).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:drawcard_round(act_wood, ?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(_, ?w1).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:supply_resource(_, ?res).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?w1, noworker).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?wmax, ?w2).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:current_worker(?wnewmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:drawcard_round(act_sow, ?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:built_rooms(?room, _).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:built_rooms(?room, noworker).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:drawcard_round(act_carrot, ?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:built_rooms(_, ?wnewmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:supply_resource(act_clay, ?res).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(noworker, ?wmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:drawcard_round(act_build, ?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:drawcard_round(act_rest, ?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(noworker, ?wnewmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:drawcard_round(act_sheep, ?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:max_worker(?wmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:drawcard_round(act_clay, ?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(_, ?wnewmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:max_worker(?w2).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:built_rooms(?room, ?w1).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:category_round(?r, tharvest).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?wnewmax, noworker).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?w2, ?w1).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:supply_resource(act_stone, ?res).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:built_rooms(_, ?w1).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(noworker, ?w1).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_round(?r, _).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_round(?r, ?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?w1, ?wnewmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?wnewmax, ?w2).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:drawcard_round(act_stone, ?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?w2, _).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_round(_, ?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?wnewmax, ?wnewmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:food_required(?w1, _).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:current_worker(?w2).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:food_required(?w2, _).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?w1, _).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:food_required(?w2, num0).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:built_rooms(_, ?w2).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:food_required(?wnewmax, num0).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?wnewmax, _).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:drawcard_round(act_labor, ?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?w2, ?wnewmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:space_rooms(?room).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?wmax, ?wmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?w2, noworker).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:built_rooms(_, ?wmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:built_rooms(?room, ?w2).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:current_round(?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?w2, ?wmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?w2, ?w2).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:supply_resource(act_wood, ?res).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:max_worker(?w1).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:drawcard_round(void, ?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:current_worker(?w1).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:drawcard_round(act_family, ?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:drawcard_round(act_improve, ?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?wnewmax, ?w1).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:drawcard_round(_, ?r).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(noworker, ?w2).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?wmax, ?wnewmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:next_worker(?w1, ?wmax).
+family_growth (?w1, ?w2, ?wmax, ?wnewmax, ?r, ?res, ?room) :- ini:supply_resource(act_reed, ?res).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- equal:(?w1, ?w2).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- equal:(?w1, ?wmax).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- equal:(?w2, ?wmax).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(_, ?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?wmax, ?w1).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_reed, ?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_carrot, ?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?wmax, ?wmax).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_grain, ?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_fences, ?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:category_round(?r, tnormal).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?w2, ?wmax).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(noworker, ?wmax).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(noworker, ?w1).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_round(?r, _).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_round(?r, ?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?w2, noworker).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_build, ?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_plow, ?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_boar, ?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:food_required(?w1, num0).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_family, ?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:current_round(?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?w1, ?w1).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?wmax, _).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_rest, ?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_stone, ?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_improve, ?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?w2, ?w2).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?w2, _).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_cattle, ?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_sheep, ?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:current_worker(?wmax).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_round(_, ?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:food_required(?wmax, num0).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:built_rooms(_, ?wmax).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?wmax, noworker).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:max_worker(?w1).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?wmax, ?w2).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:food_required(?w2, num0).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:max_worker(?wmax).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:built_rooms(_, ?w1).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:food_required(?w1, _).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:current_worker(?w2).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:food_required(?w2, _).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(void, ?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:current_worker(?w1).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:food_required(?wmax, _).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?w1, _).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?w1, ?w2).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_clay, ?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(_, ?wmax).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:built_rooms(_, ?w2).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(_, ?w2).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:category_round(?r, _).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:max_worker(?w2).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_wood, ?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(noworker, ?w2).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(_, ?w1).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_labor, ?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?w1, noworker).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:category_round(?r, tharvest).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:drawcard_round(act_sow, ?r).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?w2, ?w1).
+sow (?w1, ?w2, ?wmax, ?r, ?v) :- ini:next_worker(?w1, ?wmax).

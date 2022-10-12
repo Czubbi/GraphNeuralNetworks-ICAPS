@@ -1,0 +1,2 @@
+turn_to (?s, ?d_new, ?d_prev) :- goal:have_image(?d_new, ?mode); ini:supports(?instrument, ?mode); ini:on_board(?instrument, ?s).
+turn_to (?s, ?d_new, ?d_prev) :- ini:calibration_target(?i, ?d_new); ini:on_board(?i, ?s).

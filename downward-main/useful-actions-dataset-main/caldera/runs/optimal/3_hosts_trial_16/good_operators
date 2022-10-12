@@ -1,0 +1,52 @@
+creds id_bvrat id_bhhost id_adomain
+creds id_bxrat id_bahost id_adomain
+get_admin id_bvrat id_bahost id_adomain
+get_admin id_bvrat id_bohost id_adomain
+get_admin id_bxrat id_bohost id_adomain
+get_computers id_bvrat id_adomain
+get_domain id_bvrat id_bhhost str__bn
+net_use id_bvrat id_bhhost id_bahost str__bg id_xdomaincredential str__y id_wdomainuser str__linda id_adomain str__alpha id_cashare
+net_use id_bvrat id_bhhost id_bahost str__bg id_xdomaincredential str__y id_wdomainuser str__linda id_adomain str__alpha id_cbshare
+net_use id_bvrat id_bhhost id_bahost str__bg id_xdomaincredential str__y id_wdomainuser str__linda id_adomain str__alpha id_ccshare
+net_use id_bvrat id_bhhost id_bohost str__bu id_tdomaincredential str__u id_sdomainuser str__robert id_adomain str__alpha id_cashare
+net_use id_bvrat id_bhhost id_bohost str__bu id_tdomaincredential str__u id_sdomainuser str__robert id_adomain str__alpha id_cbshare
+net_use id_bvrat id_bhhost id_bohost str__bu id_tdomaincredential str__u id_sdomainuser str__robert id_adomain str__alpha id_ccshare
+net_use id_bxrat id_bahost id_bohost str__bu id_tdomaincredential str__u id_sdomainuser str__robert id_adomain str__alpha id_cashare
+net_use id_bxrat id_bahost id_bohost str__bu id_tdomaincredential str__u id_sdomainuser str__robert id_adomain str__alpha id_cbshare
+net_use id_bxrat id_bahost id_bohost str__bu id_tdomaincredential str__u id_sdomainuser str__robert id_adomain str__alpha id_ccshare
+smb_copy id_bvrat id_bhhost str__bw id_cashare id_bhhost id_bahost whatever id_cdfile
+smb_copy id_bvrat id_bhhost str__bw id_cashare id_bhhost id_bahost whatever id_cefile
+smb_copy id_bvrat id_bhhost str__bw id_cashare id_bhhost id_bahost whatever id_cffile
+smb_copy id_bvrat id_bhhost str__bw id_cashare id_bhhost id_bohost whatever id_cdfile
+smb_copy id_bvrat id_bhhost str__bw id_cashare id_bhhost id_bohost whatever id_cefile
+smb_copy id_bvrat id_bhhost str__bw id_cashare id_bhhost id_bohost whatever id_cffile
+smb_copy id_bvrat id_bhhost str__bw id_cbshare id_bhhost id_bahost whatever id_cdfile
+smb_copy id_bvrat id_bhhost str__bw id_cbshare id_bhhost id_bahost whatever id_cefile
+smb_copy id_bvrat id_bhhost str__bw id_cbshare id_bhhost id_bahost whatever id_cffile
+smb_copy id_bvrat id_bhhost str__bw id_cbshare id_bhhost id_bohost whatever id_cdfile
+smb_copy id_bvrat id_bhhost str__bw id_cbshare id_bhhost id_bohost whatever id_cefile
+smb_copy id_bvrat id_bhhost str__bw id_cbshare id_bhhost id_bohost whatever id_cffile
+smb_copy id_bvrat id_bhhost str__bw id_ccshare id_bhhost id_bahost whatever id_cdfile
+smb_copy id_bvrat id_bhhost str__bw id_ccshare id_bhhost id_bahost whatever id_cefile
+smb_copy id_bvrat id_bhhost str__bw id_ccshare id_bhhost id_bahost whatever id_cffile
+smb_copy id_bvrat id_bhhost str__bw id_ccshare id_bhhost id_bohost whatever id_cdfile
+smb_copy id_bvrat id_bhhost str__bw id_ccshare id_bhhost id_bohost whatever id_cefile
+smb_copy id_bvrat id_bhhost str__bw id_ccshare id_bhhost id_bohost whatever id_cffile
+smb_copy id_bxrat id_bahost somepath id_cashare id_bahost id_bohost whatever id_cdfile
+smb_copy id_bxrat id_bahost somepath id_cashare id_bahost id_bohost whatever id_cefile
+smb_copy id_bxrat id_bahost somepath id_cashare id_bahost id_bohost whatever id_cffile
+smb_copy id_bxrat id_bahost somepath id_cbshare id_bahost id_bohost whatever id_cdfile
+smb_copy id_bxrat id_bahost somepath id_cbshare id_bahost id_bohost whatever id_cefile
+smb_copy id_bxrat id_bahost somepath id_cbshare id_bahost id_bohost whatever id_cffile
+smb_copy id_bxrat id_bahost somepath id_ccshare id_bahost id_bohost whatever id_cdfile
+smb_copy id_bxrat id_bahost somepath id_ccshare id_bahost id_bohost whatever id_cefile
+smb_copy id_bxrat id_bahost somepath id_ccshare id_bahost id_bohost whatever id_cffile
+wmic id_bvrat id_bhhost id_bahost id_cdfile somepath id_xdomaincredential id_wdomainuser id_adomain str__alpha str__y id_bxrat
+wmic id_bvrat id_bhhost id_bahost id_cefile somepath id_xdomaincredential id_wdomainuser id_adomain str__alpha str__y id_bxrat
+wmic id_bvrat id_bhhost id_bahost id_cffile somepath id_xdomaincredential id_wdomainuser id_adomain str__alpha str__y id_bxrat
+wmic id_bvrat id_bhhost id_bohost id_cdfile somepath id_tdomaincredential id_sdomainuser id_adomain str__alpha str__u id_byrat
+wmic id_bvrat id_bhhost id_bohost id_cefile somepath id_tdomaincredential id_sdomainuser id_adomain str__alpha str__u id_byrat
+wmic id_bvrat id_bhhost id_bohost id_cffile somepath id_tdomaincredential id_sdomainuser id_adomain str__alpha str__u id_byrat
+wmic id_bxrat id_bahost id_bohost id_cdfile somepath id_tdomaincredential id_sdomainuser id_adomain str__alpha str__u id_byrat
+wmic id_bxrat id_bahost id_bohost id_cefile somepath id_tdomaincredential id_sdomainuser id_adomain str__alpha str__u id_byrat
+wmic id_bxrat id_bahost id_bohost id_cffile somepath id_tdomaincredential id_sdomainuser id_adomain str__alpha str__u id_byrat

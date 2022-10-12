@@ -1,0 +1,8 @@
+get_admin :- ini:prop_executable(?arg0,_) 0.227692;  0.642202
+get_domain :- ini:prop_executable(?arg0,_) 0.003077;  0.357798
+creds :- ini:prop_executable(?arg0,_) 0.024615;  0.357798
+net_time :-  0.000734
+smb_copy :- ini:prop_executable(?arg0,?arg2) 0.061939;  0.203994
+get_computers :- ini:prop_executable(?arg0,_) 0.009174;  0.975000
+net_use :- ini:mem_domain_user_admins(?arg2,?arg6) 0.000091; ini:prop_fqdn(?arg1,?arg3) 0.122653;  0.000473
+wmic :- ini:mem_domain_user_admins(?arg2,?arg6) 0.000021;  0.019148

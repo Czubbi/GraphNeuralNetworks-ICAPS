@@ -1,0 +1,67 @@
+turn_to (?s, ?d_new, ?d_prev) :- equal:(?d_new, ?d_prev).
+turn_to (?s, ?d_new, ?d_prev) :- goal:have_image(?d_prev, _).
+turn_to (?s, ?d_new, ?d_prev) :- ini:pointing(?s, ?d_prev).
+turn_to (?s, ?d_new, ?d_prev) :- goal:pointing(?s, ?d_prev).
+turn_to (?s, ?d_new, ?d_prev) :- ini:pointing(_, ?d_new).
+turn_to (?s, ?d_new, ?d_prev) :- goal:pointing(_, ?d_new).
+turn_to (?s, ?d_new, ?d_prev) :- ini:calibration_target(_, ?d_prev).
+turn_to (?s, ?d_new, ?d_prev) :- ini:calibration_target(_, ?d_new).
+turn_to (?s, ?d_new, ?d_prev) :- ini:power_avail(?s).
+turn_to (?s, ?d_new, ?d_prev) :- ini:pointing(_, ?d_prev).
+turn_to (?s, ?d_new, ?d_prev) :- goal:pointing(_, ?d_prev).
+turn_to (?s, ?d_new, ?d_prev) :- goal:have_image(?d_new, _).
+turn_to (?s, ?d_new, ?d_prev) :- ini:pointing(?s, ?d_new).
+turn_to (?s, ?d_new, ?d_prev) :- goal:pointing(?s, ?d_new).
+turn_to (?s, ?d_new, ?d_prev) :- ini:on_board(_, ?s).
+turn_to (?s, ?d_new, ?d_prev) :- ini:pointing(?s, _).
+turn_to (?s, ?d_new, ?d_prev) :- goal:pointing(?s, _).
+switch_on (?i, ?s) :- ini:on_board(?i, ?s).
+switch_on (?i, ?s) :- ini:supports(?i, _).
+switch_on (?i, ?s) :- ini:pointing(?s, _).
+switch_on (?i, ?s) :- goal:pointing(?s, _).
+switch_on (?i, ?s) :- ini:on_board(_, ?s).
+switch_on (?i, ?s) :- ini:on_board(?i, _).
+switch_on (?i, ?s) :- ini:power_avail(?s).
+switch_on (?i, ?s) :- ini:calibration_target(?i, _).
+switch_off (?i, ?s) :- ini:on_board(?i, ?s).
+switch_off (?i, ?s) :- ini:supports(?i, _).
+switch_off (?i, ?s) :- ini:pointing(?s, _).
+switch_off (?i, ?s) :- goal:pointing(?s, _).
+switch_off (?i, ?s) :- ini:on_board(_, ?s).
+switch_off (?i, ?s) :- ini:on_board(?i, _).
+switch_off (?i, ?s) :- ini:power_avail(?s).
+switch_off (?i, ?s) :- ini:calibration_target(?i, _).
+calibrate (?s, ?i, ?d) :- ini:on_board(?i, ?s).
+calibrate (?s, ?i, ?d) :- goal:have_image(?d, _).
+calibrate (?s, ?i, ?d) :- ini:supports(?i, _).
+calibrate (?s, ?i, ?d) :- ini:on_board(?i, _).
+calibrate (?s, ?i, ?d) :- ini:calibration_target(_, ?d).
+calibrate (?s, ?i, ?d) :- ini:power_avail(?s).
+calibrate (?s, ?i, ?d) :- ini:calibration_target(?i, ?d).
+calibrate (?s, ?i, ?d) :- ini:pointing(?s, ?d).
+calibrate (?s, ?i, ?d) :- goal:pointing(?s, ?d).
+calibrate (?s, ?i, ?d) :- ini:on_board(_, ?s).
+calibrate (?s, ?i, ?d) :- ini:pointing(_, ?d).
+calibrate (?s, ?i, ?d) :- goal:pointing(_, ?d).
+calibrate (?s, ?i, ?d) :- ini:pointing(?s, _).
+calibrate (?s, ?i, ?d) :- goal:pointing(?s, _).
+calibrate (?s, ?i, ?d) :- ini:calibration_target(?i, _).
+take_image (?s, ?d, ?i, ?m) :- ini:on_board(?i, ?s).
+take_image (?s, ?d, ?i, ?m) :- goal:have_image(?d, _).
+take_image (?s, ?d, ?i, ?m) :- ini:supports(_, ?m).
+take_image (?s, ?d, ?i, ?m) :- ini:supports(?i, _).
+take_image (?s, ?d, ?i, ?m) :- ini:supports(?i, ?m).
+take_image (?s, ?d, ?i, ?m) :- ini:on_board(?i, _).
+take_image (?s, ?d, ?i, ?m) :- goal:have_image(?d, ?m).
+take_image (?s, ?d, ?i, ?m) :- ini:calibration_target(_, ?d).
+take_image (?s, ?d, ?i, ?m) :- ini:power_avail(?s).
+take_image (?s, ?d, ?i, ?m) :- ini:calibration_target(?i, ?d).
+take_image (?s, ?d, ?i, ?m) :- ini:pointing(?s, ?d).
+take_image (?s, ?d, ?i, ?m) :- goal:pointing(?s, ?d).
+take_image (?s, ?d, ?i, ?m) :- ini:on_board(_, ?s).
+take_image (?s, ?d, ?i, ?m) :- ini:pointing(_, ?d).
+take_image (?s, ?d, ?i, ?m) :- goal:pointing(_, ?d).
+take_image (?s, ?d, ?i, ?m) :- ini:calibration_target(?i, _).
+take_image (?s, ?d, ?i, ?m) :- ini:pointing(?s, _).
+take_image (?s, ?d, ?i, ?m) :- goal:pointing(?s, _).
+take_image (?s, ?d, ?i, ?m) :- goal:have_image(_, ?m).

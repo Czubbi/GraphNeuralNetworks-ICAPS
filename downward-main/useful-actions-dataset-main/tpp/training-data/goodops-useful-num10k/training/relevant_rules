@@ -1,0 +1,43 @@
+buy (?t, ?g, ?m, ?l1, ?l2, ?l3, ?l4) :- equal:(?l2, ?l3).
+buy (?t, ?g, ?m, ?l1, ?l2, ?l3, ?l4) :- ini:next(?fv0, ?l2);ini:on-sale(?fv1, ?m, ?l2);goal:stored(?fv1, ?fv0).
+drive (?t, ?from, ?to) :- ini:at(?fv0, ?fv1);ini:connected(?from, ?fv1);ini:loaded(_, ?fv0, ?fv2);ini:ready-to-load(_, ?to, ?fv2).
+drive (?t, ?from, ?to) :- ini:at(?fv0, ?fv1);ini:connected(?fv1, ?from);ini:loaded(_, ?fv0, ?fv2);ini:on-sale(_, ?from, ?fv2).
+drive (?t, ?from, ?to) :- ini:at(?fv0, ?fv1);ini:connected(?fv1, ?to);ini:loaded(_, ?fv0, ?fv2);ini:on-sale(_, ?from, ?fv2).
+drive (?t, ?from, ?to) :- ini:at(?t, ?fv0);ini:connected(?fv0, ?fv1);ini:connected(?fv1, ?fv2);ini:connected(?to, ?fv2).
+drive (?t, ?from, ?to) :- ini:at(?t, ?fv0);ini:connected(?fv0, ?fv1);ini:on-sale(_, ?fv1, ?fv2);goal:stored(_, ?fv2).
+drive (?t, ?from, ?to) :- ini:at(?t, ?fv0);ini:connected(?fv1, ?from);ini:connected(?fv0, ?fv1).
+drive (?t, ?from, ?to) :- ini:at(?t, ?fv0);ini:connected(?fv1, ?fv0);ini:connected(?fv2, ?from);ini:connected(?fv2, ?fv1).
+drive (?t, ?from, ?to) :- ini:at(?t, ?fv0);ini:connected(?fv1, ?fv0);ini:on-sale(_, ?fv1, ?fv2);ini:ready-to-load(_, ?to, ?fv2).
+drive (?t, ?from, ?to) :- ini:at(_, ?from).
+drive (?t, ?from, ?to) :- ini:at(_, ?fv0);ini:connected(?fv0, ?fv1);ini:on-sale(_, ?from, ?fv2);ini:on-sale(_, ?fv1, ?fv2).
+drive (?t, ?from, ?to) :- ini:at(_, ?fv0);ini:connected(?fv1, ?from);ini:connected(?fv0, ?fv1);ini:connected(?to, ?fv1).
+drive (?t, ?from, ?to) :- ini:at(_, ?fv0);ini:connected(?fv1, ?fv0);ini:connected(?fv1, ?to).
+drive (?t, ?from, ?to) :- ini:at(_, ?to).
+drive (?t, ?from, ?to) :- ini:connected(?from, ?fv0);ini:connected(?from, ?fv1);ini:connected(?fv1, ?fv0).
+drive (?t, ?from, ?to) :- ini:connected(?fv0, ?from);ini:connected(?fv1, ?fv0);ini:connected(?fv1, ?fv2);ini:connected(?fv2, ?to).
+drive (?t, ?from, ?to) :- ini:connected(?fv0, ?from);ini:connected(?to, ?fv0);ini:on-sale(_, ?fv0, ?fv1);goal:stored(_, ?fv1).
+drive (?t, ?from, ?to) :- ini:connected(?fv0, ?from);ini:connected(?to, ?fv0);ini:on-sale(_, ?to, ?fv1);ini:ready-to-load(_, ?fv0, ?fv1).
+drive (?t, ?from, ?to) :- ini:connected(?to, ?fv0);ini:on-sale(_, ?fv0, ?fv1);ini:on-sale(_, ?to, ?fv1).
+drive (?t, ?from, ?to) :- ini:loaded(_, ?t, ?fv0);ini:loaded(_, ?t, ?fv1);ini:on-sale(?fv2, ?from, ?fv0);ini:on-sale(?fv2, ?to, ?fv1).
+drive (?t, ?from, ?to) :- ini:loaded(_, _, ?fv0);ini:next(_, ?fv1);ini:on-sale(?fv2, ?to, ?fv0);goal:stored(?fv2, ?fv1).
+drive (?t, ?from, ?to) :- ini:next(?fv0, ?fv1);ini:on-sale(_, ?from, ?fv1);ini:on-sale(_, ?to, ?fv0).
+drive (?t, ?from, ?to) :- ini:next(?fv0, _);ini:next(?fv1, _);ini:on-sale(?fv2, ?from, ?fv1);ini:on-sale(?fv2, ?to, ?fv0).
+drive (?t, ?from, ?to) :- ini:next(?fv0, _);ini:next(_, ?fv1);ini:on-sale(?fv2, ?from, ?fv0);goal:stored(?fv2, ?fv1).
+drive (?t, ?from, ?to) :- ini:next(?fv0, _);ini:on-sale(?fv1, ?from, ?fv0);ini:on-sale(_, ?to, ?fv2);goal:stored(?fv1, ?fv2).
+drive (?t, ?from, ?to) :- ini:next(?fv0, _);ini:on-sale(?fv1, ?to, ?fv0);ini:on-sale(_, ?from, ?fv2);goal:stored(?fv1, ?fv2).
+drive (?t, ?from, ?to) :- ini:next(?fv0, _);ini:on-sale(?fv1, ?to, ?fv0);ini:on-sale(_, _, ?fv2);goal:stored(?fv1, ?fv2).
+drive (?t, ?from, ?to) :- ini:next(?fv0, _);ini:on-sale(_, ?from, ?fv0).
+drive (?t, ?from, ?to) :- ini:on-sale(?fv0, ?from, ?fv1);ini:on-sale(?fv0, ?to, ?fv2);ini:ready-to-load(_, ?to, ?fv2);goal:stored(_, ?fv1).
+drive (?t, ?from, ?to) :- ini:on-sale(?fv0, ?from, ?fv1);ini:on-sale(_, ?to, ?fv1);ini:on-sale(_, ?to, ?fv2);goal:stored(?fv0, ?fv2).
+drive (?t, ?from, ?to) :- ini:on-sale(?fv0, ?to, ?fv1);ini:on-sale(_, ?from, ?fv1);ini:on-sale(_, ?to, ?fv2);goal:stored(?fv0, ?fv2).
+load (?g, ?t, ?m, ?l1, ?l2, ?l3, ?l4) :- ini:at(?fv0, ?fv1);ini:connected(?fv1, ?m);ini:loaded(?g, ?fv0, ?l1).
+load (?g, ?t, ?m, ?l1, ?l2, ?l3, ?l4) :- ini:at(?t, ?fv0);ini:connected(?fv0, ?fv1);ini:connected(?m, ?fv1).
+load (?g, ?t, ?m, ?l1, ?l2, ?l3, ?l4) :- ini:at(_, ?fv0);ini:connected(?fv0, ?fv1);ini:on-sale(?g, ?fv1, ?l2).
+load (?g, ?t, ?m, ?l1, ?l2, ?l3, ?l4) :- ini:next(?fv0, ?l2);ini:next(?fv0, ?l3);goal:stored(?g, ?fv0).
+load (?g, ?t, ?m, ?l1, ?l2, ?l3, ?l4) :- ini:on-sale(?fv0, ?m, ?l4);ini:ready-to-load(?fv0, ?m, ?l1).
+unload (?g, ?t, ?d, ?l1, ?l2, ?l3, ?l4) :- ini:at(?fv0, ?d);ini:loaded(?fv1, ?fv0, ?l3);goal:stored(?fv1, ?l1).
+unload (?g, ?t, ?d, ?l1, ?l2, ?l3, ?l4) :- ini:at(_, ?d).
+unload (?g, ?t, ?d, ?l1, ?l2, ?l3, ?l4) :- ini:next(?fv0, ?l1);ini:next(?fv0, ?l3);goal:stored(?g, ?fv0).
+unload (?g, ?t, ?d, ?l1, ?l2, ?l3, ?l4) :- ini:next(?fv0, ?l1);ini:next(?fv0, ?l4);goal:stored(?g, ?fv0).
+unload (?g, ?t, ?d, ?l1, ?l2, ?l3, ?l4) :- ini:next(?fv0, ?l2);ini:next(?fv0, ?l3);goal:stored(?g, ?fv0).
+unload (?g, ?t, ?d, ?l1, ?l2, ?l3, ?l4) :- ini:next(?l3, ?fv0);ini:on-sale(?g, ?fv1, ?l1);ini:on-sale(_, ?fv1, ?fv0).

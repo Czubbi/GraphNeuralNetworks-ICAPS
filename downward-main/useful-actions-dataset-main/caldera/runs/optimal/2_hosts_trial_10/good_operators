@@ -1,0 +1,16 @@
+creds id_girat id_fuhost id_adomain
+get_admin id_girat id_gbhost id_adomain
+get_computers id_girat id_adomain
+get_domain id_girat id_fuhost str__fy
+net_use id_girat id_fuhost id_gbhost str__gf id_bndomaincredential str__bo id_bmdomainuser str__elizabeth id_adomain str__alpha id_gqshare
+net_use id_girat id_fuhost id_gbhost str__gf id_bndomaincredential str__bo id_bmdomainuser str__elizabeth id_adomain str__alpha id_grshare
+net_use id_girat id_fuhost id_gbhost str__gf id_djdomaincredential str__dk id_didomainuser str__lisa id_adomain str__alpha id_gqshare
+net_use id_girat id_fuhost id_gbhost str__gf id_djdomaincredential str__dk id_didomainuser str__lisa id_adomain str__alpha id_grshare
+smb_copy id_girat id_fuhost str__gj id_gqshare id_fuhost id_gbhost whatever id_gmfile
+smb_copy id_girat id_fuhost str__gj id_gqshare id_fuhost id_gbhost whatever id_gnfile
+smb_copy id_girat id_fuhost str__gj id_grshare id_fuhost id_gbhost whatever id_gmfile
+smb_copy id_girat id_fuhost str__gj id_grshare id_fuhost id_gbhost whatever id_gnfile
+wmic id_girat id_fuhost id_gbhost id_gmfile somepath id_bndomaincredential id_bmdomainuser id_adomain str__alpha str__bo id_gorat
+wmic id_girat id_fuhost id_gbhost id_gmfile somepath id_djdomaincredential id_didomainuser id_adomain str__alpha str__dk id_gorat
+wmic id_girat id_fuhost id_gbhost id_gnfile somepath id_bndomaincredential id_bmdomainuser id_adomain str__alpha str__bo id_gorat
+wmic id_girat id_fuhost id_gbhost id_gnfile somepath id_djdomaincredential id_didomainuser id_adomain str__alpha str__dk id_gorat

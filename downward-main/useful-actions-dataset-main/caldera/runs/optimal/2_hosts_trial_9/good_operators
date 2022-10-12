@@ -1,0 +1,12 @@
+creds id_bwrat id_bphost id_adomain
+get_admin id_bwrat id_bihost id_adomain
+get_computers id_bwrat id_adomain
+get_domain id_bwrat id_bphost str__bt
+net_use id_bwrat id_bphost id_bihost str__bm id_hdomaincredential str__i id_gdomainuser str__mary id_adomain str__alpha id_cashare
+net_use id_bwrat id_bphost id_bihost str__bm id_hdomaincredential str__i id_gdomainuser str__mary id_adomain str__alpha id_cbshare
+smb_copy id_bwrat id_bphost str__bx id_cashare id_bphost id_bihost whatever id_ccfile
+smb_copy id_bwrat id_bphost str__bx id_cashare id_bphost id_bihost whatever id_cdfile
+smb_copy id_bwrat id_bphost str__bx id_cbshare id_bphost id_bihost whatever id_ccfile
+smb_copy id_bwrat id_bphost str__bx id_cbshare id_bphost id_bihost whatever id_cdfile
+wmic id_bwrat id_bphost id_bihost id_ccfile somepath id_hdomaincredential id_gdomainuser id_adomain str__alpha str__i id_cerat
+wmic id_bwrat id_bphost id_bihost id_cdfile somepath id_hdomaincredential id_gdomainuser id_adomain str__alpha str__i id_cerat

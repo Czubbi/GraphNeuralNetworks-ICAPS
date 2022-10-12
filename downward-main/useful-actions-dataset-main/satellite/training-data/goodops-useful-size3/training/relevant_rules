@@ -1,0 +1,80 @@
+calibrate (?s, ?i, ?d) :- goal:have_image(?fv0, ?fv1);goal:pointing(?s, ?fv0);ini:supports(?i, ?fv1).
+calibrate (?s, ?i, ?d) :- goal:have_image(?fv0, ?fv1);goal:pointing(_, ?fv0);ini:supports(?i, ?fv1).
+calibrate (?s, ?i, ?d) :- goal:have_image(?fv0, ?fv1);ini:pointing(?s, ?fv0);ini:supports(?i, ?fv1).
+calibrate (?s, ?i, ?d) :- goal:have_image(?fv0, ?fv1);ini:pointing(_, ?fv0);ini:supports(?i, ?fv1).
+calibrate (?s, ?i, ?d) :- goal:have_image(?fv0, _);ini:pointing(?s, ?fv0).
+calibrate (?s, ?i, ?d) :- goal:have_image(_, ?fv0);ini:supports(?i, ?fv0).
+calibrate (?s, ?i, ?d) :- goal:pointing(?s, ?fv0);ini:pointing(_, ?fv0).
+calibrate (?s, ?i, ?d) :- ini:calibration_target(?fv0, ?d);ini:calibration_target(?fv0, ?fv1);goal:pointing(_, ?fv1).
+calibrate (?s, ?i, ?d) :- ini:calibration_target(?fv0, ?d);ini:calibration_target(?fv0, ?fv1);ini:pointing(?s, ?fv1).
+calibrate (?s, ?i, ?d) :- ini:calibration_target(?fv0, ?d);ini:calibration_target(?fv0, ?fv1);ini:pointing(_, ?fv1).
+calibrate (?s, ?i, ?d) :- ini:calibration_target(?fv0, ?d);ini:on_board(?fv0, ?fv1);goal:pointing(?fv1, _).
+calibrate (?s, ?i, ?d) :- ini:calibration_target(?fv0, ?d);ini:on_board(?fv0, ?fv1);ini:pointing(?fv1, ?d).
+calibrate (?s, ?i, ?d) :- ini:calibration_target(?fv0, ?fv1);ini:on_board(?fv0, ?s);goal:pointing(?s, ?fv1).
+calibrate (?s, ?i, ?d) :- ini:calibration_target(?fv0, ?fv1);ini:on_board(?fv0, ?s);goal:pointing(_, ?fv1).
+calibrate (?s, ?i, ?d) :- ini:calibration_target(?fv0, ?fv1);ini:on_board(?fv0, ?s);ini:pointing(?s, ?fv1).
+calibrate (?s, ?i, ?d) :- ini:calibration_target(?fv0, ?fv1);ini:on_board(?fv0, ?s);ini:pointing(_, ?fv1).
+calibrate (?s, ?i, ?d) :- ini:calibration_target(?i, ?fv0);goal:pointing(_, ?fv0).
+calibrate (?s, ?i, ?d) :- ini:calibration_target(?i, ?fv0);ini:pointing(_, ?fv0).
+calibrate (?s, ?i, ?d) :- ini:calibration_target(?i, ?fv0);ini:pointing(_, ?fv0);goal:pointing(_, ?fv0).
+calibrate (?s, ?i, ?d) :- ini:calibration_target(_, ?fv0);goal:pointing(?s, ?fv0).
+calibrate (?s, ?i, ?d) :- ini:calibration_target(_, ?fv0);ini:pointing(?s, ?fv0).
+calibrate (?s, ?i, ?d) :- ini:pointing(?fv0, ?fv1);goal:pointing(?fv0, _);ini:pointing(?s, ?fv1).
+calibrate (?s, ?i, ?d) :- ini:pointing(?s, ?d).
+calibrate (?s, ?i, ?d) :- ini:pointing(?s, ?fv0);goal:pointing(_, ?fv0).
+calibrate (?s, ?i, ?d) :- ini:pointing(_, ?d).
+switch_off (?i, ?s) :- goal:have_image(?fv0, ?fv1);goal:pointing(_, ?fv0);ini:supports(?i, ?fv1).
+switch_off (?i, ?s) :- goal:have_image(?fv0, ?fv1);ini:pointing(_, ?fv0);ini:supports(?i, ?fv1).
+switch_off (?i, ?s) :- ini:calibration_target(?fv0, ?fv1);ini:on_board(?fv0, ?s);ini:pointing(_, ?fv1).
+switch_off (?i, ?s) :- ini:calibration_target(?i, ?fv0);ini:pointing(?s, ?fv0).
+switch_off (?i, ?s) :- ini:pointing(?s, ?fv0);goal:pointing(_, ?fv0).
+switch_on (?i, ?s) :- goal:have_image(?fv0, ?fv1);goal:pointing(?s, ?fv0);ini:supports(?i, ?fv1).
+switch_on (?i, ?s) :- goal:have_image(?fv0, ?fv1);goal:pointing(_, ?fv0);ini:supports(?i, ?fv1).
+switch_on (?i, ?s) :- goal:have_image(?fv0, ?fv1);ini:pointing(?s, ?fv0);ini:supports(?i, ?fv1).
+switch_on (?i, ?s) :- goal:have_image(?fv0, ?fv1);ini:pointing(_, ?fv0);ini:supports(?i, ?fv1).
+switch_on (?i, ?s) :- goal:have_image(?fv0, _);goal:pointing(?s, ?fv0).
+switch_on (?i, ?s) :- goal:have_image(?fv0, _);goal:pointing(?s, ?fv0);ini:pointing(_, ?fv0).
+switch_on (?i, ?s) :- goal:have_image(?fv0, _);ini:pointing(?s, ?fv0).
+switch_on (?i, ?s) :- goal:have_image(_, ?fv0);ini:supports(?i, ?fv0).
+switch_on (?i, ?s) :- goal:pointing(?s, _).
+switch_on (?i, ?s) :- ini:calibration_target(?fv0, ?fv1);ini:on_board(?fv0, ?s);goal:pointing(_, ?fv1).
+switch_on (?i, ?s) :- ini:calibration_target(?fv0, ?fv1);ini:on_board(?fv0, ?s);ini:pointing(?s, ?fv1).
+switch_on (?i, ?s) :- ini:calibration_target(?fv0, ?fv1);ini:on_board(?fv0, ?s);ini:pointing(_, ?fv1).
+switch_on (?i, ?s) :- ini:calibration_target(?i, ?fv0);goal:pointing(_, ?fv0).
+switch_on (?i, ?s) :- ini:calibration_target(?i, ?fv0);ini:pointing(?fv1, ?fv0);goal:pointing(?fv1, _).
+switch_on (?i, ?s) :- ini:calibration_target(?i, ?fv0);ini:pointing(?s, ?fv0).
+switch_on (?i, ?s) :- ini:calibration_target(?i, ?fv0);ini:pointing(_, ?fv0).
+switch_on (?i, ?s) :- ini:calibration_target(?i, ?fv0);ini:pointing(_, ?fv0);goal:pointing(_, ?fv0).
+switch_on (?i, ?s) :- ini:calibration_target(_, ?fv0);goal:pointing(?s, ?fv0).
+switch_on (?i, ?s) :- ini:calibration_target(_, ?fv0);goal:pointing(?s, ?fv0);ini:pointing(_, ?fv0).
+switch_on (?i, ?s) :- ini:calibration_target(_, ?fv0);ini:pointing(?s, ?fv0).
+switch_on (?i, ?s) :- ini:pointing(?fv0, ?fv1);goal:pointing(?fv0, _);ini:pointing(?s, ?fv1).
+switch_on (?i, ?s) :- ini:pointing(?s, ?fv0);goal:pointing(_, ?fv0).
+take_image (?s, ?d, ?i, ?m) :- goal:have_image(?d, ?m).
+take_image (?s, ?d, ?i, ?m) :- goal:have_image(?fv0, ?fv1);goal:pointing(?s, ?fv0);ini:supports(?i, ?fv1).
+take_image (?s, ?d, ?i, ?m) :- goal:have_image(?fv0, ?fv1);ini:pointing(_, ?fv0);ini:supports(?i, ?fv1).
+take_image (?s, ?d, ?i, ?m) :- ini:calibration_target(?fv0, ?fv1);goal:pointing(_, ?fv1);ini:supports(?fv0, ?m).
+take_image (?s, ?d, ?i, ?m) :- ini:calibration_target(?i, ?fv0);ini:pointing(?s, ?fv0).
+turn_to (?s, ?d_new, ?d_prev) :- equal:(?d_new, ?d_prev).
+turn_to (?s, ?d_new, ?d_prev) :- goal:have_image(?d_new, ?fv0);goal:have_image(?fv1, ?fv0);goal:pointing(_, ?fv1).
+turn_to (?s, ?d_new, ?d_prev) :- goal:have_image(?d_new, ?fv0);goal:have_image(?fv1, ?fv0);ini:pointing(_, ?fv1).
+turn_to (?s, ?d_new, ?d_prev) :- goal:have_image(?d_new, ?fv0);ini:on_board(?fv1, ?s);ini:supports(?fv1, ?fv0).
+turn_to (?s, ?d_new, ?d_prev) :- goal:have_image(?d_prev, ?fv0);goal:have_image(?fv1, ?fv0);ini:pointing(_, ?fv1).
+turn_to (?s, ?d_new, ?d_prev) :- goal:have_image(?d_prev, ?fv0);ini:on_board(?fv1, ?s);ini:supports(?fv1, ?fv0).
+turn_to (?s, ?d_new, ?d_prev) :- goal:have_image(?fv0, _);goal:pointing(?s, ?fv0).
+turn_to (?s, ?d_new, ?d_prev) :- goal:have_image(?fv0, _);ini:pointing(?s, ?fv0).
+turn_to (?s, ?d_new, ?d_prev) :- goal:pointing(?s, ?d_new).
+turn_to (?s, ?d_new, ?d_prev) :- goal:pointing(?s, ?d_prev).
+turn_to (?s, ?d_new, ?d_prev) :- goal:pointing(?s, ?fv0);ini:pointing(_, ?fv0).
+turn_to (?s, ?d_new, ?d_prev) :- ini:calibration_target(?fv0, ?d_new);ini:on_board(?fv0, ?s).
+turn_to (?s, ?d_new, ?d_prev) :- ini:calibration_target(?fv0, ?d_prev);goal:have_image(?d_new, ?fv1);ini:supports(?fv0, ?fv1).
+turn_to (?s, ?d_new, ?d_prev) :- ini:calibration_target(?fv0, ?d_prev);ini:calibration_target(?fv0, ?fv1);goal:pointing(_, ?fv1).
+turn_to (?s, ?d_new, ?d_prev) :- ini:calibration_target(?fv0, ?d_prev);ini:on_board(?fv0, ?fv1);goal:pointing(?fv1, _).
+turn_to (?s, ?d_new, ?d_prev) :- ini:calibration_target(?fv0, ?d_prev);ini:on_board(?fv0, ?s).
+turn_to (?s, ?d_new, ?d_prev) :- ini:calibration_target(?fv0, ?fv1);ini:on_board(?fv0, ?s);goal:pointing(_, ?fv1).
+turn_to (?s, ?d_new, ?d_prev) :- ini:calibration_target(?fv0, ?fv1);ini:on_board(?fv0, ?s);ini:pointing(?s, ?fv1).
+turn_to (?s, ?d_new, ?d_prev) :- ini:calibration_target(?fv0, ?fv1);ini:on_board(?fv0, ?s);ini:pointing(_, ?fv1).
+turn_to (?s, ?d_new, ?d_prev) :- ini:calibration_target(_, ?fv0);goal:pointing(?s, ?fv0).
+turn_to (?s, ?d_new, ?d_prev) :- ini:calibration_target(_, ?fv0);ini:pointing(?s, ?fv0).
+turn_to (?s, ?d_new, ?d_prev) :- ini:pointing(?fv0, ?fv1);goal:pointing(?fv0, _);ini:pointing(?s, ?fv1).
+turn_to (?s, ?d_new, ?d_prev) :- ini:pointing(?s, ?d_prev).

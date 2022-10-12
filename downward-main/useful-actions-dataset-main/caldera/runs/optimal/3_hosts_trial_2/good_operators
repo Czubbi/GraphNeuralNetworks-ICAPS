@@ -1,0 +1,91 @@
+creds id_bfrat id_rhost id_adomain
+get_admin id_bfrat id_khost id_adomain
+get_admin id_bfrat id_yhost id_adomain
+get_admin id_bqrat id_yhost id_adomain
+get_admin id_bsrat id_khost id_adomain
+get_computers id_bfrat id_adomain
+get_domain id_bfrat id_rhost str__w
+net_use id_bfrat id_rhost id_khost str__p id_ddomaincredential str__e id_cdomainuser str__james id_adomain str__alpha id_bkshare
+net_use id_bfrat id_rhost id_khost str__p id_ddomaincredential str__e id_cdomainuser str__james id_adomain str__alpha id_blshare
+net_use id_bfrat id_rhost id_khost str__p id_ddomaincredential str__e id_cdomainuser str__james id_adomain str__alpha id_bmshare
+net_use id_bfrat id_rhost id_khost str__p id_hdomaincredential str__i id_gdomainuser str__mary id_adomain str__alpha id_bkshare
+net_use id_bfrat id_rhost id_khost str__p id_hdomaincredential str__i id_gdomainuser str__mary id_adomain str__alpha id_blshare
+net_use id_bfrat id_rhost id_khost str__p id_hdomaincredential str__i id_gdomainuser str__mary id_adomain str__alpha id_bmshare
+net_use id_bfrat id_rhost id_yhost str__bd id_ddomaincredential str__e id_cdomainuser str__james id_adomain str__alpha id_bkshare
+net_use id_bfrat id_rhost id_yhost str__bd id_ddomaincredential str__e id_cdomainuser str__james id_adomain str__alpha id_blshare
+net_use id_bfrat id_rhost id_yhost str__bd id_ddomaincredential str__e id_cdomainuser str__james id_adomain str__alpha id_bmshare
+net_use id_bfrat id_rhost id_yhost str__bd id_hdomaincredential str__i id_gdomainuser str__mary id_adomain str__alpha id_bkshare
+net_use id_bfrat id_rhost id_yhost str__bd id_hdomaincredential str__i id_gdomainuser str__mary id_adomain str__alpha id_blshare
+net_use id_bfrat id_rhost id_yhost str__bd id_hdomaincredential str__i id_gdomainuser str__mary id_adomain str__alpha id_bmshare
+net_use id_bqrat id_khost id_yhost str__bd id_ddomaincredential str__e id_cdomainuser str__james id_adomain str__alpha id_bkshare
+net_use id_bqrat id_khost id_yhost str__bd id_ddomaincredential str__e id_cdomainuser str__james id_adomain str__alpha id_blshare
+net_use id_bqrat id_khost id_yhost str__bd id_ddomaincredential str__e id_cdomainuser str__james id_adomain str__alpha id_bmshare
+net_use id_bqrat id_khost id_yhost str__bd id_hdomaincredential str__i id_gdomainuser str__mary id_adomain str__alpha id_bkshare
+net_use id_bqrat id_khost id_yhost str__bd id_hdomaincredential str__i id_gdomainuser str__mary id_adomain str__alpha id_blshare
+net_use id_bqrat id_khost id_yhost str__bd id_hdomaincredential str__i id_gdomainuser str__mary id_adomain str__alpha id_bmshare
+net_use id_bsrat id_yhost id_khost str__p id_ddomaincredential str__e id_cdomainuser str__james id_adomain str__alpha id_bkshare
+net_use id_bsrat id_yhost id_khost str__p id_ddomaincredential str__e id_cdomainuser str__james id_adomain str__alpha id_blshare
+net_use id_bsrat id_yhost id_khost str__p id_ddomaincredential str__e id_cdomainuser str__james id_adomain str__alpha id_bmshare
+net_use id_bsrat id_yhost id_khost str__p id_hdomaincredential str__i id_gdomainuser str__mary id_adomain str__alpha id_bkshare
+net_use id_bsrat id_yhost id_khost str__p id_hdomaincredential str__i id_gdomainuser str__mary id_adomain str__alpha id_blshare
+net_use id_bsrat id_yhost id_khost str__p id_hdomaincredential str__i id_gdomainuser str__mary id_adomain str__alpha id_bmshare
+smb_copy id_bfrat id_rhost str__bg id_bkshare id_rhost id_khost whatever id_bnfile
+smb_copy id_bfrat id_rhost str__bg id_bkshare id_rhost id_khost whatever id_bofile
+smb_copy id_bfrat id_rhost str__bg id_bkshare id_rhost id_khost whatever id_bpfile
+smb_copy id_bfrat id_rhost str__bg id_bkshare id_rhost id_yhost whatever id_bnfile
+smb_copy id_bfrat id_rhost str__bg id_bkshare id_rhost id_yhost whatever id_bofile
+smb_copy id_bfrat id_rhost str__bg id_bkshare id_rhost id_yhost whatever id_bpfile
+smb_copy id_bfrat id_rhost str__bg id_blshare id_rhost id_khost whatever id_bnfile
+smb_copy id_bfrat id_rhost str__bg id_blshare id_rhost id_khost whatever id_bofile
+smb_copy id_bfrat id_rhost str__bg id_blshare id_rhost id_khost whatever id_bpfile
+smb_copy id_bfrat id_rhost str__bg id_blshare id_rhost id_yhost whatever id_bnfile
+smb_copy id_bfrat id_rhost str__bg id_blshare id_rhost id_yhost whatever id_bofile
+smb_copy id_bfrat id_rhost str__bg id_blshare id_rhost id_yhost whatever id_bpfile
+smb_copy id_bfrat id_rhost str__bg id_bmshare id_rhost id_khost whatever id_bnfile
+smb_copy id_bfrat id_rhost str__bg id_bmshare id_rhost id_khost whatever id_bofile
+smb_copy id_bfrat id_rhost str__bg id_bmshare id_rhost id_khost whatever id_bpfile
+smb_copy id_bfrat id_rhost str__bg id_bmshare id_rhost id_yhost whatever id_bnfile
+smb_copy id_bfrat id_rhost str__bg id_bmshare id_rhost id_yhost whatever id_bofile
+smb_copy id_bfrat id_rhost str__bg id_bmshare id_rhost id_yhost whatever id_bpfile
+smb_copy id_bqrat id_khost somepath id_bkshare id_khost id_yhost whatever id_bnfile
+smb_copy id_bqrat id_khost somepath id_bkshare id_khost id_yhost whatever id_bofile
+smb_copy id_bqrat id_khost somepath id_bkshare id_khost id_yhost whatever id_bpfile
+smb_copy id_bqrat id_khost somepath id_blshare id_khost id_yhost whatever id_bnfile
+smb_copy id_bqrat id_khost somepath id_blshare id_khost id_yhost whatever id_bofile
+smb_copy id_bqrat id_khost somepath id_blshare id_khost id_yhost whatever id_bpfile
+smb_copy id_bqrat id_khost somepath id_bmshare id_khost id_yhost whatever id_bnfile
+smb_copy id_bqrat id_khost somepath id_bmshare id_khost id_yhost whatever id_bofile
+smb_copy id_bqrat id_khost somepath id_bmshare id_khost id_yhost whatever id_bpfile
+smb_copy id_bsrat id_yhost somepath id_bkshare id_yhost id_khost whatever id_bnfile
+smb_copy id_bsrat id_yhost somepath id_bkshare id_yhost id_khost whatever id_bofile
+smb_copy id_bsrat id_yhost somepath id_bkshare id_yhost id_khost whatever id_bpfile
+smb_copy id_bsrat id_yhost somepath id_blshare id_yhost id_khost whatever id_bnfile
+smb_copy id_bsrat id_yhost somepath id_blshare id_yhost id_khost whatever id_bofile
+smb_copy id_bsrat id_yhost somepath id_blshare id_yhost id_khost whatever id_bpfile
+smb_copy id_bsrat id_yhost somepath id_bmshare id_yhost id_khost whatever id_bnfile
+smb_copy id_bsrat id_yhost somepath id_bmshare id_yhost id_khost whatever id_bofile
+smb_copy id_bsrat id_yhost somepath id_bmshare id_yhost id_khost whatever id_bpfile
+wmic id_bfrat id_rhost id_khost id_bnfile somepath id_ddomaincredential id_cdomainuser id_adomain str__alpha str__e id_bqrat
+wmic id_bfrat id_rhost id_khost id_bnfile somepath id_hdomaincredential id_gdomainuser id_adomain str__alpha str__i id_bqrat
+wmic id_bfrat id_rhost id_khost id_bofile somepath id_ddomaincredential id_cdomainuser id_adomain str__alpha str__e id_bqrat
+wmic id_bfrat id_rhost id_khost id_bofile somepath id_hdomaincredential id_gdomainuser id_adomain str__alpha str__i id_bqrat
+wmic id_bfrat id_rhost id_khost id_bpfile somepath id_ddomaincredential id_cdomainuser id_adomain str__alpha str__e id_bqrat
+wmic id_bfrat id_rhost id_khost id_bpfile somepath id_hdomaincredential id_gdomainuser id_adomain str__alpha str__i id_bqrat
+wmic id_bfrat id_rhost id_yhost id_bnfile somepath id_ddomaincredential id_cdomainuser id_adomain str__alpha str__e id_bsrat
+wmic id_bfrat id_rhost id_yhost id_bnfile somepath id_hdomaincredential id_gdomainuser id_adomain str__alpha str__i id_bsrat
+wmic id_bfrat id_rhost id_yhost id_bofile somepath id_ddomaincredential id_cdomainuser id_adomain str__alpha str__e id_bsrat
+wmic id_bfrat id_rhost id_yhost id_bofile somepath id_hdomaincredential id_gdomainuser id_adomain str__alpha str__i id_bsrat
+wmic id_bfrat id_rhost id_yhost id_bpfile somepath id_ddomaincredential id_cdomainuser id_adomain str__alpha str__e id_bsrat
+wmic id_bfrat id_rhost id_yhost id_bpfile somepath id_hdomaincredential id_gdomainuser id_adomain str__alpha str__i id_bsrat
+wmic id_bqrat id_khost id_yhost id_bnfile somepath id_ddomaincredential id_cdomainuser id_adomain str__alpha str__e id_bsrat
+wmic id_bqrat id_khost id_yhost id_bnfile somepath id_hdomaincredential id_gdomainuser id_adomain str__alpha str__i id_bsrat
+wmic id_bqrat id_khost id_yhost id_bofile somepath id_ddomaincredential id_cdomainuser id_adomain str__alpha str__e id_bsrat
+wmic id_bqrat id_khost id_yhost id_bofile somepath id_hdomaincredential id_gdomainuser id_adomain str__alpha str__i id_bsrat
+wmic id_bqrat id_khost id_yhost id_bpfile somepath id_ddomaincredential id_cdomainuser id_adomain str__alpha str__e id_bsrat
+wmic id_bqrat id_khost id_yhost id_bpfile somepath id_hdomaincredential id_gdomainuser id_adomain str__alpha str__i id_bsrat
+wmic id_bsrat id_yhost id_khost id_bnfile somepath id_ddomaincredential id_cdomainuser id_adomain str__alpha str__e id_bqrat
+wmic id_bsrat id_yhost id_khost id_bnfile somepath id_hdomaincredential id_gdomainuser id_adomain str__alpha str__i id_bqrat
+wmic id_bsrat id_yhost id_khost id_bofile somepath id_ddomaincredential id_cdomainuser id_adomain str__alpha str__e id_bqrat
+wmic id_bsrat id_yhost id_khost id_bofile somepath id_hdomaincredential id_gdomainuser id_adomain str__alpha str__i id_bqrat
+wmic id_bsrat id_yhost id_khost id_bpfile somepath id_ddomaincredential id_cdomainuser id_adomain str__alpha str__e id_bqrat
+wmic id_bsrat id_yhost id_khost id_bpfile somepath id_hdomaincredential id_gdomainuser id_adomain str__alpha str__i id_bqrat
