@@ -20,7 +20,7 @@ class Variable:
     """
     index: int
     predicates: List[Predicate]
-    values_num: int = field(init=False)
+    predicates_num: int = field(init=False)
     features: List[int] = field(default_factory=list)
     dtg: Set[Tuple[int, int]] = field(default_factory=set)
 
@@ -37,7 +37,7 @@ class Variable:
         """
         self.dtg.update((id1, id2, type))
 
-    def update_state_variable(self, preconditions: List[Tuple[int, int]], effects: List[Tuple[int, int, int]]):
+    def update_features(self, preconditions: List[Tuple[int, int]], effects: List[Tuple[int, int, int]]):
         """
         predconditions: list of tuples (variable_index, value)
         effects: list of tuples (variable_index, old_value, new_value)
