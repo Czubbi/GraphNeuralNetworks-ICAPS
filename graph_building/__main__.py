@@ -20,30 +20,44 @@ VARIABLE_VALUE = r"""
     )               # End positive lookahead
 """
 
+VARIABLE_SECTION = r"""
+    begin_variable
+    [\s\S]*       # Any character, including newlines
+    end_variable
+"""
+
+OPERATOR_SECTION = r"""
+    begin_operator
+    [\s\S]*       # Any character, including newlines
+    end_operator
+"""
+
 
 
 def process_sas_file():
     with open("sas_files/sas_file.sas", "r") as file:
         file = file.read()
-
-        # Extract the part of the file containing the variables
-        variables_text = re.search("begin_variable[\s\S]*end_variable", file)[0]
-        # Split the variables into a list of strings
-        variables = re.split("begin_variable", variables_text)[0]
-        # Extract the part of the file containing the operators
+        # Extract variables and operators from the file
+        variables_text = re.search(VARIABLE_SECTION, file, re.VERBOSE)[0]
         operators_text = re.search("begin_operator[\s\S]*end_operator", file)[0]
-        # Split the operators into a list of strings
-        operators = re.split("begin_operator", operators_text)[0]
+
+
+        # We omit the 0th element because it's empty
+        operators = re.split("begin_operator", operators_text)[1:]
+        variables = re.split("begin_variable", variables_text)[1:]
 
         with open("extracted_var_text.txt", "w") as file:
             file.write(variables_text)
         with open('extracted_op_text.txt', 'w') as f:
             f.write(operators_text)
+    
         generate_variables(variables)
+        process_operators(operators)
+
 
 def generate_variables(variables: List[str]):
         logging.warning("Generating variables")
-        logging.info(variables)
+        print(variables)
         # Enumerate over all variables
         for id, variable_lines in enumerate(variables[1::]):
             logging.warning('variable: ', id)
@@ -62,8 +76,12 @@ def generate_variables(variables: List[str]):
             variable = Variable(index=id, predicates=predicates)
             print(variable)
             input(f'continue with {id+1} variable?')
-    # # make typed dictionary of variables with keys variable_id and values variable
-    # variables: Dict[int, variable.Variable] = {}
+
+
+def process_operators(operator: List[str]):
+    for id, operator_lines in enumerate(operator[1::]):
+        logging.warning('operator: ', id)
+        logging.warning(operator_lines)
 
 
 
