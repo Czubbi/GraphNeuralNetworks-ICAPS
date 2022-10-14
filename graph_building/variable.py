@@ -26,10 +26,6 @@ class Variable:
     @property
     def predicates_num(self) -> int:
         return len(self.predicates)
-    
-
-    def __post_init__(self):
-        self.values_num = len(self.predicates)
 
     def update_dtg(self, id1, id2):
         """
@@ -52,7 +48,7 @@ class Variable:
     def __str__(self):
         return f"Variable(index={self.index},\
                 predicates={self.predicates},\
-                values_num={self.values_num},\
+                predicates_num={self.predicates_num},\
                 features={self.features},\
                 dtg={self.dtg})"   
 
