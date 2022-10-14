@@ -1,13 +1,15 @@
+from dataclasses import dataclass, field
+from typing import List
+
+@dataclass
 class Predicate:
-    def __init__(self, name, arguments):
-        self.name = name
-        self.arguments = arguments
+    name: str
+    surname: str
+    full_name = field(init=False)
 
-    def __str__(self):
-        return "%s(%s)" % (self.name, ", ".join(map(str, self.arguments)))
+    arguments: List[str]
+    negated: bool = False
 
-    def __repr__(self):
-        return self.__str__()
-
-    def get_arity(self):
+    @property
+    def arity(self):
         return len(self.arguments)
