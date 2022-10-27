@@ -35,7 +35,8 @@ class Variable:
         id1: index of the first variable
         id2: index of the second variable
         """
-        self.dtg.update((id1, id2, type))
+        # Todo, we need to figure out a way to handle edge types inside DTG
+        self.dtg.add((id1, id2))
 
 
     def update_features(self, preconditions: List[Tuple[int, int]], effects: List[Tuple[int, int, int]]):
@@ -47,10 +48,10 @@ class Variable:
 
     def __str__(self):
         return f"Variable(index={self.index},\
-                predicates={self.predicates},\
-                predicates_num={self.predicates_num},\
-                features={self.features},\
-                dtg={self.dtg})"   
+predicates={self.predicates},\
+predicates_num={self.predicates_num},\
+features={self.features},\
+dtg={self.dtg})"   
 
     def __repr__(self):
         return self.__str__()
@@ -58,3 +59,5 @@ class Variable:
 
 
 
+class A:
+    pass
