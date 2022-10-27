@@ -31,10 +31,18 @@ black==22.10.0
     # via -r requirements.in
 bleach==5.0.1
     # via nbconvert
+certifi==2022.9.24
+    # via requests
 cffi==1.15.1
     # via argon2-cffi-bindings
+charset-normalizer==2.1.1
+    # via requests
 click==8.1.3
     # via black
+contourpy==1.0.5
+    # via matplotlib
+cycler==0.11.0
+    # via matplotlib
 debugpy==1.6.3
     # via ipykernel
 decorator==5.1.1
@@ -49,8 +57,12 @@ fastjsonschema==2.16.2
     # via nbformat
 flake8==5.0.4
     # via -r requirements.in
+fonttools==4.38.0
+    # via matplotlib
 idna==3.4
-    # via anyio
+    # via
+    #   anyio
+    #   requests
 importlib-metadata==5.0.0
     # via nbconvert
 iniconfig==1.1.1
@@ -83,6 +95,9 @@ jinja2==3.1.2
     #   nbclassic
     #   nbconvert
     #   notebook
+    #   torch-geometric
+joblib==1.2.0
+    # via scikit-learn
 jsonschema==4.16.0
     # via nbformat
 jupyter==1.0.0
@@ -115,10 +130,14 @@ jupyterlab-pygments==0.2.2
     # via nbconvert
 jupyterlab-widgets==3.0.3
     # via ipywidgets
+kiwisolver==1.4.4
+    # via matplotlib
 markupsafe==2.1.1
     # via
     #   jinja2
     #   nbconvert
+matplotlib==3.6.1
+    # via -r requirements.in
 matplotlib-inline==0.1.6
     # via
     #   ipykernel
@@ -157,14 +176,24 @@ nest-asyncio==1.5.6
     #   nbclassic
     #   nbclient
     #   notebook
+networkx==2.8.7
+    # via -r requirements.in
 notebook==6.5.1
     # via jupyter
 notebook-shim==0.1.0
     # via nbclassic
+numpy==1.23.4
+    # via
+    #   contourpy
+    #   matplotlib
+    #   scikit-learn
+    #   scipy
+    #   torch-geometric
 packaging==21.3
     # via
     #   ipykernel
     #   jupyter-server
+    #   matplotlib
     #   nbconvert
     #   pytest
     #   qtpy
@@ -178,6 +207,8 @@ pexpect==4.8.0
     # via ipython
 pickleshare==0.7.5
     # via ipython
+pillow==9.2.0
+    # via matplotlib
 platformdirs==2.5.2
     # via black
 pluggy==1.0.0
@@ -214,13 +245,18 @@ pygments==2.13.0
     #   nbconvert
     #   qtconsole
 pyparsing==3.0.9
-    # via packaging
+    # via
+    #   matplotlib
+    #   packaging
+    #   torch-geometric
 pyrsistent==0.18.1
     # via jsonschema
 pytest==7.1.3
     # via -r requirements.in
 python-dateutil==2.8.2
-    # via jupyter-client
+    # via
+    #   jupyter-client
+    #   matplotlib
 pyzmq==24.0.1
     # via
     #   ipykernel
@@ -233,6 +269,15 @@ qtconsole==5.3.2
     # via jupyter
 qtpy==2.2.1
     # via qtconsole
+requests==2.28.1
+    # via torch-geometric
+scikit-learn==1.1.3
+    # via torch-geometric
+scipy==1.9.3
+    # via
+    #   scikit-learn
+    #   torch-geometric
+    #   torch-sparse
 send2trash==1.8.0
     # via
     #   jupyter-server
@@ -254,6 +299,8 @@ terminado==0.16.0
     #   jupyter-server
     #   nbclassic
     #   notebook
+threadpoolctl==3.1.0
+    # via scikit-learn
 tinycss2==1.1.1
     # via nbconvert
 tomli==2.0.1
@@ -263,6 +310,12 @@ tomli==2.0.1
     #   pytest
 torch==1.12.1
     # via -r requirements.in
+torch-geometric==2.1.0.post1
+    # via -r requirements.in
+torch-scatter==2.0.9
+    # via -r requirements.in
+torch-sparse==0.6.15
+    # via -r requirements.in
 tornado==6.2
     # via
     #   ipykernel
@@ -271,6 +324,8 @@ tornado==6.2
     #   nbclassic
     #   notebook
     #   terminado
+tqdm==4.64.1
+    # via torch-geometric
 traitlets==5.4.0
     # via
     #   ipykernel
@@ -291,6 +346,8 @@ typing-extensions==4.3.0
     #   black
     #   mypy
     #   torch
+urllib3==1.26.12
+    # via requests
 wcwidth==0.2.5
     # via prompt-toolkit
 webencodings==0.5.1
