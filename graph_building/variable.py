@@ -12,7 +12,7 @@ class EdgeType(str, Enum):
 @dataclass
 class Variable:
     """
-    This is a class representing one variable in a Casual Graph
+    This is a class representing one variable in a Causal Graph
     fixed_object: Each variable is associated with one and only one fixed object
     dynamic_objects: Each variable is associated with a set of dynamic objects
     values_num: Number of values a variable can take

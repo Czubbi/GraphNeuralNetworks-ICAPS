@@ -9,9 +9,8 @@ from .variable import Variable
 from .predicates import Predicate
 
 
-SasFile = str
+SasFileContent = str
 
-all_variables = {}
 logging.basicConfig()
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -47,32 +46,30 @@ OPERATOR_SECTION = r"""
 """
 
 
-def process_sas_file():
-    with open("sas_files/sas_file.sas", "r") as file:
-        file = file.read()
+def sas_file_to_cg(path="sas_files/sas_file.sas"):
+    with open(path, "r") as file:
+        file_content: SasFileContent = file.read()
         # Extract variables and operators from the file
-        variables_text = re.search(VARIABLE_SECTION, file, re.VERBOSE)[0]
-        operators_text = re.search("begin_operator[\s\S]*end_operator", file)[0]
+    variables_text, operators_text = split_sas_file(file_content)
 
-        # We omit the 0th element because it's empty
+    generate_variables(variables_text)
+    all_operators = process_operators(operators_text)
+    return build_total_causal_graph(all_operators)
 
-        # logger.warning(f"Operators: {operators}")
-        # logger.warning(f"Variables: {variables}")
+def split_sas_file(file_content: SasFileContent) -> Tuple[SasFileContent, SasFileContent]:
+    variables_text = re.search(VARIABLE_SECTION, file_content, re.VERBOSE)[0]
+    operators_text = re.search("begin_operator[\s\S]*end_operator", file_content)[0]
+    return variables_text, operators_text
 
-        # with open("extracted_var_text.txt", "w") as file:
-        #     file.write(variables_text)
-        # with open("variables.txt", "w") as file:
-        #     file.write(str(variables))
-        # with open("operators.txt", "w") as file:
-        #     file.write(str(operators))
-        # with open("extracted_op_text.txt", "w") as f:
-        #     f.write(operators_text)
-
-        generate_variables(variables_text)
-        process_operators(operators_text)
+def build_total_causal_graph(operators):
+    total_causal_graph: Set[Tuple[int, int]] = set()
+    for op in operators:
+        partial_cg = op.causal_graph()
+        total_causal_graph = total_causal_graph.union(partial_cg)
+    return total_causal_graph
 
 
-def generate_variables(variables_text: SasFile):
+def generate_variables(variables_text: SasFileContent):
     """
     variables: is a list of strings, each strings is a multiline consisting of
       a variable definition, for instance one entry in the list could be:
@@ -86,19 +83,19 @@ def generate_variables(variables_text: SasFile):
 
     """
 
-    variables = re.split("begin_variable", variables_text)[1:]
+    divided_variables_text: List[str] = re.split("begin_variable", variables_text)[1:]
 
     # global all_variables
     logger.info("Generating variables")
     # Enumerate over all sas variables
-    for variable_lines in variables:
+    for variable_lines in divided_variables_text:
         var_id = int(re.search("var(\d+)", variable_lines)[1])
         logger.info(f"Variable {var_id}, lines: {variable_lines}")
         predicates: List[Predicate] = []
 
         # List of all Atoms in one variable, where first elemnt of the tuple is the Atom text
         # and second elemnet is the predicate text
-        atoms: List[Tuple(str, str)] = re.findall(
+        atoms: List[Tuple[str, str]] = re.findall(
             VARIABLE_VALUE, variable_lines, re.VERBOSE
         )
         logger.debug(f"Atoms: {atoms}")
@@ -112,8 +109,8 @@ def generate_variables(variables_text: SasFile):
             p_text = p_text.strip(")")
             p_text = p_text.strip(" ")
 
-            predicate_name, arguments = p_text.split("(")
-            arguments = arguments.split(", ")
+            predicate_name, arguments_text = p_text.split("(")
+            arguments = arguments_text.split(", ")
             new_predicate = Predicate(predicate_name, arguments, is_negated)
             logger.debug(f"New predicate: {new_predicate}")
             predicates.append(new_predicate)
@@ -122,20 +119,19 @@ def generate_variables(variables_text: SasFile):
         new_variable = Variable(index=var_id, predicates=predicates)
         logger.debug(f"New variable: {new_variable}")
         Operator.all_variables[var_id] = new_variable
-        # all_variables[var_id] = new_variable
-        # print(variable)
-        # input(f'continue with {id+1} variable?')
 
 
-def process_operators(operators_text: List[str]):
+def process_operators(operators_text: SasFileContent) -> List[Operator]:
     operators = re.split("begin_operator", operators_text)[1:]
     res = []
     for op_id, operator_lines in enumerate(operators):
         logger.debug(f"Operator {op_id}, lines: {operator_lines}")
 
+        
         operator_preconditions, operator_effects = parse_preconditions_and_effects(
             operator_lines
         )
+
         logger.debug(f"Preconditions: {operator_preconditions}")
         logger.debug(f"Effects: {operator_effects}")
 
@@ -150,7 +146,7 @@ def process_operators(operators_text: List[str]):
 
 def parse_preconditions_and_effects(
     operator_lines,
-) -> Tuple[List[Precondition], List[Effect]]:
+) -> Tuple[Set[Precondition], Set[Effect]]:
     def parse_preconditions(precondition_lines) -> Set[Precondition]:
         preconditions: Set[Precondition] = set()
         for line in precondition_lines:
@@ -163,20 +159,22 @@ def parse_preconditions_and_effects(
 
     def parse_effects(effects_lines) -> Set[Effect]:
         effects: Set[Effect] = set()
-        nonlocal preconditions
+        # # We can have an operator that has one effect
+        # # In that case the precondition derived from that effect need NOT to be added to the preconditions list
+        # should_add_precondition = False if len(effect_lines) == 1 else True
         for line in effects_lines:
             variable_index, precondition_value, effect_value = line.split(" ")[1:]
 
             new_effect = Effect(
-                variable_id=variable_index,
-                precondition_value=precondition_value,
-                effect_value=effect_value
+                variable_id=int(variable_index),
+                precondition_value=int(precondition_value),
+                effect_value=int(effect_value)
             )
 
-            # There might be an effect without precondition if the value is -1
-            # Therefore before appending the precondition we check if it exists
-            if new_effect.precondition is not None:
-                preconditions.add(new_effect.precondition)
+            # # There might be an effect without precondition if the value is -1
+            # # Therefore before appending the precondition we check if it exists
+            # if new_effect.precondition is not None and should_add_precondition:
+            #     preconditions.add(new_effect.precondition)
             effects.add(new_effect)
         return effects
 
