@@ -11,6 +11,7 @@ if __name__ == "__main__":
 
     argparser = argparse.ArgumentParser()
     argparser.add_argument("sas_file", help="path to sas file")
+    argparser.add_argument("good_operators_file", help="path to file with good operators")
     argparser.add_argument(
         "--output_file",
         help="path to output file",
@@ -19,6 +20,9 @@ if __name__ == "__main__":
 
     options = argparser.parse_args()
     sas_file = options.sas_file
+    good_operators_file = options.good_operators_file
     output_file = options.output_file
 
-    sas_file_to_cg(sas_file, output_file)
+
+
+    sas_file_to_cg(sas_file, good_operators_file, output_file)

@@ -2,7 +2,6 @@ from ast import operator
 from dataclasses import dataclass, field
 import logging
 import re
-from symbol import atom
 from typing import ClassVar, List, Tuple, Set, Dict
 
 from graph_building.operators import EdgeType, Effect, Precondition, Operator
@@ -51,19 +50,19 @@ OPERATOR_SECTION = r"""
 """
 
 
-def sas_file_to_cg(path, output_file):
-    with open(path, "r") as file:
-        file_content: SasFileContent = file.read()
+def sas_file_to_cg(sas_path, good_operators_path, output_file):
+    with open(sas_path, "r") as file:
+        sas_content: SasFileContent = file.read()
+    with open(good_operators_path, "r") as file:
+        good_operators: Tuple[str] = tuple(file.read().splitlines())
         # Extract variables and operators from the file
-    variables_text, operators_text = split_sas_file(file_content)
-
+    variables_text, operators_text = split_sas_file(sas_content)
     generate_variables(variables_text)
     all_operators = generate_operators(operators_text)
-    result_cg = build_total_causal_graph(all_operators)
+    result_cg = build_total_causal_graph(all_operators, good_operators)
     with open(output_file, "w") as file:
         for source, destination, edge_type, target_feature in result_cg:
             operators_logger.debug(f"Writing {source} {destination} {edge_type} {target_feature}")
-            input(123)
             file.writelines(f"{source} {destination} {edge_type} {target_feature}\n")
 
 
@@ -75,23 +74,20 @@ def split_sas_file(
     return variables_text, operators_text
 
 
-def build_total_causal_graph(operators: Dict[Tuple[str, ...], Operator]) -> Set[Tuple[int, int, EdgeType, bool]]:
+def build_total_causal_graph(operators: Dict[str, Operator], good_operators: Set[str]) -> Set[Tuple[int, int, EdgeType, bool]]:
     total_causal_graph: Set[Tuple[int, int, EdgeType, TargetFeature]] = set()
-    test1 = "turn_to satellite0 planet5 groundstation3"
-    test2 = "turn_to satellite0 planet5 star1"
-    test3 = "calibrate satellite0 instrument0 star4"
+    
     for key, operator in operators.items():
-        val = False
-        if key in [test1, test2]:
-            val = True
+        val = True if key in good_operators else False
+
         partial_cg = operator.causal_graph(val)
         total_causal_graph = total_causal_graph.union(partial_cg)
-        if val:
-            operators_logger.debug(f"Key: {key}, Operator: {operator}")
+        if partial_cg:
+            operators_logger.debug(f"Key: {key}\nOperator: {operator}")
             operators_logger.debug(f"val: {val}")
             operators_logger.debug(f"Partial CG: {partial_cg}")
-            operators_logger.debug(f"Total CG: {total_causal_graph}")
-            input("continue?")
+            # operators_logger.debug(f"Total CG: {total_causal_graph}")
+            input("Press Enter to continue...") 
 
 
     return total_causal_graph
@@ -148,7 +144,7 @@ def generate_variables(variables_text: SasFileContent):
         Operator.all_variables[var_id] = new_variable
 
 
-def generate_operators(operators_text: SasFileContent) -> Dict[Tuple[str, ...], Operator]:
+def generate_operators(operators_text: SasFileContent) -> Dict[str, Operator]:
     operators = re.split("begin_operator", operators_text)[1:]
     res = {}
     for op_id, operator_lines in enumerate(operators):
@@ -162,7 +158,7 @@ def generate_operators(operators_text: SasFileContent) -> Dict[Tuple[str, ...], 
         logger.debug(f"Effects: {operator_effects}")
 
         new_operator = Operator(
-            preconditions=operator_preconditions, effects=operator_effects
+            key=operator_key, preconditions=operator_preconditions, effects=operator_effects
         )
 
         logger.debug(f"New operator: {new_operator}")
@@ -173,7 +169,7 @@ def generate_operators(operators_text: SasFileContent) -> Dict[Tuple[str, ...], 
 
 def parse_preconditions_and_effects(
     operator_lines: str,
-) -> Tuple[Set[Precondition], Set[Effect], Tuple[str, ...]]:
+) -> Tuple[Set[Precondition], Set[Effect], str]:
 
     def parse_preconditions(precondition_lines) -> Set[Precondition]:
         preconditions: Set[Precondition] = set()

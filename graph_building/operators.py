@@ -3,13 +3,12 @@ from dataclasses import InitVar, dataclass
 
 from .variable import Variable
 from dataclasses import field
-from typing import ClassVar, Tuple, List, Union, Set
+from typing import ClassVar, Tuple, Union, Set
 from enum import Enum
-
 from typing import TYPE_CHECKING
+
 if TYPE_CHECKING:
     from graph_building import TargetFeature
-TargetFeature = bool
 
 class EdgeType(str, Enum):
     PRE_PRE = 0
@@ -35,9 +34,11 @@ class Effect:
 
 @dataclass(frozen=True)
 class Operator:
+    key: str
     preconditions: Set[Precondition]
     effects: Set[Effect]
     all_variables: ClassVar[dict[int, Variable]] = {}
+
 
     # TODO: we need to figure out a way to handle edge types inside DTG
     def update_dtgs(self):
@@ -58,8 +59,11 @@ class Operator:
                 continue
             variable.update_dtg(old_value, new_value)
 
-    def causal_graph(self, val: TargetFeature) -> Set[Tuple[int, int, EdgeType, bool]]:
+    def causal_graph(self, val: "TargetFeature") -> Set[Tuple[int, int, EdgeType, bool]]:
         res: Set[Tuple[int, int, EdgeType, bool]] = set()
+        if len(self.preconditions) == 0 and len(self.effects) == 1:
+            return res
+
         # TODO faster after we have tests
         for p in self.preconditions:
             for e in self.effects:
