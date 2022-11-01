@@ -4,10 +4,6 @@ from typing import Tuple, List, Set
 from enum import Enum
 from .predicates import Predicate
 
-class EdgeType(str, Enum):
-    PRE_PRE = "precondition --> precondition"
-    PRE_EFF = "precondition --> effect"
-    EFF_EFF = "effect --> effect"
 
 @dataclass
 class Variable:
@@ -18,6 +14,7 @@ class Variable:
     values_num: Number of values a variable can take
     dtg: Domain Transition Graph representing values of the variable; a list of tuples (value_id, value_id)
     """
+
     index: int
     predicates: List[Predicate]
     features: List[int] = field(default_factory=list)
@@ -38,8 +35,9 @@ class Variable:
         # Todo, we need to figure out a way to handle edge types inside DTG
         self.dtg.add((id1, id2))
 
-
-    def update_features(self, preconditions: List[Tuple[int, int]], effects: List[Tuple[int, int, int]]):
+    def update_features(
+        self, preconditions: List[Tuple[int, int]], effects: List[Tuple[int, int, int]]
+    ):
         """
         predconditions: list of tuples (variable_index, value)
         effects: list of tuples (variable_index, old_value, new_value)
@@ -51,12 +49,10 @@ class Variable:
 predicates={self.predicates},\
 predicates_num={self.predicates_num},\
 features={self.features},\
-dtg={self.dtg})"   
+dtg={self.dtg})"
 
     def __repr__(self):
         return self.__str__()
-
-
 
 
 class A:
