@@ -76,7 +76,7 @@ def split_sas_file(
 
 def build_total_causal_graph(operators: Dict[str, Operator], good_operators: Set[str]) -> Set[Tuple[int, int, EdgeType, bool]]:
     total_causal_graph: Set[Tuple[int, int, EdgeType, TargetFeature]] = set()
-    
+
     for key, operator in operators.items():
         val = True if key in good_operators else False
 
@@ -87,7 +87,7 @@ def build_total_causal_graph(operators: Dict[str, Operator], good_operators: Set
             operators_logger.debug(f"val: {val}")
             operators_logger.debug(f"Partial CG: {partial_cg}")
             # operators_logger.debug(f"Total CG: {total_causal_graph}")
-            input("Press Enter to continue...") 
+            # input("Press Enter to continue...") 
 
 
     return total_causal_graph
