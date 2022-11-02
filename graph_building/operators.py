@@ -11,9 +11,8 @@ if TYPE_CHECKING:
     from graph_building import TargetFeature
 
 class EdgeType(str, Enum):
-    PRE_PRE = 0
-    PRE_EFF = 1
-    EFF_EFF = 2
+    PRE_EFF = 0
+    EFF_EFF = 1
 
     def __str__(self):
         return self.value
