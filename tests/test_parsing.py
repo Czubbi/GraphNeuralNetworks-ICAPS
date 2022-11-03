@@ -324,6 +324,128 @@ def test_cg(operators, good_operators, expected):
     res = build_total_causal_graph(operators, good_operators)
     assert res == expected
 
+    
+
+@pytest.mark.parametrize(
+    "operators, good_operators, expected",
+    [
+        (
+            {
+                "op1": Operator(
+                    key="op1",
+                    preconditions=[
+                        Precondition(variable_id=3, value=1),
+                        Precondition(variable_id=0, value=0),  # This precondition is in the second effect
+                    ],
+                    effects=[
+                        Effect(variable_id=2, precondition_value=-1, effect_value=0),
+                        Effect(variable_id=0, precondition_value=0, effect_value=1),  # This effect has a precondition existing in the preconditions
+                    ],
+                ),
+                "op2": Operator(
+                    key="op2",
+                    preconditions=[
+                        Precondition(variable_id=4, value=5),
+                        Precondition(variable_id=2, value=3),  # This precondition is in the second effect
+                    ],
+                    effects=[
+                        Effect(variable_id=1, precondition_value=-1, effect_value=0),
+                        Effect(variable_id=3, precondition_value=3, effect_value=4),  # This effect has a precondition existing in the preconditions
+                    ],
+                ),
+                "op3": Operator(
+                    key="op3",
+                    preconditions=[
+                        Precondition(variable_id=4, value=1),
+                    ],
+                    effects=[
+                        Effect(variable_id=1, precondition_value=-1, effect_value=0),
+                    ],
+                ),
+            },
+            ("op1", "op3"),
+            [
+                # Op1 Preconditions X Effects
+            (3, 2, EdgeType.PRE_EFF, True),
+            (3, 0, EdgeType.PRE_EFF, True),
+            (0, 2, EdgeType.PRE_EFF, True),
+            # Op1 Effects X Effects
+            (2, 0, EdgeType.EFF_EFF, True),
+            (0, 2, EdgeType.EFF_EFF, True),
+            # Op2 Preconditions X Effects
+            (4, 1, EdgeType.PRE_EFF, True), # Because present in op3 but we get both TODO: fix this
+            (4, 3, EdgeType.PRE_EFF, False),
+            (2, 1, EdgeType.PRE_EFF, False),
+            (2, 3, EdgeType.PRE_EFF, False),
+            (3, 1, EdgeType.PRE_EFF, False),
+            # Op2 Effects X Effects
+            (1, 3, EdgeType.EFF_EFF, False),
+            (3, 1, EdgeType.EFF_EFF, False),
+            ],
+        ),
+
+        (
+            {
+                "op1": Operator(
+                    key="op1",
+                    preconditions=[
+                        Precondition(variable_id=3, value=1),
+                        Precondition(variable_id=0, value=0),  # This precondition is in the second effect
+                    ],
+                    effects=[
+                        Effect(variable_id=2, precondition_value=-1, effect_value=0),
+                        Effect(variable_id=0, precondition_value=0, effect_value=1),  # This effect has a precondition existing in the preconditions
+                    ],
+                ),
+                "op2": Operator(
+                    key="op2",
+                    preconditions=[
+                        Precondition(variable_id=4, value=5),
+                        Precondition(variable_id=2, value=3),  # This precondition is in the second effect
+                    ],
+                    effects=[
+                        Effect(variable_id=1, precondition_value=-1, effect_value=0),
+                        Effect(variable_id=3, precondition_value=3, effect_value=4),  # This effect has a precondition existing in the preconditions
+                    ],
+                ),
+                "op3": Operator(
+                    key="op3",
+                    preconditions=[
+                        Precondition(variable_id=4, value=1),
+                    ],
+                    effects=[
+                        Effect(variable_id=1, precondition_value=-1, effect_value=0),
+                    ],
+                ),
+            },
+            ("op1", "op2"),
+            [
+                # Op1 Preconditions X Effects
+            (3, 2, EdgeType.PRE_EFF, True),
+            (3, 0, EdgeType.PRE_EFF, True),
+            (0, 2, EdgeType.PRE_EFF, True),
+            # Op1 Effects X Effects
+            (2, 0, EdgeType.EFF_EFF, True),
+            (0, 2, EdgeType.EFF_EFF, True),
+            # Op2 Preconditions X Effects
+            (4, 1, EdgeType.PRE_EFF, True), #Same as above but the other way around TODO: fix this
+            (4, 3, EdgeType.PRE_EFF, True),
+            (2, 1, EdgeType.PRE_EFF, True),
+            (2, 3, EdgeType.PRE_EFF, True),
+            (3, 1, EdgeType.PRE_EFF, True),
+            # Op2 Effects X Effects
+            (1, 3, EdgeType.EFF_EFF, True),
+            (3, 1, EdgeType.EFF_EFF, True),
+            ],
+        )
+    ]
+)
+def test_complete_cg_with_target(operators, good_operators, expected):
+    expected = set(expected)
+    res = build_total_causal_graph(operators, good_operators)
+    assert res == expected
+
+
 
 @pytest.mark.parametrize(
     "operator",
