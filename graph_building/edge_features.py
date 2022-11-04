@@ -1,0 +1,41 @@
+from collections import defaultdict
+from typing import Union, Dict, Tuple
+from enum import Enum
+
+# Typing annotations
+# Features
+EdgeTypePreEffFeature = bool
+EdgeTypeEffEffFeature = bool
+EdgeLabelFeature = bool
+EdgeFeatures = Union[EdgeTypePreEffFeature, EdgeTypeEffEffFeature, EdgeLabelFeature]
+EdgeFeatureDictionary = Dict["EdgeFeature", EdgeFeatures]
+
+# Edges
+EdgeIndex = Tuple[int, int]
+CausalGraph = Dict[EdgeIndex, EdgeFeatureDictionary]
+
+
+class EdgeFeature(str, Enum):
+    TYPE_PRE_EFF = "edge_type_pre_eff"
+    TYPE_EFF_EFF = "edge_type_eff_eff"
+    LABEL = "edge_label"
+
+
+class EdgeTypeValue(str, Enum):
+    PRE_EFF = 0
+    EFF_EFF = 1
+
+    def __str__(self):
+        return self.value
+
+
+def _default_edge_features() -> EdgeFeatureDictionary:
+    return {
+        EdgeFeature.TYPE_PRE_EFF: False,
+        EdgeFeature.TYPE_EFF_EFF: False,
+        EdgeFeature.LABEL: False,
+    }
+
+
+def default_edge_features_dict() -> CausalGraph:
+    return defaultdict(_default_edge_features)

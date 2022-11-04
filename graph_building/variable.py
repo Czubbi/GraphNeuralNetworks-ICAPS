@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 from dataclasses import field
 from typing import Tuple, List, Set
-from enum import Enum
-from .predicates import Predicate
+
+from graph_building.base_types import Predicate
 
 
 @dataclass
@@ -53,6 +53,9 @@ dtg={self.dtg})"
 
     def __repr__(self):
         return self.__str__()
+
+    def to_csv(self):
+        return f"{self.index},{self.predicates_num}"
 
 
 class A:

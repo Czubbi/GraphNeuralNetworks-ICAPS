@@ -1,16 +1,20 @@
-from ast import operator
-from dataclasses import dataclass, field
 import logging
 import re
-from typing import ClassVar, List, Tuple, Set, Dict
+from typing import List, Tuple, Set, Dict, TYPE_CHECKING
+from collections import defaultdict
 
-from graph_building.operators import EdgeType, Effect, Precondition, Operator
-from .variable import Variable
-from .predicates import Predicate
+from graph_building.operator import Operator, Precondition
+from graph_building.variable import Variable
+from graph_building.base_types import Predicate
+from graph_building.base_types import Effect
+from graph_building.edge_features import default_edge_features_dict
 
+if TYPE_CHECKING:
+    from graph_building.operator import CausalGraph
 
 SasFileContent = str
 TargetFeature = bool
+
 
 logging.basicConfig()
 logger = logging.getLogger(__name__)
@@ -74,21 +78,25 @@ def split_sas_file(
     return variables_text, operators_text
 
 
-def build_total_causal_graph(operators: Dict[str, Operator], good_operators: Set[str]) -> Set[Tuple[int, int, EdgeType, bool]]:
-    total_causal_graph: Set[Tuple[int, int, EdgeType, TargetFeature]] = set()
+def build_total_causal_graph(operators: Dict[str, Operator], good_operators: Set[str]):
+    total_causal_graph = default_edge_features_dict()
 
     for key, operator in operators.items():
-        val = True if key in good_operators else False
+        is_good_operator = True if key in good_operators else False
 
-        partial_cg = operator.causal_graph(val)
-        total_causal_graph = total_causal_graph.union(partial_cg)
-        if partial_cg:
-            operators_logger.debug(f"Key: {key}\nOperator: {operator}")
-            operators_logger.debug(f"val: {val}")
-            operators_logger.debug(f"Partial CG: {partial_cg}")
-            # operators_logger.debug(f"Total CG: {total_causal_graph}")
-            # input("Press Enter to continue...") 
+        partial_causal_graph: CausalGraph = operator.causal_graph(edge_label=is_good_operator)
 
+        # TODO Update features non-binary features
+        for edge_index, feature_dictionary in partial_causal_graph.items():
+            for k, v in feature_dictionary.items():
+                total_causal_graph[edge_index][k] = max(total_causal_graph[edge_index][k], v)
+
+        # if partial_cg:
+        #     operators_logger.debug(f"Key: {key}\nOperator: {operator}")
+        #     operators_logger.debug(f"val: {val}")
+        #     operators_logger.debug(f"Partial CG: {partial_cg}")
+        #     # operators_logger.debug(f"Total CG: {total_causal_graph}")
+        #     # input("Press Enter to continue...")
 
     return total_causal_graph
 
@@ -119,9 +127,7 @@ def generate_variables(variables_text: SasFileContent):
 
         # List of all Atoms in one variable, where first elemnt of the tuple is the Atom text
         # and second elemnet is the predicate text
-        atoms: List[Tuple[str, str]] = re.findall(
-            VARIABLE_VALUE, variable_lines, re.VERBOSE
-        )
+        atoms: List[Tuple[str, str]] = re.findall(VARIABLE_VALUE, variable_lines, re.VERBOSE)
         logger.debug(f"Atoms: {atoms}")
 
         for a_text, p_text in atoms:
@@ -147,29 +153,29 @@ def generate_variables(variables_text: SasFileContent):
 def generate_operators(operators_text: SasFileContent) -> Dict[str, Operator]:
     operators = re.split("begin_operator", operators_text)[1:]
     res = {}
-    for op_id, operator_lines in enumerate(operators):
-        logger.debug(f"Operator {op_id}, lines: {operator_lines}")
+    for op_id, lines in enumerate(operators):
+        logger.debug(f"Operator {op_id}, lines: {lines}")
+        preconditions, effects, key = parse_operator_lines(lines)
 
-        operator_preconditions, operator_effects, operator_key = parse_preconditions_and_effects(
-            operator_lines
-        )
-
-        logger.debug(f"Preconditions: {operator_preconditions}")
-        logger.debug(f"Effects: {operator_effects}")
+        logger.debug(f"Preconditions: {preconditions}")
+        logger.debug(f"Effects: {effects}")
 
         new_operator = Operator(
-            key=operator_key, preconditions=operator_preconditions, effects=operator_effects
+            key=key,
+            preconditions=preconditions,
+            effects=effects,
         )
 
         logger.debug(f"New operator: {new_operator}")
-        assert operator_key not in res, "Duplicate operator key"
-        res[operator_key] = new_operator
+        assert key not in res, "Duplicate operator key"
+        res[key] = new_operator
     return res
 
 
-def parse_preconditions_and_effects(
+def parse_operator_lines(
     operator_lines: str,
 ) -> Tuple[Set[Precondition], Set[Effect], str]:
+    """Given a string of lines, parse the preconditions, effects and key of the operator"""
 
     def parse_preconditions(precondition_lines) -> Set[Precondition]:
         preconditions: Set[Precondition] = set()
@@ -205,9 +211,7 @@ def parse_preconditions_and_effects(
         # The next line after the last precondition tells us how many effects are there
         index_num_effects = num_preconditions + 1
         num_effects = int(separated_lines[index_num_effects])
-        effect_lines = separated_lines[
-            index_num_effects + 1 : index_num_effects + num_effects + 1
-        ]
+        effect_lines = separated_lines[index_num_effects + 1 : index_num_effects + num_effects + 1]
         logger.debug(f"Precondition lines: {precondition_lines}")
         logger.debug(f"Effect lines: {effect_lines}")
         return precondition_lines, effect_lines
@@ -217,7 +221,7 @@ def parse_preconditions_and_effects(
     operator_lines_list = opeator_lines_list[1:]
     logger.debug(f"Operator lines list: {operator_lines_list[0]}")
     # We take the first line to get the action name and it's grounded predicates
-    operator_key = operator_lines_list[0].strip() # To be used as a key to the operators dictionary
+    operator_key = operator_lines_list[0].strip()  # Key of the operator
     logger.debug(f"Operator_key: {repr(operator_key)}")
     separated_lines = operator_lines.split("\n")[2:]
     precondition_lines, effect_lines = precondition_and_effect_lines(separated_lines)
@@ -226,4 +230,3 @@ def parse_preconditions_and_effects(
     effects = parse_effects(effect_lines)
 
     return preconditions, effects, operator_key
-

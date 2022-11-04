@@ -23,6 +23,4 @@ if __name__ == "__main__":
     good_operators_file = options.good_operators_file
     output_file = options.output_file
 
-
-
     sas_file_to_cg(sas_file, good_operators_file, output_file)
