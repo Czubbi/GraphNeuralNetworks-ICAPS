@@ -4,12 +4,13 @@ from graph_building import (
     build_total_causal_graph,
     sas_file_to_cg,
 )
-from graph_building.operators import Operator, Precondition, Effect
+from graph_building.operator import Operator
+from graph_building.base_types import Precondition, Effect
+from graph_building.edge_features import EdgeFeature
 
 import logging
 import pytest
 
-from graph_building.operators import EdgeType
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -106,12 +107,12 @@ def test_generate_operators():
                 ("op1"),
             ],
             [
-                (3, 2, EdgeType.PRE_EFF, True),
-                (3, 0, EdgeType.PRE_EFF, True),
-                (0, 2, EdgeType.PRE_EFF, True),
-                (0, 2, EdgeType.EFF_EFF, True),
-                (2, 0, EdgeType.EFF_EFF, True),
-                (2, 0, EdgeType.PRE_EFF, True),
+                (3, 2, EdgeFeature.TYPE_PRE_EFF, True),
+                (3, 0, EdgeFeature.TYPE_PRE_EFF, True),
+                (0, 2, EdgeFeature.TYPE_PRE_EFF, True),
+                (0, 2, EdgeFeature.TYPE_EFF_EFF, True),
+                (2, 0, EdgeFeature.TYPE_EFF_EFF, True),
+                (2, 0, EdgeFeature.TYPE_PRE_EFF, True),
             ],
         ),
     ],
@@ -144,17 +145,24 @@ def test_operators_WITH_SINGLE_precondition_variable_id_MANY_values_AND_many_eff
             [
                 ("op1"),
             ],
-            [
-                (3, 4, EdgeType.PRE_EFF, True),
-                (3, 4, EdgeType.EFF_EFF, True),
-                (4, 3, EdgeType.EFF_EFF, True),
-            ],
+            {
+                (3,4):{ 
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    },
+                (4,3):{
+                    EdgeFeature.TYPE_PRE_EFF: False,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    }
+            },
         )
     ],
 )
 def test_ONE_edge_MANY_types(operators, good_operators, expected):
-    expected = set(expected)
     res = build_total_causal_graph(operators, good_operators)
+    logger.debug(res)
     assert res == expected
 
 
@@ -187,20 +195,68 @@ def test_ONE_edge_MANY_types(operators, good_operators, expected):
                 ),
             },
             ("op1", "op2"),
-            [
-                (1, 4, EdgeType.PRE_EFF, True),
-                (1, 3, EdgeType.PRE_EFF, True),
-                (2, 4, EdgeType.PRE_EFF, True),
-                (2, 3, EdgeType.PRE_EFF, True),
-                (7, 5, EdgeType.PRE_EFF, True),
-                (7, 6, EdgeType.PRE_EFF, True),
-                (8, 5, EdgeType.PRE_EFF, True),
-                (8, 6, EdgeType.PRE_EFF, True),
-                (4, 3, EdgeType.EFF_EFF, True),
-                (3, 4, EdgeType.EFF_EFF, True),
-                (5, 6, EdgeType.EFF_EFF, True),
-                (6, 5, EdgeType.EFF_EFF, True),
-            ],
+            {
+                (1,4):{ 
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (1,3):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (2,4):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (2,3):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (7,5):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (7,6):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (8,5):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (8,6):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (4,3):{
+                    EdgeFeature.TYPE_PRE_EFF: False,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    },
+                (3,4):{
+                    EdgeFeature.TYPE_PRE_EFF: False,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    },
+                (5,6):{
+                    EdgeFeature.TYPE_PRE_EFF: False,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    },
+                (6,5):{
+                    EdgeFeature.TYPE_PRE_EFF: False,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    },
+            },
         )
     ],
 )
@@ -235,16 +291,28 @@ def test_cg_ALL_effects_NEGATIVE_precondition_value(
                 ),
             },
             ("op1", "op2"),
-            [
-                (1, 2, EdgeType.PRE_EFF, True),
-                (2, 1, EdgeType.PRE_EFF, True),
-                (2, 3, EdgeType.PRE_EFF, True),
-                (3, 2, EdgeType.PRE_EFF, True),
-                (1, 2, EdgeType.EFF_EFF, True),
-                (2, 1, EdgeType.EFF_EFF, True),
-                (2, 3, EdgeType.EFF_EFF, True),
-                (3, 2, EdgeType.EFF_EFF, True),
-            ],
+            {
+                (1,2):{ 
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    },
+                (2,1):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    },
+                (2,3):{ 
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    },
+                (3,2):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    }
+            },
         )
     ],
 )
@@ -292,30 +360,58 @@ def test_no_preconditions(operators, good_operators, expected):
                 ),
             },
             ("op1", "op2", "op3"),
-            [
-                # Op1 Preconditions X Effects
-            (3, 2, EdgeType.PRE_EFF, True),
-            (3, 0, EdgeType.PRE_EFF, True),
-            (0, 2, EdgeType.PRE_EFF, True),
-            # Op1 Effects X Effects
-            # (2, 0, EdgeType.EFF_EFF), # This is the only one that is not in the expected result
-            (2, 0, EdgeType.EFF_EFF, True),
-            (0, 2, EdgeType.EFF_EFF, True),
-            # Op2 Preconditions X Effects
-            (4, 1, EdgeType.PRE_EFF, True),
-            (4, 3, EdgeType.PRE_EFF, True),
-            (2, 1, EdgeType.PRE_EFF, True),
-            (2, 3, EdgeType.PRE_EFF, True),
-            (3, 1, EdgeType.PRE_EFF, True),
-            # Op2 Effects X Effects
-            (1, 3, EdgeType.EFF_EFF, True),
-            (3, 1, EdgeType.EFF_EFF, True),
-            # Op3 Has overlapping preconditions
-            # (4, 1, EdgeType.PRE_EFF),
-            # Op3 has no preconditions from effects
-            # (0, 0) this is no good because it is a self loop
-            # (2,2)
-            ],
+            {
+                (3,2):{ 
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (3,0):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (0,2):{ 
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    },
+                (2,0):{
+                    EdgeFeature.TYPE_PRE_EFF: False,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    },
+                (4,1):{ 
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (4,3):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (2,1):{ 
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (2,3):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (3,1):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    },
+                (1,3):{
+                    EdgeFeature.TYPE_PRE_EFF: False,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    }
+            }
         )
     ],
 )
@@ -364,24 +460,58 @@ def test_cg(operators, good_operators, expected):
                 ),
             },
             ("op1", "op3"),
-            [
-                # Op1 Preconditions X Effects
-            (3, 2, EdgeType.PRE_EFF, True),
-            (3, 0, EdgeType.PRE_EFF, True),
-            (0, 2, EdgeType.PRE_EFF, True),
-            # Op1 Effects X Effects
-            (2, 0, EdgeType.EFF_EFF, True),
-            (0, 2, EdgeType.EFF_EFF, True),
-            # Op2 Preconditions X Effects
-            (4, 1, EdgeType.PRE_EFF, True), # Because present in op3 but we get both TODO: fix this
-            (4, 3, EdgeType.PRE_EFF, False),
-            (2, 1, EdgeType.PRE_EFF, False),
-            (2, 3, EdgeType.PRE_EFF, False),
-            (3, 1, EdgeType.PRE_EFF, False),
-            # Op2 Effects X Effects
-            (1, 3, EdgeType.EFF_EFF, False),
-            (3, 1, EdgeType.EFF_EFF, False),
-            ],
+            {
+                (3,2):{ 
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (3,0):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (0,2):{ 
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    },
+                (2,0):{
+                    EdgeFeature.TYPE_PRE_EFF: False,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    },
+                (4,1):{ 
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (4,3):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (2,1):{ 
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: False,
+                    },
+                (2,3):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: False,
+                    },
+                (3,1):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: False,
+                    },
+                (1,3):{
+                    EdgeFeature.TYPE_PRE_EFF: False,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: False,
+                    }
+            }
         ),
 
         (
@@ -419,24 +549,58 @@ def test_cg(operators, good_operators, expected):
                 ),
             },
             ("op1", "op2"),
-            [
-                # Op1 Preconditions X Effects
-            (3, 2, EdgeType.PRE_EFF, True),
-            (3, 0, EdgeType.PRE_EFF, True),
-            (0, 2, EdgeType.PRE_EFF, True),
-            # Op1 Effects X Effects
-            (2, 0, EdgeType.EFF_EFF, True),
-            (0, 2, EdgeType.EFF_EFF, True),
-            # Op2 Preconditions X Effects
-            (4, 1, EdgeType.PRE_EFF, True), #Same as above but the other way around TODO: fix this
-            (4, 3, EdgeType.PRE_EFF, True),
-            (2, 1, EdgeType.PRE_EFF, True),
-            (2, 3, EdgeType.PRE_EFF, True),
-            (3, 1, EdgeType.PRE_EFF, True),
-            # Op2 Effects X Effects
-            (1, 3, EdgeType.EFF_EFF, True),
-            (3, 1, EdgeType.EFF_EFF, True),
-            ],
+            {
+                (3,2):{ 
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (3,0):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (0,2):{ 
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    },
+                (2,0):{
+                    EdgeFeature.TYPE_PRE_EFF: False,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    },
+                (4,1):{ 
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (4,3):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (2,1):{ 
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (2,3):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (3,1):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    },
+                (1,3):{
+                    EdgeFeature.TYPE_PRE_EFF: False,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    }
+            }
         )
     ]
 )
@@ -447,20 +611,3 @@ def test_complete_cg_with_target(operators, good_operators, expected):
 
 
 
-@pytest.mark.parametrize(
-    "operator",
-    [
-        Operator(
-            key="op1",
-            preconditions=[],
-            effects=[Effect(variable_id=2, precondition_value=-1, effect_value=0)],
-        )
-    ],
-)
-def test_empty_partial_cg(operator):
-    assert operator.causal_graph(0) == set()
-
-
-@pytest.mark.parametrize("operator, expected", [])
-def test_partial_cg(operator, expected):
-    pass

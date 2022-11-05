@@ -39,7 +39,7 @@ class Operator:
                 continue
             variable.update_dtg(old_value, new_value)
 
-    def causal_graph(self, edge_label: bool) -> CausalGraph:
+    def causal_graph(self, edge_label: bool) -> "CausalGraph":
         assert isinstance(edge_label, bool), "edge_label should be a boolean"
 
         causal_graph = default_edge_features_dict()
