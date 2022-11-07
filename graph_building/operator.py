@@ -65,9 +65,9 @@ class Operator:
                 # Update the edge label
                 causal_graph[edge_key][EdgeFeature.LABEL] = edge_label
                 # EFF -> EFF
-                causal_graph[edge_key][EdgeFeature.TYPE_PRE_EFF] = True
+                causal_graph[edge_key][EdgeFeature.TYPE_EFF_EFF] = True
                 # PRE -> EFF
                 if e1.precondition_value != -1:
-                    causal_graph[edge_key][EdgeFeature.TYPE_EFF_EFF] = True
+                    causal_graph[edge_key][EdgeFeature.TYPE_PRE_EFF] = True
 
         return causal_graph

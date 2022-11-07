@@ -86,7 +86,7 @@ def test_generate_operators():
                 )
             },
             [],  # In this case it should return empty as we cannot have self referencing edges
-            [],
+            {},
         ),
         (
             {
@@ -106,21 +106,34 @@ def test_generate_operators():
             [
                 ("op1"),
             ],
-            [
-                (3, 2, EdgeFeature.TYPE_PRE_EFF, True),
-                (3, 0, EdgeFeature.TYPE_PRE_EFF, True),
-                (0, 2, EdgeFeature.TYPE_PRE_EFF, True),
-                (0, 2, EdgeFeature.TYPE_EFF_EFF, True),
-                (2, 0, EdgeFeature.TYPE_EFF_EFF, True),
-                (2, 0, EdgeFeature.TYPE_PRE_EFF, True),
-            ],
+            {
+                (3,2):{ 
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (3,0):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: False,
+                    EdgeFeature.LABEL: True,
+                    },
+                (0,2):{ 
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    },
+                (2,0):{
+                    EdgeFeature.TYPE_PRE_EFF: True,
+                    EdgeFeature.TYPE_EFF_EFF: True,
+                    EdgeFeature.LABEL: True,
+                    },
+            }
         ),
     ],
 )
 def test_operators_WITH_SINGLE_precondition_variable_id_MANY_values_AND_many_effect_variable_id(
     operators, good_operators, expected
 ):
-    expected = set(expected)
     res = build_total_causal_graph(operators, good_operators)
     assert res == expected
 
@@ -162,7 +175,6 @@ def test_operators_WITH_SINGLE_precondition_variable_id_MANY_values_AND_many_eff
 )
 def test_ONE_edge_MANY_types(operators, good_operators, expected):
     res = build_total_causal_graph(operators, good_operators)
-    logger.debug(res)
     assert res == expected
 
 
@@ -263,7 +275,6 @@ def test_ONE_edge_MANY_types(operators, good_operators, expected):
 def test_cg_ALL_effects_NEGATIVE_precondition_value(
     operators, good_operators, expected
 ):
-    expected = set(expected)
     res = build_total_causal_graph(operators, good_operators)
     assert res == expected
 
@@ -317,7 +328,6 @@ def test_cg_ALL_effects_NEGATIVE_precondition_value(
     ],
 )
 def test_no_preconditions(operators, good_operators, expected):
-    expected = set(expected)
     res = build_total_causal_graph(operators, good_operators)
     assert res == expected
 
@@ -416,7 +426,6 @@ def test_no_preconditions(operators, good_operators, expected):
     ],
 )
 def test_cg(operators, good_operators, expected):
-    expected = set(expected)
     res = build_total_causal_graph(operators, good_operators)
     assert res == expected
 
@@ -489,7 +498,7 @@ def test_cg(operators, good_operators, expected):
                 (4,3):{
                     EdgeFeature.TYPE_PRE_EFF: True,
                     EdgeFeature.TYPE_EFF_EFF: False,
-                    EdgeFeature.LABEL: True,
+                    EdgeFeature.LABEL: False,
                     },
                 (2,1):{ 
                     EdgeFeature.TYPE_PRE_EFF: True,
@@ -605,7 +614,6 @@ def test_cg(operators, good_operators, expected):
     ]
 )
 def test_complete_cg_with_target(operators, good_operators, expected):
-    expected = set(expected)
     res = build_total_causal_graph(operators, good_operators)
     assert res == expected
 

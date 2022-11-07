@@ -98,7 +98,7 @@ def build_total_causal_graph(operators: Dict[str, Operator], good_operators: Set
         #     # operators_logger.debug(f"Total CG: {total_causal_graph}")
         #     # input("Press Enter to continue...")
 
-    return total_causal_graph
+    return dict(total_causal_graph)
 
 
 def generate_variables(variables_text: SasFileContent):
