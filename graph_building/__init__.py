@@ -1,19 +1,20 @@
 import logging
 import re
+import csv
 from typing import List, Tuple, Set, Dict, TYPE_CHECKING
 from collections import defaultdict
+
 
 from graph_building.operator import Operator, Precondition
 from graph_building.variable import Variable
 from graph_building.base_types import Predicate
 from graph_building.base_types import Effect
-from graph_building.edge_features import default_edge_features_dict
+from graph_building.edge_features import default_edge_features_dict, EdgeFeature, EdgeTypeValue
 
 if TYPE_CHECKING:
     from graph_building.operator import CausalGraph
 
 SasFileContent = str
-TargetFeature = bool
 
 
 logging.basicConfig()
@@ -54,6 +55,8 @@ OPERATOR_SECTION = r"""
 """
 
 
+
+
 def sas_file_to_cg(sas_path, good_operators_path, output_file):
     with open(sas_path, "r") as file:
         sas_content: SasFileContent = file.read()
@@ -64,10 +67,23 @@ def sas_file_to_cg(sas_path, good_operators_path, output_file):
     generate_variables(variables_text)
     all_operators = generate_operators(operators_text)
     result_cg = build_total_causal_graph(all_operators, good_operators)
-    with open(output_file, "w") as file:
-        for source, destination, edge_type, target_feature in result_cg:
-            operators_logger.debug(f"Writing {source} {destination} {edge_type} {target_feature}")
-            file.writelines(f"{source} {destination} {edge_type} {target_feature}\n")
+    # with open(output_file, "w") as file:
+    #     for source, destination, edge_type, target_feature in result_cg:
+    #         operators_logger.debug(f"Writing {source} {destination} {edge_type} {target_feature}")
+    #         file.writelines(f"{source} {destination} {edge_type} {target_feature}\n")
+    
+    with open(output_file + "_cg.csv", "w") as file:
+        file.write("source,destination,type_pre_eff,type_eff_eff,label\n")
+        result = []
+        for k,v in result_cg.items():
+            source = k[0]
+            destination = k[1]
+            type_pre_eff = v[EdgeFeature.TYPE_PRE_EFF]
+            type_eff_eff = v[EdgeFeature.TYPE_EFF_EFF]
+            label = v[EdgeFeature.LABEL]
+            result.append(f"{source},{destination},{type_pre_eff},{type_eff_eff},{label}\n")
+        file.writelines(result)
+
 
 
 def split_sas_file(

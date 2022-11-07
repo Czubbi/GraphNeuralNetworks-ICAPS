@@ -1,0 +1,12 @@
+
+# export DIR="generation_data/p01-2-2-2-5-1"
+# export DIR="generation_data/p02-2-2-2-5-4"
+export DIR="generation_data/p03-2-2-2-5-7"
+
+
+export GOOD_OPERATORS="$DIR/good_operators"
+export SAS_FILE="$DIR/sas_file.sas"
+echo $GOOD_OPERATORS
+echo $SAS_FILE
+
+python -m graph_building $SAS_FILE $GOOD_OPERATORS --output_file "cgs/cg3"

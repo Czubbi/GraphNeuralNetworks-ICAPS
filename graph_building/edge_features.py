@@ -16,9 +16,9 @@ CausalGraph = Dict[EdgeIndex, EdgeFeatureDictionary]
 
 
 class EdgeFeature(str, Enum):
-    TYPE_PRE_EFF = "edge_type_pre_eff"
-    TYPE_EFF_EFF = "edge_type_eff_eff"
-    LABEL = "edge_label"
+    TYPE_PRE_EFF = "type_pre_eff"
+    TYPE_EFF_EFF = "type_eff_eff"
+    LABEL = "label"
 
 
 class EdgeTypeValue(str, Enum):
