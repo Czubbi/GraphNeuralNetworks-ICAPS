@@ -186,6 +186,7 @@ numpy==1.23.4
     # via
     #   contourpy
     #   matplotlib
+    #   pandas
     #   scikit-learn
     #   scipy
     #   torch-geometric
@@ -197,6 +198,8 @@ packaging==21.3
     #   nbconvert
     #   pytest
     #   qtpy
+pandas==1.5.1
+    # via -r requirements.in
 pandocfilters==1.5.0
     # via nbconvert
 parso==0.8.3
@@ -257,6 +260,9 @@ python-dateutil==2.8.2
     # via
     #   jupyter-client
     #   matplotlib
+    #   pandas
+pytz==2022.6
+    # via pandas
 pyzmq==24.0.1
     # via
     #   ipykernel
