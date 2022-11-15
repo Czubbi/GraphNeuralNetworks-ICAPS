@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from dataclasses import field
-from typing import Tuple, List, Set
+from typing import Tuple, List, Set, ClassVar
 
 from graph_building.base_types import Predicate
 
@@ -19,6 +19,7 @@ class Variable:
     predicates: List[Predicate]
     features: List[int] = field(default_factory=list)
     dtg: Set[Tuple[int, int]] = field(default_factory=set)
+    csv_header: ClassVar[str] = "index,pred_name\n"
 
     @property
     def predicates_num(self) -> int:
@@ -44,19 +45,9 @@ class Variable:
         """
         pass
 
-    def __str__(self):
-        return f"Variable(index={self.index},\
-predicates={self.predicates},\
-predicates_num={self.predicates_num},\
-features={self.features},\
-dtg={self.dtg})"
-
-    def __repr__(self):
-        return self.__str__()
-
     def to_csv(self):
+        # TODO
+        # csv_features = ",".join([str(f) for f in self.features])
+        # return f"{self.index},{self.predicates_num},{csv_features}"
+
         return f"{self.index},{self.predicates_num}"
-
-
-class A:
-    pass

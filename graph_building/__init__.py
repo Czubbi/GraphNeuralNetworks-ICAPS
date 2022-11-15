@@ -1,6 +1,6 @@
 import logging
 import re
-import csv
+import os
 from typing import List, Tuple, Set, Dict, TYPE_CHECKING
 from collections import defaultdict
 
@@ -19,7 +19,7 @@ SasFileContent = str
 
 logging.basicConfig()
 logger = logging.getLogger(__name__)
-logger.setLevel(30)
+logger.setLevel(10)
 
 operators_logger = logging.getLogger("graph_building.operators")
 operators_logger.setLevel(10)
@@ -55,10 +55,11 @@ OPERATOR_SECTION = r"""
 """
 
 
+def cg_and_nodes(sasfile_path, good_operators_path, output_dir):
+    cg_output_path = os.path.join(output_dir, "cg.csv")
+    node_output_path = os.path.join(output_dir, "nodes.csv")
 
-
-def sas_file_to_cg(sas_path, good_operators_path, output_file):
-    with open(sas_path, "r") as file:
+    with open(sasfile_path, "r") as file:
         sas_content: SasFileContent = file.read()
     with open(good_operators_path, "r") as file:
         good_operators: Tuple[str] = tuple(file.read().splitlines())
@@ -67,15 +68,11 @@ def sas_file_to_cg(sas_path, good_operators_path, output_file):
     generate_variables(variables_text)
     all_operators = generate_operators(operators_text)
     result_cg = build_total_causal_graph(all_operators, good_operators)
-    # with open(output_file, "w") as file:
-    #     for source, destination, edge_type, target_feature in result_cg:
-    #         operators_logger.debug(f"Writing {source} {destination} {edge_type} {target_feature}")
-    #         file.writelines(f"{source} {destination} {edge_type} {target_feature}\n")
-    
-    with open(output_file + "_cg.csv", "w") as file:
+
+    with open(cg_output_path, "w") as file:
         file.write("source,destination,type_pre_eff,type_eff_eff,label\n")
         result = []
-        for k,v in result_cg.items():
+        for k, v in result_cg.items():
             source = k[0]
             destination = k[1]
             type_pre_eff = v[EdgeFeature.TYPE_PRE_EFF]
@@ -84,6 +81,13 @@ def sas_file_to_cg(sas_path, good_operators_path, output_file):
             result.append(f"{source},{destination},{type_pre_eff},{type_eff_eff},{label}\n")
         file.writelines(result)
 
+    with open(node_output_path, "w") as file:
+        file.write(Variable.csv_header)
+        result = []
+        for variable in Operator.all_variables.values():
+            features = variable.to_csv()
+            result.append(f"{features}\n")
+        file.writelines(result)
 
 
 def split_sas_file(
