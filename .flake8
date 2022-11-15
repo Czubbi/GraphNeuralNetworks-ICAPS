@@ -1,0 +1,12 @@
+[flake8]
+exclude =
+    # No need to traverse our git directory
+    .git,
+    # No need to check our github workflows
+    .github
+    # There's no value in checking cache directories
+    __pycache__,
+    # This virtualenv
+   .venv
+max-complexity = 10
+max-line-length = 100
