@@ -11,8 +11,6 @@ def get_domain_folders(dir):
     list_of_domain_folders = [
         domain for domain in os.listdir(dir) if domain != ".DS_Store" and domain != "README.md"
     ]
-    list_of_domain_folders = ["satellite"]
-    list_of_domain_folders = ["satellite"]
     # Iterate over the list of different domains folders
     for domain in list_of_domain_folders:
         output_domain_path = os.path.join(LEARNING_DATA_PATH, domain)
