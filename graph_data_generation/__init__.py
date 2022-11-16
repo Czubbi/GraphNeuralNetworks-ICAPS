@@ -4,12 +4,15 @@
 import os
 from graph_building import cg_and_nodes
 
-LEARNING_DATA_PATH = "ml_data"
+LEARNING_DATA_PATH = "graph_training_data"
 
 
 def get_domain_folders(dir):
+    ignore_files = [".DS_Store", "README.md"]
+    ignore_domains = ["caldera"]
+    ignore = ignore_files + ignore_domains
     list_of_domain_folders = [
-        domain for domain in os.listdir(dir) if domain != ".DS_Store" and domain != "README.md"
+        domain for domain in os.listdir(dir) if domain not in ignore
     ]
     # Iterate over the list of different domains folders
     for domain in list_of_domain_folders:
