@@ -1,0 +1,64 @@
+begin_variable
+var0
+-1
+2
+Atom power_on(instrument0)
+NegatedAtom power_on(instrument0)
+end_variable
+begin_variable
+var1
+-1
+2
+Atom power_on(instrument1)
+NegatedAtom power_on(instrument1)
+end_variable
+begin_variable
+var2
+-1
+2
+Atom power_avail(satellite0)
+NegatedAtom power_avail(satellite0)
+end_variable
+begin_variable
+var3
+-1
+6
+Atom pointing(satellite1, groundstation0)
+Atom pointing(satellite1, groundstation1)
+Atom pointing(satellite1, groundstation3)
+Atom pointing(satellite1, star2)
+Atom pointing(satellite1, star4)
+Atom pointing(satellite1, star5)
+end_variable
+begin_variable
+var4
+-1
+6
+Atom pointing(satellite0, groundstation0)
+Atom pointing(satellite0, groundstation1)
+Atom pointing(satellite0, groundstation3)
+Atom pointing(satellite0, star2)
+Atom pointing(satellite0, star4)
+Atom pointing(satellite0, star5)
+end_variable
+begin_variable
+var5
+-1
+2
+Atom calibrated(instrument1)
+NegatedAtom calibrated(instrument1)
+end_variable
+begin_variable
+var6
+-1
+2
+Atom calibrated(instrument0)
+NegatedAtom calibrated(instrument0)
+end_variable
+begin_variable
+var7
+-1
+2
+Atom have_image(star5, image0)
+NegatedAtom have_image(star5, image0)
+end_variable
