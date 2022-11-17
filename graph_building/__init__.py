@@ -10,6 +10,7 @@ from graph_building.variable import Variable
 from graph_building.base_types import Predicate
 from graph_building.base_types import Effect
 from graph_building.edge_features import default_edge_features_dict, EdgeFeature, EdgeTypeValue
+from graph_building.exceptions import EmptyCausalGraphError
 
 if TYPE_CHECKING:
     from graph_building.operator import CausalGraph
@@ -19,10 +20,10 @@ SasFileContent = str
 
 logging.basicConfig()
 logger = logging.getLogger(__name__)
-logger.setLevel(10)
+logger.setLevel(30)
 
 operators_logger = logging.getLogger("graph_building.operators")
-operators_logger.setLevel(10)
+operators_logger.setLevel(30)
 
 # print(getattr(logging, loglevel.upper()))
 
@@ -58,6 +59,8 @@ OPERATOR_SECTION = r"""
 def cg_and_nodes(sasfile_path, good_operators_path, output_dir):
     cg_output_path = os.path.join(output_dir, "cg.csv")
     node_output_path = os.path.join(output_dir, "nodes.csv")
+    variable_output_path = os.path.join(output_dir, "variables.txt")
+    operator_output_path = os.path.join(output_dir, "operators.txt")
 
     with open(sasfile_path, "r") as file:
         sas_content: SasFileContent = file.read()
@@ -65,9 +68,19 @@ def cg_and_nodes(sasfile_path, good_operators_path, output_dir):
         good_operators: Tuple[str] = tuple(file.read().splitlines())
         # Extract variables and operators from the file
     variables_text, operators_text = split_sas_file(sas_content)
+
+    with open(variable_output_path, "w") as file:
+        file.write(variables_text)
+
+    with open(operator_output_path, "w") as file:
+        file.write(operators_text)
+
     generate_variables(variables_text)
     all_operators = generate_operators(operators_text)
     result_cg = build_total_causal_graph(all_operators, good_operators)
+
+    if not result_cg:
+        raise EmptyCausalGraphError(sasfile_path, good_operators_path)
 
     with open(cg_output_path, "w") as file:
         file.write("source,destination,type_pre_eff,type_eff_eff,label\n")
@@ -84,10 +97,15 @@ def cg_and_nodes(sasfile_path, good_operators_path, output_dir):
     with open(node_output_path, "w") as file:
         file.write(Variable.csv_header)
         result = []
+        logging.info(f"Number of variables: {Operator.all_variables.keys()}")
+        # logging.warning(f"Number of variables: {Operator.all_variables.values()}")
         for variable in Operator.all_variables.values():
             features = variable.to_csv()
             result.append(f"{features}\n")
         file.writelines(result)
+
+    # reset the variables
+    Operator.clear()
 
 
 def split_sas_file(

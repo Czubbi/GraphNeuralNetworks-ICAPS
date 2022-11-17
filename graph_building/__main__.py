@@ -1,5 +1,5 @@
-from datetime import date
-from . import sas_file_to_cg
+import os
+from . import cg_and_nodes
 
 
 if __name__ == "__main__":
@@ -23,4 +23,10 @@ if __name__ == "__main__":
     good_operators_file = options.good_operators_file
     output_file = options.output_file
 
-    sas_file_to_cg(sas_file, good_operators_file, output_file)
+    cg_and_nodes(sas_file, good_operators_file, output_file)
+    # ppath = "downward-main/useful-actions-dataset-main/satellite/runs/optimal/p226-4-4-3-5-1"
+    # go = os.path.join(ppath, "good_operators")
+    # problem_path = "graph_training_data/satellite/p226-4-4-3-5-1"
+    # sasfile_path = os.path.join(problem_path, "sas_file.sas")
+
+    # cg_and_nodes(sasfile_path, go, "my_test")

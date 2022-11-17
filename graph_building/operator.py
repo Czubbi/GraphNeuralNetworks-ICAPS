@@ -20,6 +20,10 @@ class Operator:
     effects: Set[Effect]
     all_variables: ClassVar[dict[int, Variable]] = {}
 
+    @classmethod
+    def clear(self):
+        self.all_variables.clear()
+
     # TODO: we need to figure out a way to handle edge types inside DTG
     def update_dtgs(self):
         for eff in self.effects:
