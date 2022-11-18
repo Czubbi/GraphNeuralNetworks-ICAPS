@@ -19,7 +19,7 @@ class Variable:
     predicates: List[Predicate]
     features: List[int] = field(default_factory=list)
     dtg: Set[Tuple[int, int]] = field(default_factory=set)
-    csv_header: ClassVar[str] = "index,pred_name\n"
+    csv_header: ClassVar[str] = "index,num_options\n"
 
     @property
     def predicates_num(self) -> int:

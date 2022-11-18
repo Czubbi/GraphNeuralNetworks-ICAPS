@@ -62,7 +62,8 @@ def get_domain_folders(dir):
             try:
                 cg_and_nodes(sasfile_path, good_operators_path, output_run_path)
             except EmptyCausalGraphError as e:
-                shutil.move(output_run_path, os.path.join(LEARNING_DATA_PATH, domain, "empty_causal_graphs", run_path))
+                empty_run_path = os.path.join(LEARNING_DATA_PATH, domain, "empty_causal_graphs", run_path)                
+                shutil.copytree(output_run_path, empty_run_path, dirs_exist_ok=True)
                 shutil.rmtree(output_run_path, ignore_errors=True)
                 print(e.message)
 
@@ -73,5 +74,3 @@ def generate_sas_file(domain_file, problem_file, save_dir):
         os.system(
             f"./downward-main/src/translate/translate.py {domain_file} {problem_file} --sas-file {save_path}"
         )
-
-
