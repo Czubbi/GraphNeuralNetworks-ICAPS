@@ -5,6 +5,14 @@ from typing import Tuple, List, Set, ClassVar
 from graph_building.base_types import Predicate
 
 
+INDEX_FEATURE = "index"
+IS_GOAL_VARIABLE_FEATURE = "is_goal"
+NUM_OPTIONBS_FEATURE = "num_options"
+
+FEATURES = [INDEX_FEATURE, IS_GOAL_VARIABLE_FEATURE, NUM_OPTIONBS_FEATURE]
+FEATURES_TEXT = ",".join(FEATURES) + "\n"
+
+
 @dataclass
 class Variable:
     """
@@ -21,7 +29,7 @@ class Variable:
     # TODO when too many features and we need a separate logic to handle it nicely
     # features: List[int] = field(default_factory=list)
     dtg: Set[Tuple[int, int]] = field(default_factory=set)
-    csv_header: ClassVar[str] = "index,is_goal_variable,num_options,\n"
+    csv_header: ClassVar[str] = FEATURES_TEXT
 
     @property
     def predicates_num(self) -> int:
@@ -51,5 +59,7 @@ class Variable:
         # TODO
         # csv_features = ",".join([str(f) for f in self.features])
         # return f"{self.index},{self.predicates_num},{csv_features}"
+        features = [self.index, self.is_goal_variable, self.predicates_num]
+        return ",".join([str(f) for f in features])
 
-        return f"{self.index},{self.is_goal_variable},{self.predicates_num}"
+        # return f"{self.index},{self.is_goal_variable},{self.predicates_num}"
