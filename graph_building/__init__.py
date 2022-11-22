@@ -55,6 +55,12 @@ OPERATOR_SECTION = r"""
     end_operator
 """
 
+GOAL_SECTION = r"""
+    begin_goal
+    [\s\S]*       # Any character, including newlines
+    end_goal
+"""
+
 
 def cg_and_nodes(sasfile_path, good_operators_path, output_dir):
     cg_output_path = os.path.join(output_dir, "cg.csv")
@@ -67,7 +73,7 @@ def cg_and_nodes(sasfile_path, good_operators_path, output_dir):
     with open(good_operators_path, "r") as file:
         good_operators: Tuple[str] = tuple(file.read().splitlines())
         # Extract variables and operators from the file
-    variables_text, operators_text = split_sas_file(sas_content)
+    variables_text, goals_text, operators_text = split_sas_file(sas_content)
 
     with open(variable_output_path, "w") as file:
         file.write(variables_text)
@@ -75,7 +81,9 @@ def cg_and_nodes(sasfile_path, good_operators_path, output_dir):
     with open(operator_output_path, "w") as file:
         file.write(operators_text)
 
-    generate_variables(variables_text)
+    goal_dict = generate_goal_dict(goals_text)  # Whether a variable is in the goal
+
+    generate_variables(variables_text, goal_dict)
     all_operators = generate_operators(operators_text)
     result_cg = build_total_causal_graph(all_operators, good_operators)
 
@@ -110,10 +118,11 @@ def cg_and_nodes(sasfile_path, good_operators_path, output_dir):
 
 def split_sas_file(
     file_content: SasFileContent,
-) -> Tuple[SasFileContent, SasFileContent]:
+) -> Tuple[SasFileContent, SasFileContent, SasFileContent]:
     variables_text = re.search(VARIABLE_SECTION, file_content, re.VERBOSE)[0]
-    operators_text = re.search("begin_operator[\s\S]*end_operator", file_content)[0]
-    return variables_text, operators_text
+    operators_text = re.search(OPERATOR_SECTION, file_content, re.VERBOSE)[0]
+    goal_text = re.search(GOAL_SECTION, file_content, re.VERBOSE)[0]
+    return variables_text, goal_text, operators_text
 
 
 def build_total_causal_graph(operators: Dict[str, Operator], good_operators: Set[str]):
@@ -139,7 +148,16 @@ def build_total_causal_graph(operators: Dict[str, Operator], good_operators: Set
     return dict(total_causal_graph)
 
 
-def generate_variables(variables_text: SasFileContent):
+def generate_goal_dict(goal_text: SasFileContent) -> Dict[int, int]:
+    is_goal_variable: Dict[int, int] = {}
+    goals = goal_text.split("\n")[2:-1]
+    for g in goals:
+        var_id, value = g.split(" ")
+        is_goal_variable[int(var_id)] = int(value)
+    return is_goal_variable
+
+
+def generate_variables(variables_text: SasFileContent, goal_variables: Dict[int, int]):
     """
     variables: is a list of strings, each strings is a multiline consisting of
       a variable definition, for instance one entry in the list could be:
@@ -183,7 +201,10 @@ def generate_variables(variables_text: SasFileContent):
             logger.debug(f"New predicate: {new_predicate}")
             predicates.append(new_predicate)
 
-        new_variable = Variable(index=var_id, predicates=predicates)
+        is_goal_variable = True if var_id in goal_variables else False
+        new_variable = Variable(
+            index=var_id, is_goal_variable=is_goal_variable, predicates=predicates
+        )
         logger.debug(f"New variable: {new_variable}")
         Operator.all_variables[var_id] = new_variable
 

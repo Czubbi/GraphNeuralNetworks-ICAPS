@@ -16,10 +16,12 @@ class Variable:
     """
 
     index: int
+    is_goal_variable: bool
     predicates: List[Predicate]
-    features: List[int] = field(default_factory=list)
+    # TODO when too many features and we need a separate logic to handle it nicely
+    # features: List[int] = field(default_factory=list)
     dtg: Set[Tuple[int, int]] = field(default_factory=set)
-    csv_header: ClassVar[str] = "index,num_options\n"
+    csv_header: ClassVar[str] = "index,is_goal_variable,num_options,\n"
 
     @property
     def predicates_num(self) -> int:
@@ -50,4 +52,4 @@ class Variable:
         # csv_features = ",".join([str(f) for f in self.features])
         # return f"{self.index},{self.predicates_num},{csv_features}"
 
-        return f"{self.index},{self.predicates_num}"
+        return f"{self.index},{self.is_goal_variable},{self.predicates_num}"
