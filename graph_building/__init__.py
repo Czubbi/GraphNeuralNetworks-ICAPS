@@ -201,7 +201,7 @@ def generate_variables(variables_text: SasFileContent, goal_variables: Dict[int,
             logger.debug(f"New predicate: {new_predicate}")
             predicates.append(new_predicate)
 
-        is_goal_variable = True if var_id in goal_variables else False
+        is_goal_variable = 1 if var_id in goal_variables else 0
         new_variable = Variable(
             index=var_id, is_goal_variable=is_goal_variable, predicates=predicates
         )
