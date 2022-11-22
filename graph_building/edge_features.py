@@ -4,9 +4,9 @@ from enum import Enum
 
 # Typing annotations
 # Features
-EdgeTypePreEffFeature = bool
-EdgeTypeEffEffFeature = bool
-EdgeLabelFeature = bool
+EdgeTypePreEffFeature = int
+EdgeTypeEffEffFeature = int
+EdgeLabelFeature = int
 EdgeFeatures = Union[EdgeTypePreEffFeature, EdgeTypeEffEffFeature, EdgeLabelFeature]
 EdgeFeatureDictionary = Dict["EdgeFeature", EdgeFeatures]
 
@@ -31,9 +31,9 @@ class EdgeTypeValue(str, Enum):
 
 def _default_edge_features() -> EdgeFeatureDictionary:
     return {
-        EdgeFeature.TYPE_PRE_EFF: False,
-        EdgeFeature.TYPE_EFF_EFF: False,
-        EdgeFeature.LABEL: False,
+        EdgeFeature.TYPE_PRE_EFF: 0,
+        EdgeFeature.TYPE_EFF_EFF: 0,
+        EdgeFeature.LABEL: 0,
     }
 
 

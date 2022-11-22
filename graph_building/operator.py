@@ -43,8 +43,8 @@ class Operator:
                 continue
             variable.update_dtg(old_value, new_value)
 
-    def causal_graph(self, edge_label: bool) -> "CausalGraph":
-        assert isinstance(edge_label, bool), "edge_label should be a boolean"
+    def causal_graph(self, edge_label: int) -> "CausalGraph":
+        assert isinstance(edge_label, int), "edge_label should be a boolean"
 
         causal_graph = default_edge_features_dict()
 
@@ -55,7 +55,7 @@ class Operator:
             for e in self.effects:
                 edge_key = (p.variable_id, e.variable_id)
                 if p.variable_id != e.variable_id:
-                    causal_graph[edge_key][EdgeFeature.TYPE_PRE_EFF] = True
+                    causal_graph[edge_key][EdgeFeature.TYPE_PRE_EFF] = 1
                     causal_graph[edge_key][EdgeFeature.LABEL] = edge_label
 
         # Preconditions from Effects to Effects
@@ -69,9 +69,9 @@ class Operator:
                 # Update the edge label
                 causal_graph[edge_key][EdgeFeature.LABEL] = edge_label
                 # EFF -> EFF
-                causal_graph[edge_key][EdgeFeature.TYPE_EFF_EFF] = True
+                causal_graph[edge_key][EdgeFeature.TYPE_EFF_EFF] = 1
                 # PRE -> EFF
                 if e1.precondition_value != -1:
-                    causal_graph[edge_key][EdgeFeature.TYPE_PRE_EFF] = True
+                    causal_graph[edge_key][EdgeFeature.TYPE_PRE_EFF] = 1
 
         return causal_graph

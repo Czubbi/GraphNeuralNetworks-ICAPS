@@ -24,7 +24,7 @@ class Variable:
     """
 
     index: int
-    is_goal_variable: bool
+    is_goal_variable: int
     predicates: List[Predicate]
     # TODO when too many features and we need a separate logic to handle it nicely
     # features: List[int] = field(default_factory=list)

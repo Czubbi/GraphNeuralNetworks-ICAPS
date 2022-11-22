@@ -129,7 +129,7 @@ def build_total_causal_graph(operators: Dict[str, Operator], good_operators: Set
     total_causal_graph = default_edge_features_dict()
 
     for key, operator in operators.items():
-        is_good_operator = True if key in good_operators else False
+        is_good_operator = 1 if key in good_operators else 0
 
         partial_causal_graph: CausalGraph = operator.causal_graph(edge_label=is_good_operator)
 
