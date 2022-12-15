@@ -1,0 +1,16 @@
+calibrate satellite1 instrument3 groundstation3
+calibrate satellite2 instrument4 groundstation8
+calibrate satellite2 instrument5 groundstation8
+calibrate satellite2 instrument6 groundstation8
+switch_on instrument3 satellite1
+switch_on instrument4 satellite2
+switch_on instrument5 satellite2
+switch_on instrument6 satellite2
+take_image satellite1 planet12 instrument3 thermograph0
+take_image satellite2 planet12 instrument4 thermograph0
+take_image satellite2 planet12 instrument5 thermograph0
+take_image satellite2 planet12 instrument6 thermograph0
+turn_to satellite1 planet12 groundstation3
+turn_to satellite2 groundstation5 groundstation8
+turn_to satellite2 groundstation5 planet12
+turn_to satellite2 planet12 groundstation8

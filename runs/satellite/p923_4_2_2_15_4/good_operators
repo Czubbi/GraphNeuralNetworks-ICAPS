@@ -1,0 +1,44 @@
+calibrate satellite0 instrument0 groundstation2
+calibrate satellite3 instrument4 groundstation3
+switch_on instrument0 satellite0
+switch_on instrument4 satellite3
+take_image satellite0 phenomenon16 instrument0 image1
+take_image satellite0 planet15 instrument0 image1
+take_image satellite0 planet17 instrument0 image1
+take_image satellite0 star18 instrument0 thermograph0
+take_image satellite3 phenomenon16 instrument4 image1
+take_image satellite3 planet15 instrument4 image1
+take_image satellite3 planet17 instrument4 image1
+take_image satellite3 star18 instrument4 thermograph0
+turn_to satellite0 phenomenon16 groundstation2
+turn_to satellite0 phenomenon16 planet15
+turn_to satellite0 phenomenon16 planet17
+turn_to satellite0 phenomenon16 star18
+turn_to satellite0 planet15 groundstation2
+turn_to satellite0 planet15 phenomenon16
+turn_to satellite0 planet15 planet17
+turn_to satellite0 planet15 star18
+turn_to satellite0 planet17 groundstation2
+turn_to satellite0 planet17 phenomenon16
+turn_to satellite0 planet17 planet15
+turn_to satellite0 planet17 star18
+turn_to satellite0 star18 groundstation2
+turn_to satellite0 star18 phenomenon16
+turn_to satellite0 star18 planet15
+turn_to satellite0 star18 planet17
+turn_to satellite3 phenomenon16 groundstation3
+turn_to satellite3 phenomenon16 planet15
+turn_to satellite3 phenomenon16 planet17
+turn_to satellite3 phenomenon16 star18
+turn_to satellite3 planet15 groundstation3
+turn_to satellite3 planet15 phenomenon16
+turn_to satellite3 planet15 planet17
+turn_to satellite3 planet15 star18
+turn_to satellite3 planet17 groundstation3
+turn_to satellite3 planet17 phenomenon16
+turn_to satellite3 planet17 planet15
+turn_to satellite3 planet17 star18
+turn_to satellite3 star18 groundstation3
+turn_to satellite3 star18 phenomenon16
+turn_to satellite3 star18 planet15
+turn_to satellite3 star18 planet17

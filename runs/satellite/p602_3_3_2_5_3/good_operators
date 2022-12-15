@@ -1,0 +1,29 @@
+calibrate satellite2 instrument4 groundstation3
+calibrate satellite2 instrument5 star0
+calibrate satellite2 instrument6 groundstation1
+switch_on instrument4 satellite2
+switch_on instrument5 satellite2
+switch_on instrument6 satellite2
+take_image satellite2 phenomenon6 instrument4 image1
+take_image satellite2 phenomenon6 instrument5 image1
+take_image satellite2 phenomenon6 instrument6 image1
+take_image satellite2 planet5 instrument4 image1
+take_image satellite2 planet5 instrument5 image1
+take_image satellite2 planet5 instrument6 image1
+take_image satellite2 star7 instrument4 spectrograph0
+take_image satellite2 star7 instrument5 spectrograph0
+take_image satellite2 star7 instrument6 spectrograph0
+turn_to satellite0 star0 star7
+turn_to satellite2 groundstation1 groundstation4
+turn_to satellite2 groundstation3 groundstation4
+turn_to satellite2 phenomenon6 planet5
+turn_to satellite2 phenomenon6 star7
+turn_to satellite2 planet5 groundstation1
+turn_to satellite2 planet5 groundstation3
+turn_to satellite2 planet5 star0
+turn_to satellite2 planet5 star7
+turn_to satellite2 star0 groundstation4
+turn_to satellite2 star7 groundstation1
+turn_to satellite2 star7 groundstation3
+turn_to satellite2 star7 planet5
+turn_to satellite2 star7 star0

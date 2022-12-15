@@ -1,0 +1,48 @@
+calibrate satellite0 instrument0 groundstation0
+calibrate satellite2 instrument2 groundstation1
+calibrate satellite3 instrument5 groundstation1
+calibrate satellite4 instrument7 groundstation2
+calibrate satellite4 instrument7 star7
+switch_on instrument0 satellite0
+switch_on instrument2 satellite2
+switch_on instrument5 satellite3
+switch_on instrument7 satellite4
+take_image satellite0 phenomenon14 instrument0 infrared3
+take_image satellite0 star13 instrument0 infrared3
+take_image satellite2 phenomenon15 instrument2 thermograph0
+take_image satellite2 planet12 instrument2 image1
+take_image satellite3 phenomenon15 instrument5 thermograph0
+take_image satellite4 phenomenon14 instrument7 infrared3
+take_image satellite4 planet12 instrument7 image1
+take_image satellite4 star13 instrument7 infrared3
+turn_to satellite0 groundstation0 groundstation8
+turn_to satellite0 phenomenon14 groundstation0
+turn_to satellite0 phenomenon14 star13
+turn_to satellite0 star13 groundstation0
+turn_to satellite0 star13 phenomenon14
+turn_to satellite0 star7 groundstation8
+turn_to satellite0 star7 phenomenon14
+turn_to satellite0 star7 star13
+turn_to satellite2 phenomenon15 groundstation1
+turn_to satellite2 phenomenon15 planet12
+turn_to satellite2 planet12 groundstation1
+turn_to satellite2 planet12 phenomenon15
+turn_to satellite3 phenomenon15 groundstation1
+turn_to satellite4 groundstation2 phenomenon15
+turn_to satellite4 groundstation8 phenomenon14
+turn_to satellite4 groundstation8 phenomenon15
+turn_to satellite4 groundstation8 planet12
+turn_to satellite4 groundstation8 star13
+turn_to satellite4 phenomenon14 groundstation2
+turn_to satellite4 phenomenon14 planet12
+turn_to satellite4 phenomenon14 star13
+turn_to satellite4 phenomenon14 star7
+turn_to satellite4 planet12 groundstation2
+turn_to satellite4 planet12 phenomenon14
+turn_to satellite4 planet12 star13
+turn_to satellite4 planet12 star7
+turn_to satellite4 star13 groundstation2
+turn_to satellite4 star13 phenomenon14
+turn_to satellite4 star13 planet12
+turn_to satellite4 star13 star7
+turn_to satellite4 star7 phenomenon15

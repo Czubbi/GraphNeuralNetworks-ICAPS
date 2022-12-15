@@ -1,0 +1,2649 @@
+begin_version
+3
+end_version
+begin_metric
+0
+end_metric
+28
+begin_variable
+var0
+-1
+3
+Atom at(rover0, waypoint0)
+Atom at(rover0, waypoint1)
+Atom at(rover0, waypoint3)
+end_variable
+begin_variable
+var9
+-1
+2
+Atom calibrated(camera2, rover0)
+NegatedAtom calibrated(camera2, rover0)
+end_variable
+begin_variable
+var35
+-1
+2
+Atom have_image(rover0, objective4, high_res)
+NegatedAtom have_image(rover0, objective4, high_res)
+end_variable
+begin_variable
+var32
+-1
+2
+Atom have_image(rover0, objective2, low_res)
+NegatedAtom have_image(rover0, objective2, low_res)
+end_variable
+begin_variable
+var31
+-1
+2
+Atom have_image(rover0, objective2, high_res)
+NegatedAtom have_image(rover0, objective2, high_res)
+end_variable
+begin_variable
+var1
+-1
+4
+Atom at(rover1, waypoint0)
+Atom at(rover1, waypoint1)
+Atom at(rover1, waypoint2)
+Atom at(rover1, waypoint4)
+end_variable
+begin_variable
+var7
+-1
+2
+Atom calibrated(camera0, rover1)
+NegatedAtom calibrated(camera0, rover1)
+end_variable
+begin_variable
+var41
+-1
+2
+Atom have_image(rover1, objective4, high_res)
+NegatedAtom have_image(rover1, objective4, high_res)
+end_variable
+begin_variable
+var39
+-1
+2
+Atom have_image(rover1, objective2, high_res)
+NegatedAtom have_image(rover1, objective2, high_res)
+end_variable
+begin_variable
+var2
+-1
+5
+Atom at(rover2, waypoint0)
+Atom at(rover2, waypoint1)
+Atom at(rover2, waypoint2)
+Atom at(rover2, waypoint3)
+Atom at(rover2, waypoint4)
+end_variable
+begin_variable
+var8
+-1
+2
+Atom calibrated(camera1, rover2)
+NegatedAtom calibrated(camera1, rover2)
+end_variable
+begin_variable
+var50
+-1
+2
+Atom have_image(rover2, objective4, high_res)
+NegatedAtom have_image(rover2, objective4, high_res)
+end_variable
+begin_variable
+var18
+-1
+2
+Atom communicated_image_data(objective4, high_res)
+NegatedAtom communicated_image_data(objective4, high_res)
+end_variable
+begin_variable
+var47
+-1
+2
+Atom have_image(rover2, objective2, low_res)
+NegatedAtom have_image(rover2, objective2, low_res)
+end_variable
+begin_variable
+var15
+-1
+2
+Atom communicated_image_data(objective2, low_res)
+NegatedAtom communicated_image_data(objective2, low_res)
+end_variable
+begin_variable
+var46
+-1
+2
+Atom have_image(rover2, objective2, high_res)
+NegatedAtom have_image(rover2, objective2, high_res)
+end_variable
+begin_variable
+var14
+-1
+2
+Atom communicated_image_data(objective2, high_res)
+NegatedAtom communicated_image_data(objective2, high_res)
+end_variable
+begin_variable
+var5
+-1
+2
+Atom at_rock_sample(waypoint3)
+Atom have_rock_analysis(rover0, waypoint3)
+end_variable
+begin_variable
+var26
+-1
+2
+Atom empty(rover2store)
+Atom full(rover2store)
+end_variable
+begin_variable
+var3
+-1
+3
+Atom at_rock_sample(waypoint0)
+Atom have_rock_analysis(rover0, waypoint0)
+Atom have_rock_analysis(rover1, waypoint0)
+end_variable
+begin_variable
+var4
+-1
+3
+Atom at_rock_sample(waypoint1)
+Atom have_rock_analysis(rover0, waypoint1)
+Atom have_rock_analysis(rover1, waypoint1)
+end_variable
+begin_variable
+var24
+-1
+2
+Atom empty(rover0store)
+Atom full(rover0store)
+end_variable
+begin_variable
+var25
+-1
+2
+Atom empty(rover1store)
+Atom full(rover1store)
+end_variable
+begin_variable
+var6
+-1
+4
+Atom at_soil_sample(waypoint1)
+Atom have_soil_analysis(rover0, waypoint1)
+Atom have_soil_analysis(rover1, waypoint1)
+Atom have_soil_analysis(rover2, waypoint1)
+end_variable
+begin_variable
+var22
+-1
+2
+Atom communicated_rock_data(waypoint3)
+NegatedAtom communicated_rock_data(waypoint3)
+end_variable
+begin_variable
+var21
+-1
+2
+Atom communicated_rock_data(waypoint1)
+NegatedAtom communicated_rock_data(waypoint1)
+end_variable
+begin_variable
+var20
+-1
+2
+Atom communicated_rock_data(waypoint0)
+NegatedAtom communicated_rock_data(waypoint0)
+end_variable
+begin_variable
+var23
+-1
+2
+Atom communicated_soil_data(waypoint1)
+NegatedAtom communicated_soil_data(waypoint1)
+end_variable
+7
+begin_mutex_group
+mutex
+fw
+2
+18 1
+23 0
+end_mutex_group
+begin_mutex_group
+mutex
+fw
+2
+18 1
+23 1
+end_mutex_group
+begin_mutex_group
+mutex
+fw
+2
+18 1
+23 2
+end_mutex_group
+begin_mutex_group
+mutex
+fw
+2
+17 0
+24 0
+end_mutex_group
+begin_mutex_group
+mutex
+fw
+2
+19 0
+26 0
+end_mutex_group
+begin_mutex_group
+mutex
+fw
+2
+20 0
+25 0
+end_mutex_group
+begin_mutex_group
+mutex
+fw
+2
+23 0
+27 0
+end_mutex_group
+begin_state
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0
+0
+0
+0
+0
+0
+0
+1
+1
+1
+1
+end_state
+begin_goal
+7
+12 0
+14 0
+16 0
+24 0
+25 0
+26 0
+27 0
+end_goal
+128
+begin_operator
+calibrate rover0 camera2 objective1 waypoint3
+1
+0 2
+1
+0 1 -1 0
+1
+end_operator
+begin_operator
+calibrate rover1 camera0 objective2 waypoint1
+1
+5 1
+1
+0 6 -1 0
+1
+end_operator
+begin_operator
+calibrate rover1 camera0 objective2 waypoint4
+1
+5 3
+1
+0 6 -1 0
+1
+end_operator
+begin_operator
+calibrate rover2 camera1 objective2 waypoint1
+1
+9 1
+1
+0 10 -1 0
+1
+end_operator
+begin_operator
+calibrate rover2 camera1 objective2 waypoint4
+1
+9 4
+1
+0 10 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover0 general objective2 high_res waypoint0 waypoint1
+2
+0 0
+4 0
+1
+0 16 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover0 general objective2 high_res waypoint3 waypoint1
+2
+0 2
+4 0
+1
+0 16 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover0 general objective2 low_res waypoint0 waypoint1
+2
+0 0
+3 0
+1
+0 14 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover0 general objective2 low_res waypoint3 waypoint1
+2
+0 2
+3 0
+1
+0 14 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover0 general objective4 high_res waypoint0 waypoint1
+2
+0 0
+2 0
+1
+0 12 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover0 general objective4 high_res waypoint3 waypoint1
+2
+0 2
+2 0
+1
+0 12 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover1 general objective2 high_res waypoint0 waypoint1
+2
+5 0
+8 0
+1
+0 16 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover1 general objective2 high_res waypoint2 waypoint1
+2
+5 2
+8 0
+1
+0 16 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover1 general objective2 high_res waypoint4 waypoint1
+2
+5 3
+8 0
+1
+0 16 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover1 general objective4 high_res waypoint0 waypoint1
+2
+5 0
+7 0
+1
+0 12 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover1 general objective4 high_res waypoint2 waypoint1
+2
+5 2
+7 0
+1
+0 12 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover1 general objective4 high_res waypoint4 waypoint1
+2
+5 3
+7 0
+1
+0 12 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover2 general objective2 high_res waypoint0 waypoint1
+2
+9 0
+15 0
+1
+0 16 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover2 general objective2 high_res waypoint2 waypoint1
+2
+9 2
+15 0
+1
+0 16 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover2 general objective2 high_res waypoint3 waypoint1
+2
+9 3
+15 0
+1
+0 16 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover2 general objective2 high_res waypoint4 waypoint1
+2
+9 4
+15 0
+1
+0 16 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover2 general objective2 low_res waypoint0 waypoint1
+2
+9 0
+13 0
+1
+0 14 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover2 general objective2 low_res waypoint2 waypoint1
+2
+9 2
+13 0
+1
+0 14 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover2 general objective2 low_res waypoint3 waypoint1
+2
+9 3
+13 0
+1
+0 14 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover2 general objective2 low_res waypoint4 waypoint1
+2
+9 4
+13 0
+1
+0 14 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover2 general objective4 high_res waypoint0 waypoint1
+2
+9 0
+11 0
+1
+0 12 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover2 general objective4 high_res waypoint2 waypoint1
+2
+9 2
+11 0
+1
+0 12 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover2 general objective4 high_res waypoint3 waypoint1
+2
+9 3
+11 0
+1
+0 12 -1 0
+1
+end_operator
+begin_operator
+communicate_image_data rover2 general objective4 high_res waypoint4 waypoint1
+2
+9 4
+11 0
+1
+0 12 -1 0
+1
+end_operator
+begin_operator
+communicate_rock_data rover0 general waypoint0 waypoint0 waypoint1
+2
+0 0
+19 1
+1
+0 26 -1 0
+1
+end_operator
+begin_operator
+communicate_rock_data rover0 general waypoint0 waypoint3 waypoint1
+2
+0 2
+19 1
+1
+0 26 -1 0
+1
+end_operator
+begin_operator
+communicate_rock_data rover0 general waypoint1 waypoint0 waypoint1
+2
+0 0
+20 1
+1
+0 25 -1 0
+1
+end_operator
+begin_operator
+communicate_rock_data rover0 general waypoint1 waypoint3 waypoint1
+2
+0 2
+20 1
+1
+0 25 -1 0
+1
+end_operator
+begin_operator
+communicate_rock_data rover0 general waypoint3 waypoint0 waypoint1
+2
+0 0
+17 1
+1
+0 24 -1 0
+1
+end_operator
+begin_operator
+communicate_rock_data rover0 general waypoint3 waypoint3 waypoint1
+2
+0 2
+17 1
+1
+0 24 -1 0
+1
+end_operator
+begin_operator
+communicate_rock_data rover1 general waypoint0 waypoint0 waypoint1
+2
+5 0
+19 2
+1
+0 26 -1 0
+1
+end_operator
+begin_operator
+communicate_rock_data rover1 general waypoint0 waypoint2 waypoint1
+2
+5 2
+19 2
+1
+0 26 -1 0
+1
+end_operator
+begin_operator
+communicate_rock_data rover1 general waypoint0 waypoint4 waypoint1
+2
+5 3
+19 2
+1
+0 26 -1 0
+1
+end_operator
+begin_operator
+communicate_rock_data rover1 general waypoint1 waypoint0 waypoint1
+2
+5 0
+20 2
+1
+0 25 -1 0
+1
+end_operator
+begin_operator
+communicate_rock_data rover1 general waypoint1 waypoint2 waypoint1
+2
+5 2
+20 2
+1
+0 25 -1 0
+1
+end_operator
+begin_operator
+communicate_rock_data rover1 general waypoint1 waypoint4 waypoint1
+2
+5 3
+20 2
+1
+0 25 -1 0
+1
+end_operator
+begin_operator
+communicate_soil_data rover0 general waypoint1 waypoint0 waypoint1
+2
+0 0
+23 1
+1
+0 27 -1 0
+1
+end_operator
+begin_operator
+communicate_soil_data rover0 general waypoint1 waypoint3 waypoint1
+2
+0 2
+23 1
+1
+0 27 -1 0
+1
+end_operator
+begin_operator
+communicate_soil_data rover1 general waypoint1 waypoint0 waypoint1
+2
+5 0
+23 2
+1
+0 27 -1 0
+1
+end_operator
+begin_operator
+communicate_soil_data rover1 general waypoint1 waypoint2 waypoint1
+2
+5 2
+23 2
+1
+0 27 -1 0
+1
+end_operator
+begin_operator
+communicate_soil_data rover1 general waypoint1 waypoint4 waypoint1
+2
+5 3
+23 2
+1
+0 27 -1 0
+1
+end_operator
+begin_operator
+communicate_soil_data rover2 general waypoint1 waypoint0 waypoint1
+2
+9 0
+23 3
+1
+0 27 -1 0
+1
+end_operator
+begin_operator
+communicate_soil_data rover2 general waypoint1 waypoint2 waypoint1
+2
+9 2
+23 3
+1
+0 27 -1 0
+1
+end_operator
+begin_operator
+communicate_soil_data rover2 general waypoint1 waypoint3 waypoint1
+2
+9 3
+23 3
+1
+0 27 -1 0
+1
+end_operator
+begin_operator
+communicate_soil_data rover2 general waypoint1 waypoint4 waypoint1
+2
+9 4
+23 3
+1
+0 27 -1 0
+1
+end_operator
+begin_operator
+drop rover0 rover0store
+0
+1
+0 21 1 0
+1
+end_operator
+begin_operator
+drop rover1 rover1store
+0
+1
+0 22 1 0
+1
+end_operator
+begin_operator
+drop rover2 rover2store
+0
+1
+0 18 1 0
+1
+end_operator
+begin_operator
+navigate rover0 waypoint0 waypoint1
+0
+1
+0 0 0 1
+1
+end_operator
+begin_operator
+navigate rover0 waypoint1 waypoint0
+0
+1
+0 0 1 0
+1
+end_operator
+begin_operator
+navigate rover0 waypoint1 waypoint3
+0
+1
+0 0 1 2
+1
+end_operator
+begin_operator
+navigate rover0 waypoint3 waypoint1
+0
+1
+0 0 2 1
+1
+end_operator
+begin_operator
+navigate rover1 waypoint0 waypoint1
+0
+1
+0 5 0 1
+1
+end_operator
+begin_operator
+navigate rover1 waypoint1 waypoint0
+0
+1
+0 5 1 0
+1
+end_operator
+begin_operator
+navigate rover1 waypoint1 waypoint2
+0
+1
+0 5 1 2
+1
+end_operator
+begin_operator
+navigate rover1 waypoint1 waypoint4
+0
+1
+0 5 1 3
+1
+end_operator
+begin_operator
+navigate rover1 waypoint2 waypoint1
+0
+1
+0 5 2 1
+1
+end_operator
+begin_operator
+navigate rover1 waypoint4 waypoint1
+0
+1
+0 5 3 1
+1
+end_operator
+begin_operator
+navigate rover2 waypoint0 waypoint1
+0
+1
+0 9 0 1
+1
+end_operator
+begin_operator
+navigate rover2 waypoint1 waypoint0
+0
+1
+0 9 1 0
+1
+end_operator
+begin_operator
+navigate rover2 waypoint1 waypoint2
+0
+1
+0 9 1 2
+1
+end_operator
+begin_operator
+navigate rover2 waypoint1 waypoint3
+0
+1
+0 9 1 3
+1
+end_operator
+begin_operator
+navigate rover2 waypoint1 waypoint4
+0
+1
+0 9 1 4
+1
+end_operator
+begin_operator
+navigate rover2 waypoint2 waypoint1
+0
+1
+0 9 2 1
+1
+end_operator
+begin_operator
+navigate rover2 waypoint3 waypoint1
+0
+1
+0 9 3 1
+1
+end_operator
+begin_operator
+navigate rover2 waypoint4 waypoint1
+0
+1
+0 9 4 1
+1
+end_operator
+begin_operator
+sample_rock rover0 rover0store waypoint0
+1
+0 0
+2
+0 19 0 1
+0 21 0 1
+1
+end_operator
+begin_operator
+sample_rock rover0 rover0store waypoint1
+1
+0 1
+2
+0 20 0 1
+0 21 0 1
+1
+end_operator
+begin_operator
+sample_rock rover0 rover0store waypoint3
+1
+0 2
+2
+0 17 0 1
+0 21 0 1
+1
+end_operator
+begin_operator
+sample_rock rover1 rover1store waypoint0
+1
+5 0
+2
+0 19 0 2
+0 22 0 1
+1
+end_operator
+begin_operator
+sample_rock rover1 rover1store waypoint1
+1
+5 1
+2
+0 20 0 2
+0 22 0 1
+1
+end_operator
+begin_operator
+sample_soil rover0 rover0store waypoint1
+1
+0 1
+2
+0 23 0 1
+0 21 0 1
+1
+end_operator
+begin_operator
+sample_soil rover1 rover1store waypoint1
+1
+5 1
+2
+0 23 0 2
+0 22 0 1
+1
+end_operator
+begin_operator
+sample_soil rover2 rover2store waypoint1
+1
+9 1
+2
+0 23 0 3
+0 18 0 1
+1
+end_operator
+begin_operator
+take_image rover0 waypoint0 objective0 camera2 high_res
+1
+0 0
+1
+0 1 0 1
+1
+end_operator
+begin_operator
+take_image rover0 waypoint0 objective0 camera2 low_res
+1
+0 0
+1
+0 1 0 1
+1
+end_operator
+begin_operator
+take_image rover0 waypoint0 objective3 camera2 high_res
+1
+0 0
+1
+0 1 0 1
+1
+end_operator
+begin_operator
+take_image rover0 waypoint0 objective3 camera2 low_res
+1
+0 0
+1
+0 1 0 1
+1
+end_operator
+begin_operator
+take_image rover0 waypoint0 objective4 camera2 high_res
+1
+0 0
+2
+0 1 0 1
+0 2 -1 0
+1
+end_operator
+begin_operator
+take_image rover0 waypoint0 objective4 camera2 low_res
+1
+0 0
+1
+0 1 0 1
+1
+end_operator
+begin_operator
+take_image rover0 waypoint1 objective2 camera2 high_res
+1
+0 1
+2
+0 1 0 1
+0 4 -1 0
+1
+end_operator
+begin_operator
+take_image rover0 waypoint1 objective2 camera2 low_res
+1
+0 1
+2
+0 1 0 1
+0 3 -1 0
+1
+end_operator
+begin_operator
+take_image rover0 waypoint3 objective0 camera2 high_res
+1
+0 2
+1
+0 1 0 1
+1
+end_operator
+begin_operator
+take_image rover0 waypoint3 objective0 camera2 low_res
+1
+0 2
+1
+0 1 0 1
+1
+end_operator
+begin_operator
+take_image rover0 waypoint3 objective1 camera2 high_res
+1
+0 2
+1
+0 1 0 1
+1
+end_operator
+begin_operator
+take_image rover0 waypoint3 objective1 camera2 low_res
+1
+0 2
+1
+0 1 0 1
+1
+end_operator
+begin_operator
+take_image rover1 waypoint0 objective0 camera0 high_res
+1
+5 0
+1
+0 6 0 1
+1
+end_operator
+begin_operator
+take_image rover1 waypoint0 objective3 camera0 high_res
+1
+5 0
+1
+0 6 0 1
+1
+end_operator
+begin_operator
+take_image rover1 waypoint0 objective4 camera0 high_res
+1
+5 0
+2
+0 6 0 1
+0 7 -1 0
+1
+end_operator
+begin_operator
+take_image rover1 waypoint1 objective2 camera0 high_res
+1
+5 1
+2
+0 6 0 1
+0 8 -1 0
+1
+end_operator
+begin_operator
+take_image rover1 waypoint2 objective0 camera0 high_res
+1
+5 2
+1
+0 6 0 1
+1
+end_operator
+begin_operator
+take_image rover1 waypoint2 objective1 camera0 high_res
+1
+5 2
+1
+0 6 0 1
+1
+end_operator
+begin_operator
+take_image rover1 waypoint2 objective3 camera0 high_res
+1
+5 2
+1
+0 6 0 1
+1
+end_operator
+begin_operator
+take_image rover1 waypoint4 objective0 camera0 high_res
+1
+5 3
+1
+0 6 0 1
+1
+end_operator
+begin_operator
+take_image rover1 waypoint4 objective2 camera0 high_res
+1
+5 3
+2
+0 6 0 1
+0 8 -1 0
+1
+end_operator
+begin_operator
+take_image rover1 waypoint4 objective3 camera0 high_res
+1
+5 3
+1
+0 6 0 1
+1
+end_operator
+begin_operator
+take_image rover1 waypoint4 objective4 camera0 high_res
+1
+5 3
+2
+0 6 0 1
+0 7 -1 0
+1
+end_operator
+begin_operator
+take_image rover2 waypoint0 objective0 camera1 high_res
+1
+9 0
+1
+0 10 0 1
+1
+end_operator
+begin_operator
+take_image rover2 waypoint0 objective0 camera1 low_res
+1
+9 0
+1
+0 10 0 1
+1
+end_operator
+begin_operator
+take_image rover2 waypoint0 objective3 camera1 high_res
+1
+9 0
+1
+0 10 0 1
+1
+end_operator
+begin_operator
+take_image rover2 waypoint0 objective3 camera1 low_res
+1
+9 0
+1
+0 10 0 1
+1
+end_operator
+begin_operator
+take_image rover2 waypoint0 objective4 camera1 high_res
+1
+9 0
+2
+0 10 0 1
+0 11 -1 0
+1
+end_operator
+begin_operator
+take_image rover2 waypoint0 objective4 camera1 low_res
+1
+9 0
+1
+0 10 0 1
+1
+end_operator
+begin_operator
+take_image rover2 waypoint1 objective2 camera1 high_res
+1
+9 1
+2
+0 10 0 1
+0 15 -1 0
+1
+end_operator
+begin_operator
+take_image rover2 waypoint1 objective2 camera1 low_res
+1
+9 1
+2
+0 10 0 1
+0 13 -1 0
+1
+end_operator
+begin_operator
+take_image rover2 waypoint2 objective0 camera1 high_res
+1
+9 2
+1
+0 10 0 1
+1
+end_operator
+begin_operator
+take_image rover2 waypoint2 objective0 camera1 low_res
+1
+9 2
+1
+0 10 0 1
+1
+end_operator
+begin_operator
+take_image rover2 waypoint2 objective1 camera1 high_res
+1
+9 2
+1
+0 10 0 1
+1
+end_operator
+begin_operator
+take_image rover2 waypoint2 objective1 camera1 low_res
+1
+9 2
+1
+0 10 0 1
+1
+end_operator
+begin_operator
+take_image rover2 waypoint2 objective3 camera1 high_res
+1
+9 2
+1
+0 10 0 1
+1
+end_operator
+begin_operator
+take_image rover2 waypoint2 objective3 camera1 low_res
+1
+9 2
+1
+0 10 0 1
+1
+end_operator
+begin_operator
+take_image rover2 waypoint3 objective0 camera1 high_res
+1
+9 3
+1
+0 10 0 1
+1
+end_operator
+begin_operator
+take_image rover2 waypoint3 objective0 camera1 low_res
+1
+9 3
+1
+0 10 0 1
+1
+end_operator
+begin_operator
+take_image rover2 waypoint3 objective1 camera1 high_res
+1
+9 3
+1
+0 10 0 1
+1
+end_operator
+begin_operator
+take_image rover2 waypoint3 objective1 camera1 low_res
+1
+9 3
+1
+0 10 0 1
+1
+end_operator
+begin_operator
+take_image rover2 waypoint4 objective0 camera1 high_res
+1
+9 4
+1
+0 10 0 1
+1
+end_operator
+begin_operator
+take_image rover2 waypoint4 objective0 camera1 low_res
+1
+9 4
+1
+0 10 0 1
+1
+end_operator
+begin_operator
+take_image rover2 waypoint4 objective2 camera1 high_res
+1
+9 4
+2
+0 10 0 1
+0 15 -1 0
+1
+end_operator
+begin_operator
+take_image rover2 waypoint4 objective2 camera1 low_res
+1
+9 4
+2
+0 10 0 1
+0 13 -1 0
+1
+end_operator
+begin_operator
+take_image rover2 waypoint4 objective3 camera1 high_res
+1
+9 4
+1
+0 10 0 1
+1
+end_operator
+begin_operator
+take_image rover2 waypoint4 objective3 camera1 low_res
+1
+9 4
+1
+0 10 0 1
+1
+end_operator
+begin_operator
+take_image rover2 waypoint4 objective4 camera1 high_res
+1
+9 4
+2
+0 10 0 1
+0 11 -1 0
+1
+end_operator
+begin_operator
+take_image rover2 waypoint4 objective4 camera1 low_res
+1
+9 4
+1
+0 10 0 1
+1
+end_operator
+0
+begin_SG
+switch 0
+check 0
+switch 5
+check 1
+53
+check 0
+check 0
+check 0
+check 0
+switch 19
+check 0
+switch 21
+check 0
+check 1
+71
+check 0
+check 0
+check 1
+29
+check 0
+switch 20
+check 0
+check 0
+check 1
+31
+check 0
+switch 17
+check 0
+check 0
+check 1
+33
+switch 23
+check 0
+check 0
+check 1
+41
+check 0
+check 0
+switch 1
+check 0
+check 6
+79
+80
+81
+82
+83
+84
+check 0
+switch 4
+check 0
+check 1
+5
+check 0
+switch 3
+check 0
+check 1
+7
+check 0
+switch 2
+check 0
+check 1
+9
+check 0
+check 0
+switch 5
+check 2
+54
+55
+check 0
+check 0
+check 0
+check 0
+switch 20
+check 0
+switch 21
+check 0
+check 1
+72
+check 0
+check 0
+check 0
+check 0
+switch 23
+check 0
+switch 21
+check 0
+check 1
+76
+check 0
+check 0
+check 0
+check 0
+check 0
+switch 1
+check 0
+check 2
+85
+86
+check 0
+check 0
+switch 5
+check 2
+0
+56
+check 0
+check 0
+check 0
+check 0
+switch 19
+check 0
+check 0
+check 1
+30
+check 0
+switch 20
+check 0
+check 0
+check 1
+32
+check 0
+switch 17
+check 0
+switch 21
+check 0
+check 1
+73
+check 0
+check 0
+check 1
+34
+switch 23
+check 0
+check 0
+check 1
+42
+check 0
+check 0
+switch 1
+check 0
+check 4
+87
+88
+89
+90
+check 0
+switch 4
+check 0
+check 1
+6
+check 0
+switch 3
+check 0
+check 1
+8
+check 0
+switch 2
+check 0
+check 1
+10
+check 0
+check 0
+switch 5
+check 0
+switch 9
+check 1
+57
+check 0
+check 0
+check 0
+check 0
+check 0
+switch 19
+check 0
+switch 22
+check 0
+check 1
+74
+check 0
+check 0
+check 0
+check 1
+35
+switch 20
+check 0
+check 0
+check 0
+check 1
+38
+switch 23
+check 0
+check 0
+check 0
+check 1
+43
+check 0
+switch 6
+check 0
+check 3
+91
+92
+93
+check 0
+switch 8
+check 0
+check 1
+11
+check 0
+switch 7
+check 0
+check 1
+14
+check 0
+check 0
+switch 9
+check 4
+1
+58
+59
+60
+check 0
+check 0
+check 0
+check 0
+check 0
+switch 20
+check 0
+switch 22
+check 0
+check 1
+75
+check 0
+check 0
+check 0
+check 0
+switch 23
+check 0
+switch 22
+check 0
+check 1
+77
+check 0
+check 0
+check 0
+check 0
+check 0
+switch 6
+check 0
+check 1
+94
+check 0
+check 0
+switch 9
+check 1
+61
+check 0
+check 0
+check 0
+check 0
+check 0
+switch 19
+check 0
+check 0
+check 0
+check 1
+36
+switch 20
+check 0
+check 0
+check 0
+check 1
+39
+switch 23
+check 0
+check 0
+check 0
+check 1
+44
+check 0
+switch 6
+check 0
+check 3
+95
+96
+97
+check 0
+switch 8
+check 0
+check 1
+12
+check 0
+switch 7
+check 0
+check 1
+15
+check 0
+check 0
+switch 9
+check 2
+2
+62
+check 0
+check 0
+check 0
+check 0
+check 0
+switch 19
+check 0
+check 0
+check 0
+check 1
+37
+switch 20
+check 0
+check 0
+check 0
+check 1
+40
+switch 23
+check 0
+check 0
+check 0
+check 1
+45
+check 0
+switch 6
+check 0
+check 4
+98
+99
+100
+101
+check 0
+switch 8
+check 0
+check 1
+13
+check 0
+switch 7
+check 0
+check 1
+16
+check 0
+check 0
+switch 9
+check 0
+switch 19
+check 1
+63
+check 0
+check 0
+check 0
+switch 23
+check 0
+check 0
+check 0
+check 0
+check 1
+46
+switch 10
+check 0
+check 6
+102
+103
+104
+105
+106
+107
+check 0
+switch 15
+check 0
+check 1
+17
+check 0
+switch 13
+check 0
+check 1
+21
+check 0
+switch 11
+check 0
+check 1
+25
+check 0
+check 0
+switch 19
+check 5
+3
+64
+65
+66
+67
+check 0
+check 0
+check 0
+switch 23
+check 0
+switch 18
+check 0
+check 1
+78
+check 0
+check 0
+check 0
+check 0
+check 0
+switch 10
+check 0
+check 2
+108
+109
+check 0
+check 0
+switch 19
+check 1
+68
+check 0
+check 0
+check 0
+switch 23
+check 0
+check 0
+check 0
+check 0
+check 1
+47
+switch 10
+check 0
+check 6
+110
+111
+112
+113
+114
+115
+check 0
+switch 15
+check 0
+check 1
+18
+check 0
+switch 13
+check 0
+check 1
+22
+check 0
+switch 11
+check 0
+check 1
+26
+check 0
+check 0
+switch 19
+check 1
+69
+check 0
+check 0
+check 0
+switch 23
+check 0
+check 0
+check 0
+check 0
+check 1
+48
+switch 10
+check 0
+check 4
+116
+117
+118
+119
+check 0
+switch 15
+check 0
+check 1
+19
+check 0
+switch 13
+check 0
+check 1
+23
+check 0
+switch 11
+check 0
+check 1
+27
+check 0
+check 0
+switch 19
+check 2
+4
+70
+check 0
+check 0
+check 0
+switch 23
+check 0
+check 0
+check 0
+check 0
+check 1
+49
+switch 10
+check 0
+check 8
+120
+121
+122
+123
+124
+125
+126
+127
+check 0
+switch 15
+check 0
+check 1
+20
+check 0
+switch 13
+check 0
+check 1
+24
+check 0
+switch 11
+check 0
+check 1
+28
+check 0
+check 0
+switch 21
+check 0
+check 0
+check 1
+50
+switch 22
+check 0
+check 0
+check 1
+51
+switch 18
+check 0
+check 0
+check 1
+52
+check 0
+end_SG
+begin_DTG
+1
+1
+53
+0
+2
+0
+54
+0
+2
+55
+0
+1
+1
+56
+0
+end_DTG
+begin_DTG
+3
+1
+79
+1
+0 0
+1
+85
+1
+0 1
+1
+87
+1
+0 2
+1
+0
+0
+1
+0 2
+end_DTG
+begin_DTG
+0
+1
+0
+83
+2
+0 0
+1 0
+end_DTG
+begin_DTG
+0
+1
+0
+86
+2
+0 1
+1 0
+end_DTG
+begin_DTG
+0
+1
+0
+85
+2
+0 1
+1 0
+end_DTG
+begin_DTG
+1
+1
+57
+0
+3
+0
+58
+0
+2
+59
+0
+3
+60
+0
+1
+1
+61
+0
+1
+1
+62
+0
+end_DTG
+begin_DTG
+4
+1
+91
+1
+5 0
+1
+94
+1
+5 1
+1
+95
+1
+5 2
+1
+98
+1
+5 3
+2
+0
+1
+1
+5 1
+0
+2
+1
+5 3
+end_DTG
+begin_DTG
+0
+2
+0
+93
+2
+5 0
+6 0
+0
+101
+2
+5 3
+6 0
+end_DTG
+begin_DTG
+0
+2
+0
+94
+2
+5 1
+6 0
+0
+99
+2
+5 3
+6 0
+end_DTG
+begin_DTG
+1
+1
+63
+0
+4
+0
+64
+0
+2
+65
+0
+3
+66
+0
+4
+67
+0
+1
+1
+68
+0
+1
+1
+69
+0
+1
+1
+70
+0
+end_DTG
+begin_DTG
+5
+1
+102
+1
+9 0
+1
+108
+1
+9 1
+1
+110
+1
+9 2
+1
+116
+1
+9 3
+1
+120
+1
+9 4
+2
+0
+3
+1
+9 1
+0
+4
+1
+9 4
+end_DTG
+begin_DTG
+0
+2
+0
+106
+2
+9 0
+10 0
+0
+126
+2
+9 4
+10 0
+end_DTG
+begin_DTG
+0
+9
+0
+9
+2
+0 0
+2 0
+0
+10
+2
+0 2
+2 0
+0
+14
+2
+5 0
+7 0
+0
+15
+2
+5 2
+7 0
+0
+16
+2
+5 3
+7 0
+0
+25
+2
+9 0
+11 0
+0
+26
+2
+9 2
+11 0
+0
+27
+2
+9 3
+11 0
+0
+28
+2
+9 4
+11 0
+end_DTG
+begin_DTG
+0
+2
+0
+109
+2
+9 1
+10 0
+0
+123
+2
+9 4
+10 0
+end_DTG
+begin_DTG
+0
+6
+0
+7
+2
+0 0
+3 0
+0
+8
+2
+0 2
+3 0
+0
+21
+2
+9 0
+13 0
+0
+22
+2
+9 2
+13 0
+0
+23
+2
+9 3
+13 0
+0
+24
+2
+9 4
+13 0
+end_DTG
+begin_DTG
+0
+2
+0
+108
+2
+9 1
+10 0
+0
+122
+2
+9 4
+10 0
+end_DTG
+begin_DTG
+0
+9
+0
+5
+2
+0 0
+4 0
+0
+6
+2
+0 2
+4 0
+0
+11
+2
+5 0
+8 0
+0
+12
+2
+5 2
+8 0
+0
+13
+2
+5 3
+8 0
+0
+17
+2
+9 0
+15 0
+0
+18
+2
+9 2
+15 0
+0
+19
+2
+9 3
+15 0
+0
+20
+2
+9 4
+15 0
+end_DTG
+begin_DTG
+1
+1
+73
+2
+0 2
+21 0
+0
+end_DTG
+begin_DTG
+1
+1
+78
+2
+9 1
+23 0
+1
+0
+52
+0
+end_DTG
+begin_DTG
+2
+1
+71
+2
+0 0
+21 0
+2
+74
+2
+5 0
+22 0
+0
+0
+end_DTG
+begin_DTG
+2
+1
+72
+2
+0 1
+21 0
+2
+75
+2
+5 1
+22 0
+0
+0
+end_DTG
+begin_DTG
+4
+1
+71
+2
+0 0
+19 0
+1
+72
+2
+0 1
+20 0
+1
+73
+2
+0 2
+17 0
+1
+76
+2
+0 1
+23 0
+1
+0
+50
+0
+end_DTG
+begin_DTG
+3
+1
+74
+2
+5 0
+19 0
+1
+75
+2
+5 1
+20 0
+1
+77
+2
+5 1
+23 0
+1
+0
+51
+0
+end_DTG
+begin_DTG
+3
+1
+76
+2
+0 1
+21 0
+2
+77
+2
+5 1
+22 0
+3
+78
+2
+9 1
+18 0
+0
+0
+0
+end_DTG
+begin_DTG
+0
+2
+0
+33
+2
+0 0
+17 1
+0
+34
+2
+0 2
+17 1
+end_DTG
+begin_DTG
+0
+5
+0
+31
+2
+0 0
+20 1
+0
+32
+2
+0 2
+20 1
+0
+38
+2
+5 0
+20 2
+0
+39
+2
+5 2
+20 2
+0
+40
+2
+5 3
+20 2
+end_DTG
+begin_DTG
+0
+5
+0
+29
+2
+0 0
+19 1
+0
+30
+2
+0 2
+19 1
+0
+35
+2
+5 0
+19 2
+0
+36
+2
+5 2
+19 2
+0
+37
+2
+5 3
+19 2
+end_DTG
+begin_DTG
+0
+9
+0
+41
+2
+0 0
+23 1
+0
+42
+2
+0 2
+23 1
+0
+43
+2
+5 0
+23 2
+0
+44
+2
+5 2
+23 2
+0
+45
+2
+5 3
+23 2
+0
+46
+2
+9 0
+23 3
+0
+47
+2
+9 2
+23 3
+0
+48
+2
+9 3
+23 3
+0
+49
+2
+9 4
+23 3
+end_DTG
+begin_CG
+16
+19 1
+20 1
+17 1
+23 1
+1 13
+16 2
+14 2
+12 2
+26 2
+25 2
+24 2
+27 2
+21 4
+4 1
+3 1
+2 1
+3
+4 1
+3 1
+2 1
+1
+12 2
+1
+14 2
+1
+16 2
+12
+19 1
+20 1
+23 1
+6 13
+16 3
+12 3
+26 3
+25 3
+27 3
+22 3
+8 2
+7 2
+2
+8 2
+7 2
+1
+12 3
+1
+16 3
+10
+23 1
+10 28
+16 4
+14 4
+12 4
+27 4
+18 1
+15 2
+13 2
+11 2
+3
+15 2
+13 2
+11 2
+1
+12 4
+0
+1
+14 4
+0
+1
+16 4
+0
+2
+24 2
+21 1
+1
+23 1
+3
+26 5
+21 1
+22 1
+3
+25 5
+21 1
+22 1
+4
+19 1
+20 1
+17 1
+23 1
+3
+19 1
+20 1
+23 1
+4
+27 9
+21 1
+22 1
+18 1
+0
+0
+0
+0
+end_CG
