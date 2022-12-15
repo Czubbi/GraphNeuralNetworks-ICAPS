@@ -4,7 +4,7 @@ import re
 from typing import List, Tuple, Dict, Union
 from pdg_building.pdg_operator import PdgOperator
 from pdg_building.pdg_variable import PdgVariable
-from pdg_building.line_parsing import ProblemStateDictionary
+from graph_building.sas_parser import ProblemStateDictionary
 from pdg_building.pdg_value import PdgValue
 from pdg_building.base_types import Predicate
 
@@ -17,7 +17,7 @@ logger.setLevel(30)
 operators_logger = logging.getLogger("pdg_building.operators")
 operators_logger.setLevel(30)
 
-def cg_and_nodes(sasfile_path, good_operators_path, output_dir):
+def pdg_and_nodes(sasfile_path, good_operators_path, output_dir):
 
 
     variable_output_path = os.path.join(output_dir, "variables.txt")
@@ -52,11 +52,6 @@ def cg_and_nodes(sasfile_path, good_operators_path, output_dir):
     save_node(PdgVariable, all_variables, variables_output_path)
     save_node(PdgOperator, all_operators, operators_output_path)
 
-
-# TODO move this shiet somewhere else
-OpT =  Dict[PdgOperator.LineAlias, PdgOperator]  # all_operators
-VarT = Dict[PdgVariable.IndexAlias, PdgVariable]  # PdgOperator.all_variables
-ValT = Dict[PdgValue.GlobalIndexAlias, PdgValue]  # PdgVariable.all_values
 def save_node(node_type: Union[PdgValue, PdgVariable, PdgOperator], data_source: Union[ValT, VarT, OpT], node_output_path:str):        
     with open(node_output_path, "w") as file:
         file.write(node_type.csv_header)
@@ -79,7 +74,8 @@ def build_value_variable_edges(all_values: ValT, all_variables: VarT):
 def build_value_operators_edges(all_values: ValT, all_operators: OpT):
     edges: List[Tuple[PdgValue.GlobalIndexAlias, PdgOperator.LineAlias]] = []
     for operator in all_operators.values():
-        for precondition in operator.preconditions
+        for precondition in operator.preconditions:
+            pass
     
 
 def build_operator_value_edges(all_values: ValT, all_operators: OpT):
@@ -102,7 +98,7 @@ def generate_values_variables(variables_text: SasFileContent,  init_variables: P
         var_id = int(re.search("var(\d+)", variable_lines)[1])
         logger.info(f"Variable {var_id}, lines: {variable_lines}")
         predicates: List[Predicate] = []
-        pdg_values: List[PdgValue] = []
+        pdg_values: List[Value] = []
 
         # List of all Atoms in one variable, where first elemnt of the tuple is the Atom text
         # and second elemnet is the predicate text
@@ -176,6 +172,7 @@ def generate_all_operators(operators_text: SasFileContent, good_operators: set) 
         assert key not in all_operators, "Duplicate operator key"
         all_operators[key] = new_operator
     return all_operators
+
 
 
 
