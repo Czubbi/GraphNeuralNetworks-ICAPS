@@ -1,21 +1,28 @@
 import logging
-import re
 import os
-from typing import List, Tuple, Set, Dict, TYPE_CHECKING
-from collections import defaultdict
-
-
-from graph_building.operator import Operator, Precondition
-from graph_building.variable import Variable
-from graph_building.base_types import Predicate
-from graph_building.base_types import Effect
-from graph_building.edge_features import default_edge_features_dict, EdgeFeature, EdgeTypeValue
+from typing import Union, Tuple, Set, Dict, TYPE_CHECKING
+from graph_building.graph_constructs.operators.causal_operator import CausalOperator
+from graph_building.graph_constructs.variables.causal_variable import CausalVariable
+from graph_building.graph_constructs.operators.pdg_operator import PdgOperator
+from graph_building.graph_constructs.variables.pdg_variable import PdgVariable
+from graph_building.graph_constructs.values.value import Value
+from graph_building.graph_constructs.edge_features import default_edge_features_dict, EdgeFeature
 from graph_building.exceptions import EmptyCausalGraphError
+from graph_building.sas_parsers.causal_parser import CausalParser
+from graph_building.sas_parsers.pdg_parser import PdgParser
 
 if TYPE_CHECKING:
-    from graph_building.operator import CausalGraph
+    from graph_building.graph_constructs.edge_features import CausalGraph
+    from graph_building.sas_parsers.sas_parser import (
+        AllValuesDict,
+        AllVariablesDict,
+        AllOperatorsDict,
+    )
+
 
 SasFileContent = str
+Edge = Tuple[int, int]
+Edges = Set[Edge]
 
 
 logging.basicConfig()
@@ -25,41 +32,16 @@ logger.setLevel(30)
 operators_logger = logging.getLogger("graph_building.operators")
 operators_logger.setLevel(30)
 
-# print(getattr(logging, loglevel.upper()))
 
-ATOM = "Atom|NegatedAtom"
+def generate_graph_data(graph_type, sasfile_path, good_operators_path, output_dir):
+    if graph_type not in ["pdg", "cg"]:
+        raise ValueError("Graph type must be either 'pdg' or 'cg'")
 
-VARIABLE_VALUE = rf"""
-    (                   # Capture group 1
-            {ATOM}          # Literal Atom or NegatedAtom
-    )                   # End group 1
-    (                   # Begin group 2
-        [\s\S]*?            # Any character, including newlines non-greedy - "Do not iterate more than necessary"
-    )                   # End group 2
-    (?=                 # Positive lookahead
-        {ATOM}              # Literal
-        |                   # Or
-        end_variable        # End of string 
-    )                   # End positive lookahead
-"""
+    if graph_type == "pdg":
+        pdg_and_nodes(sasfile_path, good_operators_path, output_dir)
 
-VARIABLE_SECTION = r"""
-    begin_variable
-    [\s\S]*       # Any character, including newlines
-    end_variable
-"""
-
-OPERATOR_SECTION = r"""
-    begin_operator
-    [\s\S]*       # Any character, including newlines
-    end_operator
-"""
-
-GOAL_SECTION = r"""
-    begin_goal
-    [\s\S]*       # Any character, including newlines
-    end_goal
-"""
+    if graph_type == "cg":
+        cg_and_nodes(sasfile_path, good_operators_path, output_dir)
 
 
 def cg_and_nodes(sasfile_path, good_operators_path, output_dir):
@@ -73,7 +55,7 @@ def cg_and_nodes(sasfile_path, good_operators_path, output_dir):
     with open(good_operators_path, "r") as file:
         good_operators: Tuple[str] = tuple(file.read().splitlines())
         # Extract variables and operators from the file
-    variables_text, goals_text, operators_text = split_sas_file(sas_content)
+    variables_text, init_text, goals_text, operators_text = CausalParser.split_sas_file(sas_content)
 
     with open(variable_output_path, "w") as file:
         file.write(variables_text)
@@ -81,10 +63,10 @@ def cg_and_nodes(sasfile_path, good_operators_path, output_dir):
     with open(operator_output_path, "w") as file:
         file.write(operators_text)
 
-    goal_dict = generate_goal_dict(goals_text)  # Whether a variable is in the goal
+    goal_dict = CausalParser.generate_goal_dict(goals_text)  # Whether a variable is in the goal
 
-    generate_variables(variables_text, goal_dict)
-    all_operators = generate_operators(operators_text)
+    all_variables = CausalParser.generate_variables(variables_text, goal_dict)
+    all_operators = CausalParser.generate_operators("causal", operators_text, good_operators)
     result_cg = build_total_causal_graph(all_operators, good_operators)
 
     if not result_cg:
@@ -103,189 +85,130 @@ def cg_and_nodes(sasfile_path, good_operators_path, output_dir):
         file.writelines(result)
 
     with open(node_output_path, "w") as file:
-        file.write(Variable.csv_header)
+        file.write(CausalVariable.csv_header)
         result = []
-        logging.info(f"Number of variables: {Operator.all_variables.keys()}")
+        logging.info(f"Number of variables: {all_variables.keys()}")
         # logging.warning(f"Number of variables: {Operator.all_variables.values()}")
-        for variable in Operator.all_variables.values():
+        for variable in all_variables.values():
             features = variable.to_csv()
+            print(f"this is the features: {features}")
             result.append(f"{features}\n")
         file.writelines(result)
 
     # reset the variables
-    Operator.clear()
 
 
-def split_sas_file(
-    file_content: SasFileContent,
-) -> Tuple[SasFileContent, SasFileContent, SasFileContent]:
-    variables_text = re.search(VARIABLE_SECTION, file_content, re.VERBOSE)[0]
-    operators_text = re.search(OPERATOR_SECTION, file_content, re.VERBOSE)[0]
-    goal_text = re.search(GOAL_SECTION, file_content, re.VERBOSE)[0]
-    return variables_text, goal_text, operators_text
-
-
-def build_total_causal_graph(operators: Dict[str, Operator], good_operators: Set[str]):
+def build_total_causal_graph(operators: Dict[str, CausalOperator], good_operators: Set[str]):
     total_causal_graph = default_edge_features_dict()
 
     for key, operator in operators.items():
         is_good_operator = 1 if key in good_operators else 0
 
-        partial_causal_graph: CausalGraph = operator.causal_graph(edge_label=is_good_operator)
+        partial_causal_graph: CausalGraph = operator.build_graph(edge_label=is_good_operator)
 
         # TODO Update features non-binary features
         for edge_index, feature_dictionary in partial_causal_graph.items():
             for k, v in feature_dictionary.items():
                 total_causal_graph[edge_index][k] = max(total_causal_graph[edge_index][k], v)
 
-        # if partial_cg:
-        #     operators_logger.debug(f"Key: {key}\nOperator: {operator}")
-        #     operators_logger.debug(f"val: {val}")
-        #     operators_logger.debug(f"Partial CG: {partial_cg}")
-        #     # operators_logger.debug(f"Total CG: {total_causal_graph}")
-        #     # input("Press Enter to continue...")
-
     return dict(total_causal_graph)
 
 
-def generate_goal_dict(goal_text: SasFileContent) -> Dict[int, int]:
-    is_goal_variable: Dict[int, int] = {}
-    goals = goal_text.split("\n")[2:-1]
-    for g in goals:
-        var_id, value = g.split(" ")
-        is_goal_variable[int(var_id)] = int(value)
-    return is_goal_variable
+def pdg_and_nodes(sasfile_path, good_operators_path, output_dir):
+    def save_node(
+        node_type: Union[Value, PdgVariable, PdgOperator],
+        data_source: Union["AllValuesDict", "AllVariablesDict", "AllOperatorsDict"],
+        node_output_path: str,
+    ):
+        with open(node_output_path, "w") as file:
+            file.write(node_type.csv_header)
+            result = []
+            for node in data_source.values():
+                features = node.to_csv()
+                result.append(f"{features}\n")
+            file.writelines(result)
 
+    def save_edge(edges: Edges, edges_output_path: str, with_label: bool = False):
+        csv_header = "source,destination"
+        if with_label:
+            csv_header += ",label"
+        csv_header += "\n"
+        with open(edges_output_path, "w") as file:
+            file.write(csv_header)
+            result = []
+            for edge in edges:
+                source, destination = edge[0], edge[1]
+                if with_label:
+                    label = edge[2]
+                    result.append(f"{source},{destination},{label}\n")
+                else:
+                    result.append(f"{source},{destination}\n")
+            file.writelines(result)
 
-def generate_variables(variables_text: SasFileContent, goal_variables: Dict[int, int]):
-    """
-    variables: is a list of strings, each strings is a multiline consisting of
-      a variable definition, for instance one entry in the list could be:
+    variable_output_path = os.path.join(output_dir, "variables.txt")
+    operator_output_path = os.path.join(output_dir, "operators.txt")
 
-            var3
-            -1
-            2
-            Atom power_on(instrument0)
-            NegatedAtom power_on(instrument0)
-            end_variable
+    with open(sasfile_path, "r") as file:
+        sas_content: SasFileContent = file.read()
 
-    """
+    good_operators = PdgParser.good_operators_to_set(good_operators_path)
+    # Extract variables and operators from the file
+    variables_text, init_text, goals_text, operators_text = PdgParser.split_sas_file(sas_content)
 
-    divided_variables_text: List[str] = re.split("begin_variable", variables_text)[1:]
+    with open(variable_output_path, "w") as file:
+        file.write(variables_text)
 
-    # global all_variables
-    logger.info("Generating variables")
-    # Enumerate over all sas variables
-    for variable_lines in divided_variables_text:
-        var_id = int(re.search("var(\d+)", variable_lines)[1])
-        logger.info(f"Variable {var_id}, lines: {variable_lines}")
-        predicates: List[Predicate] = []
+    with open(operator_output_path, "w") as file:
+        file.write(operators_text)
 
-        # List of all Atoms in one variable, where first elemnt of the tuple is the Atom text
-        # and second elemnet is the predicate text
-        atoms: List[Tuple[str, str]] = re.findall(VARIABLE_VALUE, variable_lines, re.VERBOSE)
-        logger.debug(f"Atoms: {atoms}")
+    goal_dict = PdgParser.generate_goal_dict(goals_text)  # Whether a variable is in the goal
 
-        for a_text, p_text in atoms:
-            logger.debug(f"Atom: {a_text}, Predicate: {p_text}")
-            is_negated = "Negated" in a_text
-            logger.debug(f"Is negated: {is_negated}")
+    init_dict = PdgParser.generate_init_dict(init_text)  # Whether a variable is in the init
 
-            p_text = p_text.strip("\n")
-            p_text = p_text.strip(")")
-            p_text = p_text.strip(" ")
+    # Sets values to all_values, and variables to all_operators
+    all_values, all_variables = PdgParser.generate_values_variables(
+        variables_text, init_dict, goal_dict
+    )
+    logger.warning(f"Number of values: {len(all_values)}")
+    logger.warning(f"Number of variables: {len(all_variables)}")
+    all_operators = PdgParser.generate_operators("pdg", operators_text, good_operators)
 
-            predicate_name, arguments_text = p_text.split("(")
-            arguments = arguments_text.split(", ")
-            new_predicate = Predicate(predicate_name, arguments, is_negated)
-            logger.debug(f"New predicate: {new_predicate}")
-            predicates.append(new_predicate)
+    values_output_path = os.path.join(output_dir, "values.csv")
+    variables_output_path = os.path.join(output_dir, "variables.csv")
+    operators_output_path = os.path.join(output_dir, "operators.csv")
+    save_node(Value, all_values, values_output_path)
+    save_node(PdgVariable, all_variables, variables_output_path)
+    save_node(PdgOperator, all_operators, operators_output_path)
 
-        is_goal_variable = 1 if var_id in goal_variables else 0
-        new_variable = Variable(
-            index=var_id, is_goal_variable=is_goal_variable, predicates=predicates
+    val_to_var: Set[Tuple[int, int]] = set()
+    val_to_op: Set[Tuple[int, int, int]] = set()  #
+    op_to_val: Set[Tuple[int, int, int]] = set()
+
+    for variable in all_variables.values():
+        edges = variable.build_value_variable_edges()
+        val_to_var.update(edges)
+
+    for operator in all_operators.values():
+        edges = operator.build_val_operator_edges(
+            all_values=all_values,
+            all_variables=all_variables,
         )
-        logger.debug(f"New variable: {new_variable}")
-        Operator.all_variables[var_id] = new_variable
+        val_to_op.update(edges)
 
-
-def generate_operators(operators_text: SasFileContent) -> Dict[str, Operator]:
-    operators = re.split("begin_operator", operators_text)[1:]
-    res = {}
-    for op_id, lines in enumerate(operators):
-        logger.debug(f"Operator {op_id}, lines: {lines}")
-        preconditions, effects, key = parse_operator_lines(lines)
-
-        logger.debug(f"Preconditions: {preconditions}")
-        logger.debug(f"Effects: {effects}")
-
-        new_operator = Operator(
-            key=key,
-            preconditions=preconditions,
-            effects=effects,
+    for operator in all_operators.values():
+        val_to_op_edges, op_to_val_edges = operator.build_val_op_and_op_val_edges(
+            all_values=all_values,
+            all_variables=all_variables,
         )
+        val_to_op.update(val_to_op_edges)
+        op_to_val.update(op_to_val_edges)
 
-        logger.debug(f"New operator: {new_operator}")
-        assert key not in res, "Duplicate operator key"
-        res[key] = new_operator
-    return res
+    logging.warning(f"edges: {val_to_var}")
+
+    save_edge(val_to_var, os.path.join(output_dir, "ValVar_edges.csv"))
+    save_edge(val_to_op, os.path.join(output_dir, "ValOp_edges.csv"), with_label=True)
+    save_edge(op_to_val, os.path.join(output_dir, "OpVal_edges.csv"), with_label=True)
 
 
-def parse_operator_lines(
-    operator_lines: str,
-) -> Tuple[Set[Precondition], Set[Effect], str]:
-    """Given a string of lines, parse the preconditions, effects and key of the operator"""
-
-    def parse_preconditions(precondition_lines) -> Set[Precondition]:
-        preconditions: Set[Precondition] = set()
-        for line in precondition_lines:
-            variable_index, precondition_value = line.split(" ")
-            variable_index = int(variable_index)
-            precondition_value = int(precondition_value)
-            preconditions.add(Precondition(variable_index, precondition_value))
-
-        return preconditions
-
-    def parse_effects(effects_lines) -> Set[Effect]:
-        effects: Set[Effect] = set()
-
-        for line in effects_lines:
-            variable_index, precondition_value, effect_value = line.split(" ")[1:]
-
-            new_effect = Effect(
-                variable_id=int(variable_index),
-                precondition_value=int(precondition_value),
-                effect_value=int(effect_value),
-            )
-            effects.add(new_effect)
-        return effects
-
-    def precondition_and_effect_lines(
-        separated_lines: List[str],
-    ) -> Tuple[List[str], List[str]]:
-        logger.debug(f"Separated lines: {separated_lines}")
-        # First line tells us how many preconditions are there
-        num_preconditions = int(separated_lines[0])
-        precondition_lines = separated_lines[1 : num_preconditions + 1]
-        # The next line after the last precondition tells us how many effects are there
-        index_num_effects = num_preconditions + 1
-        num_effects = int(separated_lines[index_num_effects])
-        effect_lines = separated_lines[index_num_effects + 1 : index_num_effects + num_effects + 1]
-        logger.debug(f"Precondition lines: {precondition_lines}")
-        logger.debug(f"Effect lines: {effect_lines}")
-        return precondition_lines, effect_lines
-
-    opeator_lines_list = operator_lines.split("\n")
-    # We ignore the first line which is a an empty string
-    operator_lines_list = opeator_lines_list[1:]
-    logger.debug(f"Operator lines list: {operator_lines_list[0]}")
-    # We take the first line to get the action name and it's grounded predicates
-    operator_key = operator_lines_list[0].strip()  # Key of the operator
-    logger.debug(f"Operator_key: {repr(operator_key)}")
-    separated_lines = operator_lines.split("\n")[2:]
-    precondition_lines, effect_lines = precondition_and_effect_lines(separated_lines)
-    preconditions = set(parse_preconditions(precondition_lines))
-    # This will also update the preconditions set
-    effects = parse_effects(effect_lines)
-
-    return preconditions, effects, operator_key
+def build_pdg_graph():
+    pass
