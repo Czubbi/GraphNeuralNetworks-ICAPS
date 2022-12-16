@@ -17,7 +17,6 @@ class Node:
     @property
     def csv_header(cls):
         combined_hearders = cls.base_feature_names + cls.feature_names
-        print(f"These are combined headers: {combined_hearders}")
         return ",".join(combined_hearders) + "\n"
 
     @property

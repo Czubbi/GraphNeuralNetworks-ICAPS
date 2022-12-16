@@ -25,7 +25,7 @@ operators_logger.setLevel(30)
 
 # print(getattr(logging, loglevel.upper()))
 
-ATOM = "Atom|NegatedAtom"
+ATOM = "Atom|NegatedAtom|<none\sof\sthose>"
 
 VARIABLE_VALUE = rf"""
     (                   # Capture group 1

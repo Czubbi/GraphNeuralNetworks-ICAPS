@@ -32,7 +32,7 @@ class PdgParser(SasParser):
         all_variables: AllVariablesDict = {}
 
         divided_variables_text: List[str] = re.split("begin_variable", variables_text)[1:]
-        logging.warning(f"Divided variables: {len(divided_variables_text)}")
+        # logging.warning(f"Divided variables: {len(divided_variables_text)}")
 
         global_value_count = 0
         for variable_lines in divided_variables_text:
@@ -44,22 +44,34 @@ class PdgParser(SasParser):
             # List of all Atoms in one variable, where first elemnt of the tuple is the Atom text
             # and second elemnet is the predicate text
             atoms: List[Tuple[str, str]] = re.findall(VARIABLE_VALUE, variable_lines, re.VERBOSE)
-            logger.debug(f"Atoms: {atoms}")
+            for a in atoms:
+                logger.info(a)
+            # logger.info(f"Atoms: {atoms}")
 
             for local_value_count, (a_text, p_text) in enumerate(atoms):
                 logger.info(
                     f"Global value count: {global_value_count}, Local value count: {local_value_count}"
                 )
                 logger.debug(f"Atom: {a_text}, Predicate: {p_text}")
+
                 is_negated = "Negated" in a_text
+                is_none_of_those = "<none of those>" == a_text  # special type of the value
                 logger.debug(f"Is negated: {is_negated}")
 
-                p_text = p_text.strip("\n")
-                p_text = p_text.strip(")")
-                p_text = p_text.strip(" ")
+                if is_none_of_those:
+                    p_text = "<none of those>"
+                    predicate_name = "<none of those>"
+                    arguments_text = ""
+                    arguments = []
 
-                predicate_name, arguments_text = p_text.split("(")
-                arguments = arguments_text.split(", ")
+                else:
+                    p_text = p_text.strip("\n")
+                    p_text = p_text.strip(")")
+                    p_text = p_text.strip(" ")
+
+                    predicate_name, arguments_text = p_text.split("(")
+                    arguments = arguments_text.split(", ")
+
                 # Map the global number of the value to local value number of the variable
                 # Example: var1 has 3 values, var2 has 2 values, then the mapping is:
                 # var1: 0 -> 0, 1 -> 1, 2 -> 2

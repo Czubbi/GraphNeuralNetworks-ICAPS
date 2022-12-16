@@ -63,13 +63,14 @@ class PdgOperator(Operator):
         value_operator_edges: List[Tuple[PdgOperator.LineAlias, Value.GlobalIndexAlias]] = []
 
         for current_effect in self.effects:
-            logging.warning(f"Current effect:\n{current_effect}")
+            # logging.warning(f"Current effect:\n{current_effect}")
             var_id = current_effect.variable_id
 
             precondition_value_id = current_effect.precondition_value
             effect_value_id = current_effect.effect_value
 
             variable = all_variables[var_id]
+            logging.info(f"Variable:\n{variable}")
             effect_value = variable.values[effect_value_id]
 
             operator_value_edge = (self.index, effect_value.global_index, self.is_good)
@@ -85,7 +86,6 @@ class PdgOperator(Operator):
                     == all_values[variable.global_count_from + precondition_value_id]
                 ), "Value mismatch on the precondition"
 
-
             assert (
                 variable.values[effect_value_id]
                 == all_values[variable.global_count_from + effect_value_id]
@@ -95,7 +95,7 @@ class PdgOperator(Operator):
             # for eff1 in self.effects:
             #    for eff2 in self.effects:
             #       ...
-            
+
             # But I think we dont have to do that as we only care that some precondition value
             # is associated with self.index (operator)
             # Anyways this is the code I started to work on:

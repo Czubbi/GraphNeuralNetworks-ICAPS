@@ -87,11 +87,11 @@ def cg_and_nodes(sasfile_path, good_operators_path, output_dir):
     with open(node_output_path, "w") as file:
         file.write(CausalVariable.csv_header)
         result = []
-        logging.info(f"Number of variables: {all_variables.keys()}")
+        # logging.info(f"Number of variables: {all_variables.keys()}")
         # logging.warning(f"Number of variables: {Operator.all_variables.values()}")
         for variable in all_variables.values():
             features = variable.to_csv()
-            print(f"this is the features: {features}")
+            # print(f"this is the features: {features}")
             result.append(f"{features}\n")
         file.writelines(result)
 
@@ -169,8 +169,8 @@ def pdg_and_nodes(sasfile_path, good_operators_path, output_dir):
     all_values, all_variables = PdgParser.generate_values_variables(
         variables_text, init_dict, goal_dict
     )
-    logger.warning(f"Number of values: {len(all_values)}")
-    logger.warning(f"Number of variables: {len(all_variables)}")
+    # logger.warning(f"Number of values: {len(all_values)}")
+    # logger.warning(f"Number of variables: {len(all_variables)}")
     all_operators = PdgParser.generate_operators("pdg", operators_text, good_operators)
 
     values_output_path = os.path.join(output_dir, "values.csv")
@@ -203,11 +203,23 @@ def pdg_and_nodes(sasfile_path, good_operators_path, output_dir):
         val_to_op.update(val_to_op_edges)
         op_to_val.update(op_to_val_edges)
 
-    logging.warning(f"edges: {val_to_var}")
+    # logging.info(f"edges: {val_to_var}")
 
     save_edge(val_to_var, os.path.join(output_dir, "ValVar_edges.csv"))
     save_edge(val_to_op, os.path.join(output_dir, "ValOp_edges.csv"), with_label=True)
     save_edge(op_to_val, os.path.join(output_dir, "OpVal_edges.csv"), with_label=True)
+
+    # generate global value csv
+
+    with open(os.path.join(output_dir, "global_values.csv"), "w") as file:
+        for variable in all_variables.values():
+            for idx, val in enumerate(variable.values):
+                file.write(f"{variable.index},{idx},{val.global_index}\n")
+
+    # generate global operator csv
+    with open(os.path.join(output_dir, "global_operators.csv"), "w") as file:
+        for operator in all_operators.values():
+            file.write(f"{operator.index}:{operator.operator_line}\n")
 
 
 def build_pdg_graph():
