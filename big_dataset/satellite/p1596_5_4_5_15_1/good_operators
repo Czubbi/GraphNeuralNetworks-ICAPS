@@ -1,0 +1,24 @@
+calibrate satellite0 instrument2 groundstation6
+calibrate satellite0 instrument2 star12
+calibrate satellite1 instrument4 groundstation13
+calibrate satellite1 instrument5 groundstation0
+calibrate satellite1 instrument5 star5
+calibrate satellite1 instrument5 star8
+switch_on instrument2 satellite0
+switch_on instrument4 satellite1
+switch_on instrument5 satellite1
+take_image satellite0 star15 instrument2 image1
+take_image satellite1 star15 instrument4 image1
+take_image satellite1 star15 instrument5 image1
+turn_to satellite0 groundstation6 groundstation0
+turn_to satellite0 star12 groundstation0
+turn_to satellite0 star15 groundstation6
+turn_to satellite0 star15 star12
+turn_to satellite1 groundstation0 groundstation7
+turn_to satellite1 groundstation13 groundstation7
+turn_to satellite1 star15 groundstation0
+turn_to satellite1 star15 groundstation13
+turn_to satellite1 star15 star5
+turn_to satellite1 star15 star8
+turn_to satellite1 star5 groundstation7
+turn_to satellite1 star8 groundstation7

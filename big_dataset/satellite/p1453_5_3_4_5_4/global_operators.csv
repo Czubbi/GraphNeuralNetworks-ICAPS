@@ -1,0 +1,537 @@
+0:calibrate satellite0 instrument0 groundstation1
+1:calibrate satellite0 instrument1 groundstation4
+2:calibrate satellite1 instrument2 groundstation0
+3:calibrate satellite2 instrument3 groundstation4
+4:calibrate satellite2 instrument4 groundstation2
+5:calibrate satellite2 instrument5 groundstation2
+6:calibrate satellite3 instrument6 groundstation4
+7:calibrate satellite3 instrument7 groundstation4
+8:calibrate satellite4 instrument10 groundstation4
+9:calibrate satellite4 instrument8 groundstation4
+10:calibrate satellite4 instrument9 groundstation0
+11:switch_off instrument0 satellite0
+12:switch_off instrument1 satellite0
+13:switch_off instrument10 satellite4
+14:switch_off instrument2 satellite1
+15:switch_off instrument3 satellite2
+16:switch_off instrument4 satellite2
+17:switch_off instrument5 satellite2
+18:switch_off instrument6 satellite3
+19:switch_off instrument7 satellite3
+20:switch_off instrument8 satellite4
+21:switch_off instrument9 satellite4
+22:switch_on instrument0 satellite0
+23:switch_on instrument1 satellite0
+24:switch_on instrument10 satellite4
+25:switch_on instrument2 satellite1
+26:switch_on instrument3 satellite2
+27:switch_on instrument4 satellite2
+28:switch_on instrument5 satellite2
+29:switch_on instrument6 satellite3
+30:switch_on instrument7 satellite3
+31:switch_on instrument8 satellite4
+32:switch_on instrument9 satellite4
+33:take_image satellite0 groundstation0 instrument0 image1
+34:take_image satellite0 groundstation0 instrument1 image1
+35:take_image satellite0 groundstation0 instrument1 infrared3
+36:take_image satellite0 groundstation1 instrument0 image1
+37:take_image satellite0 groundstation1 instrument1 image1
+38:take_image satellite0 groundstation1 instrument1 infrared3
+39:take_image satellite0 groundstation2 instrument0 image1
+40:take_image satellite0 groundstation2 instrument1 image1
+41:take_image satellite0 groundstation2 instrument1 infrared3
+42:take_image satellite0 groundstation3 instrument0 image1
+43:take_image satellite0 groundstation3 instrument1 image1
+44:take_image satellite0 groundstation3 instrument1 infrared3
+45:take_image satellite0 groundstation4 instrument0 image1
+46:take_image satellite0 groundstation4 instrument1 image1
+47:take_image satellite0 groundstation4 instrument1 infrared3
+48:take_image satellite0 star5 instrument0 image1
+49:take_image satellite0 star5 instrument1 image1
+50:take_image satellite0 star5 instrument1 infrared3
+51:take_image satellite0 star6 instrument0 image1
+52:take_image satellite0 star6 instrument1 image1
+53:take_image satellite0 star6 instrument1 infrared3
+54:take_image satellite0 star7 instrument0 image1
+55:take_image satellite0 star7 instrument1 image1
+56:take_image satellite0 star7 instrument1 infrared3
+57:take_image satellite0 star8 instrument0 image1
+58:take_image satellite0 star8 instrument1 image1
+59:take_image satellite0 star8 instrument1 infrared3
+60:take_image satellite1 groundstation0 instrument2 image2
+61:take_image satellite1 groundstation1 instrument2 image2
+62:take_image satellite1 groundstation2 instrument2 image2
+63:take_image satellite1 groundstation3 instrument2 image2
+64:take_image satellite1 groundstation4 instrument2 image2
+65:take_image satellite1 star5 instrument2 image2
+66:take_image satellite1 star6 instrument2 image2
+67:take_image satellite1 star7 instrument2 image2
+68:take_image satellite1 star8 instrument2 image2
+69:take_image satellite2 groundstation0 instrument3 infrared3
+70:take_image satellite2 groundstation0 instrument4 thermograph0
+71:take_image satellite2 groundstation0 instrument5 thermograph0
+72:take_image satellite2 groundstation1 instrument3 infrared3
+73:take_image satellite2 groundstation1 instrument4 thermograph0
+74:take_image satellite2 groundstation1 instrument5 thermograph0
+75:take_image satellite2 groundstation2 instrument3 infrared3
+76:take_image satellite2 groundstation2 instrument4 thermograph0
+77:take_image satellite2 groundstation2 instrument5 thermograph0
+78:take_image satellite2 groundstation3 instrument3 infrared3
+79:take_image satellite2 groundstation3 instrument4 thermograph0
+80:take_image satellite2 groundstation3 instrument5 thermograph0
+81:take_image satellite2 groundstation4 instrument3 infrared3
+82:take_image satellite2 groundstation4 instrument4 thermograph0
+83:take_image satellite2 groundstation4 instrument5 thermograph0
+84:take_image satellite2 star5 instrument3 infrared3
+85:take_image satellite2 star5 instrument4 thermograph0
+86:take_image satellite2 star5 instrument5 thermograph0
+87:take_image satellite2 star6 instrument3 infrared3
+88:take_image satellite2 star6 instrument4 thermograph0
+89:take_image satellite2 star6 instrument5 thermograph0
+90:take_image satellite2 star7 instrument3 infrared3
+91:take_image satellite2 star7 instrument4 thermograph0
+92:take_image satellite2 star7 instrument5 thermograph0
+93:take_image satellite2 star8 instrument3 infrared3
+94:take_image satellite2 star8 instrument4 thermograph0
+95:take_image satellite2 star8 instrument5 thermograph0
+96:take_image satellite3 groundstation0 instrument6 infrared3
+97:take_image satellite3 groundstation0 instrument7 image2
+98:take_image satellite3 groundstation1 instrument6 infrared3
+99:take_image satellite3 groundstation1 instrument7 image2
+100:take_image satellite3 groundstation2 instrument6 infrared3
+101:take_image satellite3 groundstation2 instrument7 image2
+102:take_image satellite3 groundstation3 instrument6 infrared3
+103:take_image satellite3 groundstation3 instrument7 image2
+104:take_image satellite3 groundstation4 instrument6 infrared3
+105:take_image satellite3 groundstation4 instrument7 image2
+106:take_image satellite3 star5 instrument6 infrared3
+107:take_image satellite3 star5 instrument7 image2
+108:take_image satellite3 star6 instrument6 infrared3
+109:take_image satellite3 star6 instrument7 image2
+110:take_image satellite3 star7 instrument6 infrared3
+111:take_image satellite3 star7 instrument7 image2
+112:take_image satellite3 star8 instrument6 infrared3
+113:take_image satellite3 star8 instrument7 image2
+114:take_image satellite4 groundstation0 instrument10 image1
+115:take_image satellite4 groundstation0 instrument10 image2
+116:take_image satellite4 groundstation0 instrument10 thermograph0
+117:take_image satellite4 groundstation0 instrument8 image1
+118:take_image satellite4 groundstation0 instrument8 image2
+119:take_image satellite4 groundstation0 instrument9 image2
+120:take_image satellite4 groundstation0 instrument9 thermograph0
+121:take_image satellite4 groundstation1 instrument10 image1
+122:take_image satellite4 groundstation1 instrument10 image2
+123:take_image satellite4 groundstation1 instrument10 thermograph0
+124:take_image satellite4 groundstation1 instrument8 image1
+125:take_image satellite4 groundstation1 instrument8 image2
+126:take_image satellite4 groundstation1 instrument9 image2
+127:take_image satellite4 groundstation1 instrument9 thermograph0
+128:take_image satellite4 groundstation2 instrument10 image1
+129:take_image satellite4 groundstation2 instrument10 image2
+130:take_image satellite4 groundstation2 instrument10 thermograph0
+131:take_image satellite4 groundstation2 instrument8 image1
+132:take_image satellite4 groundstation2 instrument8 image2
+133:take_image satellite4 groundstation2 instrument9 image2
+134:take_image satellite4 groundstation2 instrument9 thermograph0
+135:take_image satellite4 groundstation3 instrument10 image1
+136:take_image satellite4 groundstation3 instrument10 image2
+137:take_image satellite4 groundstation3 instrument10 thermograph0
+138:take_image satellite4 groundstation3 instrument8 image1
+139:take_image satellite4 groundstation3 instrument8 image2
+140:take_image satellite4 groundstation3 instrument9 image2
+141:take_image satellite4 groundstation3 instrument9 thermograph0
+142:take_image satellite4 groundstation4 instrument10 image1
+143:take_image satellite4 groundstation4 instrument10 image2
+144:take_image satellite4 groundstation4 instrument10 thermograph0
+145:take_image satellite4 groundstation4 instrument8 image1
+146:take_image satellite4 groundstation4 instrument8 image2
+147:take_image satellite4 groundstation4 instrument9 image2
+148:take_image satellite4 groundstation4 instrument9 thermograph0
+149:take_image satellite4 star5 instrument10 image1
+150:take_image satellite4 star5 instrument10 image2
+151:take_image satellite4 star5 instrument10 thermograph0
+152:take_image satellite4 star5 instrument8 image1
+153:take_image satellite4 star5 instrument8 image2
+154:take_image satellite4 star5 instrument9 image2
+155:take_image satellite4 star5 instrument9 thermograph0
+156:take_image satellite4 star6 instrument10 image1
+157:take_image satellite4 star6 instrument10 image2
+158:take_image satellite4 star6 instrument10 thermograph0
+159:take_image satellite4 star6 instrument8 image1
+160:take_image satellite4 star6 instrument8 image2
+161:take_image satellite4 star6 instrument9 image2
+162:take_image satellite4 star6 instrument9 thermograph0
+163:take_image satellite4 star7 instrument10 image1
+164:take_image satellite4 star7 instrument10 image2
+165:take_image satellite4 star7 instrument10 thermograph0
+166:take_image satellite4 star7 instrument8 image1
+167:take_image satellite4 star7 instrument8 image2
+168:take_image satellite4 star7 instrument9 image2
+169:take_image satellite4 star7 instrument9 thermograph0
+170:take_image satellite4 star8 instrument10 image1
+171:take_image satellite4 star8 instrument10 image2
+172:take_image satellite4 star8 instrument10 thermograph0
+173:take_image satellite4 star8 instrument8 image1
+174:take_image satellite4 star8 instrument8 image2
+175:take_image satellite4 star8 instrument9 image2
+176:take_image satellite4 star8 instrument9 thermograph0
+177:turn_to satellite0 groundstation0 groundstation1
+178:turn_to satellite0 groundstation0 groundstation2
+179:turn_to satellite0 groundstation0 groundstation3
+180:turn_to satellite0 groundstation0 groundstation4
+181:turn_to satellite0 groundstation0 star5
+182:turn_to satellite0 groundstation0 star6
+183:turn_to satellite0 groundstation0 star7
+184:turn_to satellite0 groundstation0 star8
+185:turn_to satellite0 groundstation1 groundstation0
+186:turn_to satellite0 groundstation1 groundstation2
+187:turn_to satellite0 groundstation1 groundstation3
+188:turn_to satellite0 groundstation1 groundstation4
+189:turn_to satellite0 groundstation1 star5
+190:turn_to satellite0 groundstation1 star6
+191:turn_to satellite0 groundstation1 star7
+192:turn_to satellite0 groundstation1 star8
+193:turn_to satellite0 groundstation2 groundstation0
+194:turn_to satellite0 groundstation2 groundstation1
+195:turn_to satellite0 groundstation2 groundstation3
+196:turn_to satellite0 groundstation2 groundstation4
+197:turn_to satellite0 groundstation2 star5
+198:turn_to satellite0 groundstation2 star6
+199:turn_to satellite0 groundstation2 star7
+200:turn_to satellite0 groundstation2 star8
+201:turn_to satellite0 groundstation3 groundstation0
+202:turn_to satellite0 groundstation3 groundstation1
+203:turn_to satellite0 groundstation3 groundstation2
+204:turn_to satellite0 groundstation3 groundstation4
+205:turn_to satellite0 groundstation3 star5
+206:turn_to satellite0 groundstation3 star6
+207:turn_to satellite0 groundstation3 star7
+208:turn_to satellite0 groundstation3 star8
+209:turn_to satellite0 groundstation4 groundstation0
+210:turn_to satellite0 groundstation4 groundstation1
+211:turn_to satellite0 groundstation4 groundstation2
+212:turn_to satellite0 groundstation4 groundstation3
+213:turn_to satellite0 groundstation4 star5
+214:turn_to satellite0 groundstation4 star6
+215:turn_to satellite0 groundstation4 star7
+216:turn_to satellite0 groundstation4 star8
+217:turn_to satellite0 star5 groundstation0
+218:turn_to satellite0 star5 groundstation1
+219:turn_to satellite0 star5 groundstation2
+220:turn_to satellite0 star5 groundstation3
+221:turn_to satellite0 star5 groundstation4
+222:turn_to satellite0 star5 star6
+223:turn_to satellite0 star5 star7
+224:turn_to satellite0 star5 star8
+225:turn_to satellite0 star6 groundstation0
+226:turn_to satellite0 star6 groundstation1
+227:turn_to satellite0 star6 groundstation2
+228:turn_to satellite0 star6 groundstation3
+229:turn_to satellite0 star6 groundstation4
+230:turn_to satellite0 star6 star5
+231:turn_to satellite0 star6 star7
+232:turn_to satellite0 star6 star8
+233:turn_to satellite0 star7 groundstation0
+234:turn_to satellite0 star7 groundstation1
+235:turn_to satellite0 star7 groundstation2
+236:turn_to satellite0 star7 groundstation3
+237:turn_to satellite0 star7 groundstation4
+238:turn_to satellite0 star7 star5
+239:turn_to satellite0 star7 star6
+240:turn_to satellite0 star7 star8
+241:turn_to satellite0 star8 groundstation0
+242:turn_to satellite0 star8 groundstation1
+243:turn_to satellite0 star8 groundstation2
+244:turn_to satellite0 star8 groundstation3
+245:turn_to satellite0 star8 groundstation4
+246:turn_to satellite0 star8 star5
+247:turn_to satellite0 star8 star6
+248:turn_to satellite0 star8 star7
+249:turn_to satellite1 groundstation0 groundstation1
+250:turn_to satellite1 groundstation0 groundstation2
+251:turn_to satellite1 groundstation0 groundstation3
+252:turn_to satellite1 groundstation0 groundstation4
+253:turn_to satellite1 groundstation0 star5
+254:turn_to satellite1 groundstation0 star6
+255:turn_to satellite1 groundstation0 star7
+256:turn_to satellite1 groundstation0 star8
+257:turn_to satellite1 groundstation1 groundstation0
+258:turn_to satellite1 groundstation1 groundstation2
+259:turn_to satellite1 groundstation1 groundstation3
+260:turn_to satellite1 groundstation1 groundstation4
+261:turn_to satellite1 groundstation1 star5
+262:turn_to satellite1 groundstation1 star6
+263:turn_to satellite1 groundstation1 star7
+264:turn_to satellite1 groundstation1 star8
+265:turn_to satellite1 groundstation2 groundstation0
+266:turn_to satellite1 groundstation2 groundstation1
+267:turn_to satellite1 groundstation2 groundstation3
+268:turn_to satellite1 groundstation2 groundstation4
+269:turn_to satellite1 groundstation2 star5
+270:turn_to satellite1 groundstation2 star6
+271:turn_to satellite1 groundstation2 star7
+272:turn_to satellite1 groundstation2 star8
+273:turn_to satellite1 groundstation3 groundstation0
+274:turn_to satellite1 groundstation3 groundstation1
+275:turn_to satellite1 groundstation3 groundstation2
+276:turn_to satellite1 groundstation3 groundstation4
+277:turn_to satellite1 groundstation3 star5
+278:turn_to satellite1 groundstation3 star6
+279:turn_to satellite1 groundstation3 star7
+280:turn_to satellite1 groundstation3 star8
+281:turn_to satellite1 groundstation4 groundstation0
+282:turn_to satellite1 groundstation4 groundstation1
+283:turn_to satellite1 groundstation4 groundstation2
+284:turn_to satellite1 groundstation4 groundstation3
+285:turn_to satellite1 groundstation4 star5
+286:turn_to satellite1 groundstation4 star6
+287:turn_to satellite1 groundstation4 star7
+288:turn_to satellite1 groundstation4 star8
+289:turn_to satellite1 star5 groundstation0
+290:turn_to satellite1 star5 groundstation1
+291:turn_to satellite1 star5 groundstation2
+292:turn_to satellite1 star5 groundstation3
+293:turn_to satellite1 star5 groundstation4
+294:turn_to satellite1 star5 star6
+295:turn_to satellite1 star5 star7
+296:turn_to satellite1 star5 star8
+297:turn_to satellite1 star6 groundstation0
+298:turn_to satellite1 star6 groundstation1
+299:turn_to satellite1 star6 groundstation2
+300:turn_to satellite1 star6 groundstation3
+301:turn_to satellite1 star6 groundstation4
+302:turn_to satellite1 star6 star5
+303:turn_to satellite1 star6 star7
+304:turn_to satellite1 star6 star8
+305:turn_to satellite1 star7 groundstation0
+306:turn_to satellite1 star7 groundstation1
+307:turn_to satellite1 star7 groundstation2
+308:turn_to satellite1 star7 groundstation3
+309:turn_to satellite1 star7 groundstation4
+310:turn_to satellite1 star7 star5
+311:turn_to satellite1 star7 star6
+312:turn_to satellite1 star7 star8
+313:turn_to satellite1 star8 groundstation0
+314:turn_to satellite1 star8 groundstation1
+315:turn_to satellite1 star8 groundstation2
+316:turn_to satellite1 star8 groundstation3
+317:turn_to satellite1 star8 groundstation4
+318:turn_to satellite1 star8 star5
+319:turn_to satellite1 star8 star6
+320:turn_to satellite1 star8 star7
+321:turn_to satellite2 groundstation0 groundstation1
+322:turn_to satellite2 groundstation0 groundstation2
+323:turn_to satellite2 groundstation0 groundstation3
+324:turn_to satellite2 groundstation0 groundstation4
+325:turn_to satellite2 groundstation0 star5
+326:turn_to satellite2 groundstation0 star6
+327:turn_to satellite2 groundstation0 star7
+328:turn_to satellite2 groundstation0 star8
+329:turn_to satellite2 groundstation1 groundstation0
+330:turn_to satellite2 groundstation1 groundstation2
+331:turn_to satellite2 groundstation1 groundstation3
+332:turn_to satellite2 groundstation1 groundstation4
+333:turn_to satellite2 groundstation1 star5
+334:turn_to satellite2 groundstation1 star6
+335:turn_to satellite2 groundstation1 star7
+336:turn_to satellite2 groundstation1 star8
+337:turn_to satellite2 groundstation2 groundstation0
+338:turn_to satellite2 groundstation2 groundstation1
+339:turn_to satellite2 groundstation2 groundstation3
+340:turn_to satellite2 groundstation2 groundstation4
+341:turn_to satellite2 groundstation2 star5
+342:turn_to satellite2 groundstation2 star6
+343:turn_to satellite2 groundstation2 star7
+344:turn_to satellite2 groundstation2 star8
+345:turn_to satellite2 groundstation3 groundstation0
+346:turn_to satellite2 groundstation3 groundstation1
+347:turn_to satellite2 groundstation3 groundstation2
+348:turn_to satellite2 groundstation3 groundstation4
+349:turn_to satellite2 groundstation3 star5
+350:turn_to satellite2 groundstation3 star6
+351:turn_to satellite2 groundstation3 star7
+352:turn_to satellite2 groundstation3 star8
+353:turn_to satellite2 groundstation4 groundstation0
+354:turn_to satellite2 groundstation4 groundstation1
+355:turn_to satellite2 groundstation4 groundstation2
+356:turn_to satellite2 groundstation4 groundstation3
+357:turn_to satellite2 groundstation4 star5
+358:turn_to satellite2 groundstation4 star6
+359:turn_to satellite2 groundstation4 star7
+360:turn_to satellite2 groundstation4 star8
+361:turn_to satellite2 star5 groundstation0
+362:turn_to satellite2 star5 groundstation1
+363:turn_to satellite2 star5 groundstation2
+364:turn_to satellite2 star5 groundstation3
+365:turn_to satellite2 star5 groundstation4
+366:turn_to satellite2 star5 star6
+367:turn_to satellite2 star5 star7
+368:turn_to satellite2 star5 star8
+369:turn_to satellite2 star6 groundstation0
+370:turn_to satellite2 star6 groundstation1
+371:turn_to satellite2 star6 groundstation2
+372:turn_to satellite2 star6 groundstation3
+373:turn_to satellite2 star6 groundstation4
+374:turn_to satellite2 star6 star5
+375:turn_to satellite2 star6 star7
+376:turn_to satellite2 star6 star8
+377:turn_to satellite2 star7 groundstation0
+378:turn_to satellite2 star7 groundstation1
+379:turn_to satellite2 star7 groundstation2
+380:turn_to satellite2 star7 groundstation3
+381:turn_to satellite2 star7 groundstation4
+382:turn_to satellite2 star7 star5
+383:turn_to satellite2 star7 star6
+384:turn_to satellite2 star7 star8
+385:turn_to satellite2 star8 groundstation0
+386:turn_to satellite2 star8 groundstation1
+387:turn_to satellite2 star8 groundstation2
+388:turn_to satellite2 star8 groundstation3
+389:turn_to satellite2 star8 groundstation4
+390:turn_to satellite2 star8 star5
+391:turn_to satellite2 star8 star6
+392:turn_to satellite2 star8 star7
+393:turn_to satellite3 groundstation0 groundstation1
+394:turn_to satellite3 groundstation0 groundstation2
+395:turn_to satellite3 groundstation0 groundstation3
+396:turn_to satellite3 groundstation0 groundstation4
+397:turn_to satellite3 groundstation0 star5
+398:turn_to satellite3 groundstation0 star6
+399:turn_to satellite3 groundstation0 star7
+400:turn_to satellite3 groundstation0 star8
+401:turn_to satellite3 groundstation1 groundstation0
+402:turn_to satellite3 groundstation1 groundstation2
+403:turn_to satellite3 groundstation1 groundstation3
+404:turn_to satellite3 groundstation1 groundstation4
+405:turn_to satellite3 groundstation1 star5
+406:turn_to satellite3 groundstation1 star6
+407:turn_to satellite3 groundstation1 star7
+408:turn_to satellite3 groundstation1 star8
+409:turn_to satellite3 groundstation2 groundstation0
+410:turn_to satellite3 groundstation2 groundstation1
+411:turn_to satellite3 groundstation2 groundstation3
+412:turn_to satellite3 groundstation2 groundstation4
+413:turn_to satellite3 groundstation2 star5
+414:turn_to satellite3 groundstation2 star6
+415:turn_to satellite3 groundstation2 star7
+416:turn_to satellite3 groundstation2 star8
+417:turn_to satellite3 groundstation3 groundstation0
+418:turn_to satellite3 groundstation3 groundstation1
+419:turn_to satellite3 groundstation3 groundstation2
+420:turn_to satellite3 groundstation3 groundstation4
+421:turn_to satellite3 groundstation3 star5
+422:turn_to satellite3 groundstation3 star6
+423:turn_to satellite3 groundstation3 star7
+424:turn_to satellite3 groundstation3 star8
+425:turn_to satellite3 groundstation4 groundstation0
+426:turn_to satellite3 groundstation4 groundstation1
+427:turn_to satellite3 groundstation4 groundstation2
+428:turn_to satellite3 groundstation4 groundstation3
+429:turn_to satellite3 groundstation4 star5
+430:turn_to satellite3 groundstation4 star6
+431:turn_to satellite3 groundstation4 star7
+432:turn_to satellite3 groundstation4 star8
+433:turn_to satellite3 star5 groundstation0
+434:turn_to satellite3 star5 groundstation1
+435:turn_to satellite3 star5 groundstation2
+436:turn_to satellite3 star5 groundstation3
+437:turn_to satellite3 star5 groundstation4
+438:turn_to satellite3 star5 star6
+439:turn_to satellite3 star5 star7
+440:turn_to satellite3 star5 star8
+441:turn_to satellite3 star6 groundstation0
+442:turn_to satellite3 star6 groundstation1
+443:turn_to satellite3 star6 groundstation2
+444:turn_to satellite3 star6 groundstation3
+445:turn_to satellite3 star6 groundstation4
+446:turn_to satellite3 star6 star5
+447:turn_to satellite3 star6 star7
+448:turn_to satellite3 star6 star8
+449:turn_to satellite3 star7 groundstation0
+450:turn_to satellite3 star7 groundstation1
+451:turn_to satellite3 star7 groundstation2
+452:turn_to satellite3 star7 groundstation3
+453:turn_to satellite3 star7 groundstation4
+454:turn_to satellite3 star7 star5
+455:turn_to satellite3 star7 star6
+456:turn_to satellite3 star7 star8
+457:turn_to satellite3 star8 groundstation0
+458:turn_to satellite3 star8 groundstation1
+459:turn_to satellite3 star8 groundstation2
+460:turn_to satellite3 star8 groundstation3
+461:turn_to satellite3 star8 groundstation4
+462:turn_to satellite3 star8 star5
+463:turn_to satellite3 star8 star6
+464:turn_to satellite3 star8 star7
+465:turn_to satellite4 groundstation0 groundstation1
+466:turn_to satellite4 groundstation0 groundstation2
+467:turn_to satellite4 groundstation0 groundstation3
+468:turn_to satellite4 groundstation0 groundstation4
+469:turn_to satellite4 groundstation0 star5
+470:turn_to satellite4 groundstation0 star6
+471:turn_to satellite4 groundstation0 star7
+472:turn_to satellite4 groundstation0 star8
+473:turn_to satellite4 groundstation1 groundstation0
+474:turn_to satellite4 groundstation1 groundstation2
+475:turn_to satellite4 groundstation1 groundstation3
+476:turn_to satellite4 groundstation1 groundstation4
+477:turn_to satellite4 groundstation1 star5
+478:turn_to satellite4 groundstation1 star6
+479:turn_to satellite4 groundstation1 star7
+480:turn_to satellite4 groundstation1 star8
+481:turn_to satellite4 groundstation2 groundstation0
+482:turn_to satellite4 groundstation2 groundstation1
+483:turn_to satellite4 groundstation2 groundstation3
+484:turn_to satellite4 groundstation2 groundstation4
+485:turn_to satellite4 groundstation2 star5
+486:turn_to satellite4 groundstation2 star6
+487:turn_to satellite4 groundstation2 star7
+488:turn_to satellite4 groundstation2 star8
+489:turn_to satellite4 groundstation3 groundstation0
+490:turn_to satellite4 groundstation3 groundstation1
+491:turn_to satellite4 groundstation3 groundstation2
+492:turn_to satellite4 groundstation3 groundstation4
+493:turn_to satellite4 groundstation3 star5
+494:turn_to satellite4 groundstation3 star6
+495:turn_to satellite4 groundstation3 star7
+496:turn_to satellite4 groundstation3 star8
+497:turn_to satellite4 groundstation4 groundstation0
+498:turn_to satellite4 groundstation4 groundstation1
+499:turn_to satellite4 groundstation4 groundstation2
+500:turn_to satellite4 groundstation4 groundstation3
+501:turn_to satellite4 groundstation4 star5
+502:turn_to satellite4 groundstation4 star6
+503:turn_to satellite4 groundstation4 star7
+504:turn_to satellite4 groundstation4 star8
+505:turn_to satellite4 star5 groundstation0
+506:turn_to satellite4 star5 groundstation1
+507:turn_to satellite4 star5 groundstation2
+508:turn_to satellite4 star5 groundstation3
+509:turn_to satellite4 star5 groundstation4
+510:turn_to satellite4 star5 star6
+511:turn_to satellite4 star5 star7
+512:turn_to satellite4 star5 star8
+513:turn_to satellite4 star6 groundstation0
+514:turn_to satellite4 star6 groundstation1
+515:turn_to satellite4 star6 groundstation2
+516:turn_to satellite4 star6 groundstation3
+517:turn_to satellite4 star6 groundstation4
+518:turn_to satellite4 star6 star5
+519:turn_to satellite4 star6 star7
+520:turn_to satellite4 star6 star8
+521:turn_to satellite4 star7 groundstation0
+522:turn_to satellite4 star7 groundstation1
+523:turn_to satellite4 star7 groundstation2
+524:turn_to satellite4 star7 groundstation3
+525:turn_to satellite4 star7 groundstation4
+526:turn_to satellite4 star7 star5
+527:turn_to satellite4 star7 star6
+528:turn_to satellite4 star7 star8
+529:turn_to satellite4 star8 groundstation0
+530:turn_to satellite4 star8 groundstation1
+531:turn_to satellite4 star8 groundstation2
+532:turn_to satellite4 star8 groundstation3
+533:turn_to satellite4 star8 groundstation4
+534:turn_to satellite4 star8 star5
+535:turn_to satellite4 star8 star6
+536:turn_to satellite4 star8 star7

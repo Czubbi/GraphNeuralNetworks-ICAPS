@@ -1,0 +1,423 @@
+begin_variable
+var0
+-1
+3
+Atom at(rover0, waypoint0)
+Atom at(rover0, waypoint1)
+Atom at(rover0, waypoint2)
+end_variable
+begin_variable
+var1
+-1
+3
+Atom at(rover1, waypoint0)
+Atom at(rover1, waypoint1)
+Atom at(rover1, waypoint2)
+end_variable
+begin_variable
+var2
+-1
+3
+Atom at(rover2, waypoint0)
+Atom at(rover2, waypoint1)
+Atom at(rover2, waypoint2)
+end_variable
+begin_variable
+var3
+-1
+2
+Atom at_rock_sample(waypoint0)
+Atom have_rock_analysis(rover1, waypoint0)
+end_variable
+begin_variable
+var4
+-1
+2
+Atom at_rock_sample(waypoint1)
+Atom have_rock_analysis(rover1, waypoint1)
+end_variable
+begin_variable
+var5
+-1
+2
+Atom at_rock_sample(waypoint2)
+Atom have_rock_analysis(rover1, waypoint2)
+end_variable
+begin_variable
+var6
+-1
+2
+Atom at_soil_sample(waypoint1)
+Atom have_soil_analysis(rover0, waypoint1)
+end_variable
+begin_variable
+var7
+-1
+2
+Atom at_soil_sample(waypoint2)
+Atom have_soil_analysis(rover0, waypoint2)
+end_variable
+begin_variable
+var8
+-1
+2
+Atom calibrated(camera0, rover0)
+NegatedAtom calibrated(camera0, rover0)
+end_variable
+begin_variable
+var9
+-1
+2
+Atom calibrated(camera1, rover0)
+NegatedAtom calibrated(camera1, rover0)
+end_variable
+begin_variable
+var10
+-1
+2
+Atom calibrated(camera2, rover0)
+NegatedAtom calibrated(camera2, rover0)
+end_variable
+begin_variable
+var11
+-1
+2
+Atom calibrated(camera3, rover0)
+NegatedAtom calibrated(camera3, rover0)
+end_variable
+begin_variable
+var12
+-1
+2
+Atom calibrated(camera4, rover2)
+NegatedAtom calibrated(camera4, rover2)
+end_variable
+begin_variable
+var13
+-1
+2
+Atom communicated_image_data(objective0, colour)
+NegatedAtom communicated_image_data(objective0, colour)
+end_variable
+begin_variable
+var14
+-1
+2
+Atom communicated_image_data(objective0, high_res)
+NegatedAtom communicated_image_data(objective0, high_res)
+end_variable
+begin_variable
+var15
+-1
+2
+Atom communicated_image_data(objective0, low_res)
+NegatedAtom communicated_image_data(objective0, low_res)
+end_variable
+begin_variable
+var16
+-1
+2
+Atom communicated_image_data(objective1, colour)
+NegatedAtom communicated_image_data(objective1, colour)
+end_variable
+begin_variable
+var17
+-1
+2
+Atom communicated_image_data(objective1, high_res)
+NegatedAtom communicated_image_data(objective1, high_res)
+end_variable
+begin_variable
+var18
+-1
+2
+Atom communicated_image_data(objective1, low_res)
+NegatedAtom communicated_image_data(objective1, low_res)
+end_variable
+begin_variable
+var19
+-1
+2
+Atom communicated_image_data(objective2, colour)
+NegatedAtom communicated_image_data(objective2, colour)
+end_variable
+begin_variable
+var20
+-1
+2
+Atom communicated_image_data(objective2, high_res)
+NegatedAtom communicated_image_data(objective2, high_res)
+end_variable
+begin_variable
+var21
+-1
+2
+Atom communicated_image_data(objective2, low_res)
+NegatedAtom communicated_image_data(objective2, low_res)
+end_variable
+begin_variable
+var22
+-1
+2
+Atom communicated_image_data(objective3, colour)
+NegatedAtom communicated_image_data(objective3, colour)
+end_variable
+begin_variable
+var23
+-1
+2
+Atom communicated_image_data(objective3, high_res)
+NegatedAtom communicated_image_data(objective3, high_res)
+end_variable
+begin_variable
+var24
+-1
+2
+Atom communicated_image_data(objective3, low_res)
+NegatedAtom communicated_image_data(objective3, low_res)
+end_variable
+begin_variable
+var25
+-1
+2
+Atom communicated_image_data(objective4, colour)
+NegatedAtom communicated_image_data(objective4, colour)
+end_variable
+begin_variable
+var26
+-1
+2
+Atom communicated_image_data(objective4, high_res)
+NegatedAtom communicated_image_data(objective4, high_res)
+end_variable
+begin_variable
+var27
+-1
+2
+Atom communicated_image_data(objective4, low_res)
+NegatedAtom communicated_image_data(objective4, low_res)
+end_variable
+begin_variable
+var28
+-1
+2
+Atom communicated_rock_data(waypoint0)
+NegatedAtom communicated_rock_data(waypoint0)
+end_variable
+begin_variable
+var29
+-1
+2
+Atom communicated_rock_data(waypoint1)
+NegatedAtom communicated_rock_data(waypoint1)
+end_variable
+begin_variable
+var30
+-1
+2
+Atom communicated_rock_data(waypoint2)
+NegatedAtom communicated_rock_data(waypoint2)
+end_variable
+begin_variable
+var31
+-1
+2
+Atom communicated_soil_data(waypoint1)
+NegatedAtom communicated_soil_data(waypoint1)
+end_variable
+begin_variable
+var32
+-1
+2
+Atom communicated_soil_data(waypoint2)
+NegatedAtom communicated_soil_data(waypoint2)
+end_variable
+begin_variable
+var33
+-1
+2
+Atom empty(rover0store)
+Atom full(rover0store)
+end_variable
+begin_variable
+var34
+-1
+2
+Atom empty(rover1store)
+Atom full(rover1store)
+end_variable
+begin_variable
+var35
+-1
+2
+Atom have_image(rover0, objective0, colour)
+NegatedAtom have_image(rover0, objective0, colour)
+end_variable
+begin_variable
+var36
+-1
+2
+Atom have_image(rover0, objective0, high_res)
+NegatedAtom have_image(rover0, objective0, high_res)
+end_variable
+begin_variable
+var37
+-1
+2
+Atom have_image(rover0, objective0, low_res)
+NegatedAtom have_image(rover0, objective0, low_res)
+end_variable
+begin_variable
+var38
+-1
+2
+Atom have_image(rover0, objective1, colour)
+NegatedAtom have_image(rover0, objective1, colour)
+end_variable
+begin_variable
+var39
+-1
+2
+Atom have_image(rover0, objective1, high_res)
+NegatedAtom have_image(rover0, objective1, high_res)
+end_variable
+begin_variable
+var40
+-1
+2
+Atom have_image(rover0, objective1, low_res)
+NegatedAtom have_image(rover0, objective1, low_res)
+end_variable
+begin_variable
+var41
+-1
+2
+Atom have_image(rover0, objective2, colour)
+NegatedAtom have_image(rover0, objective2, colour)
+end_variable
+begin_variable
+var42
+-1
+2
+Atom have_image(rover0, objective2, high_res)
+NegatedAtom have_image(rover0, objective2, high_res)
+end_variable
+begin_variable
+var43
+-1
+2
+Atom have_image(rover0, objective2, low_res)
+NegatedAtom have_image(rover0, objective2, low_res)
+end_variable
+begin_variable
+var44
+-1
+2
+Atom have_image(rover0, objective3, colour)
+NegatedAtom have_image(rover0, objective3, colour)
+end_variable
+begin_variable
+var45
+-1
+2
+Atom have_image(rover0, objective3, high_res)
+NegatedAtom have_image(rover0, objective3, high_res)
+end_variable
+begin_variable
+var46
+-1
+2
+Atom have_image(rover0, objective3, low_res)
+NegatedAtom have_image(rover0, objective3, low_res)
+end_variable
+begin_variable
+var47
+-1
+2
+Atom have_image(rover0, objective4, colour)
+NegatedAtom have_image(rover0, objective4, colour)
+end_variable
+begin_variable
+var48
+-1
+2
+Atom have_image(rover0, objective4, high_res)
+NegatedAtom have_image(rover0, objective4, high_res)
+end_variable
+begin_variable
+var49
+-1
+2
+Atom have_image(rover0, objective4, low_res)
+NegatedAtom have_image(rover0, objective4, low_res)
+end_variable
+begin_variable
+var50
+-1
+2
+Atom have_image(rover2, objective0, high_res)
+NegatedAtom have_image(rover2, objective0, high_res)
+end_variable
+begin_variable
+var51
+-1
+2
+Atom have_image(rover2, objective0, low_res)
+NegatedAtom have_image(rover2, objective0, low_res)
+end_variable
+begin_variable
+var52
+-1
+2
+Atom have_image(rover2, objective1, high_res)
+NegatedAtom have_image(rover2, objective1, high_res)
+end_variable
+begin_variable
+var53
+-1
+2
+Atom have_image(rover2, objective1, low_res)
+NegatedAtom have_image(rover2, objective1, low_res)
+end_variable
+begin_variable
+var54
+-1
+2
+Atom have_image(rover2, objective2, high_res)
+NegatedAtom have_image(rover2, objective2, high_res)
+end_variable
+begin_variable
+var55
+-1
+2
+Atom have_image(rover2, objective2, low_res)
+NegatedAtom have_image(rover2, objective2, low_res)
+end_variable
+begin_variable
+var56
+-1
+2
+Atom have_image(rover2, objective3, high_res)
+NegatedAtom have_image(rover2, objective3, high_res)
+end_variable
+begin_variable
+var57
+-1
+2
+Atom have_image(rover2, objective3, low_res)
+NegatedAtom have_image(rover2, objective3, low_res)
+end_variable
+begin_variable
+var58
+-1
+2
+Atom have_image(rover2, objective4, high_res)
+NegatedAtom have_image(rover2, objective4, high_res)
+end_variable
+begin_variable
+var59
+-1
+2
+Atom have_image(rover2, objective4, low_res)
+NegatedAtom have_image(rover2, objective4, low_res)
+end_variable

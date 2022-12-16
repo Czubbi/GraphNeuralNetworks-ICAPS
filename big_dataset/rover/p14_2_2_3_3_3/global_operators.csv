@@ -1,0 +1,56 @@
+0:calibrate rover0 camera1 objective0 waypoint1
+1:calibrate rover0 camera2 objective0 waypoint1
+2:calibrate rover1 camera0 objective0 waypoint1
+3:communicate_image_data rover0 general objective0 colour waypoint0 waypoint1
+4:communicate_image_data rover0 general objective0 high_res waypoint0 waypoint1
+5:communicate_image_data rover0 general objective0 low_res waypoint0 waypoint1
+6:communicate_image_data rover0 general objective1 colour waypoint0 waypoint1
+7:communicate_image_data rover0 general objective1 high_res waypoint0 waypoint1
+8:communicate_image_data rover0 general objective1 low_res waypoint0 waypoint1
+9:communicate_image_data rover0 general objective2 colour waypoint0 waypoint1
+10:communicate_image_data rover0 general objective2 high_res waypoint0 waypoint1
+11:communicate_image_data rover0 general objective2 low_res waypoint0 waypoint1
+12:communicate_image_data rover1 general objective0 colour waypoint0 waypoint1
+13:communicate_image_data rover1 general objective0 low_res waypoint0 waypoint1
+14:communicate_image_data rover1 general objective1 colour waypoint0 waypoint1
+15:communicate_image_data rover1 general objective1 low_res waypoint0 waypoint1
+16:communicate_image_data rover1 general objective2 colour waypoint0 waypoint1
+17:communicate_image_data rover1 general objective2 low_res waypoint0 waypoint1
+18:communicate_rock_data rover0 general waypoint0 waypoint0 waypoint1
+19:communicate_rock_data rover0 general waypoint1 waypoint0 waypoint1
+20:communicate_soil_data rover1 general waypoint0 waypoint0 waypoint1
+21:communicate_soil_data rover1 general waypoint1 waypoint0 waypoint1
+22:drop rover0 rover0store
+23:drop rover1 rover1store
+24:navigate rover0 waypoint0 waypoint1
+25:navigate rover0 waypoint1 waypoint0
+26:navigate rover1 waypoint0 waypoint1
+27:navigate rover1 waypoint1 waypoint0
+28:sample_rock rover0 rover0store waypoint0
+29:sample_rock rover0 rover0store waypoint1
+30:sample_soil rover1 rover1store waypoint0
+31:sample_soil rover1 rover1store waypoint1
+32:take_image rover0 waypoint0 objective1 camera1 low_res
+33:take_image rover0 waypoint0 objective1 camera2 colour
+34:take_image rover0 waypoint0 objective1 camera2 high_res
+35:take_image rover0 waypoint0 objective1 camera2 low_res
+36:take_image rover0 waypoint0 objective2 camera1 low_res
+37:take_image rover0 waypoint0 objective2 camera2 colour
+38:take_image rover0 waypoint0 objective2 camera2 high_res
+39:take_image rover0 waypoint0 objective2 camera2 low_res
+40:take_image rover0 waypoint1 objective0 camera1 low_res
+41:take_image rover0 waypoint1 objective0 camera2 colour
+42:take_image rover0 waypoint1 objective0 camera2 high_res
+43:take_image rover0 waypoint1 objective0 camera2 low_res
+44:take_image rover0 waypoint1 objective2 camera1 low_res
+45:take_image rover0 waypoint1 objective2 camera2 colour
+46:take_image rover0 waypoint1 objective2 camera2 high_res
+47:take_image rover0 waypoint1 objective2 camera2 low_res
+48:take_image rover1 waypoint0 objective1 camera0 colour
+49:take_image rover1 waypoint0 objective1 camera0 low_res
+50:take_image rover1 waypoint0 objective2 camera0 colour
+51:take_image rover1 waypoint0 objective2 camera0 low_res
+52:take_image rover1 waypoint1 objective0 camera0 colour
+53:take_image rover1 waypoint1 objective0 camera0 low_res
+54:take_image rover1 waypoint1 objective2 camera0 colour
+55:take_image rover1 waypoint1 objective2 camera0 low_res

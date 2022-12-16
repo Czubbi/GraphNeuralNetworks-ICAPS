@@ -1,0 +1,978 @@
+begin_operator
+calibrate satellite0 instrument0 groundstation2
+2
+27 2
+31 0
+1
+0 0 -1 0
+1
+end_operator
+begin_operator
+calibrate satellite0 instrument1 groundstation3
+2
+27 3
+32 0
+1
+0 1 -1 0
+1
+end_operator
+begin_operator
+calibrate satellite1 instrument2 groundstation0
+2
+28 0
+33 0
+1
+0 2 -1 0
+1
+end_operator
+begin_operator
+switch_off instrument0 satellite0
+0
+2
+0 29 -1 0
+0 31 0 1
+1
+end_operator
+begin_operator
+switch_off instrument1 satellite0
+0
+2
+0 29 -1 0
+0 32 0 1
+1
+end_operator
+begin_operator
+switch_off instrument2 satellite1
+0
+2
+0 30 -1 0
+0 33 0 1
+1
+end_operator
+begin_operator
+switch_on instrument0 satellite0
+0
+3
+0 0 -1 1
+0 29 0 1
+0 31 -1 0
+1
+end_operator
+begin_operator
+switch_on instrument1 satellite0
+0
+3
+0 1 -1 1
+0 29 0 1
+0 32 -1 0
+1
+end_operator
+begin_operator
+switch_on instrument2 satellite1
+0
+3
+0 2 -1 1
+0 30 0 1
+0 33 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation0 instrument0 thermograph0
+3
+0 0
+27 0
+31 0
+1
+0 6 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation0 instrument1 infrared1
+3
+1 0
+27 0
+32 0
+1
+0 3 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation0 instrument1 spectrograph2
+3
+1 0
+27 0
+32 0
+1
+0 4 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation0 instrument1 spectrograph3
+3
+1 0
+27 0
+32 0
+1
+0 5 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation0 instrument1 thermograph0
+3
+1 0
+27 0
+32 0
+1
+0 6 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation1 instrument0 thermograph0
+3
+0 0
+27 1
+31 0
+1
+0 10 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation1 instrument1 infrared1
+3
+1 0
+27 1
+32 0
+1
+0 7 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation1 instrument1 spectrograph2
+3
+1 0
+27 1
+32 0
+1
+0 8 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation1 instrument1 spectrograph3
+3
+1 0
+27 1
+32 0
+1
+0 9 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation1 instrument1 thermograph0
+3
+1 0
+27 1
+32 0
+1
+0 10 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation2 instrument0 thermograph0
+3
+0 0
+27 2
+31 0
+1
+0 14 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation2 instrument1 infrared1
+3
+1 0
+27 2
+32 0
+1
+0 11 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation2 instrument1 spectrograph2
+3
+1 0
+27 2
+32 0
+1
+0 12 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation2 instrument1 spectrograph3
+3
+1 0
+27 2
+32 0
+1
+0 13 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation2 instrument1 thermograph0
+3
+1 0
+27 2
+32 0
+1
+0 14 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation3 instrument0 thermograph0
+3
+0 0
+27 3
+31 0
+1
+0 18 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation3 instrument1 infrared1
+3
+1 0
+27 3
+32 0
+1
+0 15 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation3 instrument1 spectrograph2
+3
+1 0
+27 3
+32 0
+1
+0 16 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation3 instrument1 spectrograph3
+3
+1 0
+27 3
+32 0
+1
+0 17 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation3 instrument1 thermograph0
+3
+1 0
+27 3
+32 0
+1
+0 18 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 phenomenon5 instrument0 thermograph0
+3
+0 0
+27 4
+31 0
+1
+0 22 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 phenomenon5 instrument1 infrared1
+3
+1 0
+27 4
+32 0
+1
+0 19 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 phenomenon5 instrument1 spectrograph2
+3
+1 0
+27 4
+32 0
+1
+0 20 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 phenomenon5 instrument1 spectrograph3
+3
+1 0
+27 4
+32 0
+1
+0 21 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 phenomenon5 instrument1 thermograph0
+3
+1 0
+27 4
+32 0
+1
+0 22 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 star4 instrument0 thermograph0
+3
+0 0
+27 5
+31 0
+1
+0 26 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 star4 instrument1 infrared1
+3
+1 0
+27 5
+32 0
+1
+0 23 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 star4 instrument1 spectrograph2
+3
+1 0
+27 5
+32 0
+1
+0 24 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 star4 instrument1 spectrograph3
+3
+1 0
+27 5
+32 0
+1
+0 25 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 star4 instrument1 thermograph0
+3
+1 0
+27 5
+32 0
+1
+0 26 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 groundstation0 instrument2 spectrograph2
+3
+2 0
+28 0
+33 0
+1
+0 4 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 groundstation0 instrument2 spectrograph3
+3
+2 0
+28 0
+33 0
+1
+0 5 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 groundstation0 instrument2 thermograph0
+3
+2 0
+28 0
+33 0
+1
+0 6 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 groundstation1 instrument2 spectrograph2
+3
+2 0
+28 1
+33 0
+1
+0 8 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 groundstation1 instrument2 spectrograph3
+3
+2 0
+28 1
+33 0
+1
+0 9 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 groundstation1 instrument2 thermograph0
+3
+2 0
+28 1
+33 0
+1
+0 10 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 groundstation2 instrument2 spectrograph2
+3
+2 0
+28 2
+33 0
+1
+0 12 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 groundstation2 instrument2 spectrograph3
+3
+2 0
+28 2
+33 0
+1
+0 13 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 groundstation2 instrument2 thermograph0
+3
+2 0
+28 2
+33 0
+1
+0 14 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 groundstation3 instrument2 spectrograph2
+3
+2 0
+28 3
+33 0
+1
+0 16 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 groundstation3 instrument2 spectrograph3
+3
+2 0
+28 3
+33 0
+1
+0 17 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 groundstation3 instrument2 thermograph0
+3
+2 0
+28 3
+33 0
+1
+0 18 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 phenomenon5 instrument2 spectrograph2
+3
+2 0
+28 4
+33 0
+1
+0 20 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 phenomenon5 instrument2 spectrograph3
+3
+2 0
+28 4
+33 0
+1
+0 21 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 phenomenon5 instrument2 thermograph0
+3
+2 0
+28 4
+33 0
+1
+0 22 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 star4 instrument2 spectrograph2
+3
+2 0
+28 5
+33 0
+1
+0 24 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 star4 instrument2 spectrograph3
+3
+2 0
+28 5
+33 0
+1
+0 25 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 star4 instrument2 thermograph0
+3
+2 0
+28 5
+33 0
+1
+0 26 -1 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 groundstation1
+0
+1
+0 27 1 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 groundstation2
+0
+1
+0 27 2 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 groundstation3
+0
+1
+0 27 3 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 phenomenon5
+0
+1
+0 27 4 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 star4
+0
+1
+0 27 5 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation1 groundstation0
+0
+1
+0 27 0 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation1 groundstation2
+0
+1
+0 27 2 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation1 groundstation3
+0
+1
+0 27 3 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation1 phenomenon5
+0
+1
+0 27 4 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation1 star4
+0
+1
+0 27 5 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 groundstation0
+0
+1
+0 27 0 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 groundstation1
+0
+1
+0 27 1 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 groundstation3
+0
+1
+0 27 3 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 phenomenon5
+0
+1
+0 27 4 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 star4
+0
+1
+0 27 5 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation3 groundstation0
+0
+1
+0 27 0 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation3 groundstation1
+0
+1
+0 27 1 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation3 groundstation2
+0
+1
+0 27 2 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation3 phenomenon5
+0
+1
+0 27 4 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation3 star4
+0
+1
+0 27 5 3
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon5 groundstation0
+0
+1
+0 27 0 4
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon5 groundstation1
+0
+1
+0 27 1 4
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon5 groundstation2
+0
+1
+0 27 2 4
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon5 groundstation3
+0
+1
+0 27 3 4
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon5 star4
+0
+1
+0 27 5 4
+1
+end_operator
+begin_operator
+turn_to satellite0 star4 groundstation0
+0
+1
+0 27 0 5
+1
+end_operator
+begin_operator
+turn_to satellite0 star4 groundstation1
+0
+1
+0 27 1 5
+1
+end_operator
+begin_operator
+turn_to satellite0 star4 groundstation2
+0
+1
+0 27 2 5
+1
+end_operator
+begin_operator
+turn_to satellite0 star4 groundstation3
+0
+1
+0 27 3 5
+1
+end_operator
+begin_operator
+turn_to satellite0 star4 phenomenon5
+0
+1
+0 27 4 5
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 groundstation1
+0
+1
+0 28 1 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 groundstation2
+0
+1
+0 28 2 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 groundstation3
+0
+1
+0 28 3 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 phenomenon5
+0
+1
+0 28 4 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 star4
+0
+1
+0 28 5 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation1 groundstation0
+0
+1
+0 28 0 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation1 groundstation2
+0
+1
+0 28 2 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation1 groundstation3
+0
+1
+0 28 3 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation1 phenomenon5
+0
+1
+0 28 4 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation1 star4
+0
+1
+0 28 5 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 groundstation0
+0
+1
+0 28 0 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 groundstation1
+0
+1
+0 28 1 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 groundstation3
+0
+1
+0 28 3 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 phenomenon5
+0
+1
+0 28 4 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 star4
+0
+1
+0 28 5 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation3 groundstation0
+0
+1
+0 28 0 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation3 groundstation1
+0
+1
+0 28 1 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation3 groundstation2
+0
+1
+0 28 2 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation3 phenomenon5
+0
+1
+0 28 4 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation3 star4
+0
+1
+0 28 5 3
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon5 groundstation0
+0
+1
+0 28 0 4
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon5 groundstation1
+0
+1
+0 28 1 4
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon5 groundstation2
+0
+1
+0 28 2 4
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon5 groundstation3
+0
+1
+0 28 3 4
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon5 star4
+0
+1
+0 28 5 4
+1
+end_operator
+begin_operator
+turn_to satellite1 star4 groundstation0
+0
+1
+0 28 0 5
+1
+end_operator
+begin_operator
+turn_to satellite1 star4 groundstation1
+0
+1
+0 28 1 5
+1
+end_operator
+begin_operator
+turn_to satellite1 star4 groundstation2
+0
+1
+0 28 2 5
+1
+end_operator
+begin_operator
+turn_to satellite1 star4 groundstation3
+0
+1
+0 28 3 5
+1
+end_operator
+begin_operator
+turn_to satellite1 star4 phenomenon5
+0
+1
+0 28 4 5
+1
+end_operator

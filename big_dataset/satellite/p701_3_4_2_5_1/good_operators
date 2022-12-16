@@ -1,0 +1,8 @@
+calibrate satellite1 instrument6 star0
+calibrate satellite2 instrument10 groundstation4
+switch_on instrument10 satellite2
+switch_on instrument6 satellite1
+take_image satellite1 planet5 instrument6 image1
+take_image satellite2 planet5 instrument10 image1
+turn_to satellite1 planet5 star0
+turn_to satellite2 planet5 groundstation4

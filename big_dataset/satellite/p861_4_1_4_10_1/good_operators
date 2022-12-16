@@ -1,0 +1,27 @@
+calibrate satellite0 instrument0 groundstation5
+calibrate satellite0 instrument0 star2
+calibrate satellite2 instrument2 groundstation7
+calibrate satellite3 instrument3 groundstation4
+calibrate satellite3 instrument3 star2
+calibrate satellite3 instrument3 star6
+switch_on instrument0 satellite0
+switch_on instrument2 satellite2
+switch_on instrument3 satellite3
+take_image satellite0 star10 instrument0 thermograph3
+take_image satellite2 star10 instrument2 thermograph3
+take_image satellite3 star10 instrument3 thermograph3
+turn_to satellite0 groundstation5 star10
+turn_to satellite0 star1 star10
+turn_to satellite0 star10 groundstation5
+turn_to satellite0 star10 star2
+turn_to satellite0 star2 star10
+turn_to satellite2 groundstation3 star1
+turn_to satellite2 groundstation3 star10
+turn_to satellite2 groundstation7 star1
+turn_to satellite2 star10 groundstation7
+turn_to satellite3 groundstation4 groundstation7
+turn_to satellite3 star10 groundstation4
+turn_to satellite3 star10 star2
+turn_to satellite3 star10 star6
+turn_to satellite3 star2 groundstation7
+turn_to satellite3 star6 groundstation7

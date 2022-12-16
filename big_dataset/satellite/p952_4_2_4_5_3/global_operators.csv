@@ -1,0 +1,327 @@
+0:calibrate satellite0 instrument0 star1
+1:calibrate satellite1 instrument1 star0
+2:calibrate satellite1 instrument2 star1
+3:calibrate satellite2 instrument3 star1
+4:calibrate satellite3 instrument4 groundstation4
+5:switch_off instrument0 satellite0
+6:switch_off instrument1 satellite1
+7:switch_off instrument2 satellite1
+8:switch_off instrument3 satellite2
+9:switch_off instrument4 satellite3
+10:switch_on instrument0 satellite0
+11:switch_on instrument1 satellite1
+12:switch_on instrument2 satellite1
+13:switch_on instrument3 satellite2
+14:switch_on instrument4 satellite3
+15:take_image satellite0 groundstation3 instrument0 image1
+16:take_image satellite0 groundstation3 instrument0 thermograph3
+17:take_image satellite0 groundstation4 instrument0 image1
+18:take_image satellite0 groundstation4 instrument0 thermograph3
+19:take_image satellite0 phenomenon5 instrument0 image1
+20:take_image satellite0 phenomenon5 instrument0 thermograph3
+21:take_image satellite0 phenomenon7 instrument0 image1
+22:take_image satellite0 phenomenon7 instrument0 thermograph3
+23:take_image satellite0 planet6 instrument0 image1
+24:take_image satellite0 planet6 instrument0 thermograph3
+25:take_image satellite0 star0 instrument0 image1
+26:take_image satellite0 star0 instrument0 thermograph3
+27:take_image satellite0 star1 instrument0 image1
+28:take_image satellite0 star1 instrument0 thermograph3
+29:take_image satellite0 star2 instrument0 image1
+30:take_image satellite0 star2 instrument0 thermograph3
+31:take_image satellite1 groundstation3 instrument1 thermograph0
+32:take_image satellite1 groundstation3 instrument1 thermograph2
+33:take_image satellite1 groundstation3 instrument1 thermograph3
+34:take_image satellite1 groundstation3 instrument2 image1
+35:take_image satellite1 groundstation3 instrument2 thermograph0
+36:take_image satellite1 groundstation4 instrument1 thermograph0
+37:take_image satellite1 groundstation4 instrument1 thermograph2
+38:take_image satellite1 groundstation4 instrument1 thermograph3
+39:take_image satellite1 groundstation4 instrument2 image1
+40:take_image satellite1 groundstation4 instrument2 thermograph0
+41:take_image satellite1 phenomenon5 instrument1 thermograph0
+42:take_image satellite1 phenomenon5 instrument1 thermograph2
+43:take_image satellite1 phenomenon5 instrument1 thermograph3
+44:take_image satellite1 phenomenon5 instrument2 image1
+45:take_image satellite1 phenomenon5 instrument2 thermograph0
+46:take_image satellite1 phenomenon7 instrument1 thermograph0
+47:take_image satellite1 phenomenon7 instrument1 thermograph2
+48:take_image satellite1 phenomenon7 instrument1 thermograph3
+49:take_image satellite1 phenomenon7 instrument2 image1
+50:take_image satellite1 phenomenon7 instrument2 thermograph0
+51:take_image satellite1 planet6 instrument1 thermograph0
+52:take_image satellite1 planet6 instrument1 thermograph2
+53:take_image satellite1 planet6 instrument1 thermograph3
+54:take_image satellite1 planet6 instrument2 image1
+55:take_image satellite1 planet6 instrument2 thermograph0
+56:take_image satellite1 star0 instrument1 thermograph0
+57:take_image satellite1 star0 instrument1 thermograph2
+58:take_image satellite1 star0 instrument1 thermograph3
+59:take_image satellite1 star0 instrument2 image1
+60:take_image satellite1 star0 instrument2 thermograph0
+61:take_image satellite1 star1 instrument1 thermograph0
+62:take_image satellite1 star1 instrument1 thermograph2
+63:take_image satellite1 star1 instrument1 thermograph3
+64:take_image satellite1 star1 instrument2 image1
+65:take_image satellite1 star1 instrument2 thermograph0
+66:take_image satellite1 star2 instrument1 thermograph0
+67:take_image satellite1 star2 instrument1 thermograph2
+68:take_image satellite1 star2 instrument1 thermograph3
+69:take_image satellite1 star2 instrument2 image1
+70:take_image satellite1 star2 instrument2 thermograph0
+71:take_image satellite2 groundstation3 instrument3 thermograph0
+72:take_image satellite2 groundstation3 instrument3 thermograph2
+73:take_image satellite2 groundstation3 instrument3 thermograph3
+74:take_image satellite2 groundstation4 instrument3 thermograph0
+75:take_image satellite2 groundstation4 instrument3 thermograph2
+76:take_image satellite2 groundstation4 instrument3 thermograph3
+77:take_image satellite2 phenomenon5 instrument3 thermograph0
+78:take_image satellite2 phenomenon5 instrument3 thermograph2
+79:take_image satellite2 phenomenon5 instrument3 thermograph3
+80:take_image satellite2 phenomenon7 instrument3 thermograph0
+81:take_image satellite2 phenomenon7 instrument3 thermograph2
+82:take_image satellite2 phenomenon7 instrument3 thermograph3
+83:take_image satellite2 planet6 instrument3 thermograph0
+84:take_image satellite2 planet6 instrument3 thermograph2
+85:take_image satellite2 planet6 instrument3 thermograph3
+86:take_image satellite2 star0 instrument3 thermograph0
+87:take_image satellite2 star0 instrument3 thermograph2
+88:take_image satellite2 star0 instrument3 thermograph3
+89:take_image satellite2 star1 instrument3 thermograph0
+90:take_image satellite2 star1 instrument3 thermograph2
+91:take_image satellite2 star1 instrument3 thermograph3
+92:take_image satellite2 star2 instrument3 thermograph0
+93:take_image satellite2 star2 instrument3 thermograph2
+94:take_image satellite2 star2 instrument3 thermograph3
+95:take_image satellite3 groundstation3 instrument4 thermograph2
+96:take_image satellite3 groundstation4 instrument4 thermograph2
+97:take_image satellite3 phenomenon5 instrument4 thermograph2
+98:take_image satellite3 phenomenon7 instrument4 thermograph2
+99:take_image satellite3 planet6 instrument4 thermograph2
+100:take_image satellite3 star0 instrument4 thermograph2
+101:take_image satellite3 star1 instrument4 thermograph2
+102:take_image satellite3 star2 instrument4 thermograph2
+103:turn_to satellite0 groundstation3 groundstation4
+104:turn_to satellite0 groundstation3 phenomenon5
+105:turn_to satellite0 groundstation3 phenomenon7
+106:turn_to satellite0 groundstation3 planet6
+107:turn_to satellite0 groundstation3 star0
+108:turn_to satellite0 groundstation3 star1
+109:turn_to satellite0 groundstation3 star2
+110:turn_to satellite0 groundstation4 groundstation3
+111:turn_to satellite0 groundstation4 phenomenon5
+112:turn_to satellite0 groundstation4 phenomenon7
+113:turn_to satellite0 groundstation4 planet6
+114:turn_to satellite0 groundstation4 star0
+115:turn_to satellite0 groundstation4 star1
+116:turn_to satellite0 groundstation4 star2
+117:turn_to satellite0 phenomenon5 groundstation3
+118:turn_to satellite0 phenomenon5 groundstation4
+119:turn_to satellite0 phenomenon5 phenomenon7
+120:turn_to satellite0 phenomenon5 planet6
+121:turn_to satellite0 phenomenon5 star0
+122:turn_to satellite0 phenomenon5 star1
+123:turn_to satellite0 phenomenon5 star2
+124:turn_to satellite0 phenomenon7 groundstation3
+125:turn_to satellite0 phenomenon7 groundstation4
+126:turn_to satellite0 phenomenon7 phenomenon5
+127:turn_to satellite0 phenomenon7 planet6
+128:turn_to satellite0 phenomenon7 star0
+129:turn_to satellite0 phenomenon7 star1
+130:turn_to satellite0 phenomenon7 star2
+131:turn_to satellite0 planet6 groundstation3
+132:turn_to satellite0 planet6 groundstation4
+133:turn_to satellite0 planet6 phenomenon5
+134:turn_to satellite0 planet6 phenomenon7
+135:turn_to satellite0 planet6 star0
+136:turn_to satellite0 planet6 star1
+137:turn_to satellite0 planet6 star2
+138:turn_to satellite0 star0 groundstation3
+139:turn_to satellite0 star0 groundstation4
+140:turn_to satellite0 star0 phenomenon5
+141:turn_to satellite0 star0 phenomenon7
+142:turn_to satellite0 star0 planet6
+143:turn_to satellite0 star0 star1
+144:turn_to satellite0 star0 star2
+145:turn_to satellite0 star1 groundstation3
+146:turn_to satellite0 star1 groundstation4
+147:turn_to satellite0 star1 phenomenon5
+148:turn_to satellite0 star1 phenomenon7
+149:turn_to satellite0 star1 planet6
+150:turn_to satellite0 star1 star0
+151:turn_to satellite0 star1 star2
+152:turn_to satellite0 star2 groundstation3
+153:turn_to satellite0 star2 groundstation4
+154:turn_to satellite0 star2 phenomenon5
+155:turn_to satellite0 star2 phenomenon7
+156:turn_to satellite0 star2 planet6
+157:turn_to satellite0 star2 star0
+158:turn_to satellite0 star2 star1
+159:turn_to satellite1 groundstation3 groundstation4
+160:turn_to satellite1 groundstation3 phenomenon5
+161:turn_to satellite1 groundstation3 phenomenon7
+162:turn_to satellite1 groundstation3 planet6
+163:turn_to satellite1 groundstation3 star0
+164:turn_to satellite1 groundstation3 star1
+165:turn_to satellite1 groundstation3 star2
+166:turn_to satellite1 groundstation4 groundstation3
+167:turn_to satellite1 groundstation4 phenomenon5
+168:turn_to satellite1 groundstation4 phenomenon7
+169:turn_to satellite1 groundstation4 planet6
+170:turn_to satellite1 groundstation4 star0
+171:turn_to satellite1 groundstation4 star1
+172:turn_to satellite1 groundstation4 star2
+173:turn_to satellite1 phenomenon5 groundstation3
+174:turn_to satellite1 phenomenon5 groundstation4
+175:turn_to satellite1 phenomenon5 phenomenon7
+176:turn_to satellite1 phenomenon5 planet6
+177:turn_to satellite1 phenomenon5 star0
+178:turn_to satellite1 phenomenon5 star1
+179:turn_to satellite1 phenomenon5 star2
+180:turn_to satellite1 phenomenon7 groundstation3
+181:turn_to satellite1 phenomenon7 groundstation4
+182:turn_to satellite1 phenomenon7 phenomenon5
+183:turn_to satellite1 phenomenon7 planet6
+184:turn_to satellite1 phenomenon7 star0
+185:turn_to satellite1 phenomenon7 star1
+186:turn_to satellite1 phenomenon7 star2
+187:turn_to satellite1 planet6 groundstation3
+188:turn_to satellite1 planet6 groundstation4
+189:turn_to satellite1 planet6 phenomenon5
+190:turn_to satellite1 planet6 phenomenon7
+191:turn_to satellite1 planet6 star0
+192:turn_to satellite1 planet6 star1
+193:turn_to satellite1 planet6 star2
+194:turn_to satellite1 star0 groundstation3
+195:turn_to satellite1 star0 groundstation4
+196:turn_to satellite1 star0 phenomenon5
+197:turn_to satellite1 star0 phenomenon7
+198:turn_to satellite1 star0 planet6
+199:turn_to satellite1 star0 star1
+200:turn_to satellite1 star0 star2
+201:turn_to satellite1 star1 groundstation3
+202:turn_to satellite1 star1 groundstation4
+203:turn_to satellite1 star1 phenomenon5
+204:turn_to satellite1 star1 phenomenon7
+205:turn_to satellite1 star1 planet6
+206:turn_to satellite1 star1 star0
+207:turn_to satellite1 star1 star2
+208:turn_to satellite1 star2 groundstation3
+209:turn_to satellite1 star2 groundstation4
+210:turn_to satellite1 star2 phenomenon5
+211:turn_to satellite1 star2 phenomenon7
+212:turn_to satellite1 star2 planet6
+213:turn_to satellite1 star2 star0
+214:turn_to satellite1 star2 star1
+215:turn_to satellite2 groundstation3 groundstation4
+216:turn_to satellite2 groundstation3 phenomenon5
+217:turn_to satellite2 groundstation3 phenomenon7
+218:turn_to satellite2 groundstation3 planet6
+219:turn_to satellite2 groundstation3 star0
+220:turn_to satellite2 groundstation3 star1
+221:turn_to satellite2 groundstation3 star2
+222:turn_to satellite2 groundstation4 groundstation3
+223:turn_to satellite2 groundstation4 phenomenon5
+224:turn_to satellite2 groundstation4 phenomenon7
+225:turn_to satellite2 groundstation4 planet6
+226:turn_to satellite2 groundstation4 star0
+227:turn_to satellite2 groundstation4 star1
+228:turn_to satellite2 groundstation4 star2
+229:turn_to satellite2 phenomenon5 groundstation3
+230:turn_to satellite2 phenomenon5 groundstation4
+231:turn_to satellite2 phenomenon5 phenomenon7
+232:turn_to satellite2 phenomenon5 planet6
+233:turn_to satellite2 phenomenon5 star0
+234:turn_to satellite2 phenomenon5 star1
+235:turn_to satellite2 phenomenon5 star2
+236:turn_to satellite2 phenomenon7 groundstation3
+237:turn_to satellite2 phenomenon7 groundstation4
+238:turn_to satellite2 phenomenon7 phenomenon5
+239:turn_to satellite2 phenomenon7 planet6
+240:turn_to satellite2 phenomenon7 star0
+241:turn_to satellite2 phenomenon7 star1
+242:turn_to satellite2 phenomenon7 star2
+243:turn_to satellite2 planet6 groundstation3
+244:turn_to satellite2 planet6 groundstation4
+245:turn_to satellite2 planet6 phenomenon5
+246:turn_to satellite2 planet6 phenomenon7
+247:turn_to satellite2 planet6 star0
+248:turn_to satellite2 planet6 star1
+249:turn_to satellite2 planet6 star2
+250:turn_to satellite2 star0 groundstation3
+251:turn_to satellite2 star0 groundstation4
+252:turn_to satellite2 star0 phenomenon5
+253:turn_to satellite2 star0 phenomenon7
+254:turn_to satellite2 star0 planet6
+255:turn_to satellite2 star0 star1
+256:turn_to satellite2 star0 star2
+257:turn_to satellite2 star1 groundstation3
+258:turn_to satellite2 star1 groundstation4
+259:turn_to satellite2 star1 phenomenon5
+260:turn_to satellite2 star1 phenomenon7
+261:turn_to satellite2 star1 planet6
+262:turn_to satellite2 star1 star0
+263:turn_to satellite2 star1 star2
+264:turn_to satellite2 star2 groundstation3
+265:turn_to satellite2 star2 groundstation4
+266:turn_to satellite2 star2 phenomenon5
+267:turn_to satellite2 star2 phenomenon7
+268:turn_to satellite2 star2 planet6
+269:turn_to satellite2 star2 star0
+270:turn_to satellite2 star2 star1
+271:turn_to satellite3 groundstation3 groundstation4
+272:turn_to satellite3 groundstation3 phenomenon5
+273:turn_to satellite3 groundstation3 phenomenon7
+274:turn_to satellite3 groundstation3 planet6
+275:turn_to satellite3 groundstation3 star0
+276:turn_to satellite3 groundstation3 star1
+277:turn_to satellite3 groundstation3 star2
+278:turn_to satellite3 groundstation4 groundstation3
+279:turn_to satellite3 groundstation4 phenomenon5
+280:turn_to satellite3 groundstation4 phenomenon7
+281:turn_to satellite3 groundstation4 planet6
+282:turn_to satellite3 groundstation4 star0
+283:turn_to satellite3 groundstation4 star1
+284:turn_to satellite3 groundstation4 star2
+285:turn_to satellite3 phenomenon5 groundstation3
+286:turn_to satellite3 phenomenon5 groundstation4
+287:turn_to satellite3 phenomenon5 phenomenon7
+288:turn_to satellite3 phenomenon5 planet6
+289:turn_to satellite3 phenomenon5 star0
+290:turn_to satellite3 phenomenon5 star1
+291:turn_to satellite3 phenomenon5 star2
+292:turn_to satellite3 phenomenon7 groundstation3
+293:turn_to satellite3 phenomenon7 groundstation4
+294:turn_to satellite3 phenomenon7 phenomenon5
+295:turn_to satellite3 phenomenon7 planet6
+296:turn_to satellite3 phenomenon7 star0
+297:turn_to satellite3 phenomenon7 star1
+298:turn_to satellite3 phenomenon7 star2
+299:turn_to satellite3 planet6 groundstation3
+300:turn_to satellite3 planet6 groundstation4
+301:turn_to satellite3 planet6 phenomenon5
+302:turn_to satellite3 planet6 phenomenon7
+303:turn_to satellite3 planet6 star0
+304:turn_to satellite3 planet6 star1
+305:turn_to satellite3 planet6 star2
+306:turn_to satellite3 star0 groundstation3
+307:turn_to satellite3 star0 groundstation4
+308:turn_to satellite3 star0 phenomenon5
+309:turn_to satellite3 star0 phenomenon7
+310:turn_to satellite3 star0 planet6
+311:turn_to satellite3 star0 star1
+312:turn_to satellite3 star0 star2
+313:turn_to satellite3 star1 groundstation3
+314:turn_to satellite3 star1 groundstation4
+315:turn_to satellite3 star1 phenomenon5
+316:turn_to satellite3 star1 phenomenon7
+317:turn_to satellite3 star1 planet6
+318:turn_to satellite3 star1 star0
+319:turn_to satellite3 star1 star2
+320:turn_to satellite3 star2 groundstation3
+321:turn_to satellite3 star2 groundstation4
+322:turn_to satellite3 star2 phenomenon5
+323:turn_to satellite3 star2 phenomenon7
+324:turn_to satellite3 star2 planet6
+325:turn_to satellite3 star2 star0
+326:turn_to satellite3 star2 star1

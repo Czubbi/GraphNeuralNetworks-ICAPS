@@ -1,0 +1,582 @@
+0:clean-shaker left right shaker1
+1:clean-shaker right left shaker1
+2:clean-shot shot1 cocktail1 left right
+3:clean-shot shot1 cocktail1 right left
+4:clean-shot shot1 cocktail2 left right
+5:clean-shot shot1 cocktail2 right left
+6:clean-shot shot1 ingredient1 left right
+7:clean-shot shot1 ingredient1 right left
+8:clean-shot shot1 ingredient2 left right
+9:clean-shot shot1 ingredient2 right left
+10:clean-shot shot1 ingredient3 left right
+11:clean-shot shot1 ingredient3 right left
+12:clean-shot shot1 ingredient4 left right
+13:clean-shot shot1 ingredient4 right left
+14:clean-shot shot1 ingredient5 left right
+15:clean-shot shot1 ingredient5 right left
+16:clean-shot shot1 ingredient6 left right
+17:clean-shot shot1 ingredient6 right left
+18:clean-shot shot2 cocktail1 left right
+19:clean-shot shot2 cocktail1 right left
+20:clean-shot shot2 cocktail2 left right
+21:clean-shot shot2 cocktail2 right left
+22:clean-shot shot2 ingredient1 left right
+23:clean-shot shot2 ingredient1 right left
+24:clean-shot shot2 ingredient2 left right
+25:clean-shot shot2 ingredient2 right left
+26:clean-shot shot2 ingredient3 left right
+27:clean-shot shot2 ingredient3 right left
+28:clean-shot shot2 ingredient4 left right
+29:clean-shot shot2 ingredient4 right left
+30:clean-shot shot2 ingredient5 left right
+31:clean-shot shot2 ingredient5 right left
+32:clean-shot shot2 ingredient6 left right
+33:clean-shot shot2 ingredient6 right left
+34:clean-shot shot3 cocktail1 left right
+35:clean-shot shot3 cocktail1 right left
+36:clean-shot shot3 cocktail2 left right
+37:clean-shot shot3 cocktail2 right left
+38:clean-shot shot3 ingredient1 left right
+39:clean-shot shot3 ingredient1 right left
+40:clean-shot shot3 ingredient2 left right
+41:clean-shot shot3 ingredient2 right left
+42:clean-shot shot3 ingredient3 left right
+43:clean-shot shot3 ingredient3 right left
+44:clean-shot shot3 ingredient4 left right
+45:clean-shot shot3 ingredient4 right left
+46:clean-shot shot3 ingredient5 left right
+47:clean-shot shot3 ingredient5 right left
+48:clean-shot shot3 ingredient6 left right
+49:clean-shot shot3 ingredient6 right left
+50:clean-shot shot4 cocktail1 left right
+51:clean-shot shot4 cocktail1 right left
+52:clean-shot shot4 cocktail2 left right
+53:clean-shot shot4 cocktail2 right left
+54:clean-shot shot4 ingredient1 left right
+55:clean-shot shot4 ingredient1 right left
+56:clean-shot shot4 ingredient2 left right
+57:clean-shot shot4 ingredient2 right left
+58:clean-shot shot4 ingredient3 left right
+59:clean-shot shot4 ingredient3 right left
+60:clean-shot shot4 ingredient4 left right
+61:clean-shot shot4 ingredient4 right left
+62:clean-shot shot4 ingredient5 left right
+63:clean-shot shot4 ingredient5 right left
+64:clean-shot shot4 ingredient6 left right
+65:clean-shot shot4 ingredient6 right left
+66:empty-shaker left shaker1 cocktail1 l0 l0
+67:empty-shaker left shaker1 cocktail1 l1 l0
+68:empty-shaker left shaker1 cocktail1 l2 l0
+69:empty-shaker left shaker1 cocktail2 l0 l0
+70:empty-shaker left shaker1 cocktail2 l1 l0
+71:empty-shaker left shaker1 cocktail2 l2 l0
+72:empty-shaker right shaker1 cocktail1 l0 l0
+73:empty-shaker right shaker1 cocktail1 l1 l0
+74:empty-shaker right shaker1 cocktail1 l2 l0
+75:empty-shaker right shaker1 cocktail2 l0 l0
+76:empty-shaker right shaker1 cocktail2 l1 l0
+77:empty-shaker right shaker1 cocktail2 l2 l0
+78:empty-shot left shot1 cocktail1
+79:empty-shot left shot1 cocktail2
+80:empty-shot left shot1 ingredient1
+81:empty-shot left shot1 ingredient2
+82:empty-shot left shot1 ingredient3
+83:empty-shot left shot1 ingredient4
+84:empty-shot left shot1 ingredient5
+85:empty-shot left shot1 ingredient6
+86:empty-shot left shot2 cocktail1
+87:empty-shot left shot2 cocktail2
+88:empty-shot left shot2 ingredient1
+89:empty-shot left shot2 ingredient2
+90:empty-shot left shot2 ingredient3
+91:empty-shot left shot2 ingredient4
+92:empty-shot left shot2 ingredient5
+93:empty-shot left shot2 ingredient6
+94:empty-shot left shot3 cocktail1
+95:empty-shot left shot3 cocktail2
+96:empty-shot left shot3 ingredient1
+97:empty-shot left shot3 ingredient2
+98:empty-shot left shot3 ingredient3
+99:empty-shot left shot3 ingredient4
+100:empty-shot left shot3 ingredient5
+101:empty-shot left shot3 ingredient6
+102:empty-shot left shot4 cocktail1
+103:empty-shot left shot4 cocktail2
+104:empty-shot left shot4 ingredient1
+105:empty-shot left shot4 ingredient2
+106:empty-shot left shot4 ingredient3
+107:empty-shot left shot4 ingredient4
+108:empty-shot left shot4 ingredient5
+109:empty-shot left shot4 ingredient6
+110:empty-shot right shot1 cocktail1
+111:empty-shot right shot1 cocktail2
+112:empty-shot right shot1 ingredient1
+113:empty-shot right shot1 ingredient2
+114:empty-shot right shot1 ingredient3
+115:empty-shot right shot1 ingredient4
+116:empty-shot right shot1 ingredient5
+117:empty-shot right shot1 ingredient6
+118:empty-shot right shot2 cocktail1
+119:empty-shot right shot2 cocktail2
+120:empty-shot right shot2 ingredient1
+121:empty-shot right shot2 ingredient2
+122:empty-shot right shot2 ingredient3
+123:empty-shot right shot2 ingredient4
+124:empty-shot right shot2 ingredient5
+125:empty-shot right shot2 ingredient6
+126:empty-shot right shot3 cocktail1
+127:empty-shot right shot3 cocktail2
+128:empty-shot right shot3 ingredient1
+129:empty-shot right shot3 ingredient2
+130:empty-shot right shot3 ingredient3
+131:empty-shot right shot3 ingredient4
+132:empty-shot right shot3 ingredient5
+133:empty-shot right shot3 ingredient6
+134:empty-shot right shot4 cocktail1
+135:empty-shot right shot4 cocktail2
+136:empty-shot right shot4 ingredient1
+137:empty-shot right shot4 ingredient2
+138:empty-shot right shot4 ingredient3
+139:empty-shot right shot4 ingredient4
+140:empty-shot right shot4 ingredient5
+141:empty-shot right shot4 ingredient6
+142:fill-shot shot1 ingredient1 left right dispenser1
+143:fill-shot shot1 ingredient1 right left dispenser1
+144:fill-shot shot1 ingredient2 left right dispenser2
+145:fill-shot shot1 ingredient2 right left dispenser2
+146:fill-shot shot1 ingredient3 left right dispenser3
+147:fill-shot shot1 ingredient3 right left dispenser3
+148:fill-shot shot1 ingredient4 left right dispenser4
+149:fill-shot shot1 ingredient4 right left dispenser4
+150:fill-shot shot1 ingredient5 left right dispenser5
+151:fill-shot shot1 ingredient5 right left dispenser5
+152:fill-shot shot1 ingredient6 left right dispenser6
+153:fill-shot shot1 ingredient6 right left dispenser6
+154:fill-shot shot2 ingredient1 left right dispenser1
+155:fill-shot shot2 ingredient1 right left dispenser1
+156:fill-shot shot2 ingredient2 left right dispenser2
+157:fill-shot shot2 ingredient2 right left dispenser2
+158:fill-shot shot2 ingredient3 left right dispenser3
+159:fill-shot shot2 ingredient3 right left dispenser3
+160:fill-shot shot2 ingredient4 left right dispenser4
+161:fill-shot shot2 ingredient4 right left dispenser4
+162:fill-shot shot2 ingredient5 left right dispenser5
+163:fill-shot shot2 ingredient5 right left dispenser5
+164:fill-shot shot2 ingredient6 left right dispenser6
+165:fill-shot shot2 ingredient6 right left dispenser6
+166:fill-shot shot3 ingredient1 left right dispenser1
+167:fill-shot shot3 ingredient1 right left dispenser1
+168:fill-shot shot3 ingredient2 left right dispenser2
+169:fill-shot shot3 ingredient2 right left dispenser2
+170:fill-shot shot3 ingredient3 left right dispenser3
+171:fill-shot shot3 ingredient3 right left dispenser3
+172:fill-shot shot3 ingredient4 left right dispenser4
+173:fill-shot shot3 ingredient4 right left dispenser4
+174:fill-shot shot3 ingredient5 left right dispenser5
+175:fill-shot shot3 ingredient5 right left dispenser5
+176:fill-shot shot3 ingredient6 left right dispenser6
+177:fill-shot shot3 ingredient6 right left dispenser6
+178:fill-shot shot4 ingredient1 left right dispenser1
+179:fill-shot shot4 ingredient1 right left dispenser1
+180:fill-shot shot4 ingredient2 left right dispenser2
+181:fill-shot shot4 ingredient2 right left dispenser2
+182:fill-shot shot4 ingredient3 left right dispenser3
+183:fill-shot shot4 ingredient3 right left dispenser3
+184:fill-shot shot4 ingredient4 left right dispenser4
+185:fill-shot shot4 ingredient4 right left dispenser4
+186:fill-shot shot4 ingredient5 left right dispenser5
+187:fill-shot shot4 ingredient5 right left dispenser5
+188:fill-shot shot4 ingredient6 left right dispenser6
+189:fill-shot shot4 ingredient6 right left dispenser6
+190:grasp left shaker1
+191:grasp left shot1
+192:grasp left shot2
+193:grasp left shot3
+194:grasp left shot4
+195:grasp right shaker1
+196:grasp right shot1
+197:grasp right shot2
+198:grasp right shot3
+199:grasp right shot4
+200:leave left shaker1
+201:leave left shot1
+202:leave left shot2
+203:leave left shot3
+204:leave left shot4
+205:leave right shaker1
+206:leave right shot1
+207:leave right shot2
+208:leave right shot3
+209:leave right shot4
+210:pour-shaker-to-shot cocktail1 shot1 left shaker1 l1 l0
+211:pour-shaker-to-shot cocktail1 shot1 left shaker1 l2 l1
+212:pour-shaker-to-shot cocktail1 shot1 right shaker1 l1 l0
+213:pour-shaker-to-shot cocktail1 shot1 right shaker1 l2 l1
+214:pour-shaker-to-shot cocktail1 shot2 left shaker1 l1 l0
+215:pour-shaker-to-shot cocktail1 shot2 left shaker1 l2 l1
+216:pour-shaker-to-shot cocktail1 shot2 right shaker1 l1 l0
+217:pour-shaker-to-shot cocktail1 shot2 right shaker1 l2 l1
+218:pour-shaker-to-shot cocktail1 shot3 left shaker1 l1 l0
+219:pour-shaker-to-shot cocktail1 shot3 left shaker1 l2 l1
+220:pour-shaker-to-shot cocktail1 shot3 right shaker1 l1 l0
+221:pour-shaker-to-shot cocktail1 shot3 right shaker1 l2 l1
+222:pour-shaker-to-shot cocktail1 shot4 left shaker1 l1 l0
+223:pour-shaker-to-shot cocktail1 shot4 left shaker1 l2 l1
+224:pour-shaker-to-shot cocktail1 shot4 right shaker1 l1 l0
+225:pour-shaker-to-shot cocktail1 shot4 right shaker1 l2 l1
+226:pour-shaker-to-shot cocktail2 shot1 left shaker1 l1 l0
+227:pour-shaker-to-shot cocktail2 shot1 left shaker1 l2 l1
+228:pour-shaker-to-shot cocktail2 shot1 right shaker1 l1 l0
+229:pour-shaker-to-shot cocktail2 shot1 right shaker1 l2 l1
+230:pour-shaker-to-shot cocktail2 shot2 left shaker1 l1 l0
+231:pour-shaker-to-shot cocktail2 shot2 left shaker1 l2 l1
+232:pour-shaker-to-shot cocktail2 shot2 right shaker1 l1 l0
+233:pour-shaker-to-shot cocktail2 shot2 right shaker1 l2 l1
+234:pour-shaker-to-shot cocktail2 shot3 left shaker1 l1 l0
+235:pour-shaker-to-shot cocktail2 shot3 left shaker1 l2 l1
+236:pour-shaker-to-shot cocktail2 shot3 right shaker1 l1 l0
+237:pour-shaker-to-shot cocktail2 shot3 right shaker1 l2 l1
+238:pour-shaker-to-shot cocktail2 shot4 left shaker1 l1 l0
+239:pour-shaker-to-shot cocktail2 shot4 left shaker1 l2 l1
+240:pour-shaker-to-shot cocktail2 shot4 right shaker1 l1 l0
+241:pour-shaker-to-shot cocktail2 shot4 right shaker1 l2 l1
+242:pour-shaker-to-shot ingredient1 shot1 left shaker1 l1 l0
+243:pour-shaker-to-shot ingredient1 shot1 left shaker1 l2 l1
+244:pour-shaker-to-shot ingredient1 shot1 right shaker1 l1 l0
+245:pour-shaker-to-shot ingredient1 shot1 right shaker1 l2 l1
+246:pour-shaker-to-shot ingredient1 shot2 left shaker1 l1 l0
+247:pour-shaker-to-shot ingredient1 shot2 left shaker1 l2 l1
+248:pour-shaker-to-shot ingredient1 shot2 right shaker1 l1 l0
+249:pour-shaker-to-shot ingredient1 shot2 right shaker1 l2 l1
+250:pour-shaker-to-shot ingredient1 shot3 left shaker1 l1 l0
+251:pour-shaker-to-shot ingredient1 shot3 left shaker1 l2 l1
+252:pour-shaker-to-shot ingredient1 shot3 right shaker1 l1 l0
+253:pour-shaker-to-shot ingredient1 shot3 right shaker1 l2 l1
+254:pour-shaker-to-shot ingredient1 shot4 left shaker1 l1 l0
+255:pour-shaker-to-shot ingredient1 shot4 left shaker1 l2 l1
+256:pour-shaker-to-shot ingredient1 shot4 right shaker1 l1 l0
+257:pour-shaker-to-shot ingredient1 shot4 right shaker1 l2 l1
+258:pour-shaker-to-shot ingredient2 shot1 left shaker1 l1 l0
+259:pour-shaker-to-shot ingredient2 shot1 left shaker1 l2 l1
+260:pour-shaker-to-shot ingredient2 shot1 right shaker1 l1 l0
+261:pour-shaker-to-shot ingredient2 shot1 right shaker1 l2 l1
+262:pour-shaker-to-shot ingredient2 shot2 left shaker1 l1 l0
+263:pour-shaker-to-shot ingredient2 shot2 left shaker1 l2 l1
+264:pour-shaker-to-shot ingredient2 shot2 right shaker1 l1 l0
+265:pour-shaker-to-shot ingredient2 shot2 right shaker1 l2 l1
+266:pour-shaker-to-shot ingredient2 shot3 left shaker1 l1 l0
+267:pour-shaker-to-shot ingredient2 shot3 left shaker1 l2 l1
+268:pour-shaker-to-shot ingredient2 shot3 right shaker1 l1 l0
+269:pour-shaker-to-shot ingredient2 shot3 right shaker1 l2 l1
+270:pour-shaker-to-shot ingredient2 shot4 left shaker1 l1 l0
+271:pour-shaker-to-shot ingredient2 shot4 left shaker1 l2 l1
+272:pour-shaker-to-shot ingredient2 shot4 right shaker1 l1 l0
+273:pour-shaker-to-shot ingredient2 shot4 right shaker1 l2 l1
+274:pour-shaker-to-shot ingredient3 shot1 left shaker1 l1 l0
+275:pour-shaker-to-shot ingredient3 shot1 left shaker1 l2 l1
+276:pour-shaker-to-shot ingredient3 shot1 right shaker1 l1 l0
+277:pour-shaker-to-shot ingredient3 shot1 right shaker1 l2 l1
+278:pour-shaker-to-shot ingredient3 shot2 left shaker1 l1 l0
+279:pour-shaker-to-shot ingredient3 shot2 left shaker1 l2 l1
+280:pour-shaker-to-shot ingredient3 shot2 right shaker1 l1 l0
+281:pour-shaker-to-shot ingredient3 shot2 right shaker1 l2 l1
+282:pour-shaker-to-shot ingredient3 shot3 left shaker1 l1 l0
+283:pour-shaker-to-shot ingredient3 shot3 left shaker1 l2 l1
+284:pour-shaker-to-shot ingredient3 shot3 right shaker1 l1 l0
+285:pour-shaker-to-shot ingredient3 shot3 right shaker1 l2 l1
+286:pour-shaker-to-shot ingredient3 shot4 left shaker1 l1 l0
+287:pour-shaker-to-shot ingredient3 shot4 left shaker1 l2 l1
+288:pour-shaker-to-shot ingredient3 shot4 right shaker1 l1 l0
+289:pour-shaker-to-shot ingredient3 shot4 right shaker1 l2 l1
+290:pour-shaker-to-shot ingredient4 shot1 left shaker1 l1 l0
+291:pour-shaker-to-shot ingredient4 shot1 left shaker1 l2 l1
+292:pour-shaker-to-shot ingredient4 shot1 right shaker1 l1 l0
+293:pour-shaker-to-shot ingredient4 shot1 right shaker1 l2 l1
+294:pour-shaker-to-shot ingredient4 shot2 left shaker1 l1 l0
+295:pour-shaker-to-shot ingredient4 shot2 left shaker1 l2 l1
+296:pour-shaker-to-shot ingredient4 shot2 right shaker1 l1 l0
+297:pour-shaker-to-shot ingredient4 shot2 right shaker1 l2 l1
+298:pour-shaker-to-shot ingredient4 shot3 left shaker1 l1 l0
+299:pour-shaker-to-shot ingredient4 shot3 left shaker1 l2 l1
+300:pour-shaker-to-shot ingredient4 shot3 right shaker1 l1 l0
+301:pour-shaker-to-shot ingredient4 shot3 right shaker1 l2 l1
+302:pour-shaker-to-shot ingredient4 shot4 left shaker1 l1 l0
+303:pour-shaker-to-shot ingredient4 shot4 left shaker1 l2 l1
+304:pour-shaker-to-shot ingredient4 shot4 right shaker1 l1 l0
+305:pour-shaker-to-shot ingredient4 shot4 right shaker1 l2 l1
+306:pour-shaker-to-shot ingredient5 shot1 left shaker1 l1 l0
+307:pour-shaker-to-shot ingredient5 shot1 left shaker1 l2 l1
+308:pour-shaker-to-shot ingredient5 shot1 right shaker1 l1 l0
+309:pour-shaker-to-shot ingredient5 shot1 right shaker1 l2 l1
+310:pour-shaker-to-shot ingredient5 shot2 left shaker1 l1 l0
+311:pour-shaker-to-shot ingredient5 shot2 left shaker1 l2 l1
+312:pour-shaker-to-shot ingredient5 shot2 right shaker1 l1 l0
+313:pour-shaker-to-shot ingredient5 shot2 right shaker1 l2 l1
+314:pour-shaker-to-shot ingredient5 shot3 left shaker1 l1 l0
+315:pour-shaker-to-shot ingredient5 shot3 left shaker1 l2 l1
+316:pour-shaker-to-shot ingredient5 shot3 right shaker1 l1 l0
+317:pour-shaker-to-shot ingredient5 shot3 right shaker1 l2 l1
+318:pour-shaker-to-shot ingredient5 shot4 left shaker1 l1 l0
+319:pour-shaker-to-shot ingredient5 shot4 left shaker1 l2 l1
+320:pour-shaker-to-shot ingredient5 shot4 right shaker1 l1 l0
+321:pour-shaker-to-shot ingredient5 shot4 right shaker1 l2 l1
+322:pour-shaker-to-shot ingredient6 shot1 left shaker1 l1 l0
+323:pour-shaker-to-shot ingredient6 shot1 left shaker1 l2 l1
+324:pour-shaker-to-shot ingredient6 shot1 right shaker1 l1 l0
+325:pour-shaker-to-shot ingredient6 shot1 right shaker1 l2 l1
+326:pour-shaker-to-shot ingredient6 shot2 left shaker1 l1 l0
+327:pour-shaker-to-shot ingredient6 shot2 left shaker1 l2 l1
+328:pour-shaker-to-shot ingredient6 shot2 right shaker1 l1 l0
+329:pour-shaker-to-shot ingredient6 shot2 right shaker1 l2 l1
+330:pour-shaker-to-shot ingredient6 shot3 left shaker1 l1 l0
+331:pour-shaker-to-shot ingredient6 shot3 left shaker1 l2 l1
+332:pour-shaker-to-shot ingredient6 shot3 right shaker1 l1 l0
+333:pour-shaker-to-shot ingredient6 shot3 right shaker1 l2 l1
+334:pour-shaker-to-shot ingredient6 shot4 left shaker1 l1 l0
+335:pour-shaker-to-shot ingredient6 shot4 left shaker1 l2 l1
+336:pour-shaker-to-shot ingredient6 shot4 right shaker1 l1 l0
+337:pour-shaker-to-shot ingredient6 shot4 right shaker1 l2 l1
+338:pour-shot-to-clean-shaker shot1 ingredient1 shaker1 left l0 l1
+339:pour-shot-to-clean-shaker shot1 ingredient1 shaker1 left l1 l2
+340:pour-shot-to-clean-shaker shot1 ingredient1 shaker1 right l0 l1
+341:pour-shot-to-clean-shaker shot1 ingredient1 shaker1 right l1 l2
+342:pour-shot-to-clean-shaker shot1 ingredient2 shaker1 left l0 l1
+343:pour-shot-to-clean-shaker shot1 ingredient2 shaker1 left l1 l2
+344:pour-shot-to-clean-shaker shot1 ingredient2 shaker1 right l0 l1
+345:pour-shot-to-clean-shaker shot1 ingredient2 shaker1 right l1 l2
+346:pour-shot-to-clean-shaker shot1 ingredient3 shaker1 left l0 l1
+347:pour-shot-to-clean-shaker shot1 ingredient3 shaker1 left l1 l2
+348:pour-shot-to-clean-shaker shot1 ingredient3 shaker1 right l0 l1
+349:pour-shot-to-clean-shaker shot1 ingredient3 shaker1 right l1 l2
+350:pour-shot-to-clean-shaker shot1 ingredient4 shaker1 left l0 l1
+351:pour-shot-to-clean-shaker shot1 ingredient4 shaker1 left l1 l2
+352:pour-shot-to-clean-shaker shot1 ingredient4 shaker1 right l0 l1
+353:pour-shot-to-clean-shaker shot1 ingredient4 shaker1 right l1 l2
+354:pour-shot-to-clean-shaker shot1 ingredient5 shaker1 left l0 l1
+355:pour-shot-to-clean-shaker shot1 ingredient5 shaker1 left l1 l2
+356:pour-shot-to-clean-shaker shot1 ingredient5 shaker1 right l0 l1
+357:pour-shot-to-clean-shaker shot1 ingredient5 shaker1 right l1 l2
+358:pour-shot-to-clean-shaker shot1 ingredient6 shaker1 left l0 l1
+359:pour-shot-to-clean-shaker shot1 ingredient6 shaker1 left l1 l2
+360:pour-shot-to-clean-shaker shot1 ingredient6 shaker1 right l0 l1
+361:pour-shot-to-clean-shaker shot1 ingredient6 shaker1 right l1 l2
+362:pour-shot-to-clean-shaker shot2 ingredient1 shaker1 left l0 l1
+363:pour-shot-to-clean-shaker shot2 ingredient1 shaker1 left l1 l2
+364:pour-shot-to-clean-shaker shot2 ingredient1 shaker1 right l0 l1
+365:pour-shot-to-clean-shaker shot2 ingredient1 shaker1 right l1 l2
+366:pour-shot-to-clean-shaker shot2 ingredient2 shaker1 left l0 l1
+367:pour-shot-to-clean-shaker shot2 ingredient2 shaker1 left l1 l2
+368:pour-shot-to-clean-shaker shot2 ingredient2 shaker1 right l0 l1
+369:pour-shot-to-clean-shaker shot2 ingredient2 shaker1 right l1 l2
+370:pour-shot-to-clean-shaker shot2 ingredient3 shaker1 left l0 l1
+371:pour-shot-to-clean-shaker shot2 ingredient3 shaker1 left l1 l2
+372:pour-shot-to-clean-shaker shot2 ingredient3 shaker1 right l0 l1
+373:pour-shot-to-clean-shaker shot2 ingredient3 shaker1 right l1 l2
+374:pour-shot-to-clean-shaker shot2 ingredient4 shaker1 left l0 l1
+375:pour-shot-to-clean-shaker shot2 ingredient4 shaker1 left l1 l2
+376:pour-shot-to-clean-shaker shot2 ingredient4 shaker1 right l0 l1
+377:pour-shot-to-clean-shaker shot2 ingredient4 shaker1 right l1 l2
+378:pour-shot-to-clean-shaker shot2 ingredient5 shaker1 left l0 l1
+379:pour-shot-to-clean-shaker shot2 ingredient5 shaker1 left l1 l2
+380:pour-shot-to-clean-shaker shot2 ingredient5 shaker1 right l0 l1
+381:pour-shot-to-clean-shaker shot2 ingredient5 shaker1 right l1 l2
+382:pour-shot-to-clean-shaker shot2 ingredient6 shaker1 left l0 l1
+383:pour-shot-to-clean-shaker shot2 ingredient6 shaker1 left l1 l2
+384:pour-shot-to-clean-shaker shot2 ingredient6 shaker1 right l0 l1
+385:pour-shot-to-clean-shaker shot2 ingredient6 shaker1 right l1 l2
+386:pour-shot-to-clean-shaker shot3 ingredient1 shaker1 left l0 l1
+387:pour-shot-to-clean-shaker shot3 ingredient1 shaker1 left l1 l2
+388:pour-shot-to-clean-shaker shot3 ingredient1 shaker1 right l0 l1
+389:pour-shot-to-clean-shaker shot3 ingredient1 shaker1 right l1 l2
+390:pour-shot-to-clean-shaker shot3 ingredient2 shaker1 left l0 l1
+391:pour-shot-to-clean-shaker shot3 ingredient2 shaker1 left l1 l2
+392:pour-shot-to-clean-shaker shot3 ingredient2 shaker1 right l0 l1
+393:pour-shot-to-clean-shaker shot3 ingredient2 shaker1 right l1 l2
+394:pour-shot-to-clean-shaker shot3 ingredient3 shaker1 left l0 l1
+395:pour-shot-to-clean-shaker shot3 ingredient3 shaker1 left l1 l2
+396:pour-shot-to-clean-shaker shot3 ingredient3 shaker1 right l0 l1
+397:pour-shot-to-clean-shaker shot3 ingredient3 shaker1 right l1 l2
+398:pour-shot-to-clean-shaker shot3 ingredient4 shaker1 left l0 l1
+399:pour-shot-to-clean-shaker shot3 ingredient4 shaker1 left l1 l2
+400:pour-shot-to-clean-shaker shot3 ingredient4 shaker1 right l0 l1
+401:pour-shot-to-clean-shaker shot3 ingredient4 shaker1 right l1 l2
+402:pour-shot-to-clean-shaker shot3 ingredient5 shaker1 left l0 l1
+403:pour-shot-to-clean-shaker shot3 ingredient5 shaker1 left l1 l2
+404:pour-shot-to-clean-shaker shot3 ingredient5 shaker1 right l0 l1
+405:pour-shot-to-clean-shaker shot3 ingredient5 shaker1 right l1 l2
+406:pour-shot-to-clean-shaker shot3 ingredient6 shaker1 left l0 l1
+407:pour-shot-to-clean-shaker shot3 ingredient6 shaker1 left l1 l2
+408:pour-shot-to-clean-shaker shot3 ingredient6 shaker1 right l0 l1
+409:pour-shot-to-clean-shaker shot3 ingredient6 shaker1 right l1 l2
+410:pour-shot-to-clean-shaker shot4 ingredient1 shaker1 left l0 l1
+411:pour-shot-to-clean-shaker shot4 ingredient1 shaker1 left l1 l2
+412:pour-shot-to-clean-shaker shot4 ingredient1 shaker1 right l0 l1
+413:pour-shot-to-clean-shaker shot4 ingredient1 shaker1 right l1 l2
+414:pour-shot-to-clean-shaker shot4 ingredient2 shaker1 left l0 l1
+415:pour-shot-to-clean-shaker shot4 ingredient2 shaker1 left l1 l2
+416:pour-shot-to-clean-shaker shot4 ingredient2 shaker1 right l0 l1
+417:pour-shot-to-clean-shaker shot4 ingredient2 shaker1 right l1 l2
+418:pour-shot-to-clean-shaker shot4 ingredient3 shaker1 left l0 l1
+419:pour-shot-to-clean-shaker shot4 ingredient3 shaker1 left l1 l2
+420:pour-shot-to-clean-shaker shot4 ingredient3 shaker1 right l0 l1
+421:pour-shot-to-clean-shaker shot4 ingredient3 shaker1 right l1 l2
+422:pour-shot-to-clean-shaker shot4 ingredient4 shaker1 left l0 l1
+423:pour-shot-to-clean-shaker shot4 ingredient4 shaker1 left l1 l2
+424:pour-shot-to-clean-shaker shot4 ingredient4 shaker1 right l0 l1
+425:pour-shot-to-clean-shaker shot4 ingredient4 shaker1 right l1 l2
+426:pour-shot-to-clean-shaker shot4 ingredient5 shaker1 left l0 l1
+427:pour-shot-to-clean-shaker shot4 ingredient5 shaker1 left l1 l2
+428:pour-shot-to-clean-shaker shot4 ingredient5 shaker1 right l0 l1
+429:pour-shot-to-clean-shaker shot4 ingredient5 shaker1 right l1 l2
+430:pour-shot-to-clean-shaker shot4 ingredient6 shaker1 left l0 l1
+431:pour-shot-to-clean-shaker shot4 ingredient6 shaker1 left l1 l2
+432:pour-shot-to-clean-shaker shot4 ingredient6 shaker1 right l0 l1
+433:pour-shot-to-clean-shaker shot4 ingredient6 shaker1 right l1 l2
+434:pour-shot-to-used-shaker shot1 ingredient1 shaker1 left l0 l1
+435:pour-shot-to-used-shaker shot1 ingredient1 shaker1 left l1 l2
+436:pour-shot-to-used-shaker shot1 ingredient1 shaker1 right l0 l1
+437:pour-shot-to-used-shaker shot1 ingredient1 shaker1 right l1 l2
+438:pour-shot-to-used-shaker shot1 ingredient2 shaker1 left l0 l1
+439:pour-shot-to-used-shaker shot1 ingredient2 shaker1 left l1 l2
+440:pour-shot-to-used-shaker shot1 ingredient2 shaker1 right l0 l1
+441:pour-shot-to-used-shaker shot1 ingredient2 shaker1 right l1 l2
+442:pour-shot-to-used-shaker shot1 ingredient3 shaker1 left l0 l1
+443:pour-shot-to-used-shaker shot1 ingredient3 shaker1 left l1 l2
+444:pour-shot-to-used-shaker shot1 ingredient3 shaker1 right l0 l1
+445:pour-shot-to-used-shaker shot1 ingredient3 shaker1 right l1 l2
+446:pour-shot-to-used-shaker shot1 ingredient4 shaker1 left l0 l1
+447:pour-shot-to-used-shaker shot1 ingredient4 shaker1 left l1 l2
+448:pour-shot-to-used-shaker shot1 ingredient4 shaker1 right l0 l1
+449:pour-shot-to-used-shaker shot1 ingredient4 shaker1 right l1 l2
+450:pour-shot-to-used-shaker shot1 ingredient5 shaker1 left l0 l1
+451:pour-shot-to-used-shaker shot1 ingredient5 shaker1 left l1 l2
+452:pour-shot-to-used-shaker shot1 ingredient5 shaker1 right l0 l1
+453:pour-shot-to-used-shaker shot1 ingredient5 shaker1 right l1 l2
+454:pour-shot-to-used-shaker shot1 ingredient6 shaker1 left l0 l1
+455:pour-shot-to-used-shaker shot1 ingredient6 shaker1 left l1 l2
+456:pour-shot-to-used-shaker shot1 ingredient6 shaker1 right l0 l1
+457:pour-shot-to-used-shaker shot1 ingredient6 shaker1 right l1 l2
+458:pour-shot-to-used-shaker shot2 ingredient1 shaker1 left l0 l1
+459:pour-shot-to-used-shaker shot2 ingredient1 shaker1 left l1 l2
+460:pour-shot-to-used-shaker shot2 ingredient1 shaker1 right l0 l1
+461:pour-shot-to-used-shaker shot2 ingredient1 shaker1 right l1 l2
+462:pour-shot-to-used-shaker shot2 ingredient2 shaker1 left l0 l1
+463:pour-shot-to-used-shaker shot2 ingredient2 shaker1 left l1 l2
+464:pour-shot-to-used-shaker shot2 ingredient2 shaker1 right l0 l1
+465:pour-shot-to-used-shaker shot2 ingredient2 shaker1 right l1 l2
+466:pour-shot-to-used-shaker shot2 ingredient3 shaker1 left l0 l1
+467:pour-shot-to-used-shaker shot2 ingredient3 shaker1 left l1 l2
+468:pour-shot-to-used-shaker shot2 ingredient3 shaker1 right l0 l1
+469:pour-shot-to-used-shaker shot2 ingredient3 shaker1 right l1 l2
+470:pour-shot-to-used-shaker shot2 ingredient4 shaker1 left l0 l1
+471:pour-shot-to-used-shaker shot2 ingredient4 shaker1 left l1 l2
+472:pour-shot-to-used-shaker shot2 ingredient4 shaker1 right l0 l1
+473:pour-shot-to-used-shaker shot2 ingredient4 shaker1 right l1 l2
+474:pour-shot-to-used-shaker shot2 ingredient5 shaker1 left l0 l1
+475:pour-shot-to-used-shaker shot2 ingredient5 shaker1 left l1 l2
+476:pour-shot-to-used-shaker shot2 ingredient5 shaker1 right l0 l1
+477:pour-shot-to-used-shaker shot2 ingredient5 shaker1 right l1 l2
+478:pour-shot-to-used-shaker shot2 ingredient6 shaker1 left l0 l1
+479:pour-shot-to-used-shaker shot2 ingredient6 shaker1 left l1 l2
+480:pour-shot-to-used-shaker shot2 ingredient6 shaker1 right l0 l1
+481:pour-shot-to-used-shaker shot2 ingredient6 shaker1 right l1 l2
+482:pour-shot-to-used-shaker shot3 ingredient1 shaker1 left l0 l1
+483:pour-shot-to-used-shaker shot3 ingredient1 shaker1 left l1 l2
+484:pour-shot-to-used-shaker shot3 ingredient1 shaker1 right l0 l1
+485:pour-shot-to-used-shaker shot3 ingredient1 shaker1 right l1 l2
+486:pour-shot-to-used-shaker shot3 ingredient2 shaker1 left l0 l1
+487:pour-shot-to-used-shaker shot3 ingredient2 shaker1 left l1 l2
+488:pour-shot-to-used-shaker shot3 ingredient2 shaker1 right l0 l1
+489:pour-shot-to-used-shaker shot3 ingredient2 shaker1 right l1 l2
+490:pour-shot-to-used-shaker shot3 ingredient3 shaker1 left l0 l1
+491:pour-shot-to-used-shaker shot3 ingredient3 shaker1 left l1 l2
+492:pour-shot-to-used-shaker shot3 ingredient3 shaker1 right l0 l1
+493:pour-shot-to-used-shaker shot3 ingredient3 shaker1 right l1 l2
+494:pour-shot-to-used-shaker shot3 ingredient4 shaker1 left l0 l1
+495:pour-shot-to-used-shaker shot3 ingredient4 shaker1 left l1 l2
+496:pour-shot-to-used-shaker shot3 ingredient4 shaker1 right l0 l1
+497:pour-shot-to-used-shaker shot3 ingredient4 shaker1 right l1 l2
+498:pour-shot-to-used-shaker shot3 ingredient5 shaker1 left l0 l1
+499:pour-shot-to-used-shaker shot3 ingredient5 shaker1 left l1 l2
+500:pour-shot-to-used-shaker shot3 ingredient5 shaker1 right l0 l1
+501:pour-shot-to-used-shaker shot3 ingredient5 shaker1 right l1 l2
+502:pour-shot-to-used-shaker shot3 ingredient6 shaker1 left l0 l1
+503:pour-shot-to-used-shaker shot3 ingredient6 shaker1 left l1 l2
+504:pour-shot-to-used-shaker shot3 ingredient6 shaker1 right l0 l1
+505:pour-shot-to-used-shaker shot3 ingredient6 shaker1 right l1 l2
+506:pour-shot-to-used-shaker shot4 ingredient1 shaker1 left l0 l1
+507:pour-shot-to-used-shaker shot4 ingredient1 shaker1 left l1 l2
+508:pour-shot-to-used-shaker shot4 ingredient1 shaker1 right l0 l1
+509:pour-shot-to-used-shaker shot4 ingredient1 shaker1 right l1 l2
+510:pour-shot-to-used-shaker shot4 ingredient2 shaker1 left l0 l1
+511:pour-shot-to-used-shaker shot4 ingredient2 shaker1 left l1 l2
+512:pour-shot-to-used-shaker shot4 ingredient2 shaker1 right l0 l1
+513:pour-shot-to-used-shaker shot4 ingredient2 shaker1 right l1 l2
+514:pour-shot-to-used-shaker shot4 ingredient3 shaker1 left l0 l1
+515:pour-shot-to-used-shaker shot4 ingredient3 shaker1 left l1 l2
+516:pour-shot-to-used-shaker shot4 ingredient3 shaker1 right l0 l1
+517:pour-shot-to-used-shaker shot4 ingredient3 shaker1 right l1 l2
+518:pour-shot-to-used-shaker shot4 ingredient4 shaker1 left l0 l1
+519:pour-shot-to-used-shaker shot4 ingredient4 shaker1 left l1 l2
+520:pour-shot-to-used-shaker shot4 ingredient4 shaker1 right l0 l1
+521:pour-shot-to-used-shaker shot4 ingredient4 shaker1 right l1 l2
+522:pour-shot-to-used-shaker shot4 ingredient5 shaker1 left l0 l1
+523:pour-shot-to-used-shaker shot4 ingredient5 shaker1 left l1 l2
+524:pour-shot-to-used-shaker shot4 ingredient5 shaker1 right l0 l1
+525:pour-shot-to-used-shaker shot4 ingredient5 shaker1 right l1 l2
+526:pour-shot-to-used-shaker shot4 ingredient6 shaker1 left l0 l1
+527:pour-shot-to-used-shaker shot4 ingredient6 shaker1 left l1 l2
+528:pour-shot-to-used-shaker shot4 ingredient6 shaker1 right l0 l1
+529:pour-shot-to-used-shaker shot4 ingredient6 shaker1 right l1 l2
+530:refill-shot shot1 ingredient1 left right dispenser1
+531:refill-shot shot1 ingredient1 right left dispenser1
+532:refill-shot shot1 ingredient2 left right dispenser2
+533:refill-shot shot1 ingredient2 right left dispenser2
+534:refill-shot shot1 ingredient3 left right dispenser3
+535:refill-shot shot1 ingredient3 right left dispenser3
+536:refill-shot shot1 ingredient4 left right dispenser4
+537:refill-shot shot1 ingredient4 right left dispenser4
+538:refill-shot shot1 ingredient5 left right dispenser5
+539:refill-shot shot1 ingredient5 right left dispenser5
+540:refill-shot shot1 ingredient6 left right dispenser6
+541:refill-shot shot1 ingredient6 right left dispenser6
+542:refill-shot shot2 ingredient1 left right dispenser1
+543:refill-shot shot2 ingredient1 right left dispenser1
+544:refill-shot shot2 ingredient2 left right dispenser2
+545:refill-shot shot2 ingredient2 right left dispenser2
+546:refill-shot shot2 ingredient3 left right dispenser3
+547:refill-shot shot2 ingredient3 right left dispenser3
+548:refill-shot shot2 ingredient4 left right dispenser4
+549:refill-shot shot2 ingredient4 right left dispenser4
+550:refill-shot shot2 ingredient5 left right dispenser5
+551:refill-shot shot2 ingredient5 right left dispenser5
+552:refill-shot shot2 ingredient6 left right dispenser6
+553:refill-shot shot2 ingredient6 right left dispenser6
+554:refill-shot shot3 ingredient1 left right dispenser1
+555:refill-shot shot3 ingredient1 right left dispenser1
+556:refill-shot shot3 ingredient2 left right dispenser2
+557:refill-shot shot3 ingredient2 right left dispenser2
+558:refill-shot shot3 ingredient3 left right dispenser3
+559:refill-shot shot3 ingredient3 right left dispenser3
+560:refill-shot shot3 ingredient4 left right dispenser4
+561:refill-shot shot3 ingredient4 right left dispenser4
+562:refill-shot shot3 ingredient5 left right dispenser5
+563:refill-shot shot3 ingredient5 right left dispenser5
+564:refill-shot shot3 ingredient6 left right dispenser6
+565:refill-shot shot3 ingredient6 right left dispenser6
+566:refill-shot shot4 ingredient1 left right dispenser1
+567:refill-shot shot4 ingredient1 right left dispenser1
+568:refill-shot shot4 ingredient2 left right dispenser2
+569:refill-shot shot4 ingredient2 right left dispenser2
+570:refill-shot shot4 ingredient3 left right dispenser3
+571:refill-shot shot4 ingredient3 right left dispenser3
+572:refill-shot shot4 ingredient4 left right dispenser4
+573:refill-shot shot4 ingredient4 right left dispenser4
+574:refill-shot shot4 ingredient5 left right dispenser5
+575:refill-shot shot4 ingredient5 right left dispenser5
+576:refill-shot shot4 ingredient6 left right dispenser6
+577:refill-shot shot4 ingredient6 right left dispenser6
+578:shake cocktail1 ingredient1 ingredient6 shaker1 left right
+579:shake cocktail1 ingredient1 ingredient6 shaker1 right left
+580:shake cocktail2 ingredient4 ingredient5 shaker1 left right
+581:shake cocktail2 ingredient4 ingredient5 shaker1 right left

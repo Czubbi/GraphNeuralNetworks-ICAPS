@@ -1,0 +1,70 @@
+calibrate satellite0 instrument1 star13
+calibrate satellite0 instrument2 groundstation11
+calibrate satellite0 instrument2 star5
+calibrate satellite0 instrument2 star6
+calibrate satellite0 instrument3 groundstation4
+calibrate satellite1 instrument4 star10
+calibrate satellite1 instrument4 star3
+calibrate satellite1 instrument4 star6
+calibrate satellite1 instrument4 star7
+calibrate satellite1 instrument5 groundstation2
+calibrate satellite2 instrument6 groundstation4
+calibrate satellite2 instrument6 groundstation8
+calibrate satellite2 instrument7 groundstation11
+calibrate satellite2 instrument7 star7
+calibrate satellite2 instrument8 groundstation1
+calibrate satellite2 instrument8 star14
+calibrate satellite2 instrument8 star5
+switch_on instrument1 satellite0
+switch_on instrument2 satellite0
+switch_on instrument3 satellite0
+switch_on instrument4 satellite1
+switch_on instrument5 satellite1
+switch_on instrument6 satellite2
+switch_on instrument7 satellite2
+switch_on instrument8 satellite2
+take_image satellite0 star15 instrument1 spectrograph0
+take_image satellite0 star15 instrument2 spectrograph0
+take_image satellite0 star15 instrument3 spectrograph0
+take_image satellite1 star15 instrument4 spectrograph0
+take_image satellite1 star15 instrument5 spectrograph0
+take_image satellite2 star15 instrument6 spectrograph0
+take_image satellite2 star15 instrument7 spectrograph0
+take_image satellite2 star15 instrument8 spectrograph0
+turn_to satellite0 groundstation11 star0
+turn_to satellite0 groundstation4 star0
+turn_to satellite0 star13 star0
+turn_to satellite0 star15 groundstation11
+turn_to satellite0 star15 groundstation4
+turn_to satellite0 star15 star13
+turn_to satellite0 star15 star5
+turn_to satellite0 star15 star6
+turn_to satellite0 star5 star0
+turn_to satellite0 star6 star0
+turn_to satellite1 groundstation2 star14
+turn_to satellite1 star10 star14
+turn_to satellite1 star15 groundstation2
+turn_to satellite1 star15 star10
+turn_to satellite1 star15 star3
+turn_to satellite1 star15 star6
+turn_to satellite1 star15 star7
+turn_to satellite1 star3 star14
+turn_to satellite1 star3 star15
+turn_to satellite1 star6 star14
+turn_to satellite1 star7 star14
+turn_to satellite2 groundstation1 star0
+turn_to satellite2 groundstation11 star0
+turn_to satellite2 groundstation2 star0
+turn_to satellite2 groundstation2 star15
+turn_to satellite2 groundstation4 star0
+turn_to satellite2 groundstation8 star0
+turn_to satellite2 star14 star0
+turn_to satellite2 star15 groundstation1
+turn_to satellite2 star15 groundstation11
+turn_to satellite2 star15 groundstation4
+turn_to satellite2 star15 groundstation8
+turn_to satellite2 star15 star14
+turn_to satellite2 star15 star5
+turn_to satellite2 star15 star7
+turn_to satellite2 star5 star0
+turn_to satellite2 star7 star0
