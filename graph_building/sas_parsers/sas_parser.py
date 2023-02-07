@@ -67,10 +67,11 @@ INIT_SECTION = r"""
 
 ProblemStateDictionary = Dict["Operator.LineAlias", bool]
 SasFileContent = str
+OperatorsTxtContent = str
 OperatorLines = str
 SingleOperatorLine = str
 
-AllOperatorsDict = Dict[Operator.LineAlias, Union["PdgOperator", "CausalOperator"]]
+AllOperatorsDict = Dict[Operator.IndexAlias, Union["PdgOperator", "CausalOperator"]]
 AllVariablesDict = Dict[Variable.IndexAlias, Union["PdgVariable", "CausalVariable"]]
 AllValuesDict = Dict[Value.GlobalIndexAlias, Value]
 
@@ -165,8 +166,8 @@ class SasParser:
     def generate_operators(
         cls,
         graph_type: str,
-        operators_text: SasFileContent,
-        good_operators: Set[Operator.LineAlias],
+        operators_text: OperatorsTxtContent,
+        good_operators: Set[Operator.LineAlias] = None,
     ) -> AllOperatorsDict:
 
         assert graph_type in ["pdg", "cg"], "Graph type must be pdg or cg"
@@ -175,6 +176,7 @@ class SasParser:
         all_operators: AllOperatorsDict = {}
 
         for op_id, operator_lines in enumerate(operators):
+            # print(repr(operator_lines))
             operator_line, preconditions, effects = SasParser.parse_operator_lines(operator_lines)
             is_good = True if operator_line in good_operators else False
             new_operator = cls(
@@ -183,10 +185,11 @@ class SasParser:
                 is_good=is_good,
                 preconditions=preconditions,
                 effects=effects,
+                incomplete_operator_text=operator_lines,
             )
             logger.debug(f"New operator: {new_operator}")
             assert operator_line not in all_operators, "Duplicate operator key"
-            all_operators[operator_line] = new_operator
+            all_operators[op_id] = new_operator
 
         return all_operators
 

@@ -1,5 +1,6 @@
 import logging
 import os
+import json
 from typing import Union, Tuple, Set, Dict, TYPE_CHECKING
 from graph_building.graph_constructs.operators.causal_operator import CausalOperator
 from graph_building.graph_constructs.variables.causal_variable import CausalVariable
@@ -217,10 +218,15 @@ def pdg_and_nodes(sasfile_path, good_operators_path, output_dir):
                 file.write(f"{variable.index},{idx},{val.global_index}\n")
 
     # generate global operator csv
-    with open(os.path.join(output_dir, "global_operators.csv"), "w") as file:
-        for operator in all_operators.values():
-            file.write(f"{operator.index}:{operator.operator_line}\n")
+    d = {}
 
+    for index, operator in all_operators.items():
+        if index != operator.index:
+            assert "gowno bo indexy inne"
+        d[index] = operator.operator_text
+
+    with open(os.path.join(output_dir, "global_operators.json"), "w") as file:
+        json.dump(d, file)
 
 def build_pdg_graph():
     pass
