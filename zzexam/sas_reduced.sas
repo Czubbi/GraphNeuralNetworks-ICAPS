@@ -1167,7 +1167,7 @@ begin_goal
 85 0
 97 4
 end_goal
-924
+928
 begin_operator
 calibrate satellite0 instrument0 groundstation5
 2
@@ -5837,6 +5837,13 @@ turn_to satellite3 phenomenon17 star10
 1
 end_operator
 begin_operator
+turn_to satellite3 phenomenon17 star13
+0
+1
+0 100 18 6
+1
+end_operator
+begin_operator
 turn_to satellite3 phenomenon17 star2
 0
 1
@@ -5967,6 +5974,13 @@ turn_to satellite3 phenomenon29 star10
 0
 1
 0 100 15 7
+1
+end_operator
+begin_operator
+turn_to satellite3 phenomenon29 star13
+0
+1
+0 100 18 7
 1
 end_operator
 begin_operator
@@ -7251,6 +7265,13 @@ turn_to satellite3 star21 star10
 1
 end_operator
 begin_operator
+turn_to satellite3 star21 star13
+0
+1
+0 100 18 22
+1
+end_operator
+begin_operator
 turn_to satellite3 star21 star2
 0
 1
@@ -7661,6 +7682,13 @@ turn_to satellite3 star26 star10
 0
 1
 0 100 15 25
+1
+end_operator
+begin_operator
+turn_to satellite3 star26 star13
+0
+1
+0 100 18 25
 1
 end_operator
 begin_operator
