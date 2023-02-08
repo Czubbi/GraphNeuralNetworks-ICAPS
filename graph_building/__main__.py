@@ -3,14 +3,15 @@ import argparse
 
 from graph_building import generate_graph_data
 
-#     argparser = argparse.ArgumentParser()
-#     argparser.add_argument("graph_type", help="type of graph to generate")
+argparser = argparse.ArgumentParser()
+argparser.add_argument("DIR", help="problem location")
 
 
 if __name__ == "__main__":
-    PATH_TO_DIR = "zzpiotrek_big_outputs/5k"
-    OUTPUT_DIR = "zzpiotrek_big_outputs/5k"
-    
+    options = argparser.parse_args()
+    PATH_TO_DIR = options.DIR
+    OUTPUT_DIR = PATH_TO_DIR
+
     SAS_FILE_PATH = os.path.join(PATH_TO_DIR, "sas_file.sas")
     OPTIONAL_SAS_FILE_PATH = os.path.join(PATH_TO_DIR, "output.sas")
     GOOD_OPERATORS_PATH = os.path.join(PATH_TO_DIR, "good_operators")
