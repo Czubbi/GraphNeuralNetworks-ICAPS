@@ -1,9 +1,0 @@
-#! /bin/bash
-
-cd preprocess
-make "$@" || exit 1
-cd ..
-
-cd search
-make "$@" || exit 1
-cd ..
