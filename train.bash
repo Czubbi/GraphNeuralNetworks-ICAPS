@@ -1,4 +1,3 @@
-echo 123
 
 # this script will be called like this:
 #./train DOMAIN TASK_DIR 
@@ -7,7 +6,7 @@ echo 123
 # DOMAIN is the domain name
 # TASK_DIR is the directory where the task files are stored
 
-source ./venv/bin/activate
+source .venv/bin/activate
 
 python train.py satellite data/conference/satellite
 

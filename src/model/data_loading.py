@@ -24,7 +24,6 @@ def edge_df_to_torch(df: pd.DataFrame):
         return torch.tensor(df.index, dtype=torch.long).t().contiguous()
 
 def problem_dfs(problem_path):
-    print(problem_path)
     """
     Returns the dataframes for the variables, values, operators, and their respective edges
     """

@@ -66,11 +66,11 @@ def predict_threshold(model:torch.nn.Module, hetero_data:HeteroData, threshold:f
     return list(action_predictions)
 
 @torch.no_grad()
-def test(model: torch.nn.Module, test_loader: torch.utils.data.DataLoader, val_loader: torch.utils.data.DataLoader, pos_weight, neg_weight):
+def test(model: torch.nn.Module, test_loader: torch.utils.data.DataLoader, pos_weight, neg_weight, val_loader: torch.utils.data.DataLoader = None):
     model.eval()
     test_batch = next(iter(test_loader))
     if val_loader:
         val_batch = next(iter(val_loader))
         return test_val_results(test_batch, model, pos_weight, neg_weight), test_val_results(val_batch, model, pos_weight, neg_weight)
     else:
-        return test_val_results(test_batch, model, pos_weight, neg_weight), test_val_results(test_batch, model, pos_weight, neg_weight) # TODO we need to handle the case when we dont have a val set
+        return test_val_results(test_batch, model, pos_weight, neg_weight)

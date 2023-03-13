@@ -21,14 +21,21 @@ def training(dataset_path):
     init_model = ModelArchitecture()
     model = model_handler.init_model(init_model=init_model, hetero_metadata=metadata)
     optimizer = model_handler.get_optimizer(model=model, optimizer_type="Adam")
+ 
 
-    for epoch in range(1, 30):
-        train_loss, train_pred, train_original = model_handler.train(model, optimizer, train_loader, pos_weight=pos_weight, neg_weight=neg_weight)
-        (test_loss, test_pred, test_original), (val_loss, val_pred, val_original) = model_handler.test(model, test_loader, val_loader, pos_weight=pos_weight, neg_weight=neg_weight)
+    # TODO: make parameter for epochs - hyperparameters
+    if val_set:
+        for epoch in range(1, 30):
+            train_loss, train_pred, train_original = model_handler.train(model, optimizer, train_loader, pos_weight=pos_weight, neg_weight=neg_weight)
+            (test_loss, test_pred, test_original), (val_loss, val_pred, val_original) = model_handler.test(model, test_loader, val_loader=val_loader, pos_weight=pos_weight, neg_weight=neg_weight)
+            print(train_loss)
+    else:
+        for epoch in range(1, 30):
+            train_loss, train_pred, train_original = model_handler.train(model, optimizer, train_loader, pos_weight=pos_weight, neg_weight=neg_weight)
+            (test_loss, test_pred, test_original) = model_handler.test(model, test_loader, pos_weight=pos_weight, neg_weight=neg_weight)
+            print(train_loss)
 
-
-
-        print(train_loss)
+        
 
 
 
