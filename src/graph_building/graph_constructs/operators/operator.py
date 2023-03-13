@@ -25,7 +25,7 @@ class Operator(Node):
     # One line representing a grouded operator from output.sas or good_operators.txt files
     #   example:
     #           turn_on(instrument1, satellite1)
-    LineAlias: ClassVar[type] = str
+    LineAlias: ClassVar[type] = str  # operator line without whitespaces
     IndexAlias: ClassVar[type] = int
 
     # @classmethod
