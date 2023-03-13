@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import List, Tuple, TYPE_CHECKING
-from graph_building.graph_constructs.values.value import Value
-from graph_building.graph_constructs.variables.variable import Variable
+from src.graph_building.graph_constructs.values.value import Value
+from src.graph_building.graph_constructs.variables.variable import Variable
 
 if TYPE_CHECKING:
     from graph_building.sas_parsers.sas_parser import (

@@ -2,7 +2,7 @@ import re
 import logging
 from typing import List, Tuple, Set, Dict
 
-from graph_building.sas_parsers.sas_parser import (
+from src.graph_building.sas_parsers.sas_parser import (
     SasFileContent,
     ProblemStateDictionary,
     VARIABLE_VALUE,
@@ -11,9 +11,9 @@ from graph_building.sas_parsers.sas_parser import (
     AllVariablesDict,
     AllOperatorsDict,
 )
-from graph_building.graph_constructs.variables.pdg_variable import PdgVariable
-from graph_building.graph_constructs.values.value import Value
-from graph_building.base_types import Predicate
+from src.graph_building.graph_constructs.variables.pdg_variable import PdgVariable
+from src.graph_building.graph_constructs.values.value import Value
+from src.graph_building.base_types import Predicate
 
 logger = logging.getLogger(__name__)
 

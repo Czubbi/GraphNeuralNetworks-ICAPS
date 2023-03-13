@@ -1,12 +1,12 @@
 from typing import List, Tuple, TYPE_CHECKING
 from dataclasses import dataclass
-from graph_building.graph_constructs.operators.operator import Operator
+from src.graph_building.graph_constructs.operators.operator import Operator
 import logging
 from dataclasses import dataclass
 
 
-from graph_building.graph_constructs.variables.pdg_variable import PdgVariable
-from graph_building.graph_constructs.values.value import Value
+from src.graph_building.graph_constructs.variables.pdg_variable import PdgVariable
+from src.graph_building.graph_constructs.values.value import Value
 
 if TYPE_CHECKING:
     from graph_building.sas_parsers.sas_parser import AllValuesDict, AllVariablesDict

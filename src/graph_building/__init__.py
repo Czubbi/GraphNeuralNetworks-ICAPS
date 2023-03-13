@@ -2,19 +2,19 @@ import logging
 import os
 import json
 from typing import Union, Tuple, Set, Dict, TYPE_CHECKING
-from graph_building.graph_constructs.operators.causal_operator import CausalOperator
-from graph_building.graph_constructs.variables.causal_variable import CausalVariable
-from graph_building.graph_constructs.operators.pdg_operator import PdgOperator
-from graph_building.graph_constructs.variables.pdg_variable import PdgVariable
-from graph_building.graph_constructs.values.value import Value
-from graph_building.graph_constructs.edge_features import default_edge_features_dict, EdgeFeature
-from graph_building.exceptions import EmptyCausalGraphError
-from graph_building.sas_parsers.causal_parser import CausalParser
-from graph_building.sas_parsers.pdg_parser import PdgParser
+from .graph_constructs.variables.causal_variable import CausalVariable
+from .graph_constructs.operators.pdg_operator import PdgOperator
+from .graph_constructs.variables.pdg_variable import PdgVariable
+from .graph_constructs.operators.causal_operator import CausalOperator
+from .graph_constructs.values.value import Value
+from .graph_constructs.edge_features import default_edge_features_dict, EdgeFeature
+from .exceptions import EmptyCausalGraphError
+from .sas_parsers.causal_parser import CausalParser
+from .sas_parsers.pdg_parser import PdgParser
 
 if TYPE_CHECKING:
-    from graph_building.graph_constructs.edge_features import CausalGraph
-    from graph_building.sas_parsers.sas_parser import (
+    from .graph_constructs.edge_features import CausalGraph
+    from .sas_parsers.sas_parser import (
         AllValuesDict,
         AllVariablesDict,
         AllOperatorsDict,

@@ -3,7 +3,7 @@ from torch_geometric.nn import SAGEConv
 from torch_geometric.nn import GATConv
 
 
-def get_dynamic_sageconv(layers_num, hidden_size, conv_type):
+def get_dynamic(layers_num, hidden_size, conv_type):
     """
     Hidden size diminishes by the order of 2
     
@@ -19,7 +19,7 @@ def get_dynamic_sageconv(layers_num, hidden_size, conv_type):
     ConvClass = SAGEConv if conv_type == "SAGEConv" else GATConv
 
     class GNN(torch.nn.Module):
-        def __init__(self, out_channels):
+        def __init__(self, out_channels=1):
             super().__init__()
             self.layers_num = layers_num
             for i in range(layers_num):
@@ -33,3 +33,4 @@ def get_dynamic_sageconv(layers_num, hidden_size, conv_type):
             x = self.output(x, edge_index)
             x = x.sigmoid()
             return x
+    return GNN

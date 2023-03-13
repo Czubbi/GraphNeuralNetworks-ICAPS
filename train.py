@@ -1,6 +1,6 @@
 import argparse
 from src.graph_data_generation.helpers import generate_graphs
-
+from src.model.training import training
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -11,8 +11,12 @@ if __name__ == "__main__":
     domain = args.domain
     task_dir = args.task_dir
 
+    # generate data
     generate_graphs(task_dir, domain)
+    # Train model
+    training(task_dir)
 
+    
 
 
 

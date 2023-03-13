@@ -1,9 +1,9 @@
 from typing import TYPE_CHECKING
 from dataclasses import dataclass, field, InitVar
 from typing import ClassVar, Set
-from graph_building.base_types import Effect
-from graph_building.base_types import Precondition
-from graph_building.graph_constructs.node import Node
+from src.graph_building.base_types import Effect
+from src.graph_building.base_types import Precondition
+from src.graph_building.graph_constructs.node import Node
 
 if TYPE_CHECKING:
     from graph_building import SasFileContent

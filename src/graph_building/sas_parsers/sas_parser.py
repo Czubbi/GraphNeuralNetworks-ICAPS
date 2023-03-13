@@ -2,13 +2,13 @@ import logging
 import re
 from typing import List, Tuple, Set, Dict, Union, TYPE_CHECKING
 
-from graph_building.base_types import Predicate, Effect, Precondition
-from graph_building.base_types import Effect, Precondition
-from graph_building.graph_constructs.operators.operator import Operator
-from graph_building.graph_constructs.variables.variable import Variable
-from graph_building.graph_constructs.values.value import Value
-from graph_building.graph_constructs.operators.pdg_operator import PdgOperator
-from graph_building.graph_constructs.operators.causal_operator import CausalOperator
+from src.graph_building.base_types import Predicate, Effect, Precondition
+from src.graph_building.base_types import Effect, Precondition
+from src.graph_building.graph_constructs.operators.operator import Operator
+from src.graph_building.graph_constructs.variables.variable import Variable
+from src.graph_building.graph_constructs.values.value import Value
+from src.graph_building.graph_constructs.operators.pdg_operator import PdgOperator
+from src.graph_building.graph_constructs.operators.causal_operator import CausalOperator
 
 if TYPE_CHECKING:
 

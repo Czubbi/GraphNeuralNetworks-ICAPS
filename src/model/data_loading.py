@@ -7,15 +7,13 @@ import torch_geometric.transforms as T
 import pandas as pd
 
 
-POS_WEIGHT = None  # only based on train set 
-NEG_WEIGHT = None  # only based on train set
-
-def setup_weights(train_set):
+def calculate_weights(train_set):
     total_positives, total_negatives, total_samples = dataset_metrics(train_set)
-    global POS_WEIGHT
-    global NEG_WEIGHT
-    POS_WEIGHT = 1/ (total_positives / total_samples)
-    NEG_WEIGHT = 1/ (total_negatives / total_samples)
+
+    pos_weight = 1/ (total_positives / total_samples)
+    neg_weight = 1/ (total_negatives / total_samples)
+
+    return pos_weight, neg_weight
 
 
 def node_df_to_torch(df: pd.DataFrame):
@@ -26,6 +24,7 @@ def edge_df_to_torch(df: pd.DataFrame):
         return torch.tensor(df.index, dtype=torch.long).t().contiguous()
 
 def problem_dfs(problem_path):
+    print(problem_path)
     """
     Returns the dataframes for the variables, values, operators, and their respective edges
     """
@@ -72,12 +71,20 @@ def build_hetero(
 
 
 def build_data_set(path):
+    """Returns a list of hetero datasets"""
     dataset = []
     dir_list = os.listdir(path)
+    # keep just directories
+
+
+
     # print(dir_list)
     # dir_list = ['p907_4_2_2_7_3']*3
     # dir_list = os.listdir(path)
     for problem in dir_list:
+        # check if it's a file
+        if os.path.isfile(os.path.join(path, problem)):
+            continue
         dfs = problem_dfs(os.path.join(path, problem))
         # var_df, val_df, op_df, val_var_df, val_op_df, op_val_df = dfs
         temp_date = build_hetero(*dfs)
@@ -89,14 +96,13 @@ def build_data_set(path):
     return dataset
 
 
-def train_test_val_split(train_size, test_size, val=False):
+def train_test_val_split(dataset, train_size, test_size, val=False):
     """
     If only_test then we will not have a validation set
     """
     if val and train_size + test_size > 1:
         raise ValueError("train_size + test_size must be less than 1 - we need something for valid")
 
-    dataset = build_data_set()
     dataset_size = len(dataset)
     indices = list(range(dataset_size))
     split_train = int(np.floor(0.7 * dataset_size))
@@ -126,7 +132,7 @@ def train_test_val_split(train_size, test_size, val=False):
         
     
 
-    train_loader = DataLoader(train_set, batch_size=16, shuffle=True)
+
     # test_loader = train_loader
     # test_loader = DataLoader(test_set, batch_size=len(test_set), shuffle=True)
     # # test_loader = test_set
@@ -135,12 +141,17 @@ def train_test_val_split(train_size, test_size, val=False):
     if not val:
         val_set = []
 
-    return train_loader, test_set, val_set
+
+    return train_set, test_set, val_set
 
 def create_loaders(train_set, test_set, val_set):
-    train_loader = DataLoader(train_set, batch_size=16, shuffle=True)
+    train_loader = DataLoader(train_set, batch_size=16, shuffle=True)  # TODO hyperparams
     test_loader = DataLoader(test_set, batch_size=len(test_set), shuffle=True)
-    val_loader = DataLoader(val_set, batch_size=len(val_set), shuffle=True)
+    if val_set:
+        val_loader = DataLoader(val_set, batch_size=len(val_set), shuffle=True)
+    else:
+        val_loader = None
+
     return train_loader, test_loader, val_loader
 
 def dataset_metrics(dataset):

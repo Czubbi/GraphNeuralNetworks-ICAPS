@@ -1,10 +1,10 @@
 from typing import Union, TYPE_CHECKING
-from graph_building.graph_constructs.operators.operator import Operator
-from graph_building.graph_constructs.edge_features import EdgeFeature
-from graph_building.graph_constructs.edge_features import default_edge_features_dict
+from src.graph_building.graph_constructs.operators.operator import Operator
+from src.graph_building.graph_constructs.edge_features import EdgeFeature
+from src.graph_building.graph_constructs.edge_features import default_edge_features_dict
 
 if TYPE_CHECKING:
-    from graph_building.graph_constructs.edge_features import CausalGraph
+    from src.graph_building.graph_constructs.edge_features import CausalGraph
 
 
 class CausalOperator(Operator):

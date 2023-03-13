@@ -4,9 +4,6 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import precision_recall_fscore_support
 
 
-from data_loading import POS_WEIGHT, NEG_WEIGHT
-
-
 def treshhold_result(data, true_data, treshold):
     # print(F"type of data: {type(data)}")
     # print(F"type of true_data: {type(true_data)}")
@@ -21,11 +18,11 @@ def treshhold_result(data, true_data, treshold):
 
 
 
-def test_val_results(batch, model: torch.nn.Module):
+def test_val_results(batch, model: torch.nn.Module, pos_weight, neg_weight):
     """returns loss, preds, original"""
     test_val_weights = torch.ones_like(batch['operator'].y)
-    test_val_weights[batch['operator'].y == 0] = NEG_WEIGHT
-    test_val_weights[batch['operator'].y == 1] = POS_WEIGHT
+    test_val_weights[batch['operator'].y == 1] = pos_weight
+    test_val_weights[batch['operator'].y == 0] = neg_weight
 
     out = model(batch.x_dict, batch.edge_index_dict)
     # BCEWithLogitsLoss = torch.nn.BCEWithLogitsLoss()
