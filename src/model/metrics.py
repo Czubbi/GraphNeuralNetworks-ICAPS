@@ -101,3 +101,19 @@ def plot_all_accuracies(data, bar_width):
         plot_accuracies(treshold, result[2:], bar_width)
     plt.grid(axis='y', alpha=0.4)
     plt.show()
+
+def plot_train_test_loss(epoch_list, train_loss_list, test_loss_list, PATH=None):
+
+    fig, ax = plt.subplots(figsize=(10, 4), layout='constrained')
+    ax.plot(epoch_list, train_loss_list, label='train losss')  
+    ax.plot(epoch_list, test_loss_list, label='test loss') 
+    # ax.plot(epoch_list, val_perf_list, label='val loss')
+    ax.set_xlabel('epochs')  
+    ax.set_title("Results") 
+    ax.legend()
+    if PATH:
+        fig.savefig(PATH)
+    else:
+        fig.savefig('results.png')
+    
+    
