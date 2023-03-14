@@ -1,10 +1,11 @@
-import argparse
+from datetime import datetime
+import os
 from . import data_loading
 from . import architectures
 from . import model_handler
 from . import metrics
 
-def training(dataset_path):
+def training(dataset_path, domain_name):
     dataset = data_loading.build_data_set(path=dataset_path)
     train_set, test_set, val_set = data_loading.train_test_val_split(dataset, 0.7, 0.2, val=False)
 
@@ -18,7 +19,7 @@ def training(dataset_path):
     metadata = train_set[0].metadata()
 
 
-    ModelArchitecture = architectures.get_dynamic(layers_num=3, hidden_size=128, conv_type="SAGEConv")
+    ModelArchitecture = architectures.get_dynamic(layers_num=4, hidden_size=64, conv_type="SAGEConv")
     init_model = ModelArchitecture()
     model = model_handler.init_model(init_model=init_model, hetero_metadata=metadata)
     optimizer = model_handler.get_optimizer(model=model, optimizer_type="Adam")
@@ -50,6 +51,13 @@ def training(dataset_path):
             print(train_loss)
 
 
+    ts = datetime.timestamp(datetime.now())
+    domain_path = os.path.join("DK", domain_name)
+    if not os.path.exists(domain_path):
+        os.mkdir(domain_path)
+    model_path = os.path.join(domain_path, "model_" + str(ts) + ".pt")
+    model_handler.save_model(model, model_path)
+
     # Parameter to save the plots
     save_plots = True
     if save_plots:
@@ -68,3 +76,6 @@ def training(dataset_path):
 #     args = parser.parse_args()
 
 #     training(args.path)
+
+#     training(args.path)
+
