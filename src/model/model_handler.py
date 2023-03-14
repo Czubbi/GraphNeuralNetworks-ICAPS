@@ -31,6 +31,9 @@ def init_model(init_model:torch.nn.Module, hetero_metadata) -> torch.nn.Module:
     model = to_hetero(init_model,  metadata=hetero_metadata, aggr='sum')  # TODO hyperparameter on aggr
     return model
 
+def save_model(model_path:str, model: torch.nn.Module) -> None:
+    torch.save(model.state_dict(), model_path)
+
 def load_model(model_path:str, model: torch.nn.Module) -> None:
     model.load_state_dict(torch.load(model_path))
 
@@ -66,11 +69,13 @@ def predict_threshold(model:torch.nn.Module, hetero_data:HeteroData, threshold:f
     return list(action_predictions)
 
 @torch.no_grad()
-def test(model: torch.nn.Module, test_loader: torch.utils.data.DataLoader, pos_weight, neg_weight, val_loader: torch.utils.data.DataLoader = None):
+def test(model: torch.nn.Module, test_loader: torch.utils.data.DataLoader, pos_weight, neg_weight, val_loader: torch.utils.data.DataLoader = None) -> dict:
     model.eval()
     test_batch = next(iter(test_loader))
+    results = {}
+    results["test"] = test_val_results(test_batch, model, pos_weight, neg_weight)
     if val_loader:
         val_batch = next(iter(val_loader))
-        return test_val_results(test_batch, model, pos_weight, neg_weight), test_val_results(val_batch, model, pos_weight, neg_weight)
-    else:
-        return test_val_results(test_batch, model, pos_weight, neg_weight)
+        results["val"] = test_val_results(val_batch, model, pos_weight, neg_weight)
+
+    return results
