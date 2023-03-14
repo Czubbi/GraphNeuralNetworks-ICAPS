@@ -1,10 +1,12 @@
 import torch
 import torch.nn.functional as F
 from torch_geometric.nn import to_hetero
-
 from torch_geometric.data import HeteroData
-
+from collections import namedtuple
 from src.model.metrics import test_val_results
+    
+Results = namedtuple('Results', ['test', 'val'])
+
 
 def get_optimizer(model:torch.nn.Module, optimizer_type, lr=None) -> torch.optim.Optimizer:
     assert optimizer_type in ["Adam", "RMSprop", "Adagrad"]
@@ -69,13 +71,14 @@ def predict_threshold(model:torch.nn.Module, hetero_data:HeteroData, threshold:f
     return list(action_predictions)
 
 @torch.no_grad()
-def test(model: torch.nn.Module, test_loader: torch.utils.data.DataLoader, pos_weight, neg_weight, val_loader: torch.utils.data.DataLoader = None) -> dict:
+def test(model: torch.nn.Module, test_loader: torch.utils.data.DataLoader, pos_weight, neg_weight, val_loader: torch.utils.data.DataLoader = None) -> Results:    
     model.eval()
     test_batch = next(iter(test_loader))
-    results = {}
-    results["test"] = test_val_results(test_batch, model, pos_weight, neg_weight)
+    test = test_val_results(test_batch, model, pos_weight, neg_weight)
+    val = None
     if val_loader:
         val_batch = next(iter(val_loader))
-        results["val"] = test_val_results(val_batch, model, pos_weight, neg_weight)
+        val = test_val_results(val_batch, model, pos_weight, neg_weight)
 
-    return results
+    return Results(test, val)
+
