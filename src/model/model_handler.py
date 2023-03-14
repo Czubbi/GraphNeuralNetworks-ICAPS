@@ -40,8 +40,8 @@ def train(model: torch.nn.Module, optimizer: torch.optim.Optimizer, train_loader
     for batch in train_loader:
 
         train_weights = torch.ones_like(batch['operator'].y)
-        train_weights[batch['operator'].y == 0] = pos_weight
-        train_weights[batch['operator'].y == 1] = neg_weight
+        train_weights[batch['operator'].y == 0] = neg_weight
+        train_weights[batch['operator'].y == 1] = pos_weight
         optimizer.zero_grad()
         out = model(batch.x_dict, batch.edge_index_dict)
         # metric_loss = torch.nn.BCEWithLogitsLoss()
