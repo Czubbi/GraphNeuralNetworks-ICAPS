@@ -2,6 +2,9 @@ import torch
 import torch.nn.functional as F
 import matplotlib.pyplot as plt
 from sklearn.metrics import precision_recall_fscore_support
+from collections import namedtuple
+
+Results = namedtuple('Results', ['loss', 'preds', 'original'])
 
 
 def treshhold_result(data, true_data, treshold):
@@ -18,7 +21,7 @@ def treshhold_result(data, true_data, treshold):
 
 
 
-def test_val_results(batch, model: torch.nn.Module, pos_weight, neg_weight):
+def test_val_results(batch, model: torch.nn.Module, pos_weight, neg_weight) -> Results:
     """returns loss, preds, original"""
     test_val_weights = torch.ones_like(batch['operator'].y)
     test_val_weights[batch['operator'].y == 1] = pos_weight
@@ -30,7 +33,8 @@ def test_val_results(batch, model: torch.nn.Module, pos_weight, neg_weight):
                                 batch['operator'].y, weight=test_val_weights)
     original = batch['operator'].y
     preds = out['operator']
-    return loss, preds, original
+    return Results(loss, preds, original)
+
 
 
 def evaluate_and_return_confusion(model: torch.nn.Module, data):
@@ -102,13 +106,16 @@ def plot_all_accuracies(data, bar_width):
     plt.grid(axis='y', alpha=0.4)
     plt.show()
 
-def plot_train_test_loss(epoch_list, train_loss_list, test_loss_list, PATH=None):
+def plot_train_test_loss(epoch_list, train_loss_list, test_loss_list, val_loss_list = None, PATH=None):
 
     fig, ax = plt.subplots(figsize=(10, 4), layout='constrained')
     ax.plot(epoch_list, train_loss_list, label='train losss')  
     ax.plot(epoch_list, test_loss_list, label='test loss') 
-    # ax.plot(epoch_list, val_perf_list, label='val loss')
-    ax.set_xlabel('epochs')  
+
+    if val_loss_list:
+        ax.plot(epoch_list, val_loss_list, label='val loss')
+
+    ax.set_xlabel('Epochs')  
     ax.set_title("Results") 
     ax.legend()
     if PATH:

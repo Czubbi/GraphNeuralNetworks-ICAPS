@@ -29,32 +29,33 @@ def training(dataset_path):
 
     train_loss_list = []
     test_loss_list = []
+    val_loss_list = []
     
 
     # TODO: make parameter for epochs - hyperparameters
-    epochs = 500
-
-    if val_set:
-        for epoch in range(1, epochs):
-            train_loss, train_pred, train_original = model_handler.train(model, optimizer, train_loader, pos_weight=pos_weight, neg_weight=neg_weight)
-            (test_loss, test_pred, test_original), (val_loss, val_pred, val_original) = model_handler.test(model, test_loader, val_loader=val_loader, pos_weight=pos_weight, neg_weight=neg_weight)
-            train_loss_list.append(train_loss.item())
-            test_loss_list.append(test_loss.item())
-            print(train_loss)
-    else:
-        for epoch in range(1, epochs):
-            train_loss, train_pred, train_original = model_handler.train(model, optimizer, train_loader, pos_weight=pos_weight, neg_weight=neg_weight)
-            (test_loss, test_pred, test_original) = model_handler.test(model, test_loader, pos_weight=pos_weight, neg_weight=neg_weight)
-            train_loss_list.append(train_loss.item())
-            test_loss_list.append(test_loss.item())
-            print(train_loss)
+    epochs = 200
 
 
-    # Parameter to save the plots
+    for epoch in range(1, epochs):
+        train_loss, train_pred, train_original = model_handler.train(model, optimizer, train_loader, pos_weight=pos_weight, neg_weight=neg_weight)
+        test_val_result = model_handler.test(model, test_loader, val_loader=val_loader, pos_weight=pos_weight, neg_weight=neg_weight)
+
+        if val_set:
+            val_loss_list.append(val_loss_list.append(test_val_result.val.loss.item()))
+
+        train_loss_list.append(train_loss.item())
+        test_loss_list.append(test_val_result.test.loss.item())
+
+
+
+    # TODO: Parameter to save the plots
     save_plots = True
     if save_plots:
         epoch_list = list(range(1, epochs))
-        metrics.plot_train_test_loss(epoch_list, train_loss_list, test_loss_list)
+        if val_loss_list:
+            metrics.plot_train_test_loss(epoch_list, train_loss_list, test_loss_list, val_loss_list=val_loss_list)
+        else:
+            metrics.plot_train_test_loss(epoch_list, train_loss_list, test_loss_list)
 
 
 

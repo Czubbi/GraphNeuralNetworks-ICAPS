@@ -5,7 +5,7 @@ from torch_geometric.data import HeteroData
 from collections import namedtuple
 from src.model.metrics import test_val_results
     
-Results = namedtuple('Results', ['test', 'val'])
+TestValResults = namedtuple('Test_Val_Results', ['test', 'val'])
 
 
 def get_optimizer(model:torch.nn.Module, optimizer_type, lr=None) -> torch.optim.Optimizer:
@@ -71,7 +71,7 @@ def predict_threshold(model:torch.nn.Module, hetero_data:HeteroData, threshold:f
     return list(action_predictions)
 
 @torch.no_grad()
-def test(model: torch.nn.Module, test_loader: torch.utils.data.DataLoader, pos_weight, neg_weight, val_loader: torch.utils.data.DataLoader = None) -> Results:    
+def test(model: torch.nn.Module, test_loader: torch.utils.data.DataLoader, pos_weight, neg_weight, val_loader: torch.utils.data.DataLoader = None) -> TestValResults:    
     model.eval()
     test_batch = next(iter(test_loader))
     test = test_val_results(test_batch, model, pos_weight, neg_weight)
@@ -80,5 +80,5 @@ def test(model: torch.nn.Module, test_loader: torch.utils.data.DataLoader, pos_w
         val_batch = next(iter(val_loader))
         val = test_val_results(val_batch, model, pos_weight, neg_weight)
 
-    return Results(test, val)
+    return TestValResults(test, val)
 
