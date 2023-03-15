@@ -31,12 +31,9 @@ def training(dataset_path, domain_name):
     train_loss_list = []
     test_loss_list = []
     val_loss_list = []
-    
 
     # TODO: make parameter for epochs - hyperparameters
     epochs = 200
-
-
 
     # Parameter to save the plots
     for epoch in range(1, epochs):
