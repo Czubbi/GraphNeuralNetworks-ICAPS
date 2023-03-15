@@ -8,6 +8,7 @@ import pandas as pd
 
 
 def calculate_weights(train_set):
+    """Returns"""
     total_positives, total_negatives, total_samples = dataset_metrics(train_set)
 
     pos_weight = 1/ (total_positives / total_samples)

@@ -2,7 +2,7 @@ from datetime import datetime
 import os
 from . import data_loading
 from . import architectures
-from . import model_handler
+from .model_handler import ModelHandler
 from . import metrics
 
 def training(dataset_path, domain_name):
@@ -12,6 +12,7 @@ def training(dataset_path, domain_name):
     # We will be working with imbalance, which is adrdressed in the metrics
     # We setup weights as global properties of the dataset only on the train set
     # to prevent overfitting
+    # TODO hyperparameter on the weights
     pos_weight, neg_weight = data_loading.calculate_weights(train_set)
 
     train_loader, test_loader, val_loader = data_loading.create_loaders(train_set, test_set, val_set)
@@ -21,12 +22,9 @@ def training(dataset_path, domain_name):
 
     ModelArchitecture = architectures.get_dynamic(layers_num=4, hidden_size=64, conv_type="SAGEConv")
     init_model = ModelArchitecture()
-    model = model_handler.init_model(init_model=init_model, hetero_metadata=metadata)
-    optimizer = model_handler.get_optimizer(model=model, optimizer_type="Adam")
- 
+    model_handler = ModelHandler(init_model, pos_weight, neg_weight, metadata)
+    model_handler.init_optimizer("Adam")  # TODO hyperparameter on optimizer
 
-    # TODO: Zapytac Lachowicza miszcza pytonga jak to lepiej zrobic
-    # Do we want to sotre results from validation set instead of test if possible?
 
     train_loss_list = []
     test_loss_list = []
@@ -34,28 +32,32 @@ def training(dataset_path, domain_name):
     
 
     # TODO: make parameter for epochs - hyperparameters
-    epochs = 200
+    epochs = 10
 
 
 
     # Parameter to save the plots
     for epoch in range(1, epochs):
-        train_loss, train_pred, train_original = model_handler.train(model, optimizer, train_loader, pos_weight=pos_weight, neg_weight=neg_weight)
-        test_val_result = model_handler.test(model, test_loader, val_loader=val_loader, pos_weight=pos_weight, neg_weight=neg_weight)
+        train_results = model_handler.train(train_loader)
+        test_results = model_handler.test(test_loader)
+
+        train_loss_list.append(train_results.loss.item())
+        test_loss_list.append(test_results.loss.item())
 
         if val_set:
-            val_loss_list.append(val_loss_list.append(test_val_result.val.loss.item()))
-
-        train_loss_list.append(train_loss.item())
-        test_loss_list.append(test_val_result.test.loss.item())
+            val_results = model_handler.test(val_loader)
+            val_loss_list.append(val_loss_list.append(val_results.loss.item()))
+        
+        if epoch % 10 == 0:
+            print("Epoch: ", epoch, "Train loss: ", train_results.loss.item(), "Test loss: ", test_results.loss.item())
 
 
     ts = datetime.timestamp(datetime.now())
     domain_path = os.path.join("DK", domain_name)
     if not os.path.exists(domain_path):
-        os.mkdir(domain_path)
+        os.makedirs(domain_path, exist_ok=True)
     model_path = os.path.join(domain_path, "model_" + str(ts) + ".pt")
-    model_handler.save_model(model, model_path)
+    model_handler.save_model(model_path)
 
     # TODO: Parameter to save the plots
     save_plots = True
