@@ -1,84 +1,109 @@
 import torch
+from typing import TYPE_CHECKING
 import torch.nn.functional as F
 from torch_geometric.nn import to_hetero
 from torch_geometric.data import HeteroData
 from collections import namedtuple
 from src.model.metrics import test_val_results
 from .metrics import Results
-    
+
+if TYPE_CHECKING:
+    from .training import ModelSetting
+    from .training import OptimizerSetting
+
+
 # TestValResults = namedtuple('Test_Val_Results', ['test', 'val'])
+METADATA = (
+    ["variable", "value", "operator"],
+    [
+        ("variable", "has_value", "value"),
+        ("value", "precondition", "operator"),
+        ("operator", "effect", "value"),
+        ("value", "rev_has_value", "variable"),
+        ("operator", "rev_precondition", "value"),
+        ("value", "rev_effect", "operator"),
+    ],
+)
+
 
 class ModelHandler:
-    def __init__(self, init_model, pos_weight, neg_weight, hetero_metadata, aggr='sum'):
-        model = to_hetero(init_model,  metadata=hetero_metadata, aggr=aggr)  # TODO hyperparameter on aggr
-        self.model: torch.nn.Module = model
+    def __init__(self, init_model, weights_path=None, pos_weight=None, neg_weight=None, aggr="sum"):  # TODO hyperparameter on aggr
+        self.model = to_hetero(
+            init_model, metadata=METADATA, aggr="sum"
+        )
+        if weights_path is not None:
+            self.model.load_state_dict(torch.load(weights_path))
+
         self.pos_weight: float = pos_weight
-        self.neg_weight = neg_weight
+        self.neg_weight: float = neg_weight
         self.optimizer = None
 
 
-    def init_optimizer(self, optimizer_type, lr=None) -> torch.optim.Optimizer:
-        assert optimizer_type in ["Adam", "RMSprop", "Adagrad"]
-        
+    def init_optimizer(self, optimizer_setting:"OptimizerSetting") -> torch.optim.Optimizer:
+        assert optimizer_setting.optimizer in ["Adam", "RMSprop", "Adagrad"]
+
         optimizer_classes = {
             "Adam": torch.optim.Adam,
             "RMSprop": torch.optim.RMSprop,
-            "Adagrad": torch.optim.Adagrad
+            "Adagrad": torch.optim.Adagrad,
         }
 
-        OptimizerClass = optimizer_classes[optimizer_type]
-        if lr is None:
+        OptimizerClass = optimizer_classes[optimizer_setting.optimizer]
+
+        if optimizer_setting.lr is None:
             optimizer = OptimizerClass(self.model.parameters())
         else:
-            optimizer = OptimizerClass(self.model.parameters(), lr)
+            optimizer = OptimizerClass(self.model.parameters(), optimizer_setting.lr)
 
         self.optimizer = optimizer
-
 
     def init_best_model(self):
         """Hardcoded best solution for the model after hyperparameter tuning"""
 
-    def save_model(self, model_path:str) -> None:
+    def save_model(self, model_path: str) -> None:
         torch.save(self.model.state_dict(), model_path)
 
-    def load_model(self, model_path:str) -> None:
+    def load_model(self, model_path: str) -> None:
         self.model.load_state_dict(torch.load(model_path))
 
     def train(self, train_loader: torch.utils.data.DataLoader):
         self.model.train()
 
         for batch in train_loader:
-
-            train_weights = torch.ones_like(batch['operator'].y)
-            train_weights[batch['operator'].y == 0] = self.neg_weight
-            train_weights[batch['operator'].y == 1] = self.pos_weight
+            train_weights = torch.ones_like(batch["operator"].y)
+            train_weights[batch["operator"].y == 0] = self.neg_weight
+            train_weights[batch["operator"].y == 1] = self.pos_weight
             self.optimizer.zero_grad()
             out = self.model(batch.x_dict, batch.edge_index_dict)
             # metric_loss = torch.nn.BCEWithLogitsLoss()
             # loss = metric_loss(out['operator'], batch['operator'].y)
-            loss = F.binary_cross_entropy(out['operator'],
-                                batch['operator'].y,weight=train_weights)
+            loss = F.binary_cross_entropy(
+                out["operator"], batch["operator"].y, weight=train_weights
+            )
             loss.backward()
             self.optimizer.step()
         # loss, pred, original
-        return Results(loss, out["operator"], batch['operator'].y)
-
+        return Results(loss, out["operator"], batch["operator"].y)
 
     def get_action_predictions(model: torch.nn.Module, state: torch.Tensor) -> torch.Tensor:
         pass
+    
+    @torch.no_grad()
+    def predict(self, hetero_data: HeteroData):
+        self.model.eval()
+        return self.model.forward(hetero_data.x_dict, hetero_data.edge_index_dict)['operator']
+
 
     @torch.no_grad()
-    def predict_threshold(self, hetero_data:HeteroData, threshold:float):
+    def predict_threshold(self, hetero_data: HeteroData, threshold: float):
         self.model.eval()
         all_predictions_proba = self.model.forward(hetero_data.x_dict, hetero_data.edge_index_dict)
-        action_predictions_proba = all_predictions_proba['operator']
+        action_predictions_proba = all_predictions_proba["operator"]
         action_predictions = map(lambda x: 1 if x else 0, action_predictions_proba >= threshold)
         return list(action_predictions)
 
     @torch.no_grad()
-    def test(self, data_loader: torch.utils.data.DataLoader):    
+    def test(self, data_loader: torch.utils.data.DataLoader):
         self.model.eval()
         test_batch = next(iter(data_loader))
         return test_val_results(test_batch, self.model, self.pos_weight, self.neg_weight)
-
-
