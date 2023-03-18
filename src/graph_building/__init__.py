@@ -39,7 +39,7 @@ def generate_graph_data(graph_type, sasfile_path, good_operators_path, output_di
         raise ValueError("Graph type must be either 'pdg' or 'cg'")
 
     if graph_type == "pdg":
-        pdg_and_nodes(sasfile_path, good_operators_path, output_dir)
+        pdg_and_nodes(sasfile_path, output_dir, good_operators_path)
 
     if graph_type == "cg":
         cg_and_nodes(sasfile_path, good_operators_path, output_dir)
@@ -115,7 +115,7 @@ def build_total_causal_graph(operators: Dict[str, CausalOperator], good_operator
     return dict(total_causal_graph)
 
 
-def pdg_and_nodes(sasfile_path, good_operators_path, output_dir):
+def pdg_and_nodes(sasfile_path, output_dir, good_operators_path=None):
     def save_node(
         node_type: Union[Value, PdgVariable, PdgOperator],
         data_source: Union["AllValuesDict", "AllVariablesDict", "AllOperatorsDict"],
@@ -152,7 +152,12 @@ def pdg_and_nodes(sasfile_path, good_operators_path, output_dir):
     with open(sasfile_path, "r") as file:
         sas_content: SasFileContent = file.read()
 
-    good_operators = PdgParser.good_operators_to_set(good_operators_path)
+    # When planning we don't have the good operators
+    if good_operators_path is None:
+        good_operators = set()
+    else:
+        good_operators = PdgParser.good_operators_to_set(good_operators_path)
+
     # Extract variables and operators from the file
     variables_text, init_text, goals_text, operators_text = PdgParser.split_sas_file(sas_content)
 

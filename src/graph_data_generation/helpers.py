@@ -92,7 +92,7 @@ def generate_graphs(task_dir, graph_type):
         # sasfile_path = os.path.join(output_run_path, "sas_file.sas")
         good_operators_path = os.path.join(output_run_path, "good_operators")
 
-        pdg_and_nodes(sasfile_path, good_operators_path, output_run_path)
+        pdg_and_nodes(sasfile_path, output_run_path, good_operators_path)
 
 
 def generate_sas_file(domain_file, problem_file, save_dir):
