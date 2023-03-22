@@ -1,6 +1,21 @@
 import argparse
-from src.graph_data_generation.helpers import generate_graphs
-from src.model.training import training
+import os
+from graph_data_generation.helpers import generate_graphs
+from model.training import train_and_save_model, ModelSetting, OptimizerSetting
+from collections import namedtuple
+
+
+model_settings = [
+    ModelSetting(4, 64, "SAGEConv", "sum"),
+]
+
+# None for default learning rate
+optimizer_settings = [
+    OptimizerSetting("Adam", None),
+]
+
+
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -11,13 +26,19 @@ if __name__ == "__main__":
     domain = args.domain
     task_dir = args.task_dir
 
-    # generate data
-    generate_graphs(task_dir, domain)
-    # Train model
-    training(task_dir)
+    # generate_graphs(task_dir, domain)
+    # Train models
+    save_model_path = os.path.join("DK", domain)
+    os.makedirs(save_model_path, exist_ok=True)
+
+    for model_setting, optimizer_setting in zip(model_settings, optimizer_settings):
+        model_name = "-".join([str(x) for x in model_setting])
+
+        model_path = os.path.join(save_model_path, model_name)
+        train_and_save_model(task_dir, model_setting=model_setting, optimizer_setting=optimizer_setting, model_path=model_path)
 
     
-
+# satelltei/4-64-SAGEConv-sum
 
 
 

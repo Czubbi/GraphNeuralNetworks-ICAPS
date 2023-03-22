@@ -8,10 +8,13 @@
 
 source .venv/bin/activate
 
-python train.py satellite data/conference/satellite
+python train.py $1 $2
 
 # python src/graph_data_generation/single_domain.py $1 $2
 
 # 1st step is to generate all the graph constructs
 
 # ./plan DOMAIN DK TASK PLAN
+
+script to run scorption 
+

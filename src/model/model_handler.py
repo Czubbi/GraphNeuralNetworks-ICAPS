@@ -4,7 +4,7 @@ import torch.nn.functional as F
 from torch_geometric.nn import to_hetero
 from torch_geometric.data import HeteroData
 from collections import namedtuple
-from src.model.metrics import test_val_results
+from model.metrics import test_val_results
 from .metrics import Results
 
 if TYPE_CHECKING:

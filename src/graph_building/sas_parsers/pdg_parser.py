@@ -2,7 +2,7 @@ import re
 import logging
 from typing import List, Tuple, Set, Dict
 
-from src.graph_building.sas_parsers.sas_parser import (
+from graph_building.sas_parsers.sas_parser import (
     SasFileContent,
     ProblemStateDictionary,
     VARIABLE_VALUE,
@@ -11,9 +11,9 @@ from src.graph_building.sas_parsers.sas_parser import (
     AllVariablesDict,
     AllOperatorsDict,
 )
-from src.graph_building.graph_constructs.variables.pdg_variable import PdgVariable
-from src.graph_building.graph_constructs.values.value import Value
-from src.graph_building.base_types import Predicate
+from graph_building.graph_constructs.variables.pdg_variable import PdgVariable
+from graph_building.graph_constructs.values.value import Value
+from graph_building.base_types import Predicate
 
 logger = logging.getLogger(__name__)
 
@@ -35,9 +35,10 @@ class PdgParser(SasParser):
         # logging.warning(f"Divided variables: {len(divided_variables_text)}")
 
         global_value_count = 0
-        for variable_lines in divided_variables_text:
+        for var_id, variable_lines in enumerate(divided_variables_text):
+            print(f"var_id", var_id)
             count_from = global_value_count
-            var_id = int(re.search("var(\d+)", variable_lines)[1])
+            # var_id = int(re.search("var(\d+)", variable_lines)[1])
             logger.info(f"Variable {var_id}, lines: {variable_lines}")
             values: List[Value] = []
 
@@ -106,6 +107,7 @@ class PdgParser(SasParser):
             new_variable = PdgVariable(
                 index=var_id, global_count_from=count_from, values=values, is_goal=is_goal_variable
             )
+            print(f"new_variable", new_variable)
             logger.debug(f"New variable: {new_variable}")
             all_variables[var_id] = new_variable
         return all_values, all_variables

@@ -2,16 +2,16 @@ import re
 import logging
 from typing import List, Tuple, Set, Dict
 
-from src.graph_building.sas_parsers.sas_parser import (
+from graph_building.sas_parsers.sas_parser import (
     SasFileContent,
     ProblemStateDictionary,
     VARIABLE_VALUE,
     SasParser,
 )
-from src.graph_building.graph_constructs.variables.causal_variable import CausalVariable
-from src.graph_building.graph_constructs.operators.causal_operator import CausalOperator
-from src.graph_building.graph_constructs.values.value import Value
-from src.graph_building.base_types import Predicate
+from graph_building.graph_constructs.variables.causal_variable import CausalVariable
+from graph_building.graph_constructs.operators.causal_operator import CausalOperator
+from graph_building.graph_constructs.values.value import Value
+from graph_building.base_types import Predicate
 
 logger = logging.getLogger(__name__)
 

@@ -3,20 +3,20 @@ import os
 import json
 import sys
 
-sys.path.append("/Users/piotrgzubicki/School/projectGNNs/GraphNeuralNetworks-ICAPS")
+# sys.path.append("src")
 
-from src.graph_building import pdg_and_nodes
-from src.model import architectures
-from src.model import postprocessor
-from src.model.training import ModelSetting
-from src.model.model_handler import ModelHandler
-from src.model.data_loading import problem_dfs, build_hetero
+from graph_building import pdg_and_nodes
+from model import architectures
+from model import postprocessor
+from model.training import ModelSetting
+from model.model_handler import ModelHandler
+from model.data_loading import problem_dfs, build_hetero
 # ./plan DOMAIN DK TASK PLAN
 
 
 
 
-def run_gnn_preprocessor(sas_path, output_dir, model_path):
+def run_gnn_preprocessor(sas_path, output_dir, model_path, threshold):
     pdg_and_nodes(sas_path, output_dir)
 
     model_setting = ModelSetting(*model_path.lstrip(".pt").split("/")[-1].split("-"))
@@ -25,8 +25,6 @@ def run_gnn_preprocessor(sas_path, output_dir, model_path):
     Architecture = architectures.get_dynamic(model_setting)
     init_model = Architecture()
     model_handler = ModelHandler(init_model, model_path)
-
-    threshold = 0.5
 
     dfs = problem_dfs(output_dir)
     hetero_data = build_hetero(*dfs)
@@ -61,7 +59,7 @@ def run_gnn_preprocessor(sas_path, output_dir, model_path):
 
     # input('reduce?')
     reduced_sasfile_content = postprocessor.get_reduced_sasfile(sasfile_content, d, action_predictions)
-    postprocessor.saved_reduced_sasfile(reduced_sasfile_content, output_dir, "sas_reduced.sas")
+    postprocessor.saved_reduced_sasfile(reduced_sasfile_content, output_dir, "h2_gnn.sas")
 
 
 

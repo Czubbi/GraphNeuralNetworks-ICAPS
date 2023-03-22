@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from typing import ClassVar
-from src.graph_building.graph_constructs.node import Node
+from graph_building.graph_constructs.node import Node
 
 
 @dataclass

@@ -1,11 +1,11 @@
 import os
 import shutil
 from typing import TYPE_CHECKING
-from src.graph_building import pdg_and_nodes
+from graph_building import pdg_and_nodes
 
 if TYPE_CHECKING:
-    from src.graph_building.graph_constructs.edge_features import CausalGraph
-    from src.graph_building.sas_parsers.sas_parser import (
+    from graph_building.graph_constructs.edge_features import CausalGraph
+    from graph_building.sas_parsers.sas_parser import (
         AllValuesDict,
         AllVariablesDict,
         AllOperatorsDict,

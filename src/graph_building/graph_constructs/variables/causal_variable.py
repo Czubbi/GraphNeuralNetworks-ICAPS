@@ -2,9 +2,9 @@ from dataclasses import dataclass
 from typing import Final, List
 
 from .variable import Variable
-# from src.graph_building.graph_constructs.variables.variable import Variable
+# from graph_building.graph_constructs.variables.variable import Variable
 
-from src.graph_building.base_types import Predicate
+from graph_building.base_types import Predicate
 
 
 @dataclass
