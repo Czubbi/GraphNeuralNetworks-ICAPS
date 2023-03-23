@@ -95,11 +95,9 @@ class ModelHandler:
 
 
     @torch.no_grad()
-    def predict_threshold(self, hetero_data: HeteroData, threshold: float):
+    def predict_threshold(self, actions_proba, threshold: float):
         self.model.eval()
-        all_predictions_proba = self.model.forward(hetero_data.x_dict, hetero_data.edge_index_dict)
-        action_predictions_proba = all_predictions_proba["operator"]
-        action_predictions = map(lambda x: 1 if x else 0, action_predictions_proba >= threshold)
+        action_predictions = map(lambda x: 1 if x else 0, actions_proba >= threshold)
         return list(action_predictions)
 
     @torch.no_grad()

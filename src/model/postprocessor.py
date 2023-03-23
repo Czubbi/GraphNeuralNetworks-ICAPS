@@ -32,9 +32,8 @@ def get_reduced_sasfile(
     return re.sub(old_operators_pattern, res, orignal_sasfile_content, flags=re.S)
 
 
-def saved_reduced_sasfile(reduced_sasfile_content, output_dir, sasfile_name=None):
-    if sasfile_name is None:
-        sasfile_name = "new_sas_file.sas"
+def saved_reduced_sasfile(reduced_sasfile_content, output_dir, sasfile_name):
     r_path = os.path.join(output_dir, sasfile_name)
+    print("Reduced sasfile saved to: " + r_path)
     with open(r_path, "w") as f:
         f.write(reduced_sasfile_content)

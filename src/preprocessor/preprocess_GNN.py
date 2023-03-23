@@ -1,7 +1,8 @@
 import numpy as np
 import os
 import json
-import sys
+import logging
+import torch
 
 # sys.path.append("src")
 
@@ -13,14 +14,24 @@ from model.model_handler import ModelHandler
 from model.data_loading import problem_dfs, build_hetero
 # ./plan DOMAIN DK TASK PLAN
 
+logger = logging.getLogger(__name__)
+# set info to be visible
+logger.setLevel(logging.INFO)
 
 
 
 def run_gnn_preprocessor(sas_path, output_dir, model_path, threshold):
+    """
+    :param sas_path: path to the sas file
+    :param output_dir: path to the output directory
+    :param model_path: path to the model's weights
+    :param threshold: threshold, minimum probability for an action to be included in the reduced problem,
+        the greater the threshold, the less actions will be included
+    """
     pdg_and_nodes(sas_path, output_dir)
 
     model_setting = ModelSetting(*model_path.lstrip(".pt").split("/")[-1].split("-"))
-    print(model_setting)
+
 
     Architecture = architectures.get_dynamic(model_setting)
     init_model = Architecture()
@@ -29,23 +40,26 @@ def run_gnn_preprocessor(sas_path, output_dir, model_path, threshold):
     dfs = problem_dfs(output_dir)
     hetero_data = build_hetero(*dfs)
 
-    action_predictions = model_handler.predict_threshold(hetero_data, threshold)
+    actions_probabilities = model_handler.predict(hetero_data)
+    torch.save(actions_probabilities, "workspace/actions_probabilities.pt")
+    # print(actions_probabilities)
+
+    action_predictions = model_handler.predict_threshold(actions_probabilities, threshold)
+
+    # count zeros and ones by casting to numpy
+    logger.info("Reporting number of zeros and ones:")
+    logger.info("\t" + str(np.bincount(np.array(action_predictions))))
+    # 12/0
+    # count zeros and ones by casting to numpy
+    zeros = np.count_nonzero(np.array(action_predictions) == 0)
+    ones = np.count_nonzero(np.array(action_predictions) == 1)
 
     # count zeros and ones by casting to numpy
     print(np.bincount(np.array(action_predictions)))
     # count zeros and ones by casting to numpy
     zeros = np.count_nonzero(np.array(action_predictions) == 0)
     ones = np.count_nonzero(np.array(action_predictions) == 1)
-    print(f"Zeros: {zeros}, Ones: {ones}")
 
-    action_predictions = np.array(model_handler.predict_threshold(hetero_data, threshold))
-
-    # count zeros and ones by casting to numpy
-    print(np.bincount(np.array(action_predictions)))
-    # count zeros and ones by casting to numpy
-    zeros = np.count_nonzero(np.array(action_predictions) == 0)
-    ones = np.count_nonzero(np.array(action_predictions) == 1)
-    print(f"Zeros: {zeros}, Ones: {ones}")
 
 
     with open(os.path.join(output_dir, "global_operators.json"), "r") as f:
@@ -53,13 +67,12 @@ def run_gnn_preprocessor(sas_path, output_dir, model_path, threshold):
 
     with open(sas_path, "r") as f:
         sasfile_content = f.read()
-        with open(os.path.join(output_dir, "old.sas"), "w") as fw:
-            fw.write(sasfile_content)
+
 
 
     # input('reduce?')
     reduced_sasfile_content = postprocessor.get_reduced_sasfile(sasfile_content, d, action_predictions)
-    postprocessor.saved_reduced_sasfile(reduced_sasfile_content, output_dir, "h2_gnn.sas")
+    postprocessor.saved_reduced_sasfile(reduced_sasfile_content, output_dir, "output.sas")
 
 
 

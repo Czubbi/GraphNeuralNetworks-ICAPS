@@ -36,10 +36,10 @@ class PdgParser(SasParser):
 
         global_value_count = 0
         for var_id, variable_lines in enumerate(divided_variables_text):
-            print(f"var_id", var_id)
+            # print(f"var_id", var_id)
             count_from = global_value_count
             # var_id = int(re.search("var(\d+)", variable_lines)[1])
-            logger.info(f"Variable {var_id}, lines: {variable_lines}")
+            # logger.info(f"Variable {var_id}, lines: {variable_lines}")
             values: List[Value] = []
 
             # List of all Atoms in one variable, where first elemnt of the tuple is the Atom text
@@ -107,7 +107,7 @@ class PdgParser(SasParser):
             new_variable = PdgVariable(
                 index=var_id, global_count_from=count_from, values=values, is_goal=is_goal_variable
             )
-            print(f"new_variable", new_variable)
-            logger.debug(f"New variable: {new_variable}")
+            # print(f"new_variable", new_variable)
+            # logger.debug(f"New variable: {new_variable}")
             all_variables[var_id] = new_variable
         return all_values, all_variables
