@@ -2,6 +2,9 @@ import argparse
 import os
 import shutil
 import math
+import json
+
+from typing import Tuple, Union
 
 from iterative_training import prepare_problems, move_test_to_train
 from model.training import train_and_save_model, ModelSetting, OptimizerSetting
@@ -9,61 +12,11 @@ from model.training import train_and_save_model, ModelSetting, OptimizerSetting
 train_perecentage = 20
 test_percentage = 7
 number_of_runs = 2 + math.ceil((100 - (train_perecentage + test_percentage)) / test_percentage)
-# assert number_of_runs == 9
-
-
-# 27
-# 34
-# 41
-# 48
-# 55
-# 62
-# 69
-# 76
-# 83
-# 90
-# 97
-# 104
-
-
-
-# 20 10
-# 40
-# 50
-# 60
-# 70
-# 80
-# 90
-# 100
-
-model_settings = [
-    ModelSetting(4, 64, "SAGEConv", "sum"),
-]
-
-# None for default learning rate
-optimizer_settings = [
-    OptimizerSetting("Adam", None),
-]
 
 
 
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("domain", help="name of the domain")
-    parser.add_argument("task_dir", help="path to folder with runs")
-    args = parser.parse_args()
-
-    domain = args.domain
-    task_dir = args.task_dir
-
-    # generate_graphs(task_dir, domain)
-    # Train models
-    # save_model_path = os.path.join("DK", domain)
-    models_dir = os.path.join("workspace", "models")
-    train_dir = os.path.join("workspace", "train")
-    test_dir = os.path.join("workspace", "test")
-    
+def cleanup_directories(train_dir, test_dir, models_dir):
     shutil.rmtree(train_dir, ignore_errors=True)
     shutil.rmtree(test_dir, ignore_errors=True)
     shutil.rmtree(models_dir, ignore_errors=True)
@@ -71,9 +24,37 @@ if __name__ == "__main__":
     os.makedirs(test_dir, exist_ok=True)
     os.makedirs(models_dir, exist_ok=True)
 
+def load_json_file(json_file):
+    with open(json_file, "r") as f:
+        return json.load(f)
 
 
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("domain", help="name of the domain")
+    parser.add_argument("task_dir", help="path to folder with runs")
+    parser.add_argument("model_settings", help="path to folder json file with model settings")
+    parser.add_argument("optimizer_settings", help="path to folder json file with optimizer settings")
+    args = parser.parse_args()
 
+
+    domain = args.domain
+    task_dir = args.task_dir
+    model_settings_path = args.model_settings
+    optimizer_settings_path = args.optimizer_settings
+
+    models_dir = os.path.join("workspace", "models")
+    train_dir = os.path.join("workspace", "train")
+    test_dir = os.path.join("workspace", "test")
+    
+    cleanup_directories(train_dir, test_dir, models_dir)
+    
+    # load model and optimizer settings from JSON files
+    model_settings_json = load_json_file(model_settings_path)
+    optimizer_settings_json = load_json_file(optimizer_settings_path)
+
+    model_settings = [ModelSetting(**settings) for settings in model_settings_json]
+    optimizer_settings = [OptimizerSetting(**settings) for settings in optimizer_settings_json]
 
     for model_setting, optimizer_setting in zip(model_settings, optimizer_settings):
         run = 0
@@ -99,8 +80,6 @@ if __name__ == "__main__":
                 test_size=test_size,
                 run=run,
             )
-                # all_problem_files, "workspace", run, train_size, test_size)
-            # print("all problem files", all_problem_files)
             print("training on files, number:", len(os.listdir(os.path.join("workspace", "train"))))
             print("testing on files, number:", len(os.listdir(os.path.join("workspace", "test"))))
 
@@ -110,7 +89,7 @@ if __name__ == "__main__":
                 train_dir=train_dir, test_dir=test_dir
             )
             run += 1
-            input(f"Press enter to continue: run{run}")
+            # input(f"Press enter to continue: run{run}")
         
 
         # Final training
