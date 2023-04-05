@@ -1,0 +1,5410 @@
+begin_operator
+calibrate satellite0 instrument0 groundstation7
+2
+59 6
+63 0
+1
+0 0 -1 0
+1
+end_operator
+begin_operator
+calibrate satellite1 instrument1 groundstation10
+2
+60 1
+64 0
+1
+0 1 -1 0
+1
+end_operator
+begin_operator
+switch_off instrument0 satellite0
+0
+2
+0 61 -1 0
+0 63 0 1
+1
+end_operator
+begin_operator
+switch_off instrument1 satellite1
+0
+2
+0 62 -1 0
+0 64 0 1
+1
+end_operator
+begin_operator
+switch_on instrument0 satellite0
+0
+3
+0 0 -1 1
+0 61 0 1
+0 63 -1 0
+1
+end_operator
+begin_operator
+switch_on instrument1 satellite1
+0
+3
+0 1 -1 1
+0 62 0 1
+0 64 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation0 instrument0 infrared1
+3
+0 0
+59 0
+63 0
+1
+0 2 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation0 instrument0 thermograph0
+3
+0 0
+59 0
+63 0
+1
+0 4 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation10 instrument0 infrared1
+3
+0 0
+59 1
+63 0
+1
+0 5 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation10 instrument0 thermograph0
+3
+0 0
+59 1
+63 0
+1
+0 7 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation11 instrument0 infrared1
+3
+0 0
+59 2
+63 0
+1
+0 8 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation11 instrument0 thermograph0
+3
+0 0
+59 2
+63 0
+1
+0 10 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation2 instrument0 infrared1
+3
+0 0
+59 3
+63 0
+1
+0 11 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation2 instrument0 thermograph0
+3
+0 0
+59 3
+63 0
+1
+0 13 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation4 instrument0 infrared1
+3
+0 0
+59 4
+63 0
+1
+0 14 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation4 instrument0 thermograph0
+3
+0 0
+59 4
+63 0
+1
+0 16 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation6 instrument0 infrared1
+3
+0 0
+59 5
+63 0
+1
+0 17 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation6 instrument0 thermograph0
+3
+0 0
+59 5
+63 0
+1
+0 19 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation7 instrument0 infrared1
+3
+0 0
+59 6
+63 0
+1
+0 20 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 groundstation7 instrument0 thermograph0
+3
+0 0
+59 6
+63 0
+1
+0 22 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 phenomenon13 instrument0 infrared1
+3
+0 0
+59 7
+63 0
+1
+0 23 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 phenomenon13 instrument0 thermograph0
+3
+0 0
+59 7
+63 0
+1
+0 25 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 phenomenon14 instrument0 infrared1
+3
+0 0
+59 8
+63 0
+1
+0 26 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 phenomenon14 instrument0 thermograph0
+3
+0 0
+59 8
+63 0
+1
+0 28 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 phenomenon16 instrument0 infrared1
+3
+0 0
+59 9
+63 0
+1
+0 29 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 phenomenon16 instrument0 thermograph0
+3
+0 0
+59 9
+63 0
+1
+0 31 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 planet18 instrument0 infrared1
+3
+0 0
+59 10
+63 0
+1
+0 32 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 planet18 instrument0 thermograph0
+3
+0 0
+59 10
+63 0
+1
+0 34 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 star1 instrument0 infrared1
+3
+0 0
+59 11
+63 0
+1
+0 35 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 star1 instrument0 thermograph0
+3
+0 0
+59 11
+63 0
+1
+0 37 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 star12 instrument0 infrared1
+3
+0 0
+59 12
+63 0
+1
+0 38 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 star12 instrument0 thermograph0
+3
+0 0
+59 12
+63 0
+1
+0 40 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 star15 instrument0 infrared1
+3
+0 0
+59 13
+63 0
+1
+0 41 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 star15 instrument0 thermograph0
+3
+0 0
+59 13
+63 0
+1
+0 43 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 star17 instrument0 infrared1
+3
+0 0
+59 14
+63 0
+1
+0 44 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 star17 instrument0 thermograph0
+3
+0 0
+59 14
+63 0
+1
+0 46 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 star3 instrument0 infrared1
+3
+0 0
+59 15
+63 0
+1
+0 47 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 star3 instrument0 thermograph0
+3
+0 0
+59 15
+63 0
+1
+0 49 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 star5 instrument0 infrared1
+3
+0 0
+59 16
+63 0
+1
+0 50 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 star5 instrument0 thermograph0
+3
+0 0
+59 16
+63 0
+1
+0 52 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 star8 instrument0 infrared1
+3
+0 0
+59 17
+63 0
+1
+0 53 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 star8 instrument0 thermograph0
+3
+0 0
+59 17
+63 0
+1
+0 55 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 star9 instrument0 infrared1
+3
+0 0
+59 18
+63 0
+1
+0 56 -1 0
+1
+end_operator
+begin_operator
+take_image satellite0 star9 instrument0 thermograph0
+3
+0 0
+59 18
+63 0
+1
+0 58 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 groundstation0 instrument1 spectrograph2
+3
+1 0
+60 0
+64 0
+1
+0 3 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 groundstation10 instrument1 spectrograph2
+3
+1 0
+60 1
+64 0
+1
+0 6 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 groundstation11 instrument1 spectrograph2
+3
+1 0
+60 2
+64 0
+1
+0 9 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 groundstation2 instrument1 spectrograph2
+3
+1 0
+60 3
+64 0
+1
+0 12 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 groundstation4 instrument1 spectrograph2
+3
+1 0
+60 4
+64 0
+1
+0 15 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 groundstation6 instrument1 spectrograph2
+3
+1 0
+60 5
+64 0
+1
+0 18 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 groundstation7 instrument1 spectrograph2
+3
+1 0
+60 6
+64 0
+1
+0 21 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 phenomenon13 instrument1 spectrograph2
+3
+1 0
+60 7
+64 0
+1
+0 24 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 phenomenon14 instrument1 spectrograph2
+3
+1 0
+60 8
+64 0
+1
+0 27 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 phenomenon16 instrument1 spectrograph2
+3
+1 0
+60 9
+64 0
+1
+0 30 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 planet18 instrument1 spectrograph2
+3
+1 0
+60 10
+64 0
+1
+0 33 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 star1 instrument1 spectrograph2
+3
+1 0
+60 11
+64 0
+1
+0 36 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 star12 instrument1 spectrograph2
+3
+1 0
+60 12
+64 0
+1
+0 39 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 star15 instrument1 spectrograph2
+3
+1 0
+60 13
+64 0
+1
+0 42 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 star17 instrument1 spectrograph2
+3
+1 0
+60 14
+64 0
+1
+0 45 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 star3 instrument1 spectrograph2
+3
+1 0
+60 15
+64 0
+1
+0 48 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 star5 instrument1 spectrograph2
+3
+1 0
+60 16
+64 0
+1
+0 51 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 star8 instrument1 spectrograph2
+3
+1 0
+60 17
+64 0
+1
+0 54 -1 0
+1
+end_operator
+begin_operator
+take_image satellite1 star9 instrument1 spectrograph2
+3
+1 0
+60 18
+64 0
+1
+0 57 -1 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 groundstation10
+0
+1
+0 59 1 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 groundstation11
+0
+1
+0 59 2 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 groundstation2
+0
+1
+0 59 3 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 groundstation4
+0
+1
+0 59 4 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 groundstation6
+0
+1
+0 59 5 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 groundstation7
+0
+1
+0 59 6 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 phenomenon13
+0
+1
+0 59 7 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 phenomenon14
+0
+1
+0 59 8 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 phenomenon16
+0
+1
+0 59 9 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 planet18
+0
+1
+0 59 10 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 star1
+0
+1
+0 59 11 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 star12
+0
+1
+0 59 12 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 star15
+0
+1
+0 59 13 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 star17
+0
+1
+0 59 14 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 star3
+0
+1
+0 59 15 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 star5
+0
+1
+0 59 16 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 star8
+0
+1
+0 59 17 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation0 star9
+0
+1
+0 59 18 0
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation10 groundstation0
+0
+1
+0 59 0 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation10 groundstation11
+0
+1
+0 59 2 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation10 groundstation2
+0
+1
+0 59 3 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation10 groundstation4
+0
+1
+0 59 4 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation10 groundstation6
+0
+1
+0 59 5 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation10 groundstation7
+0
+1
+0 59 6 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation10 phenomenon13
+0
+1
+0 59 7 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation10 phenomenon14
+0
+1
+0 59 8 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation10 phenomenon16
+0
+1
+0 59 9 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation10 planet18
+0
+1
+0 59 10 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation10 star1
+0
+1
+0 59 11 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation10 star12
+0
+1
+0 59 12 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation10 star15
+0
+1
+0 59 13 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation10 star17
+0
+1
+0 59 14 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation10 star3
+0
+1
+0 59 15 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation10 star5
+0
+1
+0 59 16 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation10 star8
+0
+1
+0 59 17 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation10 star9
+0
+1
+0 59 18 1
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation11 groundstation0
+0
+1
+0 59 0 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation11 groundstation10
+0
+1
+0 59 1 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation11 groundstation2
+0
+1
+0 59 3 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation11 groundstation4
+0
+1
+0 59 4 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation11 groundstation6
+0
+1
+0 59 5 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation11 groundstation7
+0
+1
+0 59 6 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation11 phenomenon13
+0
+1
+0 59 7 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation11 phenomenon14
+0
+1
+0 59 8 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation11 phenomenon16
+0
+1
+0 59 9 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation11 planet18
+0
+1
+0 59 10 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation11 star1
+0
+1
+0 59 11 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation11 star12
+0
+1
+0 59 12 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation11 star15
+0
+1
+0 59 13 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation11 star17
+0
+1
+0 59 14 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation11 star3
+0
+1
+0 59 15 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation11 star5
+0
+1
+0 59 16 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation11 star8
+0
+1
+0 59 17 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation11 star9
+0
+1
+0 59 18 2
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 groundstation0
+0
+1
+0 59 0 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 groundstation10
+0
+1
+0 59 1 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 groundstation11
+0
+1
+0 59 2 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 groundstation4
+0
+1
+0 59 4 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 groundstation6
+0
+1
+0 59 5 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 groundstation7
+0
+1
+0 59 6 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 phenomenon13
+0
+1
+0 59 7 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 phenomenon14
+0
+1
+0 59 8 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 phenomenon16
+0
+1
+0 59 9 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 planet18
+0
+1
+0 59 10 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 star1
+0
+1
+0 59 11 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 star12
+0
+1
+0 59 12 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 star15
+0
+1
+0 59 13 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 star17
+0
+1
+0 59 14 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 star3
+0
+1
+0 59 15 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 star5
+0
+1
+0 59 16 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 star8
+0
+1
+0 59 17 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation2 star9
+0
+1
+0 59 18 3
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation4 groundstation0
+0
+1
+0 59 0 4
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation4 groundstation10
+0
+1
+0 59 1 4
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation4 groundstation11
+0
+1
+0 59 2 4
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation4 groundstation2
+0
+1
+0 59 3 4
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation4 groundstation6
+0
+1
+0 59 5 4
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation4 groundstation7
+0
+1
+0 59 6 4
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation4 phenomenon13
+0
+1
+0 59 7 4
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation4 phenomenon14
+0
+1
+0 59 8 4
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation4 phenomenon16
+0
+1
+0 59 9 4
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation4 planet18
+0
+1
+0 59 10 4
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation4 star1
+0
+1
+0 59 11 4
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation4 star12
+0
+1
+0 59 12 4
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation4 star15
+0
+1
+0 59 13 4
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation4 star17
+0
+1
+0 59 14 4
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation4 star3
+0
+1
+0 59 15 4
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation4 star5
+0
+1
+0 59 16 4
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation4 star8
+0
+1
+0 59 17 4
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation4 star9
+0
+1
+0 59 18 4
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation6 groundstation0
+0
+1
+0 59 0 5
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation6 groundstation10
+0
+1
+0 59 1 5
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation6 groundstation11
+0
+1
+0 59 2 5
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation6 groundstation2
+0
+1
+0 59 3 5
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation6 groundstation4
+0
+1
+0 59 4 5
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation6 groundstation7
+0
+1
+0 59 6 5
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation6 phenomenon13
+0
+1
+0 59 7 5
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation6 phenomenon14
+0
+1
+0 59 8 5
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation6 phenomenon16
+0
+1
+0 59 9 5
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation6 planet18
+0
+1
+0 59 10 5
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation6 star1
+0
+1
+0 59 11 5
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation6 star12
+0
+1
+0 59 12 5
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation6 star15
+0
+1
+0 59 13 5
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation6 star17
+0
+1
+0 59 14 5
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation6 star3
+0
+1
+0 59 15 5
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation6 star5
+0
+1
+0 59 16 5
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation6 star8
+0
+1
+0 59 17 5
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation6 star9
+0
+1
+0 59 18 5
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation7 groundstation0
+0
+1
+0 59 0 6
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation7 groundstation10
+0
+1
+0 59 1 6
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation7 groundstation11
+0
+1
+0 59 2 6
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation7 groundstation2
+0
+1
+0 59 3 6
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation7 groundstation4
+0
+1
+0 59 4 6
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation7 groundstation6
+0
+1
+0 59 5 6
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation7 phenomenon13
+0
+1
+0 59 7 6
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation7 phenomenon14
+0
+1
+0 59 8 6
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation7 phenomenon16
+0
+1
+0 59 9 6
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation7 planet18
+0
+1
+0 59 10 6
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation7 star1
+0
+1
+0 59 11 6
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation7 star12
+0
+1
+0 59 12 6
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation7 star15
+0
+1
+0 59 13 6
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation7 star17
+0
+1
+0 59 14 6
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation7 star3
+0
+1
+0 59 15 6
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation7 star5
+0
+1
+0 59 16 6
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation7 star8
+0
+1
+0 59 17 6
+1
+end_operator
+begin_operator
+turn_to satellite0 groundstation7 star9
+0
+1
+0 59 18 6
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon13 groundstation0
+0
+1
+0 59 0 7
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon13 groundstation10
+0
+1
+0 59 1 7
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon13 groundstation11
+0
+1
+0 59 2 7
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon13 groundstation2
+0
+1
+0 59 3 7
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon13 groundstation4
+0
+1
+0 59 4 7
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon13 groundstation6
+0
+1
+0 59 5 7
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon13 groundstation7
+0
+1
+0 59 6 7
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon13 phenomenon14
+0
+1
+0 59 8 7
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon13 phenomenon16
+0
+1
+0 59 9 7
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon13 planet18
+0
+1
+0 59 10 7
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon13 star1
+0
+1
+0 59 11 7
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon13 star12
+0
+1
+0 59 12 7
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon13 star15
+0
+1
+0 59 13 7
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon13 star17
+0
+1
+0 59 14 7
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon13 star3
+0
+1
+0 59 15 7
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon13 star5
+0
+1
+0 59 16 7
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon13 star8
+0
+1
+0 59 17 7
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon13 star9
+0
+1
+0 59 18 7
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon14 groundstation0
+0
+1
+0 59 0 8
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon14 groundstation10
+0
+1
+0 59 1 8
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon14 groundstation11
+0
+1
+0 59 2 8
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon14 groundstation2
+0
+1
+0 59 3 8
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon14 groundstation4
+0
+1
+0 59 4 8
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon14 groundstation6
+0
+1
+0 59 5 8
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon14 groundstation7
+0
+1
+0 59 6 8
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon14 phenomenon13
+0
+1
+0 59 7 8
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon14 phenomenon16
+0
+1
+0 59 9 8
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon14 planet18
+0
+1
+0 59 10 8
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon14 star1
+0
+1
+0 59 11 8
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon14 star12
+0
+1
+0 59 12 8
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon14 star15
+0
+1
+0 59 13 8
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon14 star17
+0
+1
+0 59 14 8
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon14 star3
+0
+1
+0 59 15 8
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon14 star5
+0
+1
+0 59 16 8
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon14 star8
+0
+1
+0 59 17 8
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon14 star9
+0
+1
+0 59 18 8
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon16 groundstation0
+0
+1
+0 59 0 9
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon16 groundstation10
+0
+1
+0 59 1 9
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon16 groundstation11
+0
+1
+0 59 2 9
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon16 groundstation2
+0
+1
+0 59 3 9
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon16 groundstation4
+0
+1
+0 59 4 9
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon16 groundstation6
+0
+1
+0 59 5 9
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon16 groundstation7
+0
+1
+0 59 6 9
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon16 phenomenon13
+0
+1
+0 59 7 9
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon16 phenomenon14
+0
+1
+0 59 8 9
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon16 planet18
+0
+1
+0 59 10 9
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon16 star1
+0
+1
+0 59 11 9
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon16 star12
+0
+1
+0 59 12 9
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon16 star15
+0
+1
+0 59 13 9
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon16 star17
+0
+1
+0 59 14 9
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon16 star3
+0
+1
+0 59 15 9
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon16 star5
+0
+1
+0 59 16 9
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon16 star8
+0
+1
+0 59 17 9
+1
+end_operator
+begin_operator
+turn_to satellite0 phenomenon16 star9
+0
+1
+0 59 18 9
+1
+end_operator
+begin_operator
+turn_to satellite0 planet18 groundstation0
+0
+1
+0 59 0 10
+1
+end_operator
+begin_operator
+turn_to satellite0 planet18 groundstation10
+0
+1
+0 59 1 10
+1
+end_operator
+begin_operator
+turn_to satellite0 planet18 groundstation11
+0
+1
+0 59 2 10
+1
+end_operator
+begin_operator
+turn_to satellite0 planet18 groundstation2
+0
+1
+0 59 3 10
+1
+end_operator
+begin_operator
+turn_to satellite0 planet18 groundstation4
+0
+1
+0 59 4 10
+1
+end_operator
+begin_operator
+turn_to satellite0 planet18 groundstation6
+0
+1
+0 59 5 10
+1
+end_operator
+begin_operator
+turn_to satellite0 planet18 groundstation7
+0
+1
+0 59 6 10
+1
+end_operator
+begin_operator
+turn_to satellite0 planet18 phenomenon13
+0
+1
+0 59 7 10
+1
+end_operator
+begin_operator
+turn_to satellite0 planet18 phenomenon14
+0
+1
+0 59 8 10
+1
+end_operator
+begin_operator
+turn_to satellite0 planet18 phenomenon16
+0
+1
+0 59 9 10
+1
+end_operator
+begin_operator
+turn_to satellite0 planet18 star1
+0
+1
+0 59 11 10
+1
+end_operator
+begin_operator
+turn_to satellite0 planet18 star12
+0
+1
+0 59 12 10
+1
+end_operator
+begin_operator
+turn_to satellite0 planet18 star15
+0
+1
+0 59 13 10
+1
+end_operator
+begin_operator
+turn_to satellite0 planet18 star17
+0
+1
+0 59 14 10
+1
+end_operator
+begin_operator
+turn_to satellite0 planet18 star3
+0
+1
+0 59 15 10
+1
+end_operator
+begin_operator
+turn_to satellite0 planet18 star5
+0
+1
+0 59 16 10
+1
+end_operator
+begin_operator
+turn_to satellite0 planet18 star8
+0
+1
+0 59 17 10
+1
+end_operator
+begin_operator
+turn_to satellite0 planet18 star9
+0
+1
+0 59 18 10
+1
+end_operator
+begin_operator
+turn_to satellite0 star1 groundstation0
+0
+1
+0 59 0 11
+1
+end_operator
+begin_operator
+turn_to satellite0 star1 groundstation10
+0
+1
+0 59 1 11
+1
+end_operator
+begin_operator
+turn_to satellite0 star1 groundstation11
+0
+1
+0 59 2 11
+1
+end_operator
+begin_operator
+turn_to satellite0 star1 groundstation2
+0
+1
+0 59 3 11
+1
+end_operator
+begin_operator
+turn_to satellite0 star1 groundstation4
+0
+1
+0 59 4 11
+1
+end_operator
+begin_operator
+turn_to satellite0 star1 groundstation6
+0
+1
+0 59 5 11
+1
+end_operator
+begin_operator
+turn_to satellite0 star1 groundstation7
+0
+1
+0 59 6 11
+1
+end_operator
+begin_operator
+turn_to satellite0 star1 phenomenon13
+0
+1
+0 59 7 11
+1
+end_operator
+begin_operator
+turn_to satellite0 star1 phenomenon14
+0
+1
+0 59 8 11
+1
+end_operator
+begin_operator
+turn_to satellite0 star1 phenomenon16
+0
+1
+0 59 9 11
+1
+end_operator
+begin_operator
+turn_to satellite0 star1 planet18
+0
+1
+0 59 10 11
+1
+end_operator
+begin_operator
+turn_to satellite0 star1 star12
+0
+1
+0 59 12 11
+1
+end_operator
+begin_operator
+turn_to satellite0 star1 star15
+0
+1
+0 59 13 11
+1
+end_operator
+begin_operator
+turn_to satellite0 star1 star17
+0
+1
+0 59 14 11
+1
+end_operator
+begin_operator
+turn_to satellite0 star1 star3
+0
+1
+0 59 15 11
+1
+end_operator
+begin_operator
+turn_to satellite0 star1 star5
+0
+1
+0 59 16 11
+1
+end_operator
+begin_operator
+turn_to satellite0 star1 star8
+0
+1
+0 59 17 11
+1
+end_operator
+begin_operator
+turn_to satellite0 star1 star9
+0
+1
+0 59 18 11
+1
+end_operator
+begin_operator
+turn_to satellite0 star12 groundstation0
+0
+1
+0 59 0 12
+1
+end_operator
+begin_operator
+turn_to satellite0 star12 groundstation10
+0
+1
+0 59 1 12
+1
+end_operator
+begin_operator
+turn_to satellite0 star12 groundstation11
+0
+1
+0 59 2 12
+1
+end_operator
+begin_operator
+turn_to satellite0 star12 groundstation2
+0
+1
+0 59 3 12
+1
+end_operator
+begin_operator
+turn_to satellite0 star12 groundstation4
+0
+1
+0 59 4 12
+1
+end_operator
+begin_operator
+turn_to satellite0 star12 groundstation6
+0
+1
+0 59 5 12
+1
+end_operator
+begin_operator
+turn_to satellite0 star12 groundstation7
+0
+1
+0 59 6 12
+1
+end_operator
+begin_operator
+turn_to satellite0 star12 phenomenon13
+0
+1
+0 59 7 12
+1
+end_operator
+begin_operator
+turn_to satellite0 star12 phenomenon14
+0
+1
+0 59 8 12
+1
+end_operator
+begin_operator
+turn_to satellite0 star12 phenomenon16
+0
+1
+0 59 9 12
+1
+end_operator
+begin_operator
+turn_to satellite0 star12 planet18
+0
+1
+0 59 10 12
+1
+end_operator
+begin_operator
+turn_to satellite0 star12 star1
+0
+1
+0 59 11 12
+1
+end_operator
+begin_operator
+turn_to satellite0 star12 star15
+0
+1
+0 59 13 12
+1
+end_operator
+begin_operator
+turn_to satellite0 star12 star17
+0
+1
+0 59 14 12
+1
+end_operator
+begin_operator
+turn_to satellite0 star12 star3
+0
+1
+0 59 15 12
+1
+end_operator
+begin_operator
+turn_to satellite0 star12 star5
+0
+1
+0 59 16 12
+1
+end_operator
+begin_operator
+turn_to satellite0 star12 star8
+0
+1
+0 59 17 12
+1
+end_operator
+begin_operator
+turn_to satellite0 star12 star9
+0
+1
+0 59 18 12
+1
+end_operator
+begin_operator
+turn_to satellite0 star15 groundstation0
+0
+1
+0 59 0 13
+1
+end_operator
+begin_operator
+turn_to satellite0 star15 groundstation10
+0
+1
+0 59 1 13
+1
+end_operator
+begin_operator
+turn_to satellite0 star15 groundstation11
+0
+1
+0 59 2 13
+1
+end_operator
+begin_operator
+turn_to satellite0 star15 groundstation2
+0
+1
+0 59 3 13
+1
+end_operator
+begin_operator
+turn_to satellite0 star15 groundstation4
+0
+1
+0 59 4 13
+1
+end_operator
+begin_operator
+turn_to satellite0 star15 groundstation6
+0
+1
+0 59 5 13
+1
+end_operator
+begin_operator
+turn_to satellite0 star15 groundstation7
+0
+1
+0 59 6 13
+1
+end_operator
+begin_operator
+turn_to satellite0 star15 phenomenon13
+0
+1
+0 59 7 13
+1
+end_operator
+begin_operator
+turn_to satellite0 star15 phenomenon14
+0
+1
+0 59 8 13
+1
+end_operator
+begin_operator
+turn_to satellite0 star15 phenomenon16
+0
+1
+0 59 9 13
+1
+end_operator
+begin_operator
+turn_to satellite0 star15 planet18
+0
+1
+0 59 10 13
+1
+end_operator
+begin_operator
+turn_to satellite0 star15 star1
+0
+1
+0 59 11 13
+1
+end_operator
+begin_operator
+turn_to satellite0 star15 star12
+0
+1
+0 59 12 13
+1
+end_operator
+begin_operator
+turn_to satellite0 star15 star17
+0
+1
+0 59 14 13
+1
+end_operator
+begin_operator
+turn_to satellite0 star15 star3
+0
+1
+0 59 15 13
+1
+end_operator
+begin_operator
+turn_to satellite0 star15 star5
+0
+1
+0 59 16 13
+1
+end_operator
+begin_operator
+turn_to satellite0 star15 star8
+0
+1
+0 59 17 13
+1
+end_operator
+begin_operator
+turn_to satellite0 star15 star9
+0
+1
+0 59 18 13
+1
+end_operator
+begin_operator
+turn_to satellite0 star17 groundstation0
+0
+1
+0 59 0 14
+1
+end_operator
+begin_operator
+turn_to satellite0 star17 groundstation10
+0
+1
+0 59 1 14
+1
+end_operator
+begin_operator
+turn_to satellite0 star17 groundstation11
+0
+1
+0 59 2 14
+1
+end_operator
+begin_operator
+turn_to satellite0 star17 groundstation2
+0
+1
+0 59 3 14
+1
+end_operator
+begin_operator
+turn_to satellite0 star17 groundstation4
+0
+1
+0 59 4 14
+1
+end_operator
+begin_operator
+turn_to satellite0 star17 groundstation6
+0
+1
+0 59 5 14
+1
+end_operator
+begin_operator
+turn_to satellite0 star17 groundstation7
+0
+1
+0 59 6 14
+1
+end_operator
+begin_operator
+turn_to satellite0 star17 phenomenon13
+0
+1
+0 59 7 14
+1
+end_operator
+begin_operator
+turn_to satellite0 star17 phenomenon14
+0
+1
+0 59 8 14
+1
+end_operator
+begin_operator
+turn_to satellite0 star17 phenomenon16
+0
+1
+0 59 9 14
+1
+end_operator
+begin_operator
+turn_to satellite0 star17 planet18
+0
+1
+0 59 10 14
+1
+end_operator
+begin_operator
+turn_to satellite0 star17 star1
+0
+1
+0 59 11 14
+1
+end_operator
+begin_operator
+turn_to satellite0 star17 star12
+0
+1
+0 59 12 14
+1
+end_operator
+begin_operator
+turn_to satellite0 star17 star15
+0
+1
+0 59 13 14
+1
+end_operator
+begin_operator
+turn_to satellite0 star17 star3
+0
+1
+0 59 15 14
+1
+end_operator
+begin_operator
+turn_to satellite0 star17 star5
+0
+1
+0 59 16 14
+1
+end_operator
+begin_operator
+turn_to satellite0 star17 star8
+0
+1
+0 59 17 14
+1
+end_operator
+begin_operator
+turn_to satellite0 star17 star9
+0
+1
+0 59 18 14
+1
+end_operator
+begin_operator
+turn_to satellite0 star3 groundstation0
+0
+1
+0 59 0 15
+1
+end_operator
+begin_operator
+turn_to satellite0 star3 groundstation10
+0
+1
+0 59 1 15
+1
+end_operator
+begin_operator
+turn_to satellite0 star3 groundstation11
+0
+1
+0 59 2 15
+1
+end_operator
+begin_operator
+turn_to satellite0 star3 groundstation2
+0
+1
+0 59 3 15
+1
+end_operator
+begin_operator
+turn_to satellite0 star3 groundstation4
+0
+1
+0 59 4 15
+1
+end_operator
+begin_operator
+turn_to satellite0 star3 groundstation6
+0
+1
+0 59 5 15
+1
+end_operator
+begin_operator
+turn_to satellite0 star3 groundstation7
+0
+1
+0 59 6 15
+1
+end_operator
+begin_operator
+turn_to satellite0 star3 phenomenon13
+0
+1
+0 59 7 15
+1
+end_operator
+begin_operator
+turn_to satellite0 star3 phenomenon14
+0
+1
+0 59 8 15
+1
+end_operator
+begin_operator
+turn_to satellite0 star3 phenomenon16
+0
+1
+0 59 9 15
+1
+end_operator
+begin_operator
+turn_to satellite0 star3 planet18
+0
+1
+0 59 10 15
+1
+end_operator
+begin_operator
+turn_to satellite0 star3 star1
+0
+1
+0 59 11 15
+1
+end_operator
+begin_operator
+turn_to satellite0 star3 star12
+0
+1
+0 59 12 15
+1
+end_operator
+begin_operator
+turn_to satellite0 star3 star15
+0
+1
+0 59 13 15
+1
+end_operator
+begin_operator
+turn_to satellite0 star3 star17
+0
+1
+0 59 14 15
+1
+end_operator
+begin_operator
+turn_to satellite0 star3 star5
+0
+1
+0 59 16 15
+1
+end_operator
+begin_operator
+turn_to satellite0 star3 star8
+0
+1
+0 59 17 15
+1
+end_operator
+begin_operator
+turn_to satellite0 star3 star9
+0
+1
+0 59 18 15
+1
+end_operator
+begin_operator
+turn_to satellite0 star5 groundstation0
+0
+1
+0 59 0 16
+1
+end_operator
+begin_operator
+turn_to satellite0 star5 groundstation10
+0
+1
+0 59 1 16
+1
+end_operator
+begin_operator
+turn_to satellite0 star5 groundstation11
+0
+1
+0 59 2 16
+1
+end_operator
+begin_operator
+turn_to satellite0 star5 groundstation2
+0
+1
+0 59 3 16
+1
+end_operator
+begin_operator
+turn_to satellite0 star5 groundstation4
+0
+1
+0 59 4 16
+1
+end_operator
+begin_operator
+turn_to satellite0 star5 groundstation6
+0
+1
+0 59 5 16
+1
+end_operator
+begin_operator
+turn_to satellite0 star5 groundstation7
+0
+1
+0 59 6 16
+1
+end_operator
+begin_operator
+turn_to satellite0 star5 phenomenon13
+0
+1
+0 59 7 16
+1
+end_operator
+begin_operator
+turn_to satellite0 star5 phenomenon14
+0
+1
+0 59 8 16
+1
+end_operator
+begin_operator
+turn_to satellite0 star5 phenomenon16
+0
+1
+0 59 9 16
+1
+end_operator
+begin_operator
+turn_to satellite0 star5 planet18
+0
+1
+0 59 10 16
+1
+end_operator
+begin_operator
+turn_to satellite0 star5 star1
+0
+1
+0 59 11 16
+1
+end_operator
+begin_operator
+turn_to satellite0 star5 star12
+0
+1
+0 59 12 16
+1
+end_operator
+begin_operator
+turn_to satellite0 star5 star15
+0
+1
+0 59 13 16
+1
+end_operator
+begin_operator
+turn_to satellite0 star5 star17
+0
+1
+0 59 14 16
+1
+end_operator
+begin_operator
+turn_to satellite0 star5 star3
+0
+1
+0 59 15 16
+1
+end_operator
+begin_operator
+turn_to satellite0 star5 star8
+0
+1
+0 59 17 16
+1
+end_operator
+begin_operator
+turn_to satellite0 star5 star9
+0
+1
+0 59 18 16
+1
+end_operator
+begin_operator
+turn_to satellite0 star8 groundstation0
+0
+1
+0 59 0 17
+1
+end_operator
+begin_operator
+turn_to satellite0 star8 groundstation10
+0
+1
+0 59 1 17
+1
+end_operator
+begin_operator
+turn_to satellite0 star8 groundstation11
+0
+1
+0 59 2 17
+1
+end_operator
+begin_operator
+turn_to satellite0 star8 groundstation2
+0
+1
+0 59 3 17
+1
+end_operator
+begin_operator
+turn_to satellite0 star8 groundstation4
+0
+1
+0 59 4 17
+1
+end_operator
+begin_operator
+turn_to satellite0 star8 groundstation6
+0
+1
+0 59 5 17
+1
+end_operator
+begin_operator
+turn_to satellite0 star8 groundstation7
+0
+1
+0 59 6 17
+1
+end_operator
+begin_operator
+turn_to satellite0 star8 phenomenon13
+0
+1
+0 59 7 17
+1
+end_operator
+begin_operator
+turn_to satellite0 star8 phenomenon14
+0
+1
+0 59 8 17
+1
+end_operator
+begin_operator
+turn_to satellite0 star8 phenomenon16
+0
+1
+0 59 9 17
+1
+end_operator
+begin_operator
+turn_to satellite0 star8 planet18
+0
+1
+0 59 10 17
+1
+end_operator
+begin_operator
+turn_to satellite0 star8 star1
+0
+1
+0 59 11 17
+1
+end_operator
+begin_operator
+turn_to satellite0 star8 star12
+0
+1
+0 59 12 17
+1
+end_operator
+begin_operator
+turn_to satellite0 star8 star15
+0
+1
+0 59 13 17
+1
+end_operator
+begin_operator
+turn_to satellite0 star8 star17
+0
+1
+0 59 14 17
+1
+end_operator
+begin_operator
+turn_to satellite0 star8 star3
+0
+1
+0 59 15 17
+1
+end_operator
+begin_operator
+turn_to satellite0 star8 star5
+0
+1
+0 59 16 17
+1
+end_operator
+begin_operator
+turn_to satellite0 star8 star9
+0
+1
+0 59 18 17
+1
+end_operator
+begin_operator
+turn_to satellite0 star9 groundstation0
+0
+1
+0 59 0 18
+1
+end_operator
+begin_operator
+turn_to satellite0 star9 groundstation10
+0
+1
+0 59 1 18
+1
+end_operator
+begin_operator
+turn_to satellite0 star9 groundstation11
+0
+1
+0 59 2 18
+1
+end_operator
+begin_operator
+turn_to satellite0 star9 groundstation2
+0
+1
+0 59 3 18
+1
+end_operator
+begin_operator
+turn_to satellite0 star9 groundstation4
+0
+1
+0 59 4 18
+1
+end_operator
+begin_operator
+turn_to satellite0 star9 groundstation6
+0
+1
+0 59 5 18
+1
+end_operator
+begin_operator
+turn_to satellite0 star9 groundstation7
+0
+1
+0 59 6 18
+1
+end_operator
+begin_operator
+turn_to satellite0 star9 phenomenon13
+0
+1
+0 59 7 18
+1
+end_operator
+begin_operator
+turn_to satellite0 star9 phenomenon14
+0
+1
+0 59 8 18
+1
+end_operator
+begin_operator
+turn_to satellite0 star9 phenomenon16
+0
+1
+0 59 9 18
+1
+end_operator
+begin_operator
+turn_to satellite0 star9 planet18
+0
+1
+0 59 10 18
+1
+end_operator
+begin_operator
+turn_to satellite0 star9 star1
+0
+1
+0 59 11 18
+1
+end_operator
+begin_operator
+turn_to satellite0 star9 star12
+0
+1
+0 59 12 18
+1
+end_operator
+begin_operator
+turn_to satellite0 star9 star15
+0
+1
+0 59 13 18
+1
+end_operator
+begin_operator
+turn_to satellite0 star9 star17
+0
+1
+0 59 14 18
+1
+end_operator
+begin_operator
+turn_to satellite0 star9 star3
+0
+1
+0 59 15 18
+1
+end_operator
+begin_operator
+turn_to satellite0 star9 star5
+0
+1
+0 59 16 18
+1
+end_operator
+begin_operator
+turn_to satellite0 star9 star8
+0
+1
+0 59 17 18
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 groundstation10
+0
+1
+0 60 1 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 groundstation11
+0
+1
+0 60 2 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 groundstation2
+0
+1
+0 60 3 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 groundstation4
+0
+1
+0 60 4 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 groundstation6
+0
+1
+0 60 5 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 groundstation7
+0
+1
+0 60 6 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 phenomenon13
+0
+1
+0 60 7 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 phenomenon14
+0
+1
+0 60 8 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 phenomenon16
+0
+1
+0 60 9 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 planet18
+0
+1
+0 60 10 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 star1
+0
+1
+0 60 11 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 star12
+0
+1
+0 60 12 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 star15
+0
+1
+0 60 13 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 star17
+0
+1
+0 60 14 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 star3
+0
+1
+0 60 15 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 star5
+0
+1
+0 60 16 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 star8
+0
+1
+0 60 17 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation0 star9
+0
+1
+0 60 18 0
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation10 groundstation0
+0
+1
+0 60 0 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation10 groundstation11
+0
+1
+0 60 2 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation10 groundstation2
+0
+1
+0 60 3 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation10 groundstation4
+0
+1
+0 60 4 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation10 groundstation6
+0
+1
+0 60 5 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation10 groundstation7
+0
+1
+0 60 6 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation10 phenomenon13
+0
+1
+0 60 7 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation10 phenomenon14
+0
+1
+0 60 8 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation10 phenomenon16
+0
+1
+0 60 9 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation10 planet18
+0
+1
+0 60 10 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation10 star1
+0
+1
+0 60 11 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation10 star12
+0
+1
+0 60 12 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation10 star15
+0
+1
+0 60 13 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation10 star17
+0
+1
+0 60 14 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation10 star3
+0
+1
+0 60 15 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation10 star5
+0
+1
+0 60 16 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation10 star8
+0
+1
+0 60 17 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation10 star9
+0
+1
+0 60 18 1
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation11 groundstation0
+0
+1
+0 60 0 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation11 groundstation10
+0
+1
+0 60 1 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation11 groundstation2
+0
+1
+0 60 3 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation11 groundstation4
+0
+1
+0 60 4 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation11 groundstation6
+0
+1
+0 60 5 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation11 groundstation7
+0
+1
+0 60 6 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation11 phenomenon13
+0
+1
+0 60 7 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation11 phenomenon14
+0
+1
+0 60 8 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation11 phenomenon16
+0
+1
+0 60 9 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation11 planet18
+0
+1
+0 60 10 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation11 star1
+0
+1
+0 60 11 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation11 star12
+0
+1
+0 60 12 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation11 star15
+0
+1
+0 60 13 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation11 star17
+0
+1
+0 60 14 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation11 star3
+0
+1
+0 60 15 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation11 star5
+0
+1
+0 60 16 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation11 star8
+0
+1
+0 60 17 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation11 star9
+0
+1
+0 60 18 2
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 groundstation0
+0
+1
+0 60 0 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 groundstation10
+0
+1
+0 60 1 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 groundstation11
+0
+1
+0 60 2 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 groundstation4
+0
+1
+0 60 4 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 groundstation6
+0
+1
+0 60 5 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 groundstation7
+0
+1
+0 60 6 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 phenomenon13
+0
+1
+0 60 7 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 phenomenon14
+0
+1
+0 60 8 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 phenomenon16
+0
+1
+0 60 9 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 planet18
+0
+1
+0 60 10 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 star1
+0
+1
+0 60 11 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 star12
+0
+1
+0 60 12 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 star15
+0
+1
+0 60 13 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 star17
+0
+1
+0 60 14 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 star3
+0
+1
+0 60 15 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 star5
+0
+1
+0 60 16 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 star8
+0
+1
+0 60 17 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation2 star9
+0
+1
+0 60 18 3
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation4 groundstation0
+0
+1
+0 60 0 4
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation4 groundstation10
+0
+1
+0 60 1 4
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation4 groundstation11
+0
+1
+0 60 2 4
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation4 groundstation2
+0
+1
+0 60 3 4
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation4 groundstation6
+0
+1
+0 60 5 4
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation4 groundstation7
+0
+1
+0 60 6 4
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation4 phenomenon13
+0
+1
+0 60 7 4
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation4 phenomenon14
+0
+1
+0 60 8 4
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation4 phenomenon16
+0
+1
+0 60 9 4
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation4 planet18
+0
+1
+0 60 10 4
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation4 star1
+0
+1
+0 60 11 4
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation4 star12
+0
+1
+0 60 12 4
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation4 star15
+0
+1
+0 60 13 4
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation4 star17
+0
+1
+0 60 14 4
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation4 star3
+0
+1
+0 60 15 4
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation4 star5
+0
+1
+0 60 16 4
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation4 star8
+0
+1
+0 60 17 4
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation4 star9
+0
+1
+0 60 18 4
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation6 groundstation0
+0
+1
+0 60 0 5
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation6 groundstation10
+0
+1
+0 60 1 5
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation6 groundstation11
+0
+1
+0 60 2 5
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation6 groundstation2
+0
+1
+0 60 3 5
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation6 groundstation4
+0
+1
+0 60 4 5
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation6 groundstation7
+0
+1
+0 60 6 5
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation6 phenomenon13
+0
+1
+0 60 7 5
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation6 phenomenon14
+0
+1
+0 60 8 5
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation6 phenomenon16
+0
+1
+0 60 9 5
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation6 planet18
+0
+1
+0 60 10 5
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation6 star1
+0
+1
+0 60 11 5
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation6 star12
+0
+1
+0 60 12 5
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation6 star15
+0
+1
+0 60 13 5
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation6 star17
+0
+1
+0 60 14 5
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation6 star3
+0
+1
+0 60 15 5
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation6 star5
+0
+1
+0 60 16 5
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation6 star8
+0
+1
+0 60 17 5
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation6 star9
+0
+1
+0 60 18 5
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation7 groundstation0
+0
+1
+0 60 0 6
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation7 groundstation10
+0
+1
+0 60 1 6
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation7 groundstation11
+0
+1
+0 60 2 6
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation7 groundstation2
+0
+1
+0 60 3 6
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation7 groundstation4
+0
+1
+0 60 4 6
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation7 groundstation6
+0
+1
+0 60 5 6
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation7 phenomenon13
+0
+1
+0 60 7 6
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation7 phenomenon14
+0
+1
+0 60 8 6
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation7 phenomenon16
+0
+1
+0 60 9 6
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation7 planet18
+0
+1
+0 60 10 6
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation7 star1
+0
+1
+0 60 11 6
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation7 star12
+0
+1
+0 60 12 6
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation7 star15
+0
+1
+0 60 13 6
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation7 star17
+0
+1
+0 60 14 6
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation7 star3
+0
+1
+0 60 15 6
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation7 star5
+0
+1
+0 60 16 6
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation7 star8
+0
+1
+0 60 17 6
+1
+end_operator
+begin_operator
+turn_to satellite1 groundstation7 star9
+0
+1
+0 60 18 6
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon13 groundstation0
+0
+1
+0 60 0 7
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon13 groundstation10
+0
+1
+0 60 1 7
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon13 groundstation11
+0
+1
+0 60 2 7
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon13 groundstation2
+0
+1
+0 60 3 7
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon13 groundstation4
+0
+1
+0 60 4 7
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon13 groundstation6
+0
+1
+0 60 5 7
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon13 groundstation7
+0
+1
+0 60 6 7
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon13 phenomenon14
+0
+1
+0 60 8 7
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon13 phenomenon16
+0
+1
+0 60 9 7
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon13 planet18
+0
+1
+0 60 10 7
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon13 star1
+0
+1
+0 60 11 7
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon13 star12
+0
+1
+0 60 12 7
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon13 star15
+0
+1
+0 60 13 7
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon13 star17
+0
+1
+0 60 14 7
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon13 star3
+0
+1
+0 60 15 7
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon13 star5
+0
+1
+0 60 16 7
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon13 star8
+0
+1
+0 60 17 7
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon13 star9
+0
+1
+0 60 18 7
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon14 groundstation0
+0
+1
+0 60 0 8
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon14 groundstation10
+0
+1
+0 60 1 8
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon14 groundstation11
+0
+1
+0 60 2 8
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon14 groundstation2
+0
+1
+0 60 3 8
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon14 groundstation4
+0
+1
+0 60 4 8
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon14 groundstation6
+0
+1
+0 60 5 8
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon14 groundstation7
+0
+1
+0 60 6 8
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon14 phenomenon13
+0
+1
+0 60 7 8
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon14 phenomenon16
+0
+1
+0 60 9 8
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon14 planet18
+0
+1
+0 60 10 8
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon14 star1
+0
+1
+0 60 11 8
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon14 star12
+0
+1
+0 60 12 8
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon14 star15
+0
+1
+0 60 13 8
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon14 star17
+0
+1
+0 60 14 8
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon14 star3
+0
+1
+0 60 15 8
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon14 star5
+0
+1
+0 60 16 8
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon14 star8
+0
+1
+0 60 17 8
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon14 star9
+0
+1
+0 60 18 8
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon16 groundstation0
+0
+1
+0 60 0 9
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon16 groundstation10
+0
+1
+0 60 1 9
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon16 groundstation11
+0
+1
+0 60 2 9
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon16 groundstation2
+0
+1
+0 60 3 9
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon16 groundstation4
+0
+1
+0 60 4 9
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon16 groundstation6
+0
+1
+0 60 5 9
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon16 groundstation7
+0
+1
+0 60 6 9
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon16 phenomenon13
+0
+1
+0 60 7 9
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon16 phenomenon14
+0
+1
+0 60 8 9
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon16 planet18
+0
+1
+0 60 10 9
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon16 star1
+0
+1
+0 60 11 9
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon16 star12
+0
+1
+0 60 12 9
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon16 star15
+0
+1
+0 60 13 9
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon16 star17
+0
+1
+0 60 14 9
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon16 star3
+0
+1
+0 60 15 9
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon16 star5
+0
+1
+0 60 16 9
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon16 star8
+0
+1
+0 60 17 9
+1
+end_operator
+begin_operator
+turn_to satellite1 phenomenon16 star9
+0
+1
+0 60 18 9
+1
+end_operator
+begin_operator
+turn_to satellite1 planet18 groundstation0
+0
+1
+0 60 0 10
+1
+end_operator
+begin_operator
+turn_to satellite1 planet18 groundstation10
+0
+1
+0 60 1 10
+1
+end_operator
+begin_operator
+turn_to satellite1 planet18 groundstation11
+0
+1
+0 60 2 10
+1
+end_operator
+begin_operator
+turn_to satellite1 planet18 groundstation2
+0
+1
+0 60 3 10
+1
+end_operator
+begin_operator
+turn_to satellite1 planet18 groundstation4
+0
+1
+0 60 4 10
+1
+end_operator
+begin_operator
+turn_to satellite1 planet18 groundstation6
+0
+1
+0 60 5 10
+1
+end_operator
+begin_operator
+turn_to satellite1 planet18 groundstation7
+0
+1
+0 60 6 10
+1
+end_operator
+begin_operator
+turn_to satellite1 planet18 phenomenon13
+0
+1
+0 60 7 10
+1
+end_operator
+begin_operator
+turn_to satellite1 planet18 phenomenon14
+0
+1
+0 60 8 10
+1
+end_operator
+begin_operator
+turn_to satellite1 planet18 phenomenon16
+0
+1
+0 60 9 10
+1
+end_operator
+begin_operator
+turn_to satellite1 planet18 star1
+0
+1
+0 60 11 10
+1
+end_operator
+begin_operator
+turn_to satellite1 planet18 star12
+0
+1
+0 60 12 10
+1
+end_operator
+begin_operator
+turn_to satellite1 planet18 star15
+0
+1
+0 60 13 10
+1
+end_operator
+begin_operator
+turn_to satellite1 planet18 star17
+0
+1
+0 60 14 10
+1
+end_operator
+begin_operator
+turn_to satellite1 planet18 star3
+0
+1
+0 60 15 10
+1
+end_operator
+begin_operator
+turn_to satellite1 planet18 star5
+0
+1
+0 60 16 10
+1
+end_operator
+begin_operator
+turn_to satellite1 planet18 star8
+0
+1
+0 60 17 10
+1
+end_operator
+begin_operator
+turn_to satellite1 planet18 star9
+0
+1
+0 60 18 10
+1
+end_operator
+begin_operator
+turn_to satellite1 star1 groundstation0
+0
+1
+0 60 0 11
+1
+end_operator
+begin_operator
+turn_to satellite1 star1 groundstation10
+0
+1
+0 60 1 11
+1
+end_operator
+begin_operator
+turn_to satellite1 star1 groundstation11
+0
+1
+0 60 2 11
+1
+end_operator
+begin_operator
+turn_to satellite1 star1 groundstation2
+0
+1
+0 60 3 11
+1
+end_operator
+begin_operator
+turn_to satellite1 star1 groundstation4
+0
+1
+0 60 4 11
+1
+end_operator
+begin_operator
+turn_to satellite1 star1 groundstation6
+0
+1
+0 60 5 11
+1
+end_operator
+begin_operator
+turn_to satellite1 star1 groundstation7
+0
+1
+0 60 6 11
+1
+end_operator
+begin_operator
+turn_to satellite1 star1 phenomenon13
+0
+1
+0 60 7 11
+1
+end_operator
+begin_operator
+turn_to satellite1 star1 phenomenon14
+0
+1
+0 60 8 11
+1
+end_operator
+begin_operator
+turn_to satellite1 star1 phenomenon16
+0
+1
+0 60 9 11
+1
+end_operator
+begin_operator
+turn_to satellite1 star1 planet18
+0
+1
+0 60 10 11
+1
+end_operator
+begin_operator
+turn_to satellite1 star1 star12
+0
+1
+0 60 12 11
+1
+end_operator
+begin_operator
+turn_to satellite1 star1 star15
+0
+1
+0 60 13 11
+1
+end_operator
+begin_operator
+turn_to satellite1 star1 star17
+0
+1
+0 60 14 11
+1
+end_operator
+begin_operator
+turn_to satellite1 star1 star3
+0
+1
+0 60 15 11
+1
+end_operator
+begin_operator
+turn_to satellite1 star1 star5
+0
+1
+0 60 16 11
+1
+end_operator
+begin_operator
+turn_to satellite1 star1 star8
+0
+1
+0 60 17 11
+1
+end_operator
+begin_operator
+turn_to satellite1 star1 star9
+0
+1
+0 60 18 11
+1
+end_operator
+begin_operator
+turn_to satellite1 star12 groundstation0
+0
+1
+0 60 0 12
+1
+end_operator
+begin_operator
+turn_to satellite1 star12 groundstation10
+0
+1
+0 60 1 12
+1
+end_operator
+begin_operator
+turn_to satellite1 star12 groundstation11
+0
+1
+0 60 2 12
+1
+end_operator
+begin_operator
+turn_to satellite1 star12 groundstation2
+0
+1
+0 60 3 12
+1
+end_operator
+begin_operator
+turn_to satellite1 star12 groundstation4
+0
+1
+0 60 4 12
+1
+end_operator
+begin_operator
+turn_to satellite1 star12 groundstation6
+0
+1
+0 60 5 12
+1
+end_operator
+begin_operator
+turn_to satellite1 star12 groundstation7
+0
+1
+0 60 6 12
+1
+end_operator
+begin_operator
+turn_to satellite1 star12 phenomenon13
+0
+1
+0 60 7 12
+1
+end_operator
+begin_operator
+turn_to satellite1 star12 phenomenon14
+0
+1
+0 60 8 12
+1
+end_operator
+begin_operator
+turn_to satellite1 star12 phenomenon16
+0
+1
+0 60 9 12
+1
+end_operator
+begin_operator
+turn_to satellite1 star12 planet18
+0
+1
+0 60 10 12
+1
+end_operator
+begin_operator
+turn_to satellite1 star12 star1
+0
+1
+0 60 11 12
+1
+end_operator
+begin_operator
+turn_to satellite1 star12 star15
+0
+1
+0 60 13 12
+1
+end_operator
+begin_operator
+turn_to satellite1 star12 star17
+0
+1
+0 60 14 12
+1
+end_operator
+begin_operator
+turn_to satellite1 star12 star3
+0
+1
+0 60 15 12
+1
+end_operator
+begin_operator
+turn_to satellite1 star12 star5
+0
+1
+0 60 16 12
+1
+end_operator
+begin_operator
+turn_to satellite1 star12 star8
+0
+1
+0 60 17 12
+1
+end_operator
+begin_operator
+turn_to satellite1 star12 star9
+0
+1
+0 60 18 12
+1
+end_operator
+begin_operator
+turn_to satellite1 star15 groundstation0
+0
+1
+0 60 0 13
+1
+end_operator
+begin_operator
+turn_to satellite1 star15 groundstation10
+0
+1
+0 60 1 13
+1
+end_operator
+begin_operator
+turn_to satellite1 star15 groundstation11
+0
+1
+0 60 2 13
+1
+end_operator
+begin_operator
+turn_to satellite1 star15 groundstation2
+0
+1
+0 60 3 13
+1
+end_operator
+begin_operator
+turn_to satellite1 star15 groundstation4
+0
+1
+0 60 4 13
+1
+end_operator
+begin_operator
+turn_to satellite1 star15 groundstation6
+0
+1
+0 60 5 13
+1
+end_operator
+begin_operator
+turn_to satellite1 star15 groundstation7
+0
+1
+0 60 6 13
+1
+end_operator
+begin_operator
+turn_to satellite1 star15 phenomenon13
+0
+1
+0 60 7 13
+1
+end_operator
+begin_operator
+turn_to satellite1 star15 phenomenon14
+0
+1
+0 60 8 13
+1
+end_operator
+begin_operator
+turn_to satellite1 star15 phenomenon16
+0
+1
+0 60 9 13
+1
+end_operator
+begin_operator
+turn_to satellite1 star15 planet18
+0
+1
+0 60 10 13
+1
+end_operator
+begin_operator
+turn_to satellite1 star15 star1
+0
+1
+0 60 11 13
+1
+end_operator
+begin_operator
+turn_to satellite1 star15 star12
+0
+1
+0 60 12 13
+1
+end_operator
+begin_operator
+turn_to satellite1 star15 star17
+0
+1
+0 60 14 13
+1
+end_operator
+begin_operator
+turn_to satellite1 star15 star3
+0
+1
+0 60 15 13
+1
+end_operator
+begin_operator
+turn_to satellite1 star15 star5
+0
+1
+0 60 16 13
+1
+end_operator
+begin_operator
+turn_to satellite1 star15 star8
+0
+1
+0 60 17 13
+1
+end_operator
+begin_operator
+turn_to satellite1 star15 star9
+0
+1
+0 60 18 13
+1
+end_operator
+begin_operator
+turn_to satellite1 star17 groundstation0
+0
+1
+0 60 0 14
+1
+end_operator
+begin_operator
+turn_to satellite1 star17 groundstation10
+0
+1
+0 60 1 14
+1
+end_operator
+begin_operator
+turn_to satellite1 star17 groundstation11
+0
+1
+0 60 2 14
+1
+end_operator
+begin_operator
+turn_to satellite1 star17 groundstation2
+0
+1
+0 60 3 14
+1
+end_operator
+begin_operator
+turn_to satellite1 star17 groundstation4
+0
+1
+0 60 4 14
+1
+end_operator
+begin_operator
+turn_to satellite1 star17 groundstation6
+0
+1
+0 60 5 14
+1
+end_operator
+begin_operator
+turn_to satellite1 star17 groundstation7
+0
+1
+0 60 6 14
+1
+end_operator
+begin_operator
+turn_to satellite1 star17 phenomenon13
+0
+1
+0 60 7 14
+1
+end_operator
+begin_operator
+turn_to satellite1 star17 phenomenon14
+0
+1
+0 60 8 14
+1
+end_operator
+begin_operator
+turn_to satellite1 star17 phenomenon16
+0
+1
+0 60 9 14
+1
+end_operator
+begin_operator
+turn_to satellite1 star17 planet18
+0
+1
+0 60 10 14
+1
+end_operator
+begin_operator
+turn_to satellite1 star17 star1
+0
+1
+0 60 11 14
+1
+end_operator
+begin_operator
+turn_to satellite1 star17 star12
+0
+1
+0 60 12 14
+1
+end_operator
+begin_operator
+turn_to satellite1 star17 star15
+0
+1
+0 60 13 14
+1
+end_operator
+begin_operator
+turn_to satellite1 star17 star3
+0
+1
+0 60 15 14
+1
+end_operator
+begin_operator
+turn_to satellite1 star17 star5
+0
+1
+0 60 16 14
+1
+end_operator
+begin_operator
+turn_to satellite1 star17 star8
+0
+1
+0 60 17 14
+1
+end_operator
+begin_operator
+turn_to satellite1 star17 star9
+0
+1
+0 60 18 14
+1
+end_operator
+begin_operator
+turn_to satellite1 star3 groundstation0
+0
+1
+0 60 0 15
+1
+end_operator
+begin_operator
+turn_to satellite1 star3 groundstation10
+0
+1
+0 60 1 15
+1
+end_operator
+begin_operator
+turn_to satellite1 star3 groundstation11
+0
+1
+0 60 2 15
+1
+end_operator
+begin_operator
+turn_to satellite1 star3 groundstation2
+0
+1
+0 60 3 15
+1
+end_operator
+begin_operator
+turn_to satellite1 star3 groundstation4
+0
+1
+0 60 4 15
+1
+end_operator
+begin_operator
+turn_to satellite1 star3 groundstation6
+0
+1
+0 60 5 15
+1
+end_operator
+begin_operator
+turn_to satellite1 star3 groundstation7
+0
+1
+0 60 6 15
+1
+end_operator
+begin_operator
+turn_to satellite1 star3 phenomenon13
+0
+1
+0 60 7 15
+1
+end_operator
+begin_operator
+turn_to satellite1 star3 phenomenon14
+0
+1
+0 60 8 15
+1
+end_operator
+begin_operator
+turn_to satellite1 star3 phenomenon16
+0
+1
+0 60 9 15
+1
+end_operator
+begin_operator
+turn_to satellite1 star3 planet18
+0
+1
+0 60 10 15
+1
+end_operator
+begin_operator
+turn_to satellite1 star3 star1
+0
+1
+0 60 11 15
+1
+end_operator
+begin_operator
+turn_to satellite1 star3 star12
+0
+1
+0 60 12 15
+1
+end_operator
+begin_operator
+turn_to satellite1 star3 star15
+0
+1
+0 60 13 15
+1
+end_operator
+begin_operator
+turn_to satellite1 star3 star17
+0
+1
+0 60 14 15
+1
+end_operator
+begin_operator
+turn_to satellite1 star3 star5
+0
+1
+0 60 16 15
+1
+end_operator
+begin_operator
+turn_to satellite1 star3 star8
+0
+1
+0 60 17 15
+1
+end_operator
+begin_operator
+turn_to satellite1 star3 star9
+0
+1
+0 60 18 15
+1
+end_operator
+begin_operator
+turn_to satellite1 star5 groundstation0
+0
+1
+0 60 0 16
+1
+end_operator
+begin_operator
+turn_to satellite1 star5 groundstation10
+0
+1
+0 60 1 16
+1
+end_operator
+begin_operator
+turn_to satellite1 star5 groundstation11
+0
+1
+0 60 2 16
+1
+end_operator
+begin_operator
+turn_to satellite1 star5 groundstation2
+0
+1
+0 60 3 16
+1
+end_operator
+begin_operator
+turn_to satellite1 star5 groundstation4
+0
+1
+0 60 4 16
+1
+end_operator
+begin_operator
+turn_to satellite1 star5 groundstation6
+0
+1
+0 60 5 16
+1
+end_operator
+begin_operator
+turn_to satellite1 star5 groundstation7
+0
+1
+0 60 6 16
+1
+end_operator
+begin_operator
+turn_to satellite1 star5 phenomenon13
+0
+1
+0 60 7 16
+1
+end_operator
+begin_operator
+turn_to satellite1 star5 phenomenon14
+0
+1
+0 60 8 16
+1
+end_operator
+begin_operator
+turn_to satellite1 star5 phenomenon16
+0
+1
+0 60 9 16
+1
+end_operator
+begin_operator
+turn_to satellite1 star5 planet18
+0
+1
+0 60 10 16
+1
+end_operator
+begin_operator
+turn_to satellite1 star5 star1
+0
+1
+0 60 11 16
+1
+end_operator
+begin_operator
+turn_to satellite1 star5 star12
+0
+1
+0 60 12 16
+1
+end_operator
+begin_operator
+turn_to satellite1 star5 star15
+0
+1
+0 60 13 16
+1
+end_operator
+begin_operator
+turn_to satellite1 star5 star17
+0
+1
+0 60 14 16
+1
+end_operator
+begin_operator
+turn_to satellite1 star5 star3
+0
+1
+0 60 15 16
+1
+end_operator
+begin_operator
+turn_to satellite1 star5 star8
+0
+1
+0 60 17 16
+1
+end_operator
+begin_operator
+turn_to satellite1 star5 star9
+0
+1
+0 60 18 16
+1
+end_operator
+begin_operator
+turn_to satellite1 star8 groundstation0
+0
+1
+0 60 0 17
+1
+end_operator
+begin_operator
+turn_to satellite1 star8 groundstation10
+0
+1
+0 60 1 17
+1
+end_operator
+begin_operator
+turn_to satellite1 star8 groundstation11
+0
+1
+0 60 2 17
+1
+end_operator
+begin_operator
+turn_to satellite1 star8 groundstation2
+0
+1
+0 60 3 17
+1
+end_operator
+begin_operator
+turn_to satellite1 star8 groundstation4
+0
+1
+0 60 4 17
+1
+end_operator
+begin_operator
+turn_to satellite1 star8 groundstation6
+0
+1
+0 60 5 17
+1
+end_operator
+begin_operator
+turn_to satellite1 star8 groundstation7
+0
+1
+0 60 6 17
+1
+end_operator
+begin_operator
+turn_to satellite1 star8 phenomenon13
+0
+1
+0 60 7 17
+1
+end_operator
+begin_operator
+turn_to satellite1 star8 phenomenon14
+0
+1
+0 60 8 17
+1
+end_operator
+begin_operator
+turn_to satellite1 star8 phenomenon16
+0
+1
+0 60 9 17
+1
+end_operator
+begin_operator
+turn_to satellite1 star8 planet18
+0
+1
+0 60 10 17
+1
+end_operator
+begin_operator
+turn_to satellite1 star8 star1
+0
+1
+0 60 11 17
+1
+end_operator
+begin_operator
+turn_to satellite1 star8 star12
+0
+1
+0 60 12 17
+1
+end_operator
+begin_operator
+turn_to satellite1 star8 star15
+0
+1
+0 60 13 17
+1
+end_operator
+begin_operator
+turn_to satellite1 star8 star17
+0
+1
+0 60 14 17
+1
+end_operator
+begin_operator
+turn_to satellite1 star8 star3
+0
+1
+0 60 15 17
+1
+end_operator
+begin_operator
+turn_to satellite1 star8 star5
+0
+1
+0 60 16 17
+1
+end_operator
+begin_operator
+turn_to satellite1 star8 star9
+0
+1
+0 60 18 17
+1
+end_operator
+begin_operator
+turn_to satellite1 star9 groundstation0
+0
+1
+0 60 0 18
+1
+end_operator
+begin_operator
+turn_to satellite1 star9 groundstation10
+0
+1
+0 60 1 18
+1
+end_operator
+begin_operator
+turn_to satellite1 star9 groundstation11
+0
+1
+0 60 2 18
+1
+end_operator
+begin_operator
+turn_to satellite1 star9 groundstation2
+0
+1
+0 60 3 18
+1
+end_operator
+begin_operator
+turn_to satellite1 star9 groundstation4
+0
+1
+0 60 4 18
+1
+end_operator
+begin_operator
+turn_to satellite1 star9 groundstation6
+0
+1
+0 60 5 18
+1
+end_operator
+begin_operator
+turn_to satellite1 star9 groundstation7
+0
+1
+0 60 6 18
+1
+end_operator
+begin_operator
+turn_to satellite1 star9 phenomenon13
+0
+1
+0 60 7 18
+1
+end_operator
+begin_operator
+turn_to satellite1 star9 phenomenon14
+0
+1
+0 60 8 18
+1
+end_operator
+begin_operator
+turn_to satellite1 star9 phenomenon16
+0
+1
+0 60 9 18
+1
+end_operator
+begin_operator
+turn_to satellite1 star9 planet18
+0
+1
+0 60 10 18
+1
+end_operator
+begin_operator
+turn_to satellite1 star9 star1
+0
+1
+0 60 11 18
+1
+end_operator
+begin_operator
+turn_to satellite1 star9 star12
+0
+1
+0 60 12 18
+1
+end_operator
+begin_operator
+turn_to satellite1 star9 star15
+0
+1
+0 60 13 18
+1
+end_operator
+begin_operator
+turn_to satellite1 star9 star17
+0
+1
+0 60 14 18
+1
+end_operator
+begin_operator
+turn_to satellite1 star9 star3
+0
+1
+0 60 15 18
+1
+end_operator
+begin_operator
+turn_to satellite1 star9 star5
+0
+1
+0 60 16 18
+1
+end_operator
+begin_operator
+turn_to satellite1 star9 star8
+0
+1
+0 60 17 18
+1
+end_operator
