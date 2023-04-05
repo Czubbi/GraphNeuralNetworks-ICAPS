@@ -1,6 +1,7 @@
 import torch
 from typing import TYPE_CHECKING
 from torch_geometric.nn import SAGEConv
+from torch_geometric.nn import GCNConv
 from torch_geometric.nn import GATConv
 
 if TYPE_CHECKING:
@@ -11,6 +12,7 @@ def get_dynamic(model_setting: "ModelSetting"):
     CONVOLUTIONS = {
         "SAGEConv": SAGEConv,
         "GATConv": GATConv,
+        "GCNConv": GCNConv,
     }
     """
     Hidden size diminishes by the order of 2

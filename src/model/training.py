@@ -1,6 +1,6 @@
 from datetime import datetime
 import os
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Union
 from dataclasses import dataclass, field
 from collections import namedtuple
 from . import data_loading
@@ -9,6 +9,8 @@ from .model_handler import ModelHandler
 from . import metrics
 
 # ModelSetting = namedtuple("ModelSetting", ["layers_num", "hidden_size", "conv_type", "aggr"])
+file_path = str
+dir_path = str
 
 
 @dataclass
@@ -17,36 +19,54 @@ class ModelSetting:
     hidden_size: int
     conv_type: str
     aggr: str
-    number_of_problems: int = field(default=None)
+    optimizer: str
+    lr: float
+    index: int = field(default=0)
+
 
     def __post_init__(self):
         self.layers_num = int(self.layers_num)
         self.hidden_size = int(self.hidden_size)
-        if self.number_of_problems is not None:
-            self.number_of_problems = int(self.number_of_problems)
+        self.lr = float(self.lr)
+    
+        if self.index != 0:
+            self.index = int(self.index)
 
+    def unique_representation(self):
+        return f"{self.layers_num}-{self.hidden_size}-{self.conv_type}-{self.aggr}-{self.optimizer}-{self.lr}"
+
+
+    def last_model_path(self, models_dir: dir_path):
+        """Looks for the last model trained for this model setting"""
+        model_setting_dir = os.path.join(models_dir, self.dir_name)
+        all_models = os.listdir(model_setting_dir)
+        if all_models != []:
+            all_models = sorted(all_models, key=lambda x: int(x.split(".")[0]))
+            last_model = all_models[-1]
+            return os.path.join(model_setting_dir, last_model)
+        return None
+    
     @classmethod
-    def from_path(cls, path:str):
-        path = path.rstrip(".pt").split("/")[-1]
-        properties = path.split("-")
-        return cls(*properties)
+    def from_path(cls, path: str):
+        parts = path.split('/')
+        filename = parts[-1]
+        layers_num, hidden_size, conv_type, aggr, optimizer, lr = parts[-2].split('-')
+        index = int(filename.split('.')[0].split('-')[0])
+        return cls(layers_num=layers_num, hidden_size=hidden_size, conv_type=conv_type,
+                   aggr=aggr, index=index, optimizer=optimizer, lr=lr)
 
     @property
     def dir_name(self):
         """directory of the model setting that will have iteratively trained models"""
-        return f"{self.layers_num}-{self.hidden_size}-{self.conv_type}-{self.aggr}"
+        return f"{self.layers_num}-{self.hidden_size}-{self.conv_type}-{self.aggr}-{self.optimizer}-{self.lr}"
 
     @property
     def file_name(self):
         """Specific path of the model where the weights are saved/ to be saved"""
-        return f"{self.number_of_problems}.pt"
-
-    @property
-    def path(self):
-        return os.path.join(self.dir_path, self.file_name)
+        return f"{self.index}.pt"
 
     def __iter__(self):
-        return iter([self.layers_num, self.hidden_size, self.conv_type, self.aggr])
+        return iter([self.layers_num, self.hidden_size, self.conv_type, self.aggr, self.optimizer, self.lr])
 
 @dataclass
 class OptimizerSetting:
@@ -56,22 +76,18 @@ class OptimizerSetting:
         if lr is not None:
             self.lr = float(lr)
 
-# MAYBE: instead of using train dir and test dir get the train instances and test instances here
-def train_and_save_model(models_dir, model_setting: ModelSetting, optimizer_setting: OptimizerSetting, train_dir:str, test_dir:str, val_dir=None):
-    model_setting_dir = os.path.join(models_dir, model_setting.dir_name)
-    all_models = os.listdir(model_setting_dir)
+
+def train_and_save_model(models_dir, model_setting: ModelSetting, train_instances:list[file_path], test_instances:list[file_path], val_dir=None):
+
+    latest_model_path = model_setting.last_model_path(models_dir)
+    if latest_model_path is not None:
+        print("Reusing model:", latest_model_path)
+        model_setting.index = ModelSetting.from_path(latest_model_path).index + 1
     
-    this_model_path = os.path.join(model_setting_dir, model_setting.file_name)
-    latest_model_path = None
-    # If we have some previous models saved
-    if all_models != []:
-        all_models = sorted(all_models, key=lambda x: int(x.split(".")[0]))
-        last_model = all_models[-1]
-        latest_model_path = os.path.join(model_setting_dir, last_model)
+    this_model_path = os.path.join(models_dir, model_setting.dir_name, model_setting.file_name)
 
-
-    train_set = data_loading.build_data_set(path=train_dir)
-    test_set = data_loading.build_data_set(path=test_dir)
+    train_set = data_loading.build_data_set(problem_instances=train_instances)
+    test_set = data_loading.build_data_set(problem_instances=test_instances)
     val_set = []
     if val_dir:
         val_set = data_loading.build_data_set(path=val_dir)
@@ -93,7 +109,7 @@ def train_and_save_model(models_dir, model_setting: ModelSetting, optimizer_sett
         pos_weight=pos_weight, neg_weight=neg_weight
     
 )
-    model_handler.init_optimizer(optimizer_setting)  # TODO hyperparameter on optimizer
+    model_handler.init_optimizer(model_setting)  # TODO hyperparameter on optimizer
 
     train_loss_list = []
     test_loss_list = []
@@ -108,6 +124,7 @@ def train_and_save_model(models_dir, model_setting: ModelSetting, optimizer_sett
         train_loss_list.append(train_results.loss.item())
         
         if test_set:
+            # Somehow from here or the following functions we need to be able to retrieve the actions 
             test_results = model_handler.test(test_loader)
             test_loss_list.append(test_results.loss.item())
 
@@ -118,44 +135,16 @@ def train_and_save_model(models_dir, model_setting: ModelSetting, optimizer_sett
         if epoch % 10 == 0:
             print("Epoch: ",epoch,)
             print("Train loss: ",train_results.loss.item())
-            if test_set:
-                print("Test loss: ",test_results.loss.item())
-            if val_set:
-                print("Val loss: ",val_results.loss.item())
 
     model_handler.save_model(this_model_path)
 
-    # TODO: Parameter to save the plots
-    save_plots = False
-    if save_plots:
-        epoch_list = list(range(1, epochs))
-        if val_loss_list:
-            metrics.plot_train_test_loss(
-                epoch_list, train_loss_list, test_loss_list, val_loss_list=val_loss_list
-            )
-        else:
-            metrics.plot_train_test_loss(epoch_list, train_loss_list, test_loss_list)
-
-
-# # total_positives, total_negatives, total_samples = dataset_metrics(build_data_set())
-
-
-# if __name__ == "__main__":
-#     parser = argparse.ArgumentParser()
-#     parser.add_argument("path", help="path to the data")
-#     args = parser.parse_args()
-
-#     training(args.path)
-
-#     training(args.path)
-
-
-
-
-
-# WAe have 200
-# - 1
-# -2 
-# -3 
-#
-
+    # # TODO: Parameter to save the plots
+    # save_plots = False
+    # if save_plots:
+    #     epoch_list = list(range(1, epochs))
+    #     if val_loss_list:
+    #         metrics.plot_train_test_loss(
+    #             epoch_list, train_loss_list, test_loss_list, val_loss_list=val_loss_list
+    #         )
+    #     else:
+    #         metrics.plot_train_test_loss(epoch_list, train_loss_list, test_loss_list)

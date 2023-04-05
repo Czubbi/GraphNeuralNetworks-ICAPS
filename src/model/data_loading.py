@@ -64,35 +64,21 @@ def build_hetero(
     hetero_data["value", "precondition", "operator"].edge_index = edge_df_to_torch(val_op_df)
     hetero_data["operator", "effect", "value"].edge_index = edge_df_to_torch(op_val_df)
 
-    # VarVal = edge_df_to_torch(val_var_df)
-    # ValOp = edge_df_to_torch(val_op_df)
-    # OpVal = edge_df_to_torch(op_val_df)
-
     # return hetero_data
     return T.ToUndirected()(hetero_data)
 
-# dir list as input to this function
-def build_data_set(path):
-    """Returns a list of hetero datasets"""
+def build_data_set(problem_instances):
+    """Expects a list of problem directories that have values, variables, operators, and their respective edges"""
     dataset = []
-    dir_list = os.listdir(path)
-    # keep just directories
 
-    # print(dir_list)
-    # dir_list = ['p907_4_2_2_7_3']*3
-    # dir_list = os.listdir(path)
-    for problem in dir_list:
-        # check if it's a file
-        if os.path.isfile(os.path.join(path, problem)):
+    for problem in problem_instances:
+
+        # skip files as problem has to be a directory
+        if os.path.isfile(problem):
             continue
-        dfs = problem_dfs(os.path.join(path, problem))
-        # var_df, val_df, op_df, val_var_df, val_op_df, op_val_df = dfs
+        dfs = problem_dfs(problem)
         temp_date = build_hetero(*dfs)
         dataset.append(temp_date)
-    # dfs = problem_dfs(problem_path="z_test_data")
-    # var_df, val_df, op_df, val_var_df, val_op_df, op_val_df = dfs
-    # temp_date = build_hetero(*dfs)
-    # dataset.append(temp_date)
     return dataset
 
 

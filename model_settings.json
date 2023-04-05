@@ -3,19 +3,25 @@
         "layers_num": 4,
         "hidden_size": 64,
         "conv_type": "SAGEConv",
-        "aggr": "sum"
+        "aggr": "sum",
+        "optimizer": "Adam",
+        "lr": 0.001
     },
     {
         "layers_num": 3,
         "hidden_size": 128,
-        "conv_type": "GCNConv",
-        "aggr": "sum"
+        "conv_type": "SAGEConv",
+        "aggr": "sum",
+        "optimizer": "Adam",
+        "lr": 0.001
     },
     {
         "layers_num": 4,
         "hidden_size": 64,
-        "conv_type": "GATConv",
-        "aggr": "sum"
+        "conv_type": "SAGEConv",
+        "aggr": "sum",
+        "optimizer": "Adam",
+        "lr": 0.003
 
     }
 ]

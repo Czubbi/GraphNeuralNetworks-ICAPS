@@ -39,8 +39,8 @@ class ModelHandler:
         self.optimizer = None
 
 
-    def init_optimizer(self, optimizer_setting:"OptimizerSetting") -> torch.optim.Optimizer:
-        assert optimizer_setting.optimizer in ["Adam", "RMSprop", "Adagrad"]
+    def init_optimizer(self, model_setting:"ModelSetting") -> torch.optim.Optimizer:
+        assert model_setting.optimizer in ["Adam", "RMSprop", "Adagrad"]
 
         optimizer_classes = {
             "Adam": torch.optim.Adam,
@@ -48,12 +48,12 @@ class ModelHandler:
             "Adagrad": torch.optim.Adagrad,
         }
 
-        OptimizerClass = optimizer_classes[optimizer_setting.optimizer]
+        OptimizerClass = optimizer_classes[model_setting.optimizer]
 
-        if optimizer_setting.lr is None:
+        if model_setting.lr is None:
             optimizer = OptimizerClass(self.model.parameters())
         else:
-            optimizer = OptimizerClass(self.model.parameters(), optimizer_setting.lr)
+            optimizer = OptimizerClass(self.model.parameters(), model_setting.lr)
 
         self.optimizer = optimizer
 
