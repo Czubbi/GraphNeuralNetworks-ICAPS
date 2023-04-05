@@ -38,14 +38,12 @@ if __name__ == "__main__":
     parser.add_argument("test_dir", help="path to folder with test problems")
     parser.add_argument("workspace_dir", help="path to workspace/knowledge folders, will be used to save models and read and knowledge")
     parser.add_argument("model_settings", help="path to folder json file with model settings")
-    parser.add_argument("optimizer_settings", help="path to folder json file with optimizer settings")
     args = parser.parse_args()
 
     train_dir = args.train_dir
     test_dir = args.test_dir
     workspace_dir = args.workspace_dir
     model_settings_path = args.model_settings
-    optimizer_settings_path = args.optimizer_settings
 
     # TODO Make it being parametrized from the command line
     # Load the model and optimizer settings to create the models
