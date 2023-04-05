@@ -104,4 +104,7 @@ class ModelHandler:
     def test(self, data_loader: torch.utils.data.DataLoader):
         self.model.eval()
         test_batch = next(iter(data_loader))
+        # if not all from plan are good
+        # then we have some key-map for the files
+        # add the test failed that failed xxx times more to the train set
         return test_val_results(test_batch, self.model, self.pos_weight, self.neg_weight)

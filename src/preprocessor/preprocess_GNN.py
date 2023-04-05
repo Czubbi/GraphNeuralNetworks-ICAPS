@@ -72,3 +72,35 @@ def run_gnn_preprocessor(sas_path, output_dir, model_path, threshold, retries=No
             reduced_sasfile_content = postprocessor.get_reduced_sasfile(sasfile_content, d, probabilities)
             postprocessor.saved_reduced_sasfile(reduced_sasfile_content, retries_output_dir, f"h2_gnn{idx}.sas")
             torch.save(probabilities, f"workspace/retries/actions_predictions{idx}.pt")
+
+
+
+
+
+# 1000 total akcji
+#     900 zlych
+#     100 dobrych
+
+# Plan zwraca 30
+# wszystkie w planie są w dobrych
+
+
+# Idealne scenario
+# - zmneijszylismy o 10 razy state space
+# - mamy wszystkie 30 akcji w planie
+
+
+#  Dobre z planu         Nie dobre z planu
+# 0 1 2 3 .... 30     31 ... 100
+
+
+# 970 zlych
+# 30 dobrych
+
+
+# 31...100 wszystkie byly dobre
+
+
+
+
+

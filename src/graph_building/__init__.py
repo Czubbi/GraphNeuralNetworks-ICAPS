@@ -146,6 +146,8 @@ def pdg_and_nodes(sasfile_path, output_dir, good_operators_path=None):
                     result.append(f"{source},{destination}\n")
             file.writelines(result)
 
+    # print("pdg_and_nodes")
+    # print(f"working on {sasfile_path}, {output_dir}, {good_operators_path}")
     variable_output_path = os.path.join(output_dir, "variables.txt")
     operator_output_path = os.path.join(output_dir, "operators.txt")
 

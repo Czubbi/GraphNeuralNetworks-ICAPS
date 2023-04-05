@@ -49,7 +49,7 @@ def default_gnn_preprocessor(threshold, retries):
     if h2_sas == h2_gnn_sas:
         logger.info("H2 -> GNN preprocessor did not change the sas file")
 
-    # H2 STEP
+    # Second H2 STEP
     run_h2_preprocessor_on_file(WORKSPACE_SAS)
     copy_file(WORKSPACE_SAS, H2_GNN_H2_PATH)
     # Check

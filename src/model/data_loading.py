@@ -71,7 +71,7 @@ def build_hetero(
     # return hetero_data
     return T.ToUndirected()(hetero_data)
 
-
+# dir list as input to this function
 def build_data_set(path):
     """Returns a list of hetero datasets"""
     dataset = []
@@ -144,11 +144,13 @@ def train_test_val_split(dataset, train_size, test_size, val=False):
 
 def create_loaders(train_set, test_set, val_set):
     train_loader = DataLoader(train_set, batch_size=16, shuffle=True)  # TODO hyperparams
-    test_loader = DataLoader(test_set, batch_size=len(test_set), shuffle=True)
-    if val_set:
+    test_loader = None
+    val_loader = None
+    if test_set != []:
+        test_loader = DataLoader(test_set, batch_size=len(test_set), shuffle=True)
+    if val_set != []:
         val_loader = DataLoader(val_set, batch_size=len(val_set), shuffle=True)
-    else:
-        val_loader = None
+
 
     return train_loader, test_loader, val_loader
 
