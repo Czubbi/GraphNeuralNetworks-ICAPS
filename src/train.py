@@ -1,10 +1,9 @@
 import argparse
 import os
 import shutil
-import math
 import json
 
-from model.training import train_and_save_model, ModelSetting, OptimizerSetting
+from model.training import train_and_save_model, ModelSetting
 
 
 def cleanup_directories(dirs):
@@ -17,69 +16,58 @@ def load_json_file(json_file):
         return json.load(f)
 
 
-# def train.next(failed_dir, train_dir):
-#     move_all_problems_from_failed_to_train(failed_dir, train_dir)
-#     run_alvaro_stuff(train_dir)
-#     run_our_stuff(train_dir)
+def parse_model_settings(model_settings) -> dict:
+    settings_dict = {}
+    settings_list = model_settings.split(',')
+    for i in range(0, len(settings_list), 2):
+        key = settings_list[i]
+        value = settings_list[i+1]
+        if value.isdigit():
+            value = int(value)
+        elif '.' in value:
+            value = float(value)
+        settings_dict[key] = value
+    return settings_dict
 
-# def main():
-#     model = train.next(failed_dir)
-
-
-#     for problem in test_dir:
-#     exitcode, _ = subprocess.call(fast_downward, model=model,)
-#     if exit_code != 0:
-#         move_this_problem_to_failed()
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("train_dir", help="path to folder with training problems")
     parser.add_argument("test_dir", help="path to folder with test problems")
-    parser.add_argument("workspace_dir", help="path to workspace/knowledge folders, will be used to save models and read and knowledge")
-    parser.add_argument("model_settings", help="path to folder json file with model settings")
+    # This is needed to store the models but also to load the models that have already been trained
+    parser.add_argument("output_dir", help="path to where models keep being stored")
+    parser.add_argument(
+        "--model-settings",
+        help="comma separated list of model settings, for instance:\
+            'layers_num,4,hidden_size,64,conv_type,SAGEConv,aggr,sum,optimizer,Adam,lr,0.001'", required=True
+    )
     args = parser.parse_args()
 
     train_dir = args.train_dir
     test_dir = args.test_dir
-    workspace_dir = args.workspace_dir
-    model_settings_path = args.model_settings
-
-    # TODO Make it being parametrized from the command line
-    # Load the model and optimizer settings to create the models
-    model_settings_json = load_json_file(model_settings_path)
-    unique_settings = set()
-    model_settings: list[ModelSetting] = []
-
-    for settings in model_settings_json:
-        model_setting = ModelSetting(**settings)
-        model_settings.append(model_setting)
-        # Check if we don't have duplicated model settings  
-        if model_setting.unique_representation() in unique_settings:
-            raise ValueError(f"Model setting {model_setting.unique_representation()} has been duplicated")
-        unique_settings.add(model_setting.unique_representation())
+    output_dir = args.output_dir
+    model_settings_dict = parse_model_settings(args.model_settings)
+    model_setting = ModelSetting(**model_settings_dict)
 
     # Location to store or load models
-    models_dir = os.path.join(workspace_dir, "models")
+    models_dir = os.path.join(output_dir, "models")
     # cleanup_directories([models_dir])
     
-
-    for model_setting in model_settings:
-        print("training model:", model_setting.dir_name)
-        # Each model setting has its own directory to store the models.
-        os.makedirs(os.path.join(models_dir, model_setting.dir_name), exist_ok=True)
+    print("training model:", model_setting.dir_name)
+    # Each model setting has its own directory to store the models.
+    os.makedirs(os.path.join(models_dir, model_setting.dir_name), exist_ok=True)
 
 
-        # Each problem instance is a directory containing 
-        train_intances = [os.path.join(train_dir, x) for x in os.listdir(train_dir)]
-        test_instances = [os.path.join(test_dir, x) for x in os.listdir(test_dir)]
-        print("training on files, number:", len(train_intances))
-        print("testing on files, number:", len(test_instances))
+    train_intances = [os.path.join(train_dir, x) for x in os.listdir(train_dir)]
+    test_instances = [os.path.join(test_dir, x) for x in os.listdir(test_dir)]
+    print("training on files, number:", len(train_intances))
+    print("testing on files, number:", len(test_instances))
 
-        train_and_save_model(
-            models_dir, model_setting=model_setting, 
-            train_instances=train_intances, test_instances=test_instances
-        )
+    train_and_save_model(
+        models_dir, model_setting=model_setting, 
+        train_instances=train_intances, test_instances=test_instances
+    )
 
         # args.model_path = cokolwiek
         # args.failed = -1

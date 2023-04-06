@@ -2,13 +2,10 @@ from datetime import datetime
 import os
 from typing import TYPE_CHECKING, Union
 from dataclasses import dataclass, field
-from collections import namedtuple
 from . import data_loading
 from . import architectures
 from .model_handler import ModelHandler
-from . import metrics
 
-# ModelSetting = namedtuple("ModelSetting", ["layers_num", "hidden_size", "conv_type", "aggr"])
 file_path = str
 dir_path = str
 
@@ -68,13 +65,6 @@ class ModelSetting:
     def __iter__(self):
         return iter([self.layers_num, self.hidden_size, self.conv_type, self.aggr, self.optimizer, self.lr])
 
-@dataclass
-class OptimizerSetting:
-    optimizer: str
-    lr: float = field(default=None)
-    def __post_init__(self, lr: float = None):
-        if lr is not None:
-            self.lr = float(lr)
 
 
 def train_and_save_model(models_dir, model_setting: ModelSetting, train_instances:list[file_path], test_instances:list[file_path], val_dir=None):
