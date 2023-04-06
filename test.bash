@@ -7,7 +7,7 @@ run_good() {
 }
 
 run_bad() {
-./scorpion/fast-downward.py --transform-task src/preprocessor.command zztest/bad/bad.pddl --search "astar(scp_online([
+./scorpion/fast-downward.py --transform-task-options gnn-retries,3,gnn-threshold,0.99  --transform-task src/preprocessor.command zztest/bad/bad.pddl --search "astar(scp_online([
         projections(sys_scp(max_time=100, max_time_per_restart=10)),
         cartesian()],
         saturator=perimstar, max_time=1000, interval=10K, orders=greedy_orders()),
