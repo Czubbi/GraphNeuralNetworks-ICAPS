@@ -39,7 +39,7 @@ def default_gnn_preprocessor(threshold, retries):
     # GNN STEP
     run_gnn_preprocessor(sas_path=WORKSPACE_SAS,
                          output_dir="workspace",
-                         model_path="DK/satellite/4-64-SAGEConv-sum.pt",
+                         model_path="DK/models/4-64-SAGEConv-sum-Adam-0.001/4.pt",
                          threshold=threshold,
                          retries=retries)
     copy_file(WORKSPACE_SAS, H2_GNN_PATH)
@@ -84,9 +84,8 @@ def failed_gnn_preprocessor(failed_cout, retries):
 
 
 argparser = argparse.ArgumentParser()
-argparser.add_argument("--gnn-threshold", help="number of retries for gnn", type=float)
-argparser.add_argument("--gnn-retries", help="number of retries for gnn", type=int)
-argparser.add_argument("--sas-file", help="path to sas file")
+argparser.add_argument("--gnn-threshold", help="number of retries for gnn", type=float, required=True)
+argparser.add_argument("--gnn-retries", help="number of retries for gnn", type=int, required=True)
 argparser.add_argument("--failed", help="0 based index, indicating if we have already failed a plan", default=-1, type=int)
 
 

@@ -97,8 +97,8 @@ class ModelHandler:
     @torch.no_grad()
     def predict_threshold(self, actions_proba, threshold: float):
         self.model.eval()
-        action_predictions = map(lambda x: 1 if x else 0, actions_proba >= threshold)
-        return list(action_predictions)
+        action_predictions = (actions_proba >= threshold).type(torch.int)
+        return action_predictions
 
     @torch.no_grad()
     def test(self, data_loader: torch.utils.data.DataLoader):
