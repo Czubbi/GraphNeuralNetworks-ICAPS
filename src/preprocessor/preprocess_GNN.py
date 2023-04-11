@@ -25,6 +25,7 @@ def run_gnn_preprocessor(sas_path, output_dir, model_path, threshold, retries=No
     :param retries: number of retries to build predictions for taking different % of all actions as good
     :param max_percentage: maximum percentage of actions to be taken as good when building retries
     """
+    # This will build all the grapgh constructrs in the output_dir
     pdg_and_nodes(sas_path, output_dir)
     model_setting = ModelSetting.from_path(model_path)
     Architecture = architectures.get_dynamic(model_setting)
@@ -49,12 +50,12 @@ def run_gnn_preprocessor(sas_path, output_dir, model_path, threshold, retries=No
 
 
     with open(os.path.join(output_dir, "global_operators.json"), "r") as f:
-        d = json.load(f)
+        all_operators_dict = json.load(f)
 
     with open(sas_path, "r") as f:
         sasfile_content = f.read()
 
-    reduced_sasfile_content = postprocessing.get_reduced_sasfile(sasfile_content, d, default_predictions)
+    reduced_sasfile_content = postprocessing.get_reduced_sasfile(sasfile_content, all_operators_dict, default_predictions)
     postprocessing.saved_reduced_sasfile(reduced_sasfile_content, output_dir, "output.sas")
 
     # Retries indicates if we want to build predictions for taking different % of all actions as good
@@ -76,7 +77,7 @@ def run_gnn_preprocessor(sas_path, output_dir, model_path, threshold, retries=No
         for idx, (percentage, probabilities) in enumerate(percentage_probabilities.items()):
             print(f'making for: {percentage}')
             print(f"Output dir: {output_dir}")
-            reduced_sasfile_content = postprocessing.get_reduced_sasfile(sasfile_content, d, probabilities)
+            reduced_sasfile_content = postprocessing.get_reduced_sasfile(sasfile_content, all_operators_dict, probabilities)
             postprocessing.saved_reduced_sasfile(reduced_sasfile_content, retries_output_dir, f"h2_gnn{idx}.sas")
             torch.save(probabilities, f"workspace/retries/actions_predictions{idx}.pt")
 
