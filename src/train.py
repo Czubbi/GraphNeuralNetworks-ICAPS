@@ -18,7 +18,7 @@ def load_json_file(json_file):
 
 def parse_model_settings(model_settings) -> dict:
     settings_dict = {}
-    settings_list = model_settings.split(',')
+    settings_list = model_settings.strip("'").split(',')
     for i in range(0, len(settings_list), 2):
         key = settings_list[i]
         value = settings_list[i+1]
