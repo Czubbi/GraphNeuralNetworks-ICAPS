@@ -5,7 +5,7 @@ from graph_building import pdg_and_nodes
 
 
 
-def generate_graphs(domain_task_dir, output_dir, good_operators_or_sas_plan_path):
+def generate_graphs(domain_task_dir, output_dir, good_actions_file_name):
     runs_dirs = os.listdir(domain_task_dir)
 
     # For all runs inside a task folder
@@ -15,6 +15,7 @@ def generate_graphs(domain_task_dir, output_dir, good_operators_or_sas_plan_path
         # e.g: graph_training_data/satellite/p01-2-2-2-5-7
         path_run_dir = os.path.join(domain_task_dir, run_dir)
         path_sas_file = sas_file_path(path_run_dir)
+        path_good_actions = os.path.join(path_run_dir, good_actions_file_name)
 
         # Path to the folder where the graph constructs for this run will be saved
         path_output_run = os.path.join(output_dir, run_dir)
@@ -22,9 +23,9 @@ def generate_graphs(domain_task_dir, output_dir, good_operators_or_sas_plan_path
 
         # For the later usage we will also copy sas file and good actions file to the output folder
         shutil.copyfile(path_sas_file, os.path.join(path_output_run, "output.sas"))
-        shutil.copyfile(good_operators_or_sas_plan_path, os.path.join(path_output_run, "good_actions"))
+        shutil.copyfile(path_good_actions, os.path.join(path_output_run, "good_actions"))
 
-        pdg_and_nodes(path_sas_file, path_output_run, good_operators_or_sas_plan_path)
+        pdg_and_nodes(path_sas_file, path_output_run, path_good_actions)
 
 
 
