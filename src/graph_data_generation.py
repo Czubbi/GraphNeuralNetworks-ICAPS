@@ -76,11 +76,13 @@ if __name__ == "__main__":
     argparser = argparse.ArgumentParser()
     argparser.add_argument("task_dir",help="path to folder with runs for a specific domain",)
     argparser.add_argument("output_dir", help="path to where the graphs will be saved")
+    argparser.add_argument("good_actions_file_name", help="name of the file with good actions e.g: 'good_operators' or 'sas_plan'")
 
     options = argparser.parse_args()
     domain_task_dir = options.task_dir
     output_dir = options.output_dir
+    good_actions_file_name = options.good_actions_file_name
 
 
-    generate_graphs(domain_task_dir, output_dir)
+    generate_graphs(domain_task_dir, output_dir,good_actions_file_name)
 
