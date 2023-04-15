@@ -11,8 +11,13 @@ def calculate_weights(train_set):
     """Returns"""
     total_positives, total_negatives, total_samples = dataset_metrics(train_set)
 
+    assert total_positives > 0
+    assert total_negatives > 0
+    assert total_positives + total_negatives == total_samples
+
     pos_weight = 1 / (total_positives / total_samples)
     neg_weight = 1 / (total_negatives / total_samples)
+
 
     return pos_weight, neg_weight
 
@@ -82,50 +87,50 @@ def build_data_set(problem_instances):
     return dataset
 
 
-def train_test_val_split(dataset, train_size, test_size, val=False):
-    """
-    If only_test then we will not have a validation set
-    """
-    if val and train_size + test_size > 1:
-        raise ValueError("train_size + test_size must be less than 1 - we need something for valid")
+# def train_test_val_split(dataset, train_size, test_size, val=False):
+#     """
+#     If only_test then we will not have a validation set
+#     """
+#     if val and train_size + test_size > 1:
+#         raise ValueError("train_size + test_size must be less than 1 - we need something for valid")
 
-    dataset_size = len(dataset)
-    indices = list(range(dataset_size))
-    split_train = int(np.floor(0.7 * dataset_size))
-    split_test = int(np.floor(0.2 * dataset_size))
-    np.random.shuffle(indices)
+#     dataset_size = len(dataset)
+#     indices = list(range(dataset_size))
+#     split_train = int(np.floor(0.7 * dataset_size))
+#     split_test = int(np.floor(0.2 * dataset_size))
+#     np.random.shuffle(indices)
 
-    train_idxs, test_idxs, val_idxs = (
-        indices[:split_train],
-        indices[split_train : split_train + split_test],
-        indices[split_train + split_test :],
-    )
+#     train_idxs, test_idxs, val_idxs = (
+#         indices[:split_train],
+#         indices[split_train : split_train + split_test],
+#         indices[split_train + split_test :],
+#     )
 
-    assert len(train_idxs) + len(test_idxs) + len(val_idxs) == dataset_size
-    train_set = []
-    test_set = []
-    val_set = []
+#     assert len(train_idxs) + len(test_idxs) + len(val_idxs) == dataset_size
+#     train_set = []
+#     test_set = []
+#     val_set = []
 
-    for i in train_idxs:
-        train_set.append(dataset[i])
-    for i in test_idxs:
-        test_set.append(dataset[i])
+#     for i in train_idxs:
+#         train_set.append(dataset[i])
+#     for i in test_idxs:
+#         test_set.append(dataset[i])
 
-    for i in val_idxs:
-        val_set.append(dataset[i])
+#     for i in val_idxs:
+#         val_set.append(dataset[i])
 
-    if not val:
-        test_set = test_set + val_set
+#     if not val:
+#         test_set = test_set + val_set
 
-    # test_loader = train_loader
-    # test_loader = DataLoader(test_set, batch_size=len(test_set), shuffle=True)
-    # # test_loader = test_set
-    # val_loader = DataLoader(val_set, batch_size=len(val_set), shuffle=True)
+#     # test_loader = train_loader
+#     # test_loader = DataLoader(test_set, batch_size=len(test_set), shuffle=True)
+#     # # test_loader = test_set
+#     # val_loader = DataLoader(val_set, batch_size=len(val_set), shuffle=True)
 
-    if not val:
-        val_set = []
+#     if not val:
+#         val_set = []
 
-    return train_set, test_set, val_set
+#     return train_set, test_set, val_set
 
 
 def create_loaders(train_set, test_set, val_set):
@@ -158,9 +163,9 @@ def dataset_metrics(dataset):
 
     assert total_positives + total_negatives == total_samples
 
-    global POS_WEIGHT
-    global NEG_WEIGHT
-    POS_WEIGHT = 1 / (total_positives / total_samples)
-    NEG_WEIGHT = 1 / (total_negatives / total_samples)
+    # global POS_WEIGHT
+    # global NEG_WEIGHT
+    # POS_WEIGHT = 1 / (total_positives / total_samples)
+    # NEG_WEIGHT = 1 / (total_negatives / total_samples)
 
     return total_positives, total_negatives, total_samples
