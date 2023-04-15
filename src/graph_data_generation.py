@@ -31,6 +31,7 @@ def good_actions_path(path_run_dir):
     if os.path.exists(os.path.join(path_run_dir, "sas_plan")):
         return os.path.join(path_run_dir, "sas_plan")
     else:
+        assert os.path.exists(os.path.join(path_run_dir, "good_operators")), "No good operators file found"
         return os.path.join(path_run_dir, "good_operators")
 
 
