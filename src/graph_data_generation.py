@@ -5,7 +5,7 @@ from graph_building import pdg_and_nodes
 
 
 
-def generate_graphs(domain_task_dir, output_dir):
+def generate_graphs(domain_task_dir, output_dir, good_actions_file_name):
     runs_dirs = os.listdir(domain_task_dir)
 
     # For all runs inside a task folder
@@ -14,24 +14,19 @@ def generate_graphs(domain_task_dir, output_dir):
             continue
         # e.g: graph_training_data/satellite/p01-2-2-2-5-7
         path_run_dir = os.path.join(domain_task_dir, run_dir)
-        path_good_actions = good_actions_path(path_run_dir)
         path_sas_file = sas_file_path(path_run_dir)
+        path_good_actions = os.path.join(path_run_dir, good_actions_file_name)
 
         # Path to the folder where the graph constructs for this run will be saved
         path_output_run = os.path.join(output_dir, run_dir)
         os.makedirs(path_output_run, exist_ok=True)
+
         # For the later usage we will also copy sas file and good actions file to the output folder
         shutil.copyfile(path_sas_file, os.path.join(path_output_run, "output.sas"))
         shutil.copyfile(path_good_actions, os.path.join(path_output_run, "good_actions"))
 
         pdg_and_nodes(path_sas_file, path_output_run, path_good_actions)
 
-
-def good_actions_path(path_run_dir):
-    if os.path.exists(os.path.join(path_run_dir, "sas_plan")):
-        return os.path.join(path_run_dir, "sas_plan")
-    else:
-        return os.path.join(path_run_dir, "good_operators")
 
 
 def sas_file_path(path_run_dir):
@@ -81,11 +76,13 @@ if __name__ == "__main__":
     argparser = argparse.ArgumentParser()
     argparser.add_argument("task_dir",help="path to folder with runs for a specific domain",)
     argparser.add_argument("output_dir", help="path to where the graphs will be saved")
+    argparser.add_argument("good_actions_file_name", help="name of the file with good actions e.g: 'good_operators' or 'sas_plan'")
 
     options = argparser.parse_args()
     domain_task_dir = options.task_dir
     output_dir = options.output_dir
+    good_actions_file_name = options.good_actions_file_name
 
 
-    generate_graphs(domain_task_dir, output_dir)
+    generate_graphs(domain_task_dir, output_dir,good_actions_file_name)
 
