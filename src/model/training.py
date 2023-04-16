@@ -51,6 +51,15 @@ class ModelSetting:
         index = int(filename.split('.')[0].split('-')[0])
         return cls(layers_num=layers_num, hidden_size=hidden_size, conv_type=conv_type,
                    aggr=aggr, index=index, optimizer=optimizer, lr=lr)
+    
+    @classmethod
+    def from_file(cls, path: str):
+        with open(os.path.join(path)) as f:
+            lines = f.read()
+            layers_num, hidden_size, conv_type, aggr, optimizer, lr = lines.split(',')
+        
+        return cls(layers_num=layers_num, hidden_size=hidden_size, conv_type=conv_type,
+                    aggr=aggr, optimizer=optimizer, lr=lr)
 
     @property
     def dir_name(self):

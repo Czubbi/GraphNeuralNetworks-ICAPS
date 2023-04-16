@@ -39,7 +39,7 @@ def default_gnn_preprocessor(threshold, retries):
     # GNN STEP
     run_gnn_preprocessor(sas_path=WORKSPACE_SAS,
                          output_dir="workspace",
-                         model_path="DK/models/4-64-SAGEConv-sum-Adam-0.001/4.pt",
+                         model_path="DK/model.pt",
                          threshold=threshold,
                          retries=retries)
     copy_file(WORKSPACE_SAS, H2_GNN_PATH)
