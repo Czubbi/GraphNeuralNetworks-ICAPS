@@ -90,9 +90,17 @@ class SasParser:
 
     @classmethod
     def good_operators_to_set(cls, good_operators_path) -> Set[Operator.LineAlias]:
-        with open(good_operators_path, "r") as file:
-            good_operators: set[Operator.LineAlias] = set(file.read().splitlines())
-        return good_operators
+        print(f"Good operators path: {good_operators_path}")
+        if(good_operators_path.split("/")[-1] == "good_operators"):
+            with open(good_operators_path, "r") as file:
+                good_operators: set[Operator.LineAlias] = set(file.read().splitlines())
+            return good_operators
+        elif(good_operators_path.split("/")[-1] == "sas_plan"):
+            with open(good_operators_path, "r") as file:
+                good_operators: set[Operator.LineAlias] = file.read().replace("(", "").replace(")", "").splitlines()
+                good_operators = good_operators[:-1]
+                good_operators = set(good_operators)
+            return good_operators
 
     @classmethod
     def parse_preconditions(cls, precondition_lines) -> Set[Precondition]:
