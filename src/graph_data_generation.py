@@ -17,6 +17,10 @@ def generate_graphs(domain_task_dir, output_dir, good_actions_file_name):
         path_sas_file = sas_file_path(path_run_dir)
         path_good_actions = os.path.join(path_run_dir, good_actions_file_name)
 
+        if(os.path.exists(path_good_actions) == False):
+            print("The good actions file doesn't exist for this run: " + path_good_actions)
+            continue
+
         # Path to the folder where the graph constructs for this run will be saved
         path_output_run = os.path.join(output_dir, run_dir)
         os.makedirs(path_output_run, exist_ok=True)
@@ -84,5 +88,5 @@ if __name__ == "__main__":
     good_actions_file_name = options.good_actions_file_name
 
 
-    generate_graphs(domain_task_dir, output_dir,good_actions_file_name)
+    generate_graphs(domain_task_dir, output_dir, good_actions_file_name)
 
