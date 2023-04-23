@@ -77,7 +77,8 @@ class ModelSetting:
 
 
 
-def train_and_save_model(models_dir, model_setting: ModelSetting, train_instances:list[file_path], test_instances:list[file_path], val_dir=None):
+def train_and_save_model(models_dir, model_setting: ModelSetting, train_instances:list[file_path],
+                         test_instances:list[file_path], num_epochs, val_dir=None):
 
     latest_model_path = model_setting.last_model_path(models_dir)
     if latest_model_path is not None:
@@ -113,17 +114,15 @@ def train_and_save_model(models_dir, model_setting: ModelSetting, train_instance
         pos_weight=pos_weight, neg_weight=neg_weight
     
 )
-    model_handler.init_optimizer(model_setting)  # TODO hyperparameter on optimizer
+    model_handler.init_optimizer(model_setting) 
 
     train_loss_list = []
     test_loss_list = []
     val_loss_list = []
 
-    # TODO: make parameter for epochs - hyperparameters
-    epochs = 15
 
     # Parameter to save the plots
-    for epoch in range(1, epochs):
+    for epoch in range(1, num_epochs):
         train_results = model_handler.train(train_loader)
         train_loss_list.append(train_results.loss.item())
         
