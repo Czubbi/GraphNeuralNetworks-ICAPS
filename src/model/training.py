@@ -80,8 +80,12 @@ def train_and_save_model(models_dir, model_setting: ModelSetting, train_instance
 
     latest_model_path = model_setting.last_model_path(models_dir)
     if latest_model_path is not None:
+        # TODO temporary measure to avoid overwriting the model, we will return the function if there is a model already
         print("Reusing model:", latest_model_path)
+        return
         model_setting.index = ModelSetting.from_path(latest_model_path).index + 1
+    
+
     
     this_model_path = os.path.join(models_dir, model_setting.dir_name, model_setting.file_name)
 

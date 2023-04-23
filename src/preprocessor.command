@@ -20,7 +20,7 @@ H2_GNN_H2_PATH = "workspace/h2_gnn_h2.sas"
 WORKSPACE_SAS = "workspace/output.sas"
 # import dupa
 
-def default_gnn_preprocessor(threshold, retries):
+def default_gnn_preprocessor(threshold, retries, model_path):
     # Original step
     input = sys.stdin
     save_to_workspace(input, "original.sas")
@@ -39,7 +39,7 @@ def default_gnn_preprocessor(threshold, retries):
     # GNN STEP
     run_gnn_preprocessor(sas_path=WORKSPACE_SAS,
                          output_dir="workspace",
-                         model_path="DK/model.pt",
+                         model_path=model_path,
                          threshold=threshold,
                          retries=retries)
     copy_file(WORKSPACE_SAS, H2_GNN_PATH)
@@ -87,11 +87,13 @@ argparser = argparse.ArgumentParser()
 argparser.add_argument("--gnn-threshold", help="number of retries for gnn", type=float, required=True)
 argparser.add_argument("--gnn-retries", help="number of retries for gnn", type=int, required=True)
 argparser.add_argument("--failed", help="0 based index, indicating if we have already failed a plan", default=-1, type=int)
+argparser.add_argument("--model-path", help="path to the weights of gnn model")
 
 
 args = argparser.parse_args()
 threshold = args.gnn_threshold
 retries = args.gnn_retries
+model_path = args.model_path
 
 
 print("##"*100)
@@ -102,7 +104,8 @@ else:
     print("RUNNING DEFAULT TRANSFORMATION")
     default_gnn_preprocessor(
         threshold=threshold,
-        retries=retries
+        retries=retries,
+        model_path=model_path
     )
 
 print("##"*100)
