@@ -138,8 +138,8 @@ def train_and_save_model(models_dir, model_setting: ModelSetting, train_instance
         if epoch % 10 == 0:
             print("Epoch: ",epoch,)
             print("Train loss: ",train_results.loss.item())
-
-    model_handler.save_model(this_model_path)
+            print("saving model")
+            model_handler.save_model(this_model_path)
 
     # # TODO: Parameter to save the plots
     # save_plots = False
