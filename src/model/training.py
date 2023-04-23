@@ -19,6 +19,7 @@ class ModelSetting:
     optimizer: str
     lr: float
     index: int = field(default=0)
+    model_specific_kwargs: dict = field(default_factory=dict)
 
 
     def __post_init__(self):
