@@ -59,16 +59,25 @@ def default_gnn_preprocessor(threshold, retries, model_path):
         logger.info("GNN -> H2 preprocessor did not change the sas file")
 
 
-def failed_gnn_preprocessor(failed_cout, retries):
-    if failed_cout == retries or not os.path.exists("workspace/retries"):
-        print("Retries exceeded, using original sas file after h2 preprocessor")
-        copy_file(H2_PATH, args.sas_file)
-        import subprocess
-        raise subprocess.CalledProcessError(123456789, "Retries exceeded")
+def failed_gnn_preprocessor(failed_count, retries):
+    if failed_count == retries or not os.path.exists("workspace/retries"):
+        if failed_count == retries:
+            print("Retries exceeded, using original sas file after h2 preprocessor")
+
+        else:
+            print("No retries available")
+
+        copy_file(H2_PATH, WORKSPACE_SAS)
+        raise Exception(
+            "Retries exceeded or no retries available, using original sas file after h2 preprocessor,\
+                this exception was called to indiciate that to the driver"
+            )
 
 
-    h2_gnn_path = os.path.join("workspace", "retries", f"h2_gnn{failed_cout}.sas")
-    h2_gnn_h2_path = os.path.join("workspace", "retries", f"h2_gnn{failed_cout}_h2.sas")
+    # We have that one
+    h2_gnn_path = os.path.join("workspace", "retries", f"h2_gnn{failed_count}.sas")
+    # We will create this one
+    h2_gnn_h2_path = os.path.join("workspace", "retries", f"h2_gnn{failed_count}_h2.sas")
 
     # H2 Step
     run_h2_preprocessor_on_file(h2_gnn_path)
