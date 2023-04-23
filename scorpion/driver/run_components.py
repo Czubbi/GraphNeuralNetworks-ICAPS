@@ -118,6 +118,10 @@ def transform_task(args):
             time_limit=time_limit,
             memory_limit=memory_limit)
     except subprocess.CalledProcessError as err:
+        if err.returncode == 123456789:
+            returncodes.print_stderr(
+                f"Task transformation returned exit status cos sie zjebalo")
+
         if err.returncode != -signal.SIGXCPU:
             returncodes.print_stderr(
                 f"Task transformation returned exit status {err.returncode}")

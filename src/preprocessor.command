@@ -60,10 +60,11 @@ def default_gnn_preprocessor(threshold, retries, model_path):
 
 
 def failed_gnn_preprocessor(failed_cout, retries):
-    if failed_cout == retries:
+    if failed_cout == retries or not os.path.exists("workspace/retries"):
         print("Retries exceeded, using original sas file after h2 preprocessor")
         copy_file(H2_PATH, args.sas_file)
-        return
+        import subprocess
+        raise subprocess.CalledProcessError(123456789, "Retries exceeded")
 
 
     h2_gnn_path = os.path.join("workspace", "retries", f"h2_gnn{failed_cout}.sas")
