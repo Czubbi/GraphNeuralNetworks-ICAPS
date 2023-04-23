@@ -81,7 +81,7 @@ def get_dynamic(model_setting: "ModelSetting"):
             super().__init__()
             self.layers_num = model_setting.layers_num
             for i in range(self.layers_num):
-                current_hidden_size = model_setting.hidden_size // (2**i)
+                current_hidden_size = model_setting.hidden_size
                 model_specific_kwargs = model_setting.model_specific_kwargs
 
                 try:
