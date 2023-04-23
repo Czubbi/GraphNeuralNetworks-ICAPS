@@ -247,9 +247,34 @@ def next_test_set():
 #         os.remove(dd)
 
 # example of a name is p1_2_1_2_5_1 and the first part is p1
-def rename_to_first_part():
-    all_files = os.listdir("zzzzzz")
-    sorted_files = sorted(all_files, key=lambda x: int(x.split("_")[0][1:]))
-    print(sorted_files)
+def rename_to_first_part(files_dir):
+    import os
+    import shutil
+    if os.path.exists('hypertunning'):
+        shutil.rmtree('hypertunning')
 
-rename_to_first_part()
+    os.mkdir('hypertunning')
+
+    all_files = os.listdir(files_dir)
+    # remove domain.pddl
+    all_files = [f for f in all_files if not f.endswith("domain.pddl")]
+    sorted_files = sorted(all_files, key=lambda x: int(x.split("_")[0][1:]))
+
+
+
+
+    # Copy domain.pddl
+    shutil.copy(os.path.join(files_dir, "domain.pddl"), os.path.join('hypertunning', "domain.pddl"))
+
+    # Copy all the problems
+    a = 0
+    for i in range(0, len(sorted_files), 10):
+        file_path = os.path.join(files_dir, sorted_files[i])
+        shutil.copytree(file_path, os.path.join('hypertunning', sorted_files[i]))
+        a += 1
+
+    print("all_files:\n", a)
+    # zip the folder
+    shutil.make_archive('hypertunning', 'zip', 'hypertunning')
+
+rename_to_first_part('data/solved_instances/satellite')
