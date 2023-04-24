@@ -5,7 +5,7 @@ from graph_building import pdg_and_nodes
 
 
 
-def generate_graphs(domain_task_dir, output_dir, good_actions_file_name):
+def generate_graphs(domain_task_dir, output_dir):
     runs_dirs = os.listdir(domain_task_dir)
 
     # For all runs inside a task folder
@@ -15,10 +15,9 @@ def generate_graphs(domain_task_dir, output_dir, good_actions_file_name):
         # e.g: graph_training_data/satellite/p01-2-2-2-5-7
         path_run_dir = os.path.join(domain_task_dir, run_dir)
         path_sas_file = sas_file_path(path_run_dir)
-        path_good_actions = os.path.join(path_run_dir, good_actions_file_name)
-
-        if(os.path.exists(path_good_actions) == False):
-            print("The good actions file doesn't exist for this run: " + path_good_actions)
+        path_good_actions = good_actions_path(path_run_dir)
+        if path_good_actions is None:
+            print("WE ARE MISSING GOOD ACTIONS AT AND SKIPPING: {}".format(path_run_dir))
             continue
 
         # Path to the folder where the graph constructs for this run will be saved
@@ -38,6 +37,16 @@ def sas_file_path(path_run_dir):
     if len(sas_files) == 0:
         raise ValueError("No SAS files found in the specified directory: " + path_run_dir)
     return os.path.join(path_run_dir, sas_files[0])
+
+def good_actions_path(path_run_dir):
+    """Try find good_actions as either good_operators or sas_plan"""
+    path_good_actions = os.path.join(path_run_dir, "good_operators")
+    if not os.path.exists(path_good_actions):
+        # try sas_plan
+        path_good_actions = os.path.join(path_run_dir, "sas_plan")
+        if not os.path.exists(path_good_actions):
+            return None
+    return path_good_actions
 
 
 # Currently we are not using it for any of the two function but keeping it for the future
@@ -80,13 +89,11 @@ if __name__ == "__main__":
     argparser = argparse.ArgumentParser()
     argparser.add_argument("task_dir",help="path to folder with runs for a specific domain",)
     argparser.add_argument("output_dir", help="path to where the graphs will be saved")
-    argparser.add_argument("good_actions_file_name", help="name of the file with good actions e.g: 'good_operators' or 'sas_plan'")
 
     options = argparser.parse_args()
     domain_task_dir = options.task_dir
     output_dir = options.output_dir
-    good_actions_file_name = options.good_actions_file_name
 
 
-    generate_graphs(domain_task_dir, output_dir, good_actions_file_name)
+    generate_graphs(domain_task_dir, output_dir)
 

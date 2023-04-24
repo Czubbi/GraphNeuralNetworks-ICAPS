@@ -20,7 +20,7 @@ H2_GNN_H2_PATH = "workspace/h2_gnn_h2.sas"
 WORKSPACE_SAS = "workspace/output.sas"
 # import dupa
 
-def default_gnn_preprocessor(threshold, retries):
+def default_gnn_preprocessor(threshold, retries, model_path):
     # Original step
     input = sys.stdin
     save_to_workspace(input, "original.sas")
@@ -39,7 +39,7 @@ def default_gnn_preprocessor(threshold, retries):
     # GNN STEP
     run_gnn_preprocessor(sas_path=WORKSPACE_SAS,
                          output_dir="workspace",
-                         model_path="DK/model.pt",
+                         model_path=model_path,
                          threshold=threshold,
                          retries=retries)
     copy_file(WORKSPACE_SAS, H2_GNN_PATH)
@@ -59,15 +59,25 @@ def default_gnn_preprocessor(threshold, retries):
         logger.info("GNN -> H2 preprocessor did not change the sas file")
 
 
-def failed_gnn_preprocessor(failed_cout, retries):
-    if failed_cout == retries:
-        print("Retries exceeded, using original sas file after h2 preprocessor")
-        copy_file(H2_PATH, args.sas_file)
-        return
+def failed_gnn_preprocessor(failed_count, retries):
+    if failed_count == retries or not os.path.exists("workspace/retries"):
+        if failed_count == retries:
+            print("Retries exceeded, using original sas file after h2 preprocessor")
+
+        else:
+            print("No retries available")
+
+        copy_file(H2_PATH, WORKSPACE_SAS)
+        raise Exception(
+            "Retries exceeded or no retries available, using original sas file after h2 preprocessor,\
+                this exception was called to indiciate that to the driver"
+            )
 
 
-    h2_gnn_path = os.path.join("workspace", "retries", f"h2_gnn{failed_cout}.sas")
-    h2_gnn_h2_path = os.path.join("workspace", "retries", f"h2_gnn{failed_cout}_h2.sas")
+    # We have that one
+    h2_gnn_path = os.path.join("workspace", "retries", f"h2_gnn{failed_count}.sas")
+    # We will create this one
+    h2_gnn_h2_path = os.path.join("workspace", "retries", f"h2_gnn{failed_count}_h2.sas")
 
     # H2 Step
     run_h2_preprocessor_on_file(h2_gnn_path)
@@ -87,11 +97,13 @@ argparser = argparse.ArgumentParser()
 argparser.add_argument("--gnn-threshold", help="number of retries for gnn", type=float, required=True)
 argparser.add_argument("--gnn-retries", help="number of retries for gnn", type=int, required=True)
 argparser.add_argument("--failed", help="0 based index, indicating if we have already failed a plan", default=-1, type=int)
+argparser.add_argument("--model-path", help="path to the weights of gnn model")
 
 
 args = argparser.parse_args()
 threshold = args.gnn_threshold
 retries = args.gnn_retries
+model_path = args.model_path
 
 
 print("##"*100)
@@ -102,7 +114,8 @@ else:
     print("RUNNING DEFAULT TRANSFORMATION")
     default_gnn_preprocessor(
         threshold=threshold,
-        retries=retries
+        retries=retries,
+        model_path=model_path
     )
 
 print("##"*100)

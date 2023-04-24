@@ -117,10 +117,14 @@ def transform_task(args):
             stdin=args.sas_file,
             time_limit=time_limit,
             memory_limit=memory_limit)
+        return (0, True)
+
     except subprocess.CalledProcessError as err:
+        print(f"THIS IS THE ERROR: {err.returncode}")
         if err.returncode != -signal.SIGXCPU:
             returncodes.print_stderr(
                 f"Task transformation returned exit status {err.returncode}")
+        return (err.returncode, False)
 
 
 def run_search(args):
@@ -139,6 +143,7 @@ def run_search(args):
 
     print("FROM RUN SERCH COMMAND --------------------------")
     print(args)
+    print(f"This is the search input\n{args.search_input}")
 
     if args.portfolio:
         assert not args.search_options

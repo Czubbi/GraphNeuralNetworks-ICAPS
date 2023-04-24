@@ -42,6 +42,7 @@ if __name__ == "__main__":
         help="comma separated list of model settings, for instance:\
             'layers_num,4,hidden_size,64,conv_type,SAGEConv,aggr,sum,optimizer,Adam,lr,0.001'", required=True
     )
+    parser.add_argument("--num-epochs", help="number of epochs to train", default=100, type=int)
     args = parser.parse_args()
 
     train_dir = args.train_dir
@@ -49,6 +50,7 @@ if __name__ == "__main__":
     output_dir = args.output_dir
     model_settings_dict = parse_model_settings(args.model_settings)
     model_setting = ModelSetting(**model_settings_dict)
+    num_epochs = args.num_epochs
 
     # Location to store or load models
     models_dir = os.path.join(output_dir, "models")
@@ -66,7 +68,7 @@ if __name__ == "__main__":
 
     train_and_save_model(
         models_dir, model_setting=model_setting, 
-        train_instances=train_intances, test_instances=test_instances
+        train_instances=train_intances, test_instances=test_instances, num_epochs=num_epochs
     )
 
         # args.model_path = cokolwiek

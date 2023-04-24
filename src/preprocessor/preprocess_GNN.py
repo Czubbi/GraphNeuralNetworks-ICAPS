@@ -50,7 +50,9 @@ def run_gnn_preprocessor(sas_path, output_dir, model_path, threshold, retries=No
     # count zeros and ones by casting to numpy
     print("Reporting number of zeros and ones:")
     print("\t" + str(np.bincount(default_predictions.flatten().numpy())))
-
+    default_percentage = sum(default_predictions) / len(default_predictions) * 100
+    default_percentage = int(default_percentage)
+    print(f"Default preprocessor will take {default_percentage}% of the actions as good")
 
     with open(os.path.join(output_dir, "global_operators.json"), "r") as f:
         all_operators_dict = json.load(f)
@@ -61,18 +63,17 @@ def run_gnn_preprocessor(sas_path, output_dir, model_path, threshold, retries=No
     reduced_sasfile_content = postprocessing.get_reduced_sasfile(sasfile_content, all_operators_dict, default_predictions)
     postprocessing.saved_reduced_sasfile(reduced_sasfile_content, output_dir, "output.sas")
 
-    # Retries indicates if we want to build predictions for taking different % of all actions as good
-    if retries is not None:
-        # Get the percentage of the default model output
-        default_percentage = sum(default_predictions) / len(default_predictions) * 100
-        default_percentage = int(default_percentage)
-
+    # If we want to build fall back retries
+    # and if we have not reached the maximum percentage that we consider
+    # if retries is not None and default_percentage < max_percentage:
+    if retries is not None and default_percentage < max_percentage:
         # Save the model output by taking different parts of the actions with highest probability
         percentage_probabilities = bin_probabilities(
             actions_probabilities=actions_probabilities,
             start_percentage=default_percentage,
             steps_number=retries,
             max_percentage=max_percentage)
+
 
         os.makedirs("workspace/retries", exist_ok=True)
 

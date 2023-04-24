@@ -1,5 +1,10 @@
 run_good() {
-./scorpion/fast-downward.py --transform-task-options gnn-retries,3,gnn-threshold,0.99 --transform-task src/preprocessor.command zztest/good/good.pddl --search "astar(scp_online([
+        # Assert there is a model path
+        if [ -z "$1" ]; then
+                echo "No model path provided"
+        fi
+        echo model path is $1
+./scorpion/fast-downward.py --transform-task-options gnn-retries,3,gnn-threshold,0.99,model-path,$1 --transform-task src/preprocessor.command zztest/good/good.pddl --search "astar(scp_online([
         projections(sys_scp(max_time=100, max_time_per_restart=10)),
         cartesian()],
         saturator=perimstar, max_time=1000, interval=10K, orders=greedy_orders()),
@@ -26,7 +31,7 @@ run_bad_piotrek() {
 
 if [ $1 = "good"  ]; then
 echo  running good
-run_good
+run_good $2
 elif [ $1 = "bad" ]; then
 echo running bad
 run_bad
