@@ -27,8 +27,8 @@ def run_gnn_preprocessor(sas_path, output_dir, model_path, threshold, retries=No
     """
     # This will build all the grapgh constructrs in the output_dir
     pdg_and_nodes(sas_path, output_dir)
-    if os.path.exists(os.path.join(model_path.split("/")[-2], "model_settings.txt")):
-        model_setting = ModelSetting.from_file(os.path.join(model_path.split("/")[-2], "model_settings.txt"))
+    if os.path.exists(os.path.join(model_path.split("/")[0] ,model_path.split("/")[1], "model_settings.txt")):
+        model_setting = ModelSetting.from_file(os.path.join(model_path.split("/")[0] ,model_path.split("/")[1], "model_settings.txt"))
     else:
         model_setting = ModelSetting.from_path(model_path)
     Architecture = architectures.get_dynamic(model_setting)
