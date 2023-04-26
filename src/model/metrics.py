@@ -129,3 +129,17 @@ def plot_train_test_loss(
         fig.savefig(PATH)
     else:
         fig.savefig("results.png")
+
+def make_and_save_confusion_matrix(predictions, true_preds, file_name):
+    changed_data = (predictions >= 0.5).astype(int)
+
+    from sklearn.metrics import confusion_matrix
+    import seaborn as sns
+    import pandas as pd
+    import matplotlib.pyplot as plt
+
+    cm = confusion_matrix(true_preds, changed_data)
+    df_cm = pd.DataFrame(cm, index=["False", "True"], columns=["False", "True"])
+    sns.heatmap(df_cm, annot=True, fmt="g")
+    plt.savefig(file_name)
+    plt.show()
