@@ -27,7 +27,7 @@ METADATA = (
 
 
 class ModelHandler:
-    def __init__(self, init_model, weights_path=None, pos_weight=None, neg_weight=None, aggr="sum"):  # TODO hyperparameter on aggr
+    def __init__(self, init_model, weights_path=None, pos_weight=1, neg_weight=1, aggr="sum"):  # TODO hyperparameter on aggr
         self.model = to_hetero(
             init_model, metadata=METADATA, aggr="sum"
         )
