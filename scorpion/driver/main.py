@@ -22,6 +22,7 @@ def main():
                         stream=sys.stdout)
     logging.debug("processed args: %s" % args)
 
+
     if args.version:
         print(__version__)
         sys.exit()
@@ -47,28 +48,53 @@ def main():
         # continue
         if component == "translate":
             (exitcode, continue_execution) = run_components.run_translate(args)
+
+            if continue_execution and args.find_relaxed_plan:
+                # This will only search for the relaxed plan (super quick) and return
+                path_to_run = args.translate_inputs[0].split("domain.pddl")[0]
+                if os.path.exists("relaxed_plan"):
+                    os.remove("relaxed_plan")
+                if os.path.exists(path_to_run+"relaxed_plan"):
+                    os.remove(path_to_run+"relaxed_plan")
+                if os.path.exists("workspace/relaxed_plan"):
+                    os.remove("workspace/relaxed_plan")
+                run_components.run_search_only_relaxed_plan(args)
+                shutil.copy("relaxed_plan", path_to_run)
+                shutil.copy("relaxed_plan", "workspace/relaxed_plan")
+            
+            if continue_execution and args.find_simple_landmarks:
+                # This will only search for the relaxed plan (super quick) and return
+                path_to_run = args.translate_inputs[0].split("domain.pddl")[0]
+                if os.path.exists("simple_landmarks"):
+                    os.remove("simple_landmarks")
+                if os.path.exists(path_to_run+"simple_landmarks"):
+                    os.remove(path_to_run+"simple_landmarks")
+                if os.path.exists("workspace/simple_landmarks"):
+                    os.remove("workspace/simple_landmarks")
+                run_components.run_search_only_simple_landmarks(args)
+                shutil.copy("simple_landmarks", path_to_run)
+                shutil.copy("simple_landmarks", "workspace/simple_landmarks")
+
             if continue_execution and args.transform_task:
                 # print(args)
                 run_components.transform_task(args)
+        
 
         elif component == "search":
             # parameters for the retry after failing
             failed_count = -1
  
             (exitcode, continue_execution) = run_components.run_search(args)
-            continue_execution = False
 
-            # We retry until we succeed or we have tried 3 times
-            while not continue_execution and not failed_count == 3:
-                failed_count += 1
-                args.transform_task_options += f",failed,{failed_count}"
-                transform_code, _ = run_components.transform_task(args)  # TODO: add some exit code
-                if transform_code  == 1:
-                    break
-                (exitcode, continue_execution) = run_components.run_search(args)
+            # # We retry until we succeed or we have tried 3 times
+            # while not continue_execution and not failed_count == 3:
+            #     failed_count += 1
+            #     args.transform_task_options += f",failed,{failed_count}"
+            #     transform_code, _ = run_components.transform_task(args)  # TODO: add some exit code
+            #     if transform_code  == 1:
+            #         break
+            # (exitcode, continue_execution) = run_components.run_search(args)
 
-            if transform_code == 1:
-                (exitcode, continue_execution) = run_components.run_search(args)
                 
             if not args.keep_sas_file:
                 print("Remove intermediate file {}".format(args.sas_file))

@@ -288,6 +288,9 @@ void LandmarkFactory::generate_operators_lookups(const TaskProxy &task_proxy) {
 }
 
 void add_landmark_factory_options_to_parser(options::OptionParser &parser) {
+    parser.add_option<bool>("print_and_exit",
+                            "print landmarks and exit",
+                            "false");
     utils::add_log_options_to_parser(parser);
 }
 

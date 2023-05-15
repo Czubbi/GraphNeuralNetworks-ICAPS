@@ -442,6 +442,19 @@ def parse_args():
         help="comma separated 3 values for starting percentage, step percentage and a number o steps",
         type=str)
 
+    parser.add_argument(
+        "--find-relaxed-plan",
+        action="store_true",
+        help="Indiciates whether to look for and include a relaxed plan before as the first step",
+    )
+
+    parser.add_argument(
+        "--find-simple-landmarks",
+        action="store_true",
+        help="Indiciates whether to look for and include a relaxed plan before as the first step",
+    )
+
+
     args = parser.parse_args()
 
     if args.sas_file:

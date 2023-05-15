@@ -7,6 +7,7 @@
 #include "../utils/logging.h"
 
 #include <cassert>
+#include <fstream>
 
 using namespace std;
 
@@ -14,7 +15,8 @@ namespace ff_heuristic {
 // construction and destruction
 FFHeuristic::FFHeuristic(const Options &opts)
     : AdditiveHeuristic(opts),
-      relaxed_plan(task_proxy.get_operators().size(), false) {
+      relaxed_plan(task_proxy.get_operators().size(), false),
+      print_and_exit(opts.get<bool>("print_and_exit")){
     if (log.is_at_least_normal()) {
         log << "Initializing FF heuristic..." << endl;
     }
@@ -60,6 +62,17 @@ int FFHeuristic::compute_heuristic(const State &ancestor_state) {
     for (PropID goal_id : goal_propositions)
         mark_preferred_operators_and_relaxed_plan(state, goal_id);
 
+    if(print_and_exit) {
+        std::ofstream outfile("relaxed_plan");
+
+        for (size_t op_no = 0; op_no < relaxed_plan.size(); ++op_no) {
+            if (relaxed_plan[op_no]) {
+                outfile << task_proxy.get_operators()[op_no].get_name() << "\n";
+            }
+        }
+        outfile.close();
+        exit(0);
+    }
     int h_ff = 0;
     for (size_t op_no = 0; op_no < relaxed_plan.size(); ++op_no) {
         if (relaxed_plan[op_no]) {
@@ -86,6 +99,7 @@ static shared_ptr<Heuristic> _parse(OptionParser &parser) {
     parser.document_property("preferred operators", "yes");
 
     Heuristic::add_options_to_parser(parser);
+    parser.add_option<bool>("print_and_exit", "documentation string", "false");
     Options opts = parser.parse();
     if (parser.dry_run())
         return nullptr;

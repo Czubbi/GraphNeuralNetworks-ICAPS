@@ -11,6 +11,7 @@
 #include "../utils/logging.h"
 
 #include <iostream>
+#include <fstream>
 #include <unordered_map>
 #include <utility>
 
@@ -19,7 +20,8 @@ using namespace std;
 namespace landmarks {
 LandmarkFactoryZhuGivan::LandmarkFactoryZhuGivan(const Options &opts)
     : LandmarkFactoryRelaxation(opts),
-      use_orders(opts.get<bool>("use_orders")) {
+      use_orders(opts.get<bool>("use_orders")),
+      print_and_exit(opts.get<bool>("print_and_exit")) {
 }
 
 void LandmarkFactoryZhuGivan::generate_relaxed_landmarks(
@@ -60,6 +62,8 @@ void LandmarkFactoryZhuGivan::extract_landmarks(
     }
 
     State initial_state = task_proxy.get_initial_state();
+    ofstream outfile("simple_landmarks");
+    set<pair<int,int>> simple_landmarks;
     // insert goal landmarks and mark them as goals
     for (FactProxy goal : task_proxy.get_goals()) {
         FactPair goal_lm = goal.get_pair();
@@ -92,7 +96,14 @@ void LandmarkFactoryZhuGivan::extract_landmarks(
             assert(node->parents.find(lm_node) == node->parents.end());
             assert(lm_node->children.find(node) == lm_node->children.end());
             edge_add(*node, *lm_node, EdgeType::NATURAL);
+            simple_landmarks.insert(pair<int,int>(lm.var, lm.value));
         }
+    }
+    if (print_and_exit) {
+        for (auto lm: simple_landmarks) {
+            outfile << lm.first << " " << lm.second << endl;
+        }
+        exit(0);
     }
 }
 
@@ -317,6 +328,7 @@ static shared_ptr<LandmarkFactory> _parse(OptionParser &parser) {
     add_landmark_factory_options_to_parser(parser);
     add_use_orders_option_to_parser(parser);
     Options opts = parser.parse();
+    parser.add_option<bool>("print_and_exit", "documentation string", "false");
 
     // TODO: Make sure that conditional effects are indeed supported.
     parser.document_language_support("conditional_effects",

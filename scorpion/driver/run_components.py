@@ -141,9 +141,6 @@ def run_search(args):
         single_plan=args.portfolio_single_plan)
     plan_manager.delete_existing_plans()
 
-    print("FROM RUN SERCH COMMAND --------------------------")
-    print(args)
-    print(f"This is the search input\n{args.search_input}")
 
     if args.portfolio:
         assert not args.search_options
@@ -174,6 +171,61 @@ def run_search(args):
             return (err.returncode, False)
         else:
             return (0, True)
+        
+
+def run_search_only_relaxed_plan(args):
+    logging.info("Running search for only relaxed plan (%s)." % args.build)
+
+    search_options = [
+        '--search', 'astar(ff(print_and_exit=true))', '--internal-plan-file', 'sas_plan'
+    ]
+    executable = get_executable(args.build, REL_SEARCH_PATH)
+
+    try:
+        call.check_call(
+            "search",
+            [executable] + search_options,
+            stdin=args.search_input
+            )
+    except subprocess.CalledProcessError as err:
+        # TODO: if we ever add support for SEARCH_PLAN_FOUND_AND_* directly
+        # in the planner, this assertion no longer holds. Furthermore, we
+        # would need to return (err.returncode, True) if the returncode is
+        # in [0..10].
+        # Negative exit codes are allowed for passing out signals.
+        assert err.returncode >= 10 or err.returncode < 0, "got returncode < 10: {}".format(err.returncode)
+        return (err.returncode, False)
+    else:
+        return (0, True)
+    
+
+def run_search_only_simple_landmarks(args):
+    logging.info("Running search for only simple landmarks (%s)." % args.build)
+
+    search_options = [
+    '--search', 'eager_greedy([lmcount(lm_zg(print_and_exit=true,use_orders=false))])',  '--internal-plan-file', 'sas_plan'
+    ]
+    executable = get_executable(args.build, REL_SEARCH_PATH)
+
+    try:
+        call.check_call(
+            "search",
+            [executable] + search_options,
+            stdin=args.search_input
+            )
+    except subprocess.CalledProcessError as err:
+        # TODO: if we ever add support for SEARCH_PLAN_FOUND_AND_* directly
+        # in the planner, this assertion no longer holds. Furthermore, we
+        # would need to return (err.returncode, True) if the returncode is
+        # in [0..10].
+        # Negative exit codes are allowed for passing out signals.
+        assert err.returncode >= 10 or err.returncode < 0, "got returncode < 10: {}".format(err.returncode)
+        return (err.returncode, False)
+    else:
+        return (0, True)
+    
+
+
 
 
 def run_validate(args):

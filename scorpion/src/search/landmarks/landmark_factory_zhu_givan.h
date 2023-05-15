@@ -26,6 +26,7 @@ public:
     using PropositionLayer = std::vector<std::vector<plan_graph_node>>;
 
     const bool use_orders;
+    const bool print_and_exit;
 
     // triggers[i][j] is a list of operators that could reach/change
     // labels on some proposition, after proposition (i,j) has changed
