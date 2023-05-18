@@ -90,15 +90,13 @@ def main():
  
             (exitcode, continue_execution) = run_components.run_search(args)
 
-            # # We retry until we succeed or we have tried 3 times
-            # while not continue_execution and not failed_count == 3:
-            #     failed_count += 1
-            #     args.transform_task_options += f",failed,{failed_count}"
-            #     transform_code, _ = run_components.transform_task(args)  # TODO: add some exit code
-            #     if transform_code  == 1:
-            #         break
-            # (exitcode, continue_execution) = run_components.run_search(args)
-
+            # We retry until we succeed or we have tried 3 times
+            while not continue_execution and not failed_count == 3:
+                failed_count += 1
+                args.transform_task_options += f",failed,{failed_count}"
+                run_components.transform_task(args)  # TODO: add some exit code
+                (exitcode, continue_execution) = run_components.run_search(args)
+         
                 
             if not args.keep_sas_file:
                 print("Remove intermediate file {}".format(args.sas_file))
