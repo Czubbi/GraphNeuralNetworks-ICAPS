@@ -103,7 +103,6 @@ class SasParser:
         if(good_operators_path.split("/")[-1] == "good_operators"):
             with open(good_operators_path, "r") as file:
                 good_operators = set(file.read().splitlines())
-            return good_operators
         elif(good_operators_path.split("/")[-1] == "sas_plan"):
             with open(good_operators_path, "r") as file:
                 good_operators = file.read().replace("(", "").replace(")", "").splitlines()
@@ -111,7 +110,8 @@ class SasParser:
                 good_operators = set(good_operators)
 
         assert len(good_operators) > 0, "Good operators set is empty, yet you specified a path to it"
-    
+        return good_operators
+
     @classmethod
     def relaxed_operators_to_set(cls, relaxed_operators_path=None) -> Set[Operator.LineAlias]:
         assert relaxed_operators_path is not None, "No relaxed operators path specified, yet you are trying to use it"

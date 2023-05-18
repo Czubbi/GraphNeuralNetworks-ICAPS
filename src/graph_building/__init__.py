@@ -62,7 +62,6 @@ def pdg_and_nodes(
 
     good_operators = PdgParser.good_operators_to_set(good_operators_path)
 
-
     simple_landmarks_dict = {}
     if simple_landmarks_path:
         with open(simple_landmarks_path, "r") as file:
