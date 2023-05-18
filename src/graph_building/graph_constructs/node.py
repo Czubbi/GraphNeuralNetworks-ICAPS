@@ -1,8 +1,10 @@
+from typing import ClassVar
 from dataclasses import dataclass
 
 
 @dataclass
 class Node:
+    extra_features: ClassVar[dict[str, bool]]
     @classmethod
     @property
     def base_feature_names(cls):

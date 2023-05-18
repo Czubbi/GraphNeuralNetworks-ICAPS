@@ -47,6 +47,8 @@ def main():
         print("Running {} component".format(component))
         # continue
         if component == "translate":
+            args.relaxed_plan = False
+            args.simple_landmarks = False
             (exitcode, continue_execution) = run_components.run_translate(args)
 
             if continue_execution and args.find_relaxed_plan:
@@ -61,6 +63,7 @@ def main():
                 run_components.run_search_only_relaxed_plan(args)
                 shutil.copy("relaxed_plan", path_to_run)
                 shutil.copy("relaxed_plan", "workspace/relaxed_plan")
+                args.relaxed_plan = True
             
             if continue_execution and args.find_simple_landmarks:
                 # This will only search for the relaxed plan (super quick) and return
@@ -74,6 +77,7 @@ def main():
                 run_components.run_search_only_simple_landmarks(args)
                 shutil.copy("simple_landmarks", path_to_run)
                 shutil.copy("simple_landmarks", "workspace/simple_landmarks")
+                args.simple_landmarks = True
 
             if continue_execution and args.transform_task:
                 # print(args)

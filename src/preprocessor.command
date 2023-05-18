@@ -12,7 +12,7 @@ from preprocessor.preprocess_GNN import run_gnn_preprocessor
 # logger with info display level
 logger = logging.getLogger(__name__)
 # set info to be visible
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.WARNING)
 
 H2_PATH = "workspace/h2.sas"
 H2_GNN_PATH = "workspace/h2_gnn.sas"
@@ -20,7 +20,7 @@ H2_GNN_H2_PATH = "workspace/h2_gnn_h2.sas"
 WORKSPACE_SAS = "workspace/output.sas"
 # import dupa
 
-def default_gnn_preprocessor(threshold, retries, model_path):
+def default_gnn_preprocessor(threshold, retries, model_path, use_relaxed_plan, use_simple_landmarks):
     # Original step
     input = sys.stdin
     save_to_workspace(input, "original.sas")
@@ -41,7 +41,10 @@ def default_gnn_preprocessor(threshold, retries, model_path):
                          output_dir="workspace",
                          model_path=model_path,
                          threshold=threshold,
-                         retries=retries)
+                         retries=retries,
+                         relaxed_plan=use_relaxed_plan,
+                         simple_landmarks=use_simple_landmarks,
+    )
     copy_file(WORKSPACE_SAS, H2_GNN_PATH)
     # Check
     with open(WORKSPACE_SAS, "r") as f:
@@ -105,6 +108,9 @@ threshold = args.gnn_threshold
 retries = args.gnn_retries
 model_path = args.model_path
 
+use_relaxed_plan = True if os.path.exists("workspace/relaxed_plan") else False
+use_simple_landmarks = True if os.path.exists("workspace/simple_landmarks") else False
+
 
 print("##"*100)
 if args.failed >= 0:
@@ -115,7 +121,9 @@ else:
     default_gnn_preprocessor(
         threshold=threshold,
         retries=retries,
-        model_path=model_path
+        model_path=model_path,
+        use_relaxed_plan=use_relaxed_plan,
+        use_simple_landmarks=use_simple_landmarks
     )
 
 print("##"*100)

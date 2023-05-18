@@ -104,9 +104,6 @@ def transform_task(args):
         for i, option in enumerate(options):
             if i % 2 == 0:
                 options[i] = "--" + option
-    
-        # options.append("--sas-file")
-        # options.append(args.sas_file)
 
     print(f"THESE ARE THE OPTIONS: {options}")
 

@@ -14,10 +14,12 @@ class Operator(Node):
     """Base class for all operators"""
 
     __INDEX_FEATURE = "index"
+    __IS_RELAXED_FEATURE = "is_relaxed"
     __IS_GOOD_FEATURE = "is_in_good_operators"
     operator_line: "Operator.LineAlias"
     index: int
     is_good: bool
+    is_relaxed: bool
     incomplete_operator_text: InitVar["SasFileContent"]
     operator_text: "SasFileContent" = field(init=False)
     preconditions: Set[Precondition]
@@ -38,11 +40,24 @@ class Operator(Node):
     @classmethod
     @property
     def base_feature_names(cls):
-        return [cls.__INDEX_FEATURE, cls.__IS_GOOD_FEATURE]
+        feature_name = [cls.__INDEX_FEATURE]
+
+        if cls.extra_features[cls.__IS_RELAXED_FEATURE]:
+            feature_name.append(cls.__IS_RELAXED_FEATURE)
+
+        feature_name.append(cls.__IS_GOOD_FEATURE)
+        return feature_name
+
 
     @property
     def base_features(self):
-        return [self.index, self.is_good]
+        features = [self.index]
+
+        if self.extra_features[self.__IS_RELAXED_FEATURE]:
+            features.append(self.is_relaxed)
+
+        features.append(self.is_good)
+        return features
 
     def build_graph(self):
         raise NotImplementedError()

@@ -13,10 +13,10 @@ from model.postprocessing import bin_probabilities
 
 logger = logging.getLogger(__name__)
 # set info to be visible
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.WARNING)
 
 
-def run_gnn_preprocessor(sas_path, output_dir, model_path, threshold, retries=None, max_percentage=90):
+def run_gnn_preprocessor(sas_path, output_dir, model_path, threshold, retries=None, relaxed_plan=False, simple_landmarks=False, max_percentage=90):
     """
     :param sas_path: path to the sas file
     :param output_dir: path to the output directory
@@ -26,14 +26,36 @@ def run_gnn_preprocessor(sas_path, output_dir, model_path, threshold, retries=No
     :param max_percentage: maximum percentage of actions to be taken as good when building retries
     """
     # This will build all the grapgh constructrs in the output_dir
-    pdg_and_nodes(sas_path, output_dir)
+    logger.info(f"RUNNING PDG AND NODES ON: {sas_path}, {output_dir}, {model_path}")
+
+    relaxed_plan_path=None
+    simple_landmarks_path=None
+    if relaxed_plan:
+        relaxed_plan_path=os.path.join(output_dir, "relaxed_plan")
+        assert os.path.exists(relaxed_plan_path), f"Trying to use relaxed operators, but the file {relaxed_plan_path} does not exist"
+    
+    if simple_landmarks:
+        simple_landmarks_path=os.path.join(output_dir, "simple_landmarks")
+        assert os.path.exists(simple_landmarks_path), f"Trying to use simple landmarks, but the file {simple_landmarks_path} does not exist"
+
+
+
+    pdg_and_nodes(
+        sasfile_path=sas_path,
+        output_dir=output_dir,
+        relaxed_plan_path=relaxed_plan_path,
+        simple_landmarks_path=simple_landmarks_path,
+        good_operators_path=None,  # Since we never want labels
+        )
     if os.path.exists(os.path.join(model_path.split("/")[0] ,model_path.split("/")[1], "model_settings.txt")):
         model_setting = ModelSetting.from_file(os.path.join(model_path.split("/")[0] ,model_path.split("/")[1], "model_settings.txt"))
     else:
         model_setting = ModelSetting.from_path(model_path)
     Architecture = architectures.get_dynamic(model_setting)
     init_model = Architecture()
+    # TODO KURWA
     model_handler = ModelHandler(init_model, model_path)
+    # model_handler = ModelHandler(init_model)
 
     dfs = problem_dfs(output_dir)
     hetero_data = build_hetero(*dfs)

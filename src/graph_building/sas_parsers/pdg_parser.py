@@ -10,12 +10,15 @@ from graph_building.sas_parsers.sas_parser import (
     AllValuesDict,
     AllVariablesDict,
     AllOperatorsDict,
+    val_id,
+    var_id
 )
 from graph_building.graph_constructs.variables.pdg_variable import PdgVariable
 from graph_building.graph_constructs.values.value import Value
 from graph_building.base_types import Predicate
 
-logger = logging.getLogger(__name__)
+_log = logging.getLogger(__name__)
+_log.setLevel(logging.WARNING)
 
 
 class PdgParser(SasParser):
@@ -23,41 +26,49 @@ class PdgParser(SasParser):
     def generate_values_variables(
         cls,
         variables_text: SasFileContent,
-        init_variables: ProblemStateDictionary,
-        goal_variables: ProblemStateDictionary,
+        init_variables: dict[var_id, val_id],
+        goal_variables: dict[var_id, val_id],
+        simple_landmarks: dict[var_id, dict[val_id, bool]],
+        feature_flags_values: Dict[str, bool],
+        feature_flags_variables: Dict[str, bool],
+        
     ) -> Tuple[AllValuesDict, AllVariablesDict]:
-        logger.info("Generating variables")
+        
+        Value.extra_features = feature_flags_values
+        PdgVariable.extra_features = feature_flags_variables
+
+        _log.info("Generating variables")
 
         all_values: AllValuesDict = {}
         all_variables: AllVariablesDict = {}
 
         divided_variables_text: List[str] = re.split("begin_variable", variables_text)[1:]
-        # logging.warning(f"Divided variables: {len(divided_variables_text)}")
+
 
         global_value_count = 0
         for var_id, variable_lines in enumerate(divided_variables_text):
             # print(f"var_id", var_id)
             count_from = global_value_count
             # var_id = int(re.search("var(\d+)", variable_lines)[1])
-            # logger.info(f"Variable {var_id}, lines: {variable_lines}")
+            # _log.info(f"Variable {var_id}, lines: {variable_lines}")
             values: List[Value] = []
 
             # List of all Atoms in one variable, where first elemnt of the tuple is the Atom text
             # and second elemnet is the predicate text
             atoms: List[Tuple[str, str]] = re.findall(VARIABLE_VALUE, variable_lines, re.VERBOSE)
             for a in atoms:
-                logger.info(a)
-            # logger.info(f"Atoms: {atoms}")
+                _log.info(a)
+            # _log.info(f"Atoms: {atoms}")
 
             for local_value_count, (a_text, p_text) in enumerate(atoms):
-                logger.info(
+                _log.info(
                     f"Global value count: {global_value_count}, Local value count: {local_value_count}"
                 )
-                logger.debug(f"Atom: {a_text}, Predicate: {p_text}")
+                # _log.debug(f"Atom: {a_text}, Predicate: {p_text}")
 
                 is_negated = "Negated" in a_text
                 is_none_of_those = "<none of those>" == a_text  # special type of the value
-                logger.debug(f"Is negated: {is_negated}")
+                # _log.debug(f"Is negated: {is_negated}")
 
                 if is_none_of_those:
                     p_text = "<none of those>"
@@ -83,6 +94,8 @@ class PdgParser(SasParser):
                 #      1: {0:3, 1:4}
                 #    }
                 is_goal_variable = 1 if var_id in goal_variables else 0
+
+                
                 is_goal_value = (
                     True
                     if is_goal_variable and local_value_count == goal_variables[var_id]
@@ -90,14 +103,23 @@ class PdgParser(SasParser):
                 )
                 is_init_value = True if local_value_count == init_variables[var_id] else False
 
+                # Check if the variable exist in the simple landmarks keys
+
+                is_simple_landmark_value = False
+                if simple_landmarks:
+                    is_simple_landmark_value = simple_landmarks[var_id][local_value_count]
+                # assert is_simple_landmark_value != True
+
                 new_pdg_value = Value(
                     predicate_name=predicate_name,
                     predicate_arguments=arguments,
                     global_index=global_value_count,
                     is_init_value=is_init_value,
                     is_goal_value=is_goal_value,
+                    is_simple_landmark=is_simple_landmark_value,
                     negated=is_negated,
                 )
+                _log.debug(f"New value: {new_pdg_value}")
                 # Update local values for that variable
                 values.append(new_pdg_value)
                 # Update global values for all variables
@@ -108,6 +130,6 @@ class PdgParser(SasParser):
                 index=var_id, global_count_from=count_from, values=values, is_goal=is_goal_variable
             )
             # print(f"new_variable", new_variable)
-            # logger.debug(f"New variable: {new_variable}")
+            # _log.debug(f"New variable: {new_variable}")
             all_variables[var_id] = new_variable
         return all_values, all_variables

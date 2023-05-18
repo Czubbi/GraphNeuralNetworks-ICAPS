@@ -36,7 +36,7 @@ def problem_dfs(problem_path):
     Returns the dataframes for the variables, values, operators, and their respective edges
     """
     variables_df = pd.read_csv(os.path.join(problem_path, "variables.csv"), index_col=0)
-    variables_df = variables_df.drop(columns=["is_goal"])
+    variables_df = variables_df.drop(columns=["is_goal"])  # right now we only want that info on the valuesq
 
     values_df = pd.read_csv(os.path.join(problem_path, "values.csv"), index_col=0)
 
@@ -54,7 +54,7 @@ def problem_dfs(problem_path):
 def build_hetero(
     variables_df,
     values_df,
-    operators_df,
+    operators_df: pd.DataFrame,
     val_var_df,
     val_op_df,
     op_val_df,
@@ -62,8 +62,14 @@ def build_hetero(
     hetero_data = HeteroData()
     hetero_data["variable"].x = node_df_to_torch(variables_df)
     hetero_data["value"].x = node_df_to_torch(values_df)
-    hetero_data["operator"].x = x = torch.empty(len(operators_df), 0)
-    hetero_data["operator"].y = node_df_to_torch(operators_df)
+    operators_df_features = operators_df.drop(columns="is_in_good_operators")
+    if operators_df_features.empty:
+        hetero_data["operator"].x = torch.empty(len(operators_df), 1)
+        hetero_data["operator"].y = node_df_to_torch(operators_df)
+    else:
+        operators_df_labels = operators_df["is_in_good_operators"].to_frame()
+        hetero_data["operator"].x = node_df_to_torch(operators_df_features)
+        hetero_data["operator"].y = node_df_to_torch(operators_df_labels)
 
     hetero_data["variable", "has_value", "value"].edge_index = edge_df_to_torch(val_var_df)
     hetero_data["value", "precondition", "operator"].edge_index = edge_df_to_torch(val_op_df)

@@ -34,7 +34,7 @@ def parse_model_settings(model_settings) -> dict:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("train_dir", help="path to folder with training problems")
-    parser.add_argument("test_dir", help="path to folder with test problems")
+    parser.add_argument("--test_dir", help="path to folder with test problems", required=False)
     # This is needed to store the models but also to load the models that have already been trained
     parser.add_argument("output_dir", help="path to where models keep being stored")
     parser.add_argument(
@@ -62,7 +62,8 @@ if __name__ == "__main__":
 
 
     train_intances = [os.path.join(train_dir, x) for x in os.listdir(train_dir)]
-    test_instances = [os.path.join(test_dir, x) for x in os.listdir(test_dir)]
+    # test_instances = [os.path.join(test_dir, x) for x in os.listdir(test_dir)]
+    test_instances = []
     print("training on files, number:", len(train_intances))
     print("testing on files, number:", len(test_instances))
 

@@ -1,40 +1,83 @@
 import os
 import argparse
+import logging
 
-from graph_building import generate_graph_data
+from graph_building import pdg_and_nodes
+
+_log = logging.getLogger(__name__)
+_log.setLevel(logging.WARNING)
 
 argparser = argparse.ArgumentParser()
 argparser.add_argument("DIR", help="problem location")
+argparser.add_argument("--relaxed-plan", action="store_true", help="use relaxed plan")
+argparser.add_argument("--simple-landmarks", action="store_true", help="use simple landmarks")
 
 
-if __name__ == "__main__":
+def relaxed_plan_path(path_run_dir):
+    """Get path to relaxed plan file."""
+    path_relaxed_plan = os.path.join(path_run_dir, "relaxed_plan")
+    assert os.path.exists(path_relaxed_plan), "No relaxed plan found"
+    return path_relaxed_plan
+
+def simple_landmarks_path(path_run_dir):
+    """Get path to simple landmarks file."""
+    path_simple_landmarks = os.path.join(path_run_dir, "simple_landmarks")
+    assert os.path.exists(path_simple_landmarks), "No simple landmarks found"
+    return path_simple_landmarks
+
+def good_actions_path(path_run_dir):
+    """Try find good_actions as either good_operators or sas_plan"""
+    path_good_actions = os.path.join(path_run_dir, "good_operators")
+    if not os.path.exists(path_good_actions):
+        # try sas_plan
+        path_good_actions = os.path.join(path_run_dir, "sas_plan")
+        if not os.path.exists(path_good_actions):
+            return None
+    return path_good_actions
+
+def sas_file_path(path_run_dir):
+    sas_file_path = os.path.join(path_run_dir, "sas_file.sas")
+    optional_sas_file_path = os.path.join(path_run_dir, "output.sas")
+    if not os.path.exists(sas_file_path):
+        _log.warning("SAS file does not exist")
+        if os.path.exists(optional_sas_file_path):
+            _log.warning("Using output.sas and renaming it to sas_file.sas")
+            os.rename(optional_sas_file_path, sas_file_path)
+        else:
+            raise FileNotFoundError("SAS file does not exist")
+    return sas_file_path
+
+
+
+def main():
     options = argparser.parse_args()
-    PATH_TO_DIR = options.DIR
-    OUTPUT_DIR = PATH_TO_DIR
+    path_to_dir = options.DIR
+    output_dir = path_to_dir
 
-    SAS_FILE_PATH = os.path.join(PATH_TO_DIR, "sas_file.sas")
-    OPTIONAL_SAS_FILE_PATH = os.path.join(PATH_TO_DIR, "output.sas")
-    GOOD_OPERATORS_PATH = os.path.join(PATH_TO_DIR, "good_operators")
+    if options.relaxed_plan:
+        relaxed_plan_path_ = relaxed_plan_path(path_to_dir)
+    else:
+        relaxed_plan_path_ = None
+    
+    if options.simple_landmarks:
+        simple_landmarks_path_ = simple_landmarks_path(path_to_dir)
+    else:
+        simple_landmarks_path_ = None
 
-    if not os.path.exists(SAS_FILE_PATH):
-        print("SAS file does not exist")
-        if os.path.exists(OPTIONAL_SAS_FILE_PATH):
-            print("Using output.sas and renaming it to sas_file.sas")
-            # rename file
-            os.rename(OPTIONAL_SAS_FILE_PATH, SAS_FILE_PATH)
+    good_operators_path = good_actions_path(path_to_dir)
 
-    # good operators check
-    if not os.path.exists(GOOD_OPERATORS_PATH):
-        open(GOOD_OPERATORS_PATH, "w").close()
 
-    generate_graph_data(
-        graph_type="pdg",
-        sasfile_path=SAS_FILE_PATH,
-        good_operators_path=GOOD_OPERATORS_PATH,
-        output_dir=PATH_TO_DIR
+    pdg_and_nodes(
+        sasfile_path=sas_file_path,
+        output_dir=path_to_dir,
+        relaxed_plan_path=relaxed_plan_path_,
+        simple_landmarks_path=simple_landmarks_path_,
+        good_operators_path=good_operators_path,
         )
         
-    
+if __name__ == "__main__":
+    main()
+
 
 #     import os
 #     from datetime import datetime

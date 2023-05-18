@@ -1,25 +1,19 @@
 import logging
 import os
 import json
+from collections import defaultdict
 from typing import Union, Tuple, Set, Dict, TYPE_CHECKING
-from .graph_constructs.variables.causal_variable import CausalVariable
 from .graph_constructs.operators.pdg_operator import PdgOperator
 from .graph_constructs.variables.pdg_variable import PdgVariable
-from .graph_constructs.operators.causal_operator import CausalOperator
 from .graph_constructs.values.value import Value
-from .graph_constructs.edge_features import default_edge_features_dict, EdgeFeature
-from .exceptions import EmptyCausalGraphError
-from .sas_parsers.causal_parser import CausalParser
 from .sas_parsers.pdg_parser import PdgParser
 
 if TYPE_CHECKING:
-    from .graph_constructs.edge_features import CausalGraph
     from .sas_parsers.sas_parser import (
         AllValuesDict,
         AllVariablesDict,
         AllOperatorsDict,
     )
-
 
 SasFileContent = str
 Edge = Tuple[int, int]
@@ -28,137 +22,52 @@ Edges = Set[Edge]
 
 logging.basicConfig()
 logger = logging.getLogger(__name__)
-logger.setLevel(30)
+logger.setLevel(logging.WARNING)
 
 operators_logger = logging.getLogger("graph_building.operators")
-operators_logger.setLevel(30)
+operators_logger.setLevel(logging.WARNING)
 
 
-def generate_graph_data(graph_type, sasfile_path, good_operators_path, output_dir):
-    if graph_type not in ["pdg", "cg"]:
-        raise ValueError("Graph type must be either 'pdg' or 'cg'")
-
-    if graph_type == "pdg":
-        pdg_and_nodes(sasfile_path, output_dir, good_operators_path)
-
-    if graph_type == "cg":
-        cg_and_nodes(sasfile_path, good_operators_path, output_dir)
-
-
-def cg_and_nodes(sasfile_path, good_operators_path, output_dir):
-    cg_output_path = os.path.join(output_dir, "cg.csv")
-    node_output_path = os.path.join(output_dir, "nodes.csv")
-    variable_output_path = os.path.join(output_dir, "variables.txt")
-    operator_output_path = os.path.join(output_dir, "operators.txt")
-
-    with open(sasfile_path, "r") as file:
-        sas_content: SasFileContent = file.read()
-    with open(good_operators_path, "r") as file:
-        good_operators: Tuple[str] = tuple(file.read().splitlines())
-        # Extract variables and operators from the file
-    variables_text, init_text, goals_text, operators_text = CausalParser.split_sas_file(sas_content)
-
-    with open(variable_output_path, "w") as file:
-        file.write(variables_text)
-
-    with open(operator_output_path, "w") as file:
-        file.write(operators_text)
-
-    goal_dict = CausalParser.generate_goal_dict(goals_text)  # Whether a variable is in the goal
-
-    all_variables = CausalParser.generate_variables(variables_text, goal_dict)
-    all_operators = CausalParser.generate_operators("causal", operators_text, good_operators)
-    result_cg = build_total_causal_graph(all_operators, good_operators)
-
-    if not result_cg:
-        raise EmptyCausalGraphError(sasfile_path, good_operators_path)
-
-    with open(cg_output_path, "w") as file:
-        file.write("source,destination,type_pre_eff,type_eff_eff,label\n")
-        result = []
-        for k, v in result_cg.items():
-            source = k[0]
-            destination = k[1]
-            type_pre_eff = v[EdgeFeature.TYPE_PRE_EFF]
-            type_eff_eff = v[EdgeFeature.TYPE_EFF_EFF]
-            label = v[EdgeFeature.LABEL]
-            result.append(f"{source},{destination},{type_pre_eff},{type_eff_eff},{label}\n")
-        file.writelines(result)
-
-    with open(node_output_path, "w") as file:
-        file.write(CausalVariable.csv_header)
-        result = []
-        # logging.info(f"Number of variables: {all_variables.keys()}")
-        # logging.warning(f"Number of variables: {Operator.all_variables.values()}")
-        for variable in all_variables.values():
-            features = variable.to_csv()
-            # print(f"this is the features: {features}")
-            result.append(f"{features}\n")
-        file.writelines(result)
-
-    # reset the variables
-
-
-def build_total_causal_graph(operators: Dict[str, CausalOperator], good_operators: Set[str]):
-    total_causal_graph = default_edge_features_dict()
-
-    for key, operator in operators.items():
-        is_good_operator = 1 if key in good_operators else 0
-
-        partial_causal_graph: CausalGraph = operator.build_graph(edge_label=is_good_operator)
-
-        # TODO Update features non-binary features
-        for edge_index, feature_dictionary in partial_causal_graph.items():
-            for k, v in feature_dictionary.items():
-                total_causal_graph[edge_index][k] = max(total_causal_graph[edge_index][k], v)
-
-    return dict(total_causal_graph)
-
-
-def pdg_and_nodes(sasfile_path, output_dir, good_operators_path=None):
-    def save_node(
-        node_type: Union[Value, PdgVariable, PdgOperator],
-        data_source: Union["AllValuesDict", "AllVariablesDict", "AllOperatorsDict"],
-        node_output_path: str,
+def pdg_and_nodes(
+        sasfile_path, output_dir, relaxed_plan_path,
+        simple_landmarks_path, good_operators_path
     ):
-        with open(node_output_path, "w") as file:
-            file.write(node_type.csv_header)
-            result = []
-            for node in data_source.values():
-                features = node.to_csv()
-                result.append(f"{features}\n")
-            file.writelines(result)
 
-    def save_edge(edges: Edges, edges_output_path: str, with_label: bool = False):
-        csv_header = "source,destination"
-        if with_label:
-            csv_header += ",label"
-        csv_header += "\n"
-        with open(edges_output_path, "w") as file:
-            file.write(csv_header)
-            result = []
-            for edge in edges:
-                source, destination = edge[0], edge[1]
-                if with_label:
-                    label = edge[2]
-                    result.append(f"{source},{destination},{label}\n")
-                else:
-                    result.append(f"{source},{destination}\n")
-            file.writelines(result)
+    extra_features_flags = {
+        "values": defaultdict(lambda: False),
+        "variables": defaultdict(lambda: False),
+        "operators": defaultdict(lambda: False),
+    }
 
-    # print("pdg_and_nodes")
-    # print(f"working on {sasfile_path}, {output_dir}, {good_operators_path}")
+    relaxed_operators = set()
+    simple_landmarks_dict = {}
+    
+    if relaxed_plan_path:
+        extra_features_flags["operators"]["is_relaxed"] = True
+        relaxed_operators = PdgParser.relaxed_operators_to_set(relaxed_plan_path)
+    
+    if simple_landmarks_path:
+        extra_features_flags["values"]["is_simple_landmark"] = True
+        with open(simple_landmarks_path, "r") as file:
+            simple_landmarks_text = file.read()
+        simple_landmarks_dict = PdgParser.generate_simple_landmarks_dict(simple_landmarks_text)
+
+
+   
     variable_output_path = os.path.join(output_dir, "variables.txt")
     operator_output_path = os.path.join(output_dir, "operators.txt")
 
     with open(sasfile_path, "r") as file:
         sas_content: SasFileContent = file.read()
 
-    # When planning we don't have the good operators
-    if good_operators_path is None:
-        good_operators = set()
-    else:
-        good_operators = PdgParser.good_operators_to_set(good_operators_path)
+    good_operators = PdgParser.good_operators_to_set(good_operators_path)
+
+
+    simple_landmarks_dict = {}
+    if simple_landmarks_path:
+        with open(simple_landmarks_path, "r") as file:
+            simple_landmarks_text = file.read()
+        simple_landmarks_dict = PdgParser.generate_simple_landmarks_dict(simple_landmarks_text)
 
     # Extract variables and operators from the file
     variables_text, init_text, goals_text, operators_text = PdgParser.split_sas_file(sas_content)
@@ -175,11 +84,21 @@ def pdg_and_nodes(sasfile_path, output_dir, good_operators_path=None):
 
     # Sets values to all_values, and variables to all_operators
     all_values, all_variables = PdgParser.generate_values_variables(
-        variables_text, init_dict, goal_dict
+        variables_text,
+        init_dict,
+        goal_dict,
+        simple_landmarks_dict,
+        feature_flags_values=extra_features_flags["values"],
+        feature_flags_variables=extra_features_flags["variables"]
     )
     # logger.warning(f"Number of values: {len(all_values)}")
     # logger.warning(f"Number of variables: {len(all_variables)}")
-    all_operators = PdgParser.generate_operators("pdg", operators_text, good_operators)
+    all_operators = PdgParser.generate_operators(
+        operators_text=operators_text,
+        relaxed_operators=relaxed_operators,
+        good_operators=good_operators,
+        extra_features=extra_features_flags["operators"],
+        )
 
     values_output_path = os.path.join(output_dir, "values.csv")
     variables_output_path = os.path.join(output_dir, "variables.csv")
@@ -237,3 +156,34 @@ def pdg_and_nodes(sasfile_path, output_dir, good_operators_path=None):
 
 def build_pdg_graph():
     pass
+
+
+def save_node(
+    node_type: Union[Value, PdgVariable, PdgOperator],
+    data_source: Union["AllValuesDict", "AllVariablesDict", "AllOperatorsDict"],
+    node_output_path: str,
+):
+    with open(node_output_path, "w") as file:
+        file.write(node_type.csv_header)
+        result = []
+        for node in data_source.values():
+            features = node.to_csv()
+            result.append(f"{features}\n")
+        file.writelines(result)
+
+def save_edge(edges: Edges, edges_output_path: str, with_label: bool = False):
+    csv_header = "source,destination"
+    if with_label:
+        csv_header += ",label"
+    csv_header += "\n"
+    with open(edges_output_path, "w") as file:
+        file.write(csv_header)
+        result = []
+        for edge in edges:
+            source, destination = edge[0], edge[1]
+            if with_label:
+                label = edge[2]
+                result.append(f"{source},{destination},{label}\n")
+            else:
+                result.append(f"{source},{destination}\n")
+        file.writelines(result)
