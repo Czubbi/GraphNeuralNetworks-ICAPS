@@ -5,7 +5,7 @@ import logging
 from graph_building import pdg_and_nodes
 
 _log = logging.getLogger(__name__)
-_log.setLevel(logging.WARNING)
+_log.setLevel(logging.INFO)
 
 argparser = argparse.ArgumentParser()
 argparser.add_argument("DIR", help="problem location")
@@ -32,16 +32,16 @@ def good_actions_path(path_run_dir):
         # try sas_plan
         path_good_actions = os.path.join(path_run_dir, "sas_plan")
         if not os.path.exists(path_good_actions):
-            return None
+            raise FileNotFoundError("No good actions found")
     return path_good_actions
 
 def sas_file_path(path_run_dir):
     sas_file_path = os.path.join(path_run_dir, "sas_file.sas")
     optional_sas_file_path = os.path.join(path_run_dir, "output.sas")
     if not os.path.exists(sas_file_path):
-        _log.warning("SAS file does not exist")
+        _log.debug("SAS file does not exist")
         if os.path.exists(optional_sas_file_path):
-            _log.warning("Using output.sas and renaming it to sas_file.sas")
+            _log.debug("Using output.sas and renaming it to sas_file.sas")
             os.rename(optional_sas_file_path, sas_file_path)
         else:
             raise FileNotFoundError("SAS file does not exist")
@@ -53,7 +53,8 @@ def main():
     options = argparser.parse_args()
     path_to_dir = options.DIR
     output_dir = path_to_dir
-
+    _log.info("Running on %s with output dir %s", path_to_dir, output_dir)
+    
     if options.relaxed_plan:
         relaxed_plan_path_ = relaxed_plan_path(path_to_dir)
     else:

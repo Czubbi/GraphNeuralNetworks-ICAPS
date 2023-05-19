@@ -94,7 +94,7 @@ class SasParser:
 
     @classmethod
     def good_operators_to_set(cls, good_operators_path) -> Set[Operator.LineAlias]:
-        _log.warning(f"Good operators path: {good_operators_path}")
+        _log.debug(f"Good operators path: {good_operators_path}")
         if good_operators_path is None:
             _log.warning("No good operators path specified")
             return set()

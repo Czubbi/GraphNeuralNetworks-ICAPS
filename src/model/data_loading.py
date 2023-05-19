@@ -64,7 +64,7 @@ def build_hetero(
     hetero_data["value"].x = node_df_to_torch(values_df)
     operators_df_features = operators_df.drop(columns="is_in_good_operators")
     if operators_df_features.empty:
-        hetero_data["operator"].x = torch.empty(len(operators_df), 1)
+        hetero_data["operator"].x = torch.empty(len(operators_df), 0)
         hetero_data["operator"].y = node_df_to_torch(operators_df)
     else:
         operators_df_labels = operators_df["is_in_good_operators"].to_frame()
