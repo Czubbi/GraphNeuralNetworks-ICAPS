@@ -1,6 +1,7 @@
 import os
 import argparse
 import logging
+import shutil
 
 from graph_building import pdg_and_nodes
 
@@ -38,11 +39,16 @@ def good_actions_path(path_run_dir):
 def sas_file_path(path_run_dir):
     sas_file_path = os.path.join(path_run_dir, "sas_file.sas")
     optional_sas_file_path = os.path.join(path_run_dir, "output.sas")
+    workspace_sas_file_path = os.path.join(path_run_dir, "workspace", "output.sas")
     if not os.path.exists(sas_file_path):
         _log.debug("SAS file does not exist")
         if os.path.exists(optional_sas_file_path):
             _log.debug("Using output.sas and renaming it to sas_file.sas")
             os.rename(optional_sas_file_path, sas_file_path)
+        elif os.path.exists(workspace_sas_file_path):
+            _log.debug("Using workspace/sas_file.sas")
+            shutil.copyfile(workspace_sas_file_path, sas_file_path)
+            sas_file_path = workspace_sas_file_path
         else:
             raise FileNotFoundError("SAS file does not exist")
     return sas_file_path

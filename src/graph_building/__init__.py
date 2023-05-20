@@ -63,10 +63,6 @@ def pdg_and_nodes(
     good_operators = PdgParser.good_operators_to_set(good_operators_path)
 
     simple_landmarks_dict = {}
-    if simple_landmarks_path:
-        with open(simple_landmarks_path, "r") as file:
-            simple_landmarks_text = file.read()
-        simple_landmarks_dict = PdgParser.generate_simple_landmarks_dict(simple_landmarks_text)
 
     # Extract variables and operators from the file
     variables_text, init_text, goals_text, operators_text = PdgParser.split_sas_file(sas_content)

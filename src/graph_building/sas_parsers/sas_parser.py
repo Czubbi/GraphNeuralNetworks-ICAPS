@@ -267,5 +267,6 @@ class SasParser:
             landmark_variables[int(var_id)][int(value_id)] = True
         
         _log_values.debug(f"Landmark variables:\n{landmark_variables}")
-        assert landmark_variables, "Landmark variables are an empty dict, yet you are trying to use them."
+        # assert landmark_variables, "Landmark variables are an empty dict, yet you are trying to use them."
+        _log.warning("LANDMARK VARIALBES ARE EMPTY, ARE YOU SURE THAT THE FILE EXISTS")
         return landmark_variables
