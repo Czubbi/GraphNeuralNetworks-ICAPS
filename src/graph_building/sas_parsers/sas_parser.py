@@ -268,5 +268,6 @@ class SasParser:
         
         _log_values.debug(f"Landmark variables:\n{landmark_variables}")
         # assert landmark_variables, "Landmark variables are an empty dict, yet you are trying to use them."
-        _log.warning("LANDMARK VARIALBES ARE EMPTY, ARE YOU SURE THAT THE FILE EXISTS")
+        if not landmark_variables:
+            _log.warning("LANDMARK VARIALBES ARE EMPTY, ARE YOU SURE THAT THE FILE EXISTS")
         return landmark_variables
