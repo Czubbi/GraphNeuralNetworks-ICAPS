@@ -62,8 +62,6 @@ def pdg_and_nodes(
 
     good_operators = PdgParser.good_operators_to_set(good_operators_path)
 
-    simple_landmarks_dict = {}
-
     # Extract variables and operators from the file
     variables_text, init_text, goals_text, operators_text = PdgParser.split_sas_file(sas_content)
 
