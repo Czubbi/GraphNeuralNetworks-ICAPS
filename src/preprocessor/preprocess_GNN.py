@@ -32,10 +32,14 @@ def run_gnn_preprocessor(sas_path, output_dir, model_path, threshold, retries=No
     simple_landmarks_path=None
     if relaxed_plan:
         relaxed_plan_path=os.path.join(output_dir, "relaxed_plan")
+        if not os.path.exists(relaxed_plan_path):
+            relaxed_plan_path="relaxed_plan"
         assert os.path.exists(relaxed_plan_path), f"Trying to use relaxed operators, but the file {relaxed_plan_path} does not exist"
     
     if simple_landmarks:
         simple_landmarks_path=os.path.join(output_dir, "simple_landmarks")
+        if not os.path.exists(simple_landmarks_path):
+            simple_landmarks_path="simple_landmarks"
         assert os.path.exists(simple_landmarks_path), f"Trying to use simple landmarks, but the file {simple_landmarks_path} does not exist"
 
 

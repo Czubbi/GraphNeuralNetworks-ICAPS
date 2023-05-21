@@ -108,8 +108,13 @@ threshold = args.gnn_threshold
 retries = args.gnn_retries
 model_path = args.model_path
 
-use_relaxed_plan = True if os.path.exists("workspace/relaxed_plan") else False
-use_simple_landmarks = True if os.path.exists("workspace/simple_landmarks") else False
+use_relaxed_plan = False
+if os.path.exists("workspace/relaxed_plan") or os.path.exists("relaxed_plan"):
+    use_relaxed_plan = True
+
+use_simple_landmarks = False
+if os.path.exists("workspace/simple_landmarks") or os.path.exists("simple_landmarks"):
+    use_simple_landmarks = True
 
 
 print("##"*100)
