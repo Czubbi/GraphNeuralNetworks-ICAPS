@@ -28,7 +28,7 @@ def default_gnn_preprocessor(threshold, retries, model_path, use_relaxed_plan, u
         workspace_original_sas = f.read()
 
     # H2 step
-    run_h2_preprocessor_on_file(WORKSPACE_SAS)
+    run_h2_preprocessor_on_file(WORKSPACE_SAS, time_limit=5*60)
     copy_file(WORKSPACE_SAS, H2_PATH)
     # Check 
     with open(WORKSPACE_SAS, "r") as f:
