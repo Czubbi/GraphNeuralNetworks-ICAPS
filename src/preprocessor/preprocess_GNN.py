@@ -86,8 +86,16 @@ def run_gnn_preprocessor(sas_path, output_dir, model_path, threshold, retries=No
     with open(sas_path, "r") as f:
         sasfile_content = f.read()
 
-    reduced_sasfile_content = postprocessing.get_reduced_sasfile(sasfile_content, all_operators_dict, default_predictions)
-    postprocessing.saved_reduced_sasfile(reduced_sasfile_content, output_dir, "output.sas")
+    if default_percentage > 20:
+        reduced_sasfile_content = postprocessing.get_reduced_sasfile(sasfile_content, all_operators_dict, default_predictions)
+        postprocessing.saved_reduced_sasfile(reduced_sasfile_content, output_dir, "output.sas")
+        retry_as_default = False
+    else:
+        retry_as_default = True
+        if retries is None:
+            retries = 1
+        else:
+            retries = retries + 1
 
     # If we want to build fall back retries
     # and if we have not reached the maximum percentage that we consider
@@ -102,14 +110,18 @@ def run_gnn_preprocessor(sas_path, output_dir, model_path, threshold, retries=No
 
 
         os.makedirs("workspace/retries", exist_ok=True)
-
+        retry_count = 0
         retries_output_dir = os.path.join(output_dir, "retries")
         for idx, (percentage, probabilities) in enumerate(percentage_probabilities.items()):
             print(f'making for: {percentage}')
             print(f"Output dir: {output_dir}")
             reduced_sasfile_content = postprocessing.get_reduced_sasfile(sasfile_content, all_operators_dict, probabilities)
-            postprocessing.saved_reduced_sasfile(reduced_sasfile_content, retries_output_dir, f"h2_gnn{idx}.sas")
-            torch.save(probabilities, f"workspace/retries/actions_predictions{idx}.pt")
+            if idx == 0 and retry_as_default:
+                postprocessing.saved_reduced_sasfile(reduced_sasfile_content, output_dir, "output.sas")
+            else:    
+                postprocessing.saved_reduced_sasfile(reduced_sasfile_content, retries_output_dir, f"gnn{retry_count}.sas")
+                retry_count += 1
+            # torch.save(probabilities, f"workspace/retries/actions_predictions{idx}.pt")
 
 
 

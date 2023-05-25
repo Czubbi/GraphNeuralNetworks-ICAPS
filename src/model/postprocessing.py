@@ -44,7 +44,7 @@ def percentage_list(start_percentage, steps_number, max_percentage):
      where the first percentage is the next percentage value after the start percentage
     """
     delta_step = (max_percentage - start_percentage) / steps_number
-    delta_step = min(delta_step, 20)
+    delta_step = min(delta_step, 10)
     return [start_percentage + i * delta_step for i in range(1, steps_number + 1)]
 
 
