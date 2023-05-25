@@ -56,14 +56,11 @@ class PdgParser(SasParser):
             # List of all Atoms in one variable, where first elemnt of the tuple is the Atom text
             # and second elemnet is the predicate text
             atoms: List[Tuple[str, str]] = re.findall(VARIABLE_VALUE, variable_lines, re.VERBOSE)
-            for a in atoms:
-                _log.info(a)
-            # _log.info(f"Atoms: {atoms}")
 
             for local_value_count, (a_text, p_text) in enumerate(atoms):
-                _log.info(
-                    f"Global value count: {global_value_count}, Local value count: {local_value_count}"
-                )
+                # _log.info(
+                #     f"Global value count: {global_value_count}, Local value count: {local_value_count}"
+                # )
                 # _log.debug(f"Atom: {a_text}, Predicate: {p_text}")
 
                 is_negated = "Negated" in a_text
@@ -119,7 +116,7 @@ class PdgParser(SasParser):
                     is_simple_landmark=is_simple_landmark_value,
                     negated=is_negated,
                 )
-                _log.debug(f"New value: {new_pdg_value}")
+                # _log.debug(f"New value: {new_pdg_value}")
                 # Update local values for that variable
                 values.append(new_pdg_value)
                 # Update global values for all variables

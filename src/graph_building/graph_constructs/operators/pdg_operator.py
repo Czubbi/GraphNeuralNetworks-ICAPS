@@ -70,7 +70,7 @@ class PdgOperator(Operator):
             effect_value_id = current_effect.effect_value
 
             variable = all_variables[var_id]
-            logging.info(f"Variable:\n{variable}")
+            # logging.info(f"Variable:\n{variable}")
             effect_value = variable.values[effect_value_id]
 
             operator_value_edge = (self.index, effect_value.global_index, self.is_good)

@@ -94,9 +94,9 @@ class SasParser:
 
     @classmethod
     def good_operators_to_set(cls, good_operators_path) -> Set[Operator.LineAlias]:
-        _log.debug(f"Good operators path: {good_operators_path}")
+        # _log.debug(f"Good operators path: {good_operators_path}")
         if good_operators_path is None:
-            _log.warning("No good operators path specified")
+            # _log.warning("No good operators path specified")
             return set()
 
         good_operators: Set[Operator.LineAlias] = set()
@@ -115,7 +115,7 @@ class SasParser:
     @classmethod
     def relaxed_operators_to_set(cls, relaxed_operators_path=None) -> Set[Operator.LineAlias]:
         assert relaxed_operators_path is not None, "No relaxed operators path specified, yet you are trying to use it"
-        _log.info(f"Relaxed operators path: {relaxed_operators_path}")
+        # _log.info(f"Relaxed operators path: {relaxed_operators_path}")
         with open(relaxed_operators_path, "r") as file:
             relaxed_operators: set[Operator.LineAlias] = set(file.read().splitlines())
 
@@ -161,7 +161,7 @@ class SasParser:
         cls,
         separated_lines: List[str],
     ) -> Tuple[List[str], List[str]]:
-        _log_operators.debug(f"Separated lines: {separated_lines}")
+        # _log_operators.debug(f"Separated lines: {separated_lines}")
         # First line tells us how many preconditions are there
         num_preconditions = int(separated_lines[0])
         precondition_lines = separated_lines[1 : num_preconditions + 1]
@@ -169,19 +169,19 @@ class SasParser:
         index_num_effects = num_preconditions + 1
         num_effects = int(separated_lines[index_num_effects])
         effect_lines = separated_lines[index_num_effects + 1 : index_num_effects + num_effects + 1]
-        _log_operators.debug(f"Precondition lines: {precondition_lines}")
-        _log_operators.debug(f"Effect lines: {effect_lines}")
+        # _log_operators.debug(f"Precondition lines: {precondition_lines}")
+        # _log_operators.debug(f"Effect lines: {effect_lines}")
         return precondition_lines, effect_lines
 
     def parse_operator_lines(operator_lines: List[str]):
         opeator_lines_list = operator_lines.split("\n")
         # We ignore the first line which is a an empty string
         operator_lines_list = opeator_lines_list[1:]
-        _log_operators.debug(f"Operator lines list: {operator_lines_list[0]}")
+        # _log_operators.debug(f"Operator lines list: {operator_lines_list[0]}")
         # We take the first line to get the action name and it's grounded predicates
         # For instance: turn_to satellite0 planet6 phenomenon7
         operator_line: Operator.LineAlias = operator_lines_list[0].strip()  # Key of the operator
-        _log_operators.debug(f"Operator_key: {repr(operator_line)}")
+        # _log_operators.debug(f"Operator_key: {repr(operator_line)}")
         separated_lines = operator_lines.split("\n")[2:]
         precondition_lines, effect_lines = SasParser.split_precondition_and_effect_lines(
             separated_lines
@@ -226,7 +226,7 @@ class SasParser:
                 effects=effects,
                 incomplete_operator_text=operator_lines,
             )
-            _log.debug(f"New operator: {new_operator}")
+            # _log.debug(f"New operator: {new_operator}")
             assert operator_line not in all_operators, "Duplicate operator key"
             all_operators[op_id] = new_operator
 
@@ -236,38 +236,38 @@ class SasParser:
     def generate_goal_dict(cls, goal_text: SasFileContent) -> dict[var_id, val_id]:
         goal_variables = {}
         goals = goal_text.split("\n")[2:-1]
-        _log_values.debug(f"Goal variables text after splitting:\n{goals}")
+        # _log_values.debug(f"Goal variables text after splitting:\n{goals}")
         for g in goals:
             # _log_values.debug(f"text: {g}")
             var_id, value = g.split(" ")
             goal_variables[int(var_id)] = int(value)
-        _log_values.debug(f"Goal variables:\n{goal_variables}")
+        # _log_values.debug(f"Goal variables:\n{goal_variables}")
         return goal_variables
 
     @classmethod
     def generate_init_dict(cls, init_text: SasFileContent) -> dict[var_id, val_id]:
         init_variables = {}
         inits = init_text.split("\n")[1:-1]
-        _log_values.debug(f"Init variables text after splitting:\n{inits}")
+        # _log_values.debug(f"Init variables text after splitting:\n{inits}")
         for id, g in enumerate(inits):
             var_id, value = id, g  # inits are in the same order as the variables
             init_variables[var_id] = int(value)
 
-        _log_values.debug(f"Init variables:\n{init_variables}")
+        # _log_values.debug(f"Init variables:\n{init_variables}")
         return init_variables
 
     @classmethod
     def generate_simple_landmarks_dict(cls, landmarks_text: SasFileContent) -> dict[var_id, val_id]:
         landmark_variables = defaultdict(lambda: defaultdict(lambda: False))
         landmarks = landmarks_text.split("\n")[:-1]
-        _log_values.debug(f"Landmark variables text after splitting:\n{landmarks}")
+        # _log_values.debug(f"Landmark variables text after splitting:\n{landmarks}")
         for l in landmarks:
-            _log_values.debug(f"text: {l}")
+            # _log_values.debug(f"text: {l}")
             var_id, value_id = l.split(" ")
             landmark_variables[int(var_id)][int(value_id)] = True
         
-        _log_values.debug(f"Landmark variables:\n{landmark_variables}")
+        # _log_values.debug(f"Landmark variables:\n{landmark_variables}")
         # assert landmark_variables, "Landmark variables are an empty dict, yet you are trying to use them."
-        if not landmark_variables:
-            _log.warning("LANDMARK VARIALBES ARE EMPTY, ARE YOU SURE THAT THE FILE EXISTS")
+        # if not landmark_variables:
+            # _log.warning("LANDMARK VARIALBES ARE EMPTY, ARE YOU SURE THAT THE FILE EXISTS")
         return landmark_variables
