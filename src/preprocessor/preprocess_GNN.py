@@ -86,7 +86,7 @@ def run_gnn_preprocessor(sas_path, output_dir, model_path, threshold, retries=No
     with open(sas_path, "r") as f:
         sasfile_content = f.read()
 
-    if default_percentage > 20:
+    if default_percentage > 5:
         reduced_sasfile_content = postprocessing.get_reduced_sasfile(sasfile_content, all_operators_dict, default_predictions)
         postprocessing.saved_reduced_sasfile(reduced_sasfile_content, output_dir, "output.sas")
         retry_as_default = False

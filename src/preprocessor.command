@@ -54,7 +54,7 @@ def default_gnn_preprocessor(threshold, retries, model_path, use_relaxed_plan, u
     #     logger.info("ORIGINAL -> GNN preprocessor did not change the sas file")
 
     # Second H2 STEP
-    # run_h2_preprocessor_on_file(WORKSPACE_SAS)
+    run_h2_preprocessor_on_file(WORKSPACE_SAS)
     # copy_file(WORKSPACE_SAS, GNN_H2_PATH)
     # Check
     # with open(WORKSPACE_SAS, "r") as f:
@@ -83,9 +83,9 @@ def failed_gnn_preprocessor(failed_count, retries):
     # gnn_h2_path = os.path.join("workspace", "retries", f"gnn{failed_count}_h2.sas")
 
     # H2 Step
-    # run_h2_preprocessor_on_file(gnn_path, time_limit=1)
+    run_h2_preprocessor_on_file(gnn_path)
     copy_file(gnn_path, WORKSPACE_SAS)
-    # copy_file(WORKSPACE_SAS, gnn_h2_path)
+    # copy_file(WORKSPACE_SAS, gnn_h2_path) 
 
     # with open(gnn_path, "r") as gnn_f:
     #     gnn_sas = gnn_f.read()
