@@ -78,7 +78,7 @@ class ModelSetting:
 
 
 def train_and_save_model(models_dir, model_setting: ModelSetting, train_instances:list[file_path],
-                         test_instances:list[file_path], num_epochs, val_dir=None):
+                         test_instances:list[file_path], num_epochs, batch_size, val_dir=None):
 
     latest_model_path = model_setting.last_model_path(models_dir)
     if latest_model_path is not None:
@@ -104,7 +104,7 @@ def train_and_save_model(models_dir, model_setting: ModelSetting, train_instance
     pos_weight, neg_weight = data_loading.calculate_weights(train_set)
 
     train_loader, test_loader, val_loader = data_loading.create_loaders(
-        train_set, test_set, val_set=val_set
+        train_set, test_set, val_set=val_set, batch_size=batch_size
     )
 
     ModelArchitecture = architectures.get_dynamic(model_setting)

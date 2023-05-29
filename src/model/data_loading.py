@@ -141,8 +141,8 @@ def build_data_set(problem_instances):
 def create_loader(dataset, batch_size):
     return DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
-def create_loaders(train_set, test_set, val_set):
-    train_loader = DataLoader(train_set, batch_size=8, shuffle=True)  # TODO hyperparams
+def create_loaders(train_set, test_set, val_set, batch_size):
+    train_loader = DataLoader(train_set, batch_size, shuffle=True)  # TODO hyperparams
     test_loader = None
     val_loader = None
     if test_set != []:
