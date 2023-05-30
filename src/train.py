@@ -43,7 +43,7 @@ if __name__ == "__main__":
             'layers_num,4,hidden_size,64,conv_type,SAGEConv,aggr,sum,optimizer,Adam,lr,0.001'", required=True
     )
     parser.add_argument("--num-epochs", help="number of epochs to train", default=100, type=int)
-    parser.add_argument("--batch_size", help="batch size", type=int)
+    parser.add_argument("--batch-size", help="batch size", type=int)
     args = parser.parse_args()
 
     train_dir = args.train_dir
