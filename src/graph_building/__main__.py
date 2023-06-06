@@ -34,6 +34,12 @@ def good_actions_path(path_run_dir):
         path_good_actions = os.path.join(path_run_dir, "sas_plan")
         if not os.path.exists(path_good_actions):
             raise FileNotFoundError("No good actions found")
+
+    with open(path_good_actions, "r") as f:
+        content = f.read()
+    if content == "; cost = 0 (unit cost)\n":
+        raise ValueError("Problem is most likely solved already")
+
     return path_good_actions
 
 def sas_file_path(path_run_dir):

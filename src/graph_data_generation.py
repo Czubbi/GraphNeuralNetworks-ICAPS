@@ -22,13 +22,30 @@ def generate_graphs(domain_task_dir, output_dir, use_relaxed_plan, use_simple_la
             continue
         # e.g: graph_training_data/satellite/p01-2-2-2-5-7
         path_run_dir = os.path.join(domain_task_dir, run_dir)
-        path_sas_file = sas_file_path(path_run_dir)
-        path_good_actions = good_actions_path(path_run_dir)
+        print("Generating graphs for: {}".format(path_run_dir))
+        try:
+            path_sas_file = sas_file_path(path_run_dir)
+        except FileNotFoundError:
+            print(f"Removing run dir: {path_run_dir} because no sas file found")
+            shutil.rmtree(path_run_dir)
+            continue
+
+        try:
+            path_good_actions = good_actions_path(path_run_dir)
+
+        except (FileNotFoundError, ValueError):
+            print(f"Removing run dir: {path_run_dir} because no good actions found or plan solved in initial state")
+            shutil.rmtree(path_run_dir)
+            continue
+
         path_relaxed_plan = None
         path_simple_landmarks = None
         if use_relaxed_plan:
             path_relaxed_plan = relaxed_plan_path(path_run_dir)
-            print('using relaxed plan')
+            # if relaxed plan is empty we will skip this run
+            if os.stat(path_relaxed_plan).st_size == 0:
+                print("Relaxed plan is empty, skipping run: {}".format(path_run_dir))
+                continue
         if use_simple_landmarks:
             path_simple_landmarks = simple_landmarks_path(path_run_dir)
             print('using simple landmarks')
