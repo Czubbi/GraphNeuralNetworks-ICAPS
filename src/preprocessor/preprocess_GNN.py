@@ -100,7 +100,7 @@ def run_gnn_preprocessor(sas_path, output_dir, model_path, threshold, retries=No
     # If we want to build fall back retries
     # and if we have not reached the maximum percentage that we consider
     # if retries is not None and default_percentage < max_percentage:
-    if retries is not None and default_percentage < max_percentage:
+    if retries != 0 and retries is not None and default_percentage < max_percentage:
         # Save the model output by taking different parts of the actions with highest probability
         percentage_probabilities = bin_probabilities(
             actions_probabilities=actions_probabilities,
